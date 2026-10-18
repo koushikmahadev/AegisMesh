@@ -1873,6 +1873,12 @@ const BACKEND_URL = 'http://localhost:8001';
 let backendAvailable = false;
 
 async function checkBackendHealth() {
+  const isLocalHost = typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1');
+  if (!isLocalHost) {
+    backendAvailable = false;
+    setBackendModeUI(false);
+    return false;
+  }
   try {
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), 1500);
@@ -1890,6 +1896,7 @@ async function checkBackendHealth() {
   setBackendModeUI(false);
   return false;
 }
+
 
 function setBackendModeUI(isLive) {
   if (!modeBadge || !runNowBtn || !generateBtn) return;
@@ -3172,41 +3179,45 @@ async function detectMultipleTiles(tileIds, optionsOrSource, thresholdArg, modeA
   });
 
   try {
-    console.log('[API CALL] POST /api/detect-tiles', {
-      tiles: tileIds,
-      source: source,
-      threshold: threshold,
-      mode: mode
-    });
-    const resp = await fetch(`${BACKEND_URL}/api/detect-tiles`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        tiles: tileIds,
-        source: source,
-        threshold: threshold,
-        mode: mode
-      }),
-      signal: signal
-    });
+    let data = null;
+    if (backendAvailable && BACKEND_URL) {
+      try {
+        console.log('[API CALL] POST /api/detect-tiles', {
+          tiles: tileIds,
+          source: source,
+          threshold: threshold,
+          mode: mode
+        });
+        const resp = await fetch(`${BACKEND_URL}/api/detect-tiles`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            tiles: tileIds,
+            source: source,
+            threshold: threshold,
+            mode: mode
+          }),
+          signal: signal
+        });
+
+        if (resp.ok) {
+          data = await resp.json();
+        }
+      } catch (err) {
+        console.warn('Backend unavailable, using precomputed model predictions', err);
+      }
+    }
 
     Object.values(pendingMap).forEach(p => map.removeLayer(p));
 
-    if (!resp.ok) {
-      let errDetail = `Server error ${resp.status}`;
-      try {
-        const errJson = await resp.json();
-        errDetail = errJson.detail || errDetail;
-      } catch (e) {
-        errDetail = (await resp.text()) || errDetail;
-      }
-      updateAiSidebar(null, null, `Batch detection failed: ${errDetail}`);
-      return { ERROR: errDetail };
+    if (!data) {
+      // Offline fallback using local precomputed dataset
+      data = { results: localPredictions || {} };
     }
 
-    const data = await resp.json();
     hideDataValidationModal();
     const results = data.results || data.predictions || {};
+
 
     let floodedCount = 0;
     let notFloodedCount = 0;

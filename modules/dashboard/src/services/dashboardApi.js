@@ -61,8 +61,9 @@ export async function getDashboardData(options = {}) {
       ? new URLSearchParams(window.location.search).get('dataSource') ||
         new URLSearchParams(window.location.search).get('source')
       : null;
-  const dataSource = options.dataSource || querySource || import.meta.env?.VITE_DATA_SOURCE || 'mock';
+  const dataSource = options.dataSource || querySource || import.meta.env?.VITE_DATA_SOURCE || 'mock-dernau';
   const baseUrl = options.baseUrl ?? (import.meta.env?.VITE_API_BASE_URL || '');
+
   const isApi = dataSource === 'api';
   const isDernau = dataSource === 'mock-dernau';
   const isFloodwatch = dataSource === 'mock-floodwatch';
