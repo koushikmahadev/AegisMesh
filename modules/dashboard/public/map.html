@@ -545,7 +545,15 @@ document.querySelector = function(sel) {
   return _origQuerySelector(sel);
 };
 
-const map = L.map('map', { zoomSnap: 0.25, zoomDelta: 0.5, wheelPxPerZoomLevel: 120 });
+const map = L.map('map', { 
+  zoomSnap: 0.5, 
+  zoomDelta: 0.5, 
+  wheelPxPerZoomLevel: 80,
+  fadeAnimation: true,
+  zoomAnimation: true,
+  markerZoomAnimation: true,
+  preferCanvas: false
+});
 
 function toggleLegendCollapse() {
   const body = document.getElementById('legend-body');
@@ -589,7 +597,8 @@ function ensureSvgPatterns() {
   });
 }
 window.ensureSvgPatterns = ensureSvgPatterns;
-map.on('zoomend viewreset layeradd', ensureSvgPatterns);
+map.on('zoomend viewreset', ensureSvgPatterns);
+
 
 const streetLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: '&copy; OpenStreetMap contributors',
@@ -1587,14 +1596,19 @@ if (toggleOfflineModelEl) {
   });
 }
 
-map.on('zoomend viewreset layeradd', () => {
-  tagAllZones();
-  if (!offlineModelVisible) {
-    document.querySelectorAll('[data-detection-type="offline-model"]').forEach(el => {
-      el.style.display = 'none';
-    });
-  }
+let tagTimeout = null;
+map.on('zoomend viewreset', () => {
+  if (tagTimeout) clearTimeout(tagTimeout);
+  tagTimeout = setTimeout(() => {
+    tagAllZones();
+    if (!offlineModelVisible) {
+      document.querySelectorAll('[data-detection-type="offline-model"]').forEach(el => {
+        el.style.display = 'none';
+      });
+    }
+  }, 100);
 });
+
 
 const AVAILABLE_AI_SOURCES = new Set(['germany', 'louisiana', 'turkey']);
 const CURATED_DATASETS = new Set(['germany', 'louisiana', 'earthquake', 'raw_eq']);
@@ -2330,13 +2344,11 @@ generateBtn.addEventListener('click', () => {
   const datasetKey = `custom_${Date.now()}`;
   const tileIds = selectedTiles.map(([id]) => id);
   const label = `Custom area (${new Date().toLocaleString()})`;
-  // Absolute paths so this works from ANY directory, not just modules/flood_analysis/ —
-  // and the venv's own python3 (still "python3", never bare "python"), since the system
-  // python3 lacks requests/shapely/pyproj/PIL and would fail with ModuleNotFoundError.
-  const PYTHON3 = '/home/punith-bs/highwater/modules/flood_analysis/.venv/bin/python3';
-  const SCRIPT = '/home/punith-bs/highwater/modules/flood_analysis/scripts/run_custom_aoi.py';
+  const PYTHON3 = 'python';
+  const SCRIPT = 'modules/flood_analysis/scripts/run_custom_aoi.py';
   const command = `${PYTHON3} ${SCRIPT} --source ${rawSource} --tiles ${tileIds.join(',')} ` +
     `--dataset-key ${datasetKey} --label "${label}"` + (includeAi ? '' : ' --skip-ai');
+
 
   cmdBox.textContent = command;
   cmdBox.style.display = 'block';
