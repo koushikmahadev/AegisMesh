@@ -82,10 +82,11 @@ export default function AegisForensicDrawer({
     <div className="fixed inset-0 z-[1200] overflow-hidden flex justify-end font-sans">
       {/* Dimmed backdrop */}
       <div 
-        className="fixed inset-0 bg-slate-900/60 backdrop-blur-xs transition-opacity"
+        className="fixed inset-0 bg-slate-900/60 transition-opacity"
         onClick={onClose}
         aria-hidden="true"
       />
+
 
       {/* Slide-over Panel */}
       <aside
