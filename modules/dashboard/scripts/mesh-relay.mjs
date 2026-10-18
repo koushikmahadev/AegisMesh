@@ -27,8 +27,11 @@ const server = http.createServer((req, res) => {
   );
 });
 
-// WebSocketServer attached to the HTTP server for wss:// connections
-const wss = new WebSocketServer({ server });
+// WebSocketServer attached to the HTTP server for wss:// connections with 1MB max payload
+const wss = new WebSocketServer({ 
+  server,
+  maxPayload: 1024 * 1024 // 1MB buffer ceiling to prevent memory exhaustion DoS
+});
 
 server.listen(PORT, HOST, () => {
   console.log(`[Mesh Relay] AegisMesh relay listening on http://${HOST}:${PORT} (and ws://${HOST}:${PORT})`);
@@ -79,13 +82,14 @@ wss.on('connection', (ws, req) => {
         // Ignore duplicate by ID
         const exists = updates.some((u) => u.id === update.id);
         if (!exists) {
+          if (updates.length >= 1000) updates.shift();
           updates.push(update);
           console.log(`[Mesh Relay] Update added [${update.id}] zone=${update.zoneId} status=${update.surveyStatus} (total: ${updates.length})`);
         }
         // Broadcast new update to all peers (including sender for confirmation / or to all)
         broadcast({ type: 'update', update });
       } else if (data.type === 'cyber_nodes_init' && Array.isArray(data.nodes)) {
-        cyberNodes = data.nodes;
+        cyberNodes = data.nodes.slice(0, 200);
         console.log(`[Mesh Relay] Cyber mesh initialized with ${cyberNodes.length} nodes.`);
         broadcast({ type: 'cyber_mesh_init', nodes: cyberNodes });
       } else if (data.type === 'cyber_mesh_update' && data.event) {
@@ -95,6 +99,7 @@ wss.on('connection', (ws, req) => {
         if (idx !== -1) {
           cyberNodes[idx] = { ...cyberNodes[idx], ...evt };
         } else {
+          if (cyberNodes.length >= 200) cyberNodes.shift();
           cyberNodes.push(evt);
         }
         console.log(`[Mesh Relay] Cyber event on [${evt.node_id || evt.ip}]: status=${evt.status} tier=${evt.alert_tier}`);
