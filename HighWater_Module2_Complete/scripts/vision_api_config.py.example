@@ -1,0 +1,8 @@
+GITHUB_TOKEN = "your_github_token_here"
+OPENROUTER_API_KEY = "your_openrouter_api_key_here"
+OPENROUTER_API_KEYS = [
+    "your_openrouter_api_key_here",
+]
+OPENROUTER_API_KEY_FLOODNET = "your_openrouter_api_key_here"
+OPENROUTER_API_KEY_3 = "your_openrouter_api_key_here"
+OPENROUTER_API_KEY_4 = "your_openrouter_api_key_here"

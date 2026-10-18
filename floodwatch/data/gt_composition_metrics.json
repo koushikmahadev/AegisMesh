@@ -1,0 +1,106 @@
+{
+  "geotiff_resolution": {
+    "dx_deg": 4.600826077371727e-06,
+    "dy_deg": 4.600826077371727e-06,
+    "pixel_m_x": 0.3255693694945176,
+    "pixel_m_y": 0.5117958928468309,
+    "buffer_radius_m": 2.0,
+    "buffer_radius_px": 7.177063221146955,
+    "road_corridor_width_m": 4.0,
+    "road_corridor_width_px": 14.35412644229391
+  },
+  "gt_composition": {
+    "total_bldg_px": 1357740,
+    "total_road_px": 1513968,
+    "total_overlap_px": 7712,
+    "total_combined_px": 2863996,
+    "bldg_pct_of_gt": 47.40718911618592,
+    "road_pct_of_gt": 52.86208500291202
+  },
+  "fast_mode": {
+    "pred_pos_px": 552269,
+    "tp_bldg_px": 234783,
+    "tp_road_px": 30335,
+    "tp_all_px": 263590,
+    "recall_bldg_pct": 17.292191435768263,
+    "recall_road_pct": 2.003675110702472,
+    "recall_all_pct": 9.203574306668026,
+    "precision_all_pct": 47.7285525713013,
+    "precision_bldg_pct": 42.51243506334775,
+    "precision_road_pct": 5.492794272356407
+  },
+  "accurate_mode": {
+    "pred_pos_px": 1327244,
+    "tp_bldg_px": 468653,
+    "tp_road_px": 84743,
+    "tp_all_px": 550802,
+    "recall_bldg_pct": 34.51713877472859,
+    "recall_road_pct": 5.597410249093772,
+    "recall_all_pct": 19.231940268073,
+    "precision_all_pct": 41.499679034148954,
+    "precision_bldg_pct": 35.310236851701724,
+    "precision_road_pct": 6.38488476873883
+  },
+  "demo_miss_comparison": {
+    "0_23_62": {
+      "gt_flooded_buildings": 94,
+      "gt_flooded_roads": 7,
+      "gt_total": 101,
+      "fast": {
+        "before_water_pct": 0.0,
+        "after_water_pct": 0.08,
+        "net_intrusion_pct": 0.08
+      },
+      "accurate": {
+        "before_water_pct": 0.08,
+        "after_water_pct": 0.66,
+        "net_intrusion_pct": 0.58
+      }
+    },
+    "0_29_66": {
+      "gt_flooded_buildings": 90,
+      "gt_flooded_roads": 5,
+      "gt_total": 95,
+      "fast": {
+        "before_water_pct": 0.0,
+        "after_water_pct": 0.0,
+        "net_intrusion_pct": 0.0
+      },
+      "accurate": {
+        "before_water_pct": 0.11,
+        "after_water_pct": 0.0,
+        "net_intrusion_pct": -0.11
+      }
+    },
+    "0_40_62": {
+      "gt_flooded_buildings": 72,
+      "gt_flooded_roads": 16,
+      "gt_total": 88,
+      "fast": {
+        "before_water_pct": 0.0,
+        "after_water_pct": 0.02,
+        "net_intrusion_pct": 0.02
+      },
+      "accurate": {
+        "before_water_pct": 0.01,
+        "after_water_pct": 2.38,
+        "net_intrusion_pct": 2.37
+      }
+    },
+    "0_39_62": {
+      "gt_flooded_buildings": 0,
+      "gt_flooded_roads": 3,
+      "gt_total": 3,
+      "fast": {
+        "before_water_pct": 0.0,
+        "after_water_pct": 0.0,
+        "net_intrusion_pct": 0.0
+      },
+      "accurate": {
+        "before_water_pct": 0.0,
+        "after_water_pct": 0.0,
+        "net_intrusion_pct": 0.0
+      }
+    }
+  }
+}

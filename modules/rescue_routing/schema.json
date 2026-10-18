@@ -1,0 +1,355 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "HighWater Rescue Routing Routes Schema v2.1",
+  "description": "Schema definition for routes.json v2.1 exported by the HighWater Rescue Routing Engine.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "provenance",
+    "type",
+    "features",
+    "scenarios",
+    "network",
+    "slider",
+    "dispatch",
+    "benchmark",
+    "needs"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "enum": ["2.0", "2.1", "2.2", "2.3"],
+      "description": "Payload specification version."
+    },
+    "verified": {
+      "type": "boolean",
+      "description": "Ground truth verification status."
+    },
+    "provenance": {
+      "type": "object",
+      "required": [
+        "generated_by",
+        "code_version",
+        "network",
+        "coordinates_verified",
+        "risk_model",
+        "geometry_quality",
+        "benchmark",
+        "population",
+        "input_files",
+        "deterministic_seed"
+      ],
+      "properties": {
+        "generated_by": { "type": "string" },
+        "code_version": { "type": "string" },
+        "network": { "type": "string" },
+        "coordinates_verified": { "type": "boolean" },
+        "bridge_order_unverified": { "type": "boolean" },
+        "risk_model": { "type": "string" },
+        "geometry_quality": { "type": "string" },
+        "benchmark": { "type": "string" },
+        "population": { "type": "string" },
+        "input_files": {
+          "type": "object",
+          "additionalProperties": { "type": "string" }
+        },
+        "deterministic_seed": { "type": "integer" },
+        "region": { "type": "string" },
+        "mask_source": { "type": "string", "enum": ["mask", "sar_otsu"] },
+        "mask_sha256": { "type": "string" },
+        "dem_used": { "type": "boolean" },
+        "depth_method": { "type": "string" },
+        "roads_source": { "type": "string" },
+        "roads_sha256": { "type": "string" },
+        "acquired": { "type": "string" },
+        "as_of": { "type": "string" }
+      }
+    },
+    "type": {
+      "type": "string",
+      "const": "FeatureCollection"
+    },
+    "features": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["type", "geometry", "properties"],
+        "properties": {
+          "type": { "type": "string", "const": "Feature" },
+          "geometry": {
+            "type": ["object", "null"],
+            "properties": {
+              "type": { "type": "string" },
+              "coordinates": { "type": "array" }
+            }
+          },
+          "properties": {
+            "type": "object",
+            "required": [
+              "scenario_id",
+              "rainfall_mmh",
+              "blocked_edges",
+              "depth_source",
+              "status",
+              "vehicle_type",
+              "origin",
+              "destination"
+            ],
+            "properties": {
+              "scenario_id": { "type": "string" },
+              "rainfall_mmh": { "type": "number" },
+              "blocked_edges": {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": { "type": "string" }
+                }
+              },
+              "depth_source": {
+                "type": "string",
+                "enum": ["scenario", "depth_map", "mask_fraction_proxy", "satellite_mask_dem", "satellite_mask_assumed"]
+              },
+              "data_freshness": {
+                "type": "string",
+                "enum": ["FRESH", "STALE", "UNKNOWN"]
+              },
+              "depth_age_min": { "type": ["number", "null"] },
+              "status": {
+                "type": "string",
+                "enum": ["OK", "UNREACHABLE", "INVALID_REQUEST"]
+              },
+              "vehicle_type": {
+                "type": "string",
+                "enum": ["AMBULANCE", "TRUCK_4X4", "RESCUE_BOAT", "HELICOPTER", "ALL"]
+              },
+              "origin": { "type": "string" },
+              "destination": { "type": "string" },
+              "query_id": { "type": "string" },
+              "eta_minutes": { "type": ["number", "null"] },
+              "distance_km": { "type": ["number", "null"] },
+              "path_nodes": {
+                "type": "array",
+                "items": { "type": "string" }
+              },
+              "avoided_hazards": { "type": "array" },
+              "is_predictive_detour": { "type": "boolean" },
+              "route_reliability": { "type": ["number", "null"] },
+              "outbound_reliability": { "type": ["number", "null"] },
+              "edge_risks": {
+                "type": "array",
+                "items": { "type": "number" }
+              },
+              "planning_edge_risks": {
+                "type": "array",
+                "items": { "type": "number" }
+              },
+              "risk_horizon_note": { "type": "string" },
+              "round_trip": { "type": "boolean" },
+              "geometry_quality": {
+                "type": "string",
+                "enum": ["schematic_straight_lines", "osm_polyline", "great_circle"]
+              },
+              "eta_delta_min": { "type": ["number", "null"] },
+              "counterfactual": { "type": "object" },
+              "departure_window_min": { "type": ["integer", "null"] },
+              "window_capped": { "type": "boolean" },
+              "component_scope": {
+                "type": "string",
+                "description": "Component scope for unreachable partition analysis: 'vehicle_passable_subgraph' indicates that isolated_nodes and cut_edges are evaluated on the vehicle-passable subgraph rather than the raw unpruned topological graph."
+              },
+              "isolated_nodes": {
+                "type": "array",
+                "items": { "type": "string" }
+              },
+              "cut_edges": {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": { "type": "string" }
+                }
+              },
+              "legs": { "type": "array" },
+              "launch_minutes": { "type": ["number", "null"] },
+              "standing_water_note": { "type": "string" },
+              "surface_access_severed": { "type": "boolean" },
+              "reason": { "type": "string" },
+              "note": { "type": "string" },
+              "assumption": { "type": "string" },
+              "advisory": {
+                "type": "string",
+                "enum": ["NONE", "LOW_RELIABILITY", "NO_SAFE_OPTION"]
+              },
+              "max_planning_risk": { "type": "number" },
+              "risk_warning": { "type": "boolean" },
+              "stage": { "type": "integer" },
+              "stage_title": { "type": "string" },
+              "geometry_length_km": { "type": ["number", "null"] },
+              "distance_basis": { "type": "string" },
+              "decision_stability": {
+                "type": "object",
+                "required": ["share_unchanged", "label"],
+                "properties": {
+                  "share_unchanged": { "type": "number" },
+                  "label": { "type": "string", "enum": ["STABLE", "SENSITIVE"] }
+                }
+              },
+              "satellite_coverage": {
+                "type": "string",
+                "enum": ["OK", "GAP"]
+              }
+            }
+          }
+        }
+      }
+    },
+    "scenarios": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "title", "feature_indices", "briefing", "briefing_source"],
+        "properties": {
+          "id": { "type": "string" },
+          "title": { "type": "string" },
+          "legacy_feature_indices": {
+            "type": "array",
+            "items": { "type": "integer" }
+          },
+          "feature_indices": {
+            "type": "array",
+            "items": { "type": "integer" }
+          },
+          "selected_feature_index": { "type": "integer" },
+          "briefing": { "type": "string" },
+          "briefing_source": { "type": "string" },
+          "attempts": { "type": "array" },
+          "standing_water_note": { "type": "string" }
+        }
+      }
+    },
+
+    "flood_extent": {
+      "type": ["object", "null"],
+      "properties": {
+        "type": { "type": "string", "enum": ["MultiPolygon", "Polygon"] },
+        "coordinates": { "type": "array" }
+      }
+    },
+    "network": {
+      "type": "object",
+      "required": ["type", "features"],
+      "properties": {
+        "type": { "type": "string", "const": "FeatureCollection" },
+        "features": { "type": "array" }
+      }
+    },
+    "slider": {
+      "type": "object",
+      "required": ["rainfall_steps_mm_h", "queries", "steps", "route_flip_points"],
+      "properties": {
+        "rainfall_steps_mm_h": {
+          "type": "array",
+          "items": { "type": "number" }
+        },
+        "queries": { "type": "array" },
+        "steps": { "type": "array" },
+        "route_flip_points": { "type": "object" },
+        "planning_risk_horizon_min": { "type": "integer" }
+      }
+    },
+    "dispatch": {
+      "type": ["object", "null"],
+      "required": ["policy", "assignments", "unserved", "total_value", "total_eta_minutes"],
+      "properties": {
+        "policy": { "type": "string" },
+        "assignments": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["asset", "incident", "eta_minutes", "reliability", "value"],
+            "properties": {
+              "asset": { "type": "string" },
+              "incident": { "type": "string" },
+              "eta_minutes": { "type": "number" },
+              "reliability": { "type": "number" },
+              "value": { "type": "number" },
+              "payload_capacity_kg": { "type": "number" },
+              "demanded_kg": { "type": "number" },
+              "delivered_kg": { "type": "number" },
+              "unmet_kg": { "type": "number" },
+              "sorties_needed": { "type": "integer" },
+              "people_equivalents_supplied": { "type": "number" },
+              "objective": { "type": "string" }
+            }
+          }
+        },
+        "unserved": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["incident", "reason"],
+            "properties": {
+              "incident": { "type": "string" },
+              "reason": {
+                "type": "string",
+                "enum": ["NO_FEASIBLE_ASSET", "OUT_OF_ASSETS", "DEADLINE_MISSED", "UNREACHABLE"]
+              }
+            }
+          }
+        },
+        "partially_served": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["incident", "demanded_kg", "delivered_kg", "unmet_kg", "unmet_share"],
+            "properties": {
+              "incident": { "type": "string" },
+              "demanded_kg": { "type": "number" },
+              "delivered_kg": { "type": "number" },
+              "unmet_kg": { "type": "number" },
+              "unmet_share": { "type": "number" }
+            }
+          }
+        },
+        "total_unmet_kg": { "type": "number" },
+        "total_value": { "type": "number" },
+        "total_people_equivalents": { "type": "number" },
+        "total_eta_minutes": { "type": "number" },
+        "capacity_mode": { "type": "boolean" },
+        "objective": { "type": "string" },
+        "note": { "type": "string" }
+      }
+    },
+    "benchmark": {
+      "type": ["object", "null"],
+      "required": ["disclaimer", "scenarios_count", "seed", "metrics", "sensitivity"],
+      "properties": {
+        "disclaimer": { "type": "string" },
+        "scenarios_count": { "type": "integer" },
+        "seed": { "type": "integer" },
+        "metrics": { "type": "object" },
+        "sensitivity": { "type": "object" },
+        "predictive_reduces_stranding": { "type": "boolean" },
+        "predictive_reduces_stranding_misspecified": { "type": "boolean" },
+        "ground_truth_variants": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["variant", "description", "sample_size", "overall", "by_rainfall_band"],
+            "properties": {
+              "variant": { "type": "string" },
+              "description": { "type": "string" },
+              "sample_size": { "type": "integer" },
+              "overall": { "type": "object" },
+              "by_rainfall_band": { "type": "object" }
+            }
+          }
+        }
+      }
+    },
+    "needs": {
+      "type": ["object", "null"],
+      "description": "Population needs assessment per zone based on Sphere standards.",
+      "additionalProperties": { "type": "object" }
+    }
+  }
+}

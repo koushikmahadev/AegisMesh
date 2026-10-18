@@ -1,0 +1,101 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "highway": "primary",
+        "name": "West Connector"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -1.0,
+            41.005
+          ],
+          [
+            -0.998,
+            41.008
+          ],
+          [
+            -0.998,
+            41.002
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "highway": "primary",
+        "name": "North Road"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -0.998,
+            41.008
+          ],
+          [
+            -0.995,
+            41.008
+          ],
+          [
+            -0.992,
+            41.008
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "highway": "primary",
+        "name": "South Road"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -0.998,
+            41.002
+          ],
+          [
+            -0.995,
+            41.002
+          ],
+          [
+            -0.992,
+            41.002
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "highway": "primary",
+        "name": "East Connector"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -0.992,
+            41.008
+          ],
+          [
+            -0.99,
+            41.005
+          ],
+          [
+            -0.992,
+            41.002
+          ]
+        ]
+      }
+    }
+  ]
+}

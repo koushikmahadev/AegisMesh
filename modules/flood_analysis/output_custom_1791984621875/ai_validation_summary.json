@@ -1,0 +1,89 @@
+{
+  "method": "Ground truth per tile = any labelled building/road feature in that tile has flooded == 'yes' (from {input}/annotations/{tile}.geojson, same source as the main processor pipeline). Tiles with no building/road features are excluded. Confidence-aware scoring: tiles where the AI reported confidence == 'low' are excluded from accuracy/TP/TN/FP/FN as an honest 'uncertain', scored separately.",
+  "tiles_total_in_aoi": 4,
+  "tiles_compared": 4,
+  "tiles_skipped_no_ground_truth_features": [],
+  "tiles_skipped_no_prediction": [],
+  "tiles_skipped_prediction_error": [],
+  "accuracy": 0.5,
+  "confusion": {
+    "true_positive_flooded_correctly_caught": 2,
+    "true_negative_dry_correctly_identified": 0,
+    "false_positive_false_alarm": 1,
+    "false_negative_flooded_missed": 1
+  },
+  "flat_accuracy": 0.5,
+  "flat_confusion": {
+    "true_positive_flooded_correctly_caught": 2,
+    "true_negative_dry_correctly_identified": 0,
+    "false_positive_false_alarm": 1,
+    "false_negative_flooded_missed": 1
+  },
+  "confident_tiles_scored": 2,
+  "confident_accuracy": 0.5,
+  "confident_confusion": {
+    "true_positive_flooded_correctly_caught": 1,
+    "true_negative_dry_correctly_identified": 0,
+    "false_positive_false_alarm": 1,
+    "false_negative_flooded_missed": 0
+  },
+  "uncertain_tile_count": 2,
+  "uncertain_tile_ids": [
+    "2_21_43",
+    "2_21_44"
+  ],
+  "per_tile": {
+    "2_22_43": {
+      "ground_truth_flooded": false,
+      "ai_predicted_flooded": true,
+      "confidence": "high",
+      "reasoning": "The POST-event image shows massive water intrusion covering almost the entire land area, submerging fields and isolating buildings, which was dry land in the PRE-event image.",
+      "category": "CONFIDENT",
+      "bbox": [
+        -90.09116212142672,
+        29.763946956245753,
+        -90.08553068272339,
+        29.769578394949086
+      ]
+    },
+    "2_21_43": {
+      "ground_truth_flooded": true,
+      "ai_predicted_flooded": false,
+      "confidence": "low",
+      "reasoning": "The POST-event image is heavily obscured by thick cloud cover and green haze, making it impossible to clearly observe the ground and identify any visible flood damage or water intrusion.",
+      "category": "UNCERTAIN",
+      "bbox": [
+        -90.09679356013005,
+        29.763946956245753,
+        -90.09116212142672,
+        29.769578394949086
+      ]
+    },
+    "2_22_44": {
+      "ground_truth_flooded": true,
+      "ai_predicted_flooded": true,
+      "confidence": "high",
+      "reasoning": "The POST-event image shows widespread dark floodwaters inundating the land, submerging roads and isolating houses, which were on dry, green terrain in the PRE-event image.",
+      "category": "CONFIDENT",
+      "bbox": [
+        -90.09116212142672,
+        29.758315517542417,
+        -90.08553068272339,
+        29.763946956245753
+      ]
+    },
+    "2_21_44": {
+      "ground_truth_flooded": true,
+      "ai_predicted_flooded": true,
+      "confidence": "low",
+      "reasoning": "The POST-event image is heavily obscured by clouds, but the visible sections on the left show clear water intrusion with houses surrounded by floodwaters.",
+      "category": "UNCERTAIN",
+      "bbox": [
+        -90.09679356013005,
+        29.759167464432377,
+        -90.09116212142672,
+        29.763946956245753
+      ]
+    }
+  }
+}

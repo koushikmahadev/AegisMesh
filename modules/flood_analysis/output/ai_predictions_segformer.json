@@ -1,0 +1,178 @@
+{
+  "0_36_59": {
+    "flood_damage_detected": true,
+    "confidence": "high",
+    "reasoning": "SegFormer detected 26.7% water coverage in POST-event satellite tile (net surge: +26.7% vs PRE baseline).",
+    "water_coverage_percent": 26.7,
+    "net_change_percent": 26.7,
+    "model": "segformer-b0-local-offline"
+  },
+  "0_36_60": {
+    "flood_damage_detected": true,
+    "confidence": "high",
+    "reasoning": "SegFormer detected 100.0% water coverage in POST-event satellite tile (net surge: +100.0% vs PRE baseline).",
+    "water_coverage_percent": 100.0,
+    "net_change_percent": 100.0,
+    "model": "segformer-b0-local-offline"
+  },
+  "0_36_61": {
+    "flood_damage_detected": true,
+    "confidence": "high",
+    "reasoning": "SegFormer detected 100.0% water coverage in POST-event satellite tile (net surge: +100.0% vs PRE baseline).",
+    "water_coverage_percent": 100.0,
+    "net_change_percent": 100.0,
+    "model": "segformer-b0-local-offline"
+  },
+  "0_36_62": {
+    "flood_damage_detected": true,
+    "confidence": "high",
+    "reasoning": "SegFormer detected 19.7% water coverage in POST-event satellite tile (net surge: +19.7% vs PRE baseline).",
+    "water_coverage_percent": 19.65,
+    "net_change_percent": 19.65,
+    "model": "segformer-b0-local-offline"
+  },
+  "0_37_59": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "Dry landscape with no significant flood inundation (0.0% water detected).",
+    "water_coverage_percent": 0.0,
+    "net_change_percent": 0.0,
+    "model": "segformer-b0-local-offline"
+  },
+  "0_37_60": {
+    "flood_damage_detected": false,
+    "confidence": "low",
+    "reasoning": "Dry landscape with no significant flood inundation (0.4% water detected).",
+    "water_coverage_percent": 0.41,
+    "net_change_percent": 0.41,
+    "model": "segformer-b0-local-offline"
+  },
+  "0_37_61": {
+    "flood_damage_detected": true,
+    "confidence": "medium",
+    "reasoning": "SegFormer detected 2.7% water coverage in POST-event satellite tile (net surge: +2.7% vs PRE baseline).",
+    "water_coverage_percent": 2.65,
+    "net_change_percent": 2.65,
+    "model": "segformer-b0-local-offline"
+  },
+  "0_37_62": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "Dry landscape with no significant flood inundation (0.0% water detected).",
+    "water_coverage_percent": 0.0,
+    "net_change_percent": 0.0,
+    "model": "segformer-b0-local-offline"
+  },
+  "0_38_60": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "Dry landscape with no significant flood inundation (0.0% water detected).",
+    "water_coverage_percent": 0.0,
+    "net_change_percent": 0.0,
+    "model": "segformer-b0-local-offline"
+  },
+  "0_38_61": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "Dry landscape with no significant flood inundation (0.0% water detected).",
+    "water_coverage_percent": 0.0,
+    "net_change_percent": 0.0,
+    "model": "segformer-b0-local-offline"
+  },
+  "0_38_62": {
+    "flood_damage_detected": true,
+    "confidence": "medium",
+    "reasoning": "SegFormer detected 2.3% water coverage in POST-event satellite tile (net surge: +2.3% vs PRE baseline).",
+    "water_coverage_percent": 2.31,
+    "net_change_percent": 2.31,
+    "model": "segformer-b0-local-offline"
+  },
+  "0_39_60": {
+    "flood_damage_detected": true,
+    "confidence": "high",
+    "reasoning": "SegFormer detected 100.0% water coverage in POST-event satellite tile (net surge: +100.0% vs PRE baseline).",
+    "water_coverage_percent": 100.0,
+    "net_change_percent": 100.0,
+    "model": "segformer-b0-local-offline"
+  },
+  "0_39_61": {
+    "flood_damage_detected": true,
+    "confidence": "medium",
+    "reasoning": "SegFormer detected 7.1% water coverage in POST-event satellite tile (net surge: +6.9% vs PRE baseline).",
+    "water_coverage_percent": 7.09,
+    "net_change_percent": 6.85,
+    "model": "segformer-b0-local-offline"
+  },
+  "0_39_62": {
+    "flood_damage_detected": true,
+    "confidence": "high",
+    "reasoning": "SegFormer detected 59.5% water coverage in POST-event satellite tile (net surge: +59.5% vs PRE baseline).",
+    "water_coverage_percent": 59.46,
+    "net_change_percent": 59.46,
+    "model": "segformer-b0-local-offline"
+  },
+  "0_40_59": {
+    "flood_damage_detected": true,
+    "confidence": "medium",
+    "reasoning": "SegFormer detected 5.0% water coverage in POST-event satellite tile (net surge: +5.0% vs PRE baseline).",
+    "water_coverage_percent": 4.98,
+    "net_change_percent": 4.98,
+    "model": "segformer-b0-local-offline"
+  },
+  "0_40_60": {
+    "flood_damage_detected": true,
+    "confidence": "high",
+    "reasoning": "SegFormer detected 100.0% water coverage in POST-event satellite tile (net surge: +100.0% vs PRE baseline).",
+    "water_coverage_percent": 100.0,
+    "net_change_percent": 100.0,
+    "model": "segformer-b0-local-offline"
+  },
+  "0_40_61": {
+    "flood_damage_detected": true,
+    "confidence": "high",
+    "reasoning": "SegFormer detected 54.3% water coverage in POST-event satellite tile (net surge: +54.3% vs PRE baseline).",
+    "water_coverage_percent": 54.32,
+    "net_change_percent": 54.32,
+    "model": "segformer-b0-local-offline"
+  },
+  "0_40_62": {
+    "flood_damage_detected": true,
+    "confidence": "medium",
+    "reasoning": "SegFormer detected 6.2% water coverage in POST-event satellite tile (net surge: +6.2% vs PRE baseline).",
+    "water_coverage_percent": 6.2,
+    "net_change_percent": 6.2,
+    "model": "segformer-b0-local-offline"
+  },
+  "0_41_59": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "Dry landscape with no significant flood inundation (0.0% water detected).",
+    "water_coverage_percent": 0.0,
+    "net_change_percent": 0.0,
+    "model": "segformer-b0-local-offline"
+  },
+  "0_41_60": {
+    "flood_damage_detected": true,
+    "confidence": "high",
+    "reasoning": "SegFormer detected 24.5% water coverage in POST-event satellite tile (net surge: +24.5% vs PRE baseline).",
+    "water_coverage_percent": 24.52,
+    "net_change_percent": 24.52,
+    "model": "segformer-b0-local-offline"
+  },
+  "0_41_61": {
+    "flood_damage_detected": true,
+    "confidence": "medium",
+    "reasoning": "SegFormer detected 4.9% water coverage in POST-event satellite tile (net surge: +3.5% vs PRE baseline).",
+    "water_coverage_percent": 4.94,
+    "net_change_percent": 3.52,
+    "model": "segformer-b0-local-offline"
+  },
+  "0_41_62": {
+    "flood_damage_detected": true,
+    "confidence": "high",
+    "reasoning": "SegFormer detected 18.5% water coverage in POST-event satellite tile (net surge: +14.5% vs PRE baseline).",
+    "water_coverage_percent": 18.48,
+    "net_change_percent": 14.53,
+    "model": "segformer-b0-local-offline"
+  }
+}

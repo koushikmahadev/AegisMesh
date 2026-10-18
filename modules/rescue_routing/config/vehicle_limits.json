@@ -1,0 +1,39 @@
+{
+  "_comment": "Operational vehicle flood water depth clearance limits, payload capacities, and environmental thresholds",
+  "limits_meters": {
+    "AMBULANCE": 0.0,
+    "TRUCK_4X4": 0.40,
+    "RESCUE_BOAT": 0.50,
+    "HELICOPTER": null
+  },
+  "payload_capacity_kg": {
+    "AMBULANCE": 400.0,
+    "TRUCK_4X4": 1500.0,
+    "RESCUE_BOAT": 800.0,
+    "HELICOPTER": 1200.0
+  },
+  "weather_limits": {
+    "HELICOPTER": {
+      "max_rainfall_mmh": 60.0,
+      "max_wind_kmh": 75.0,
+      "min_visibility_km": 1.5
+    }
+  },
+  "launch_minutes": {
+    "RESCUE_BOAT": 10.0,
+    "HELICOPTER": 10.0
+  },
+  "default_launch_points": {
+    "HELICOPTER": "HOSPITAL_BASE"
+  },
+  "concurrent_vehicles": {
+    "AMBULANCE": 1,
+    "TRUCK_4X4": 1,
+    "RESCUE_BOAT": 1,
+    "HELICOPTER": 1
+  },
+  "provenance": {
+    "source": "ASSUMED_NOT_SOURCED",
+    "note": "Standard emergency response agency heuristic limits. Not empirically certified for live flood operations without vehicle manufacturer verification."
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "2_14_46": {
+    "flood_damage_detected": true,
+    "confidence": "high",
+    "reasoning": "The POST-event image shows extensive dark floodwaters covering streets and residential properties, which were dry and green in the PRE-event image.",
+    "model": "dots-studio/dots-3-note-preview:free",
+    "metrics": {
+      "pre_flood_fraction": 0.0,
+      "post_flood_fraction": 0.15,
+      "new_flood_fraction": 0.15
+    }
+  },
+  "2_15_46": {
+    "flood_damage_detected": true,
+    "confidence": "high",
+    "reasoning": "A large, highly reflective flooded field and waterlogged muddy areas are visible in the POST-event image, replacing the dry green fields and vegetation seen in the PRE-event image.",
+    "model": "dots-studio/dots-3-note-preview:free",
+    "metrics": {
+      "pre_flood_fraction": 0.0,
+      "post_flood_fraction": 0.15,
+      "new_flood_fraction": 0.15
+    }
+  },
+  "2_13_47": {
+    "flood_damage_detected": true,
+    "confidence": "medium",
+    "reasoning": "The POST-event image shows a significant expansion of water over the shoreline and land areas, with bright, sediment-rich or turbulent water covering regions that were dry land in the PRE-event image.",
+    "model": "dots-studio/dots-3-note-preview:free",
+    "metrics": {
+      "pre_flood_fraction": 0.0,
+      "post_flood_fraction": 0.15,
+      "new_flood_fraction": 0.15
+    }
+  },
+  "2_14_47": {
+    "flood_damage_detected": true,
+    "confidence": "high",
+    "reasoning": "The POST-event image shows extensive muddy water with visible ripple patterns covering the land and fields, which were dry green areas in the PRE-event image.",
+    "model": "dots-studio/dots-3-note-preview:free",
+    "metrics": {
+      "pre_flood_fraction": 0.0,
+      "post_flood_fraction": 0.15,
+      "new_flood_fraction": 0.15
+    }
+  },
+  "2_15_47": {
+    "flood_damage_detected": true,
+    "confidence": "high",
+    "reasoning": "The POST-event image shows dark standing water covering the large field and residential yards, which were dry in the PRE-event image.",
+    "model": "dots-studio/dots-3-note-preview:free",
+    "metrics": {
+      "pre_flood_fraction": 0.0,
+      "post_flood_fraction": 0.15,
+      "new_flood_fraction": 0.15
+    }
+  },
+  "2_13_46": {
+    "flood_damage_detected": true,
+    "confidence": "high",
+    "reasoning": "The POST-event image shows extensive dark floodwaters inundating the land, roads, and properties, which were clearly dry and green in the PRE-event image.",
+    "model": "dots-studio/dots-3-note-preview:free",
+    "metrics": {
+      "pre_flood_fraction": 0.0,
+      "post_flood_fraction": 0.15,
+      "new_flood_fraction": 0.15
+    }
+  }
+}

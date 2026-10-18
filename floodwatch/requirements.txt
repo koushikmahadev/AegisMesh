@@ -1,0 +1,7 @@
+torch
+transformers
+rasterio
+numpy
+pillow
+fastapi
+uvicorn[standard]

@@ -1,0 +1,92 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ZonesContract",
+  "description": "Schema for zones.json produced by flood_analysis module",
+  "type": "object",
+  "required": ["schema_version", "source", "crs", "zones"],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "enum": ["1.0", "1.1"]
+    },
+    "source": {
+      "type": "string"
+    },
+    "crs": {
+      "type": "string"
+    },
+    "provenance": {
+      "type": "string"
+    },
+    "generated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "zones": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "zone_id",
+          "bbox",
+          "centroid",
+          "flooded_percent",
+          "total_buildings",
+          "exposed_buildings",
+          "road_length_m",
+          "flooded_road_length_m",
+          "accessibility"
+        ],
+        "properties": {
+          "zone_id": {
+            "type": "string",
+            "pattern": "^zone-\\d{3,}$"
+          },
+          "bbox": {
+            "type": "array",
+            "items": { "type": "number" },
+            "minItems": 4,
+            "maxItems": 4
+          },
+          "centroid": {
+            "type": "array",
+            "items": { "type": "number" },
+            "minItems": 2,
+            "maxItems": 2
+          },
+          "flooded_percent": {
+            "type": "number",
+            "minimum": 0.0,
+            "maximum": 100.0
+          },
+          "flooded_area_m2": {
+            "type": ["number", "null"],
+            "minimum": 0.0
+          },
+          "total_buildings": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "exposed_buildings": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "road_length_m": {
+            "type": "number",
+            "minimum": 0.0
+          },
+          "flooded_road_length_m": {
+            "type": "number",
+            "minimum": 0.0
+          },
+          "accessibility": {
+            "type": "string",
+            "enum": ["ACCESSIBLE", "PARTIAL", "BLOCKED", "UNKNOWN"]
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}

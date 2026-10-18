@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>HighWater — Module 2: Flood Impact Map</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<style>
+  html, body { margin: 0; padding: 0; height: 100%; font-family: -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+  #header {
+    position: absolute; top: 0; left: 0; z-index: 1000;
+    background: rgba(255,255,255,0.92); padding: 8px 14px;
+    font-size: 15px; font-weight: 600; color: #1e293b;
+    border-bottom-right-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+    max-width: 60vw;
+  }
+  @media (max-width: 480px) {
+    #header { font-size: 11px; padding: 5px 8px; max-width: 58vw; }
+    #statcard { font-size: 10.5px; padding: 5px 8px; top: 34px; max-width: 80vw; }
+  }
+  #map { position: absolute; top: 0; bottom: 0; left: 0; right: 0; }
+  #legend {
+    position: absolute; bottom: 20px; right: 10px; z-index: 1000;
+    background: rgba(255,255,255,0.95); padding: 10px 12px; border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.3); font-size: 12px; color: #1e293b;
+    line-height: 1.5; max-width: 220px;
+  }
+  #legend strong { display: block; margin-bottom: 4px; font-size: 13px; }
+  .swatch { display: inline-block; width: 12px; height: 12px; margin-right: 6px; vertical-align: middle; border-radius: 2px; }
+  .swatch-line { display: inline-block; width: 16px; height: 0; border-top: 3px solid; margin-right: 6px; vertical-align: middle; }
+  .legend-row { margin-bottom: 2px; }
+  .popup-note { font-style: italic; color: #64748b; font-size: 11px; margin-top: 4px; }
+  .offline-basemap-tiles { filter: grayscale(1) brightness(1.05) contrast(0.92); }
+  .ai-hatch {
+    background-image: repeating-linear-gradient(45deg, #94a3b8 0 3px, transparent 3px 6px);
+    border: 1px solid #94a3b8;
+  }
+  #ai-stat-line { display: block; font-size: 10.5px; color: #475569; margin: 2px 0 2px 22px; max-width: 200px; }
+  #statcard {
+    position: absolute; top: 46px; left: 50%; transform: translateX(-50%); z-index: 1000;
+    background: rgba(255,255,255,0.95); padding: 7px 14px;
+    font-size: 12.5px; color: #1e293b; max-width: 320px; text-align: center;
+    border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+  }
+</style>
+</head>
+<body>
+<div id="header">HighWater — Module 2: Flood Impact Map (Dernau, Germany — SpaceNet 8)</div>
+<div id="statcard">Loading zone stats…</div>
+<div id="map"></div>
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <pattern id="ai-hatch-red" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="6" height="6" fill="transparent"></rect>
+      <line x1="0" y1="0" x2="0" y2="6" stroke="#dc2626" stroke-width="3"></line>
+    </pattern>
+    <pattern id="ai-hatch-blue" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="6" height="6" fill="transparent"></rect>
+      <line x1="0" y1="0" x2="0" y2="6" stroke="#2563eb" stroke-width="3"></line>
+    </pattern>
+    <pattern id="ai-hatch-gray" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="6" height="6" fill="transparent"></rect>
+      <line x1="0" y1="0" x2="0" y2="6" stroke="#94a3b8" stroke-width="3"></line>
+    </pattern>
+  </defs>
+</svg>
+<div id="legend">
+  <strong>Legend</strong>
+  <div class="legend-row"><span class="swatch" style="background:#3b82f6;opacity:0.5"></span>Derived flood extent</div>
+  <div class="legend-row"><span class="swatch" style="background:#2563eb;opacity:0.5"></span>Accessible zone</div>
+  <div class="legend-row"><span class="swatch" style="background:#f59e0b;opacity:0.5"></span>Partial zone</div>
+  <div class="legend-row"><span class="swatch" style="background:#dc2626;opacity:0.5"></span>Blocked zone</div>
+  <div class="legend-row"><span class="swatch" style="background:#cbd5e1;opacity:0.5"></span>Unknown zone</div>
+  <div class="legend-row"><span class="swatch-line" style="border-color:#dc2626;border-top-style:dashed"></span>Flooded road</div>
+  <div class="legend-row" id="legend-road-notflooded"><span class="swatch-line" id="legend-road-notflooded-swatch" style="border-color:#334155"></span><span id="legend-road-notflooded-label">Not flooded road</span></div>
+  <div class="legend-row"><span class="swatch" style="background:#dc2626"></span>Flooded building</div>
+  <div class="legend-row"><span class="swatch" style="background:#94a3b8"></span>Not flooded building</div>
+  <strong style="margin-top:8px;">AI PREDICTED (experimental)</strong>
+  <div class="legend-row"><span class="swatch" style="background:#dc2626;opacity:0.45"></span>AI: flooded (confident)</div>
+  <div class="legend-row"><span class="swatch" style="background:#2563eb;opacity:0.45"></span>AI: not flooded (confident)</div>
+  <div class="legend-row"><span class="swatch ai-hatch"></span>AI: uncertain (low confidence)</div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="config.js"></script>
+<script>
+const map = L.map('map', { zoomSnap: 0.25, zoomDelta: 0.5, wheelPxPerZoomLevel: 120 });
+
+const streetLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '&copy; OpenStreetMap contributors',
+  maxZoom: 19
+});
+const cleanLayer = L.tileLayer(`https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png?key=${CARTO_KEY}`, {
+  attribution: '&copy; OpenStreetMap contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+  maxZoom: 19
+}).addTo(map); // "Accessibility (clean)" selected by default
+// No-API fallback: plain OSM tiles, muted via CSS filter so overlay colors still stand out.
+const offlineLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '&copy; OpenStreetMap contributors',
+  maxZoom: 19,
+  className: 'offline-basemap-tiles'
+});
+
+const baseLayers = {
+  'Accessibility (clean)': cleanLayer,
+  'Detailed (street)': streetLayer,
+  'Offline (no API)': offlineLayer
+};
+
+L.control.scale({ imperial: false, position: 'bottomleft' }).addTo(map);
+
+// Panes so buildings/roads always receive clicks before the zone polygon beneath them.
+map.createPane('buildingsPane');
+map.getPane('buildingsPane').style.zIndex = 650;
+map.createPane('roadsPane');
+map.getPane('roadsPane').style.zIndex = 660;
+
+const ACCESS_COLORS = {
+  ACCESSIBLE: '#2563eb',
+  PARTIAL: '#f59e0b',
+  BLOCKED: '#dc2626',
+  UNKNOWN: '#cbd5e1'
+};
+
+const round1 = (n) => (typeof n === 'number' ? Math.round(n * 10) / 10 : n);
+
+function propsTable(props, skip) {
+  skip = skip || [];
+  let rows = '';
+  for (const k in props) {
+    if (skip.includes(k)) continue;
+    rows += `<div>${k}: ${props[k]}</div>`;
+  }
+  return rows;
+}
+
+const allBoundsLayers = [];
+
+Promise.all([
+  fetch('./zones.json').then(r => r.json()),
+  fetch('./flood_extent.geojson').then(r => r.json()),
+  fetch('./roads_status.geojson').then(r => r.json()),
+  fetch('./buildings_exposed.geojson').then(r => r.json()),
+  fetch('./ai_validation_summary.json').then(r => r.json())
+]).then(([zonesData, floodExtent, roads, buildings, aiValidation]) => {
+
+  // --- Flood extent layer (added FIRST so it always renders at the bottom of the stack) ---
+  const floodExtentLayer = L.geoJSON(floodExtent, {
+    style: () => ({ fillColor: '#3b82f6', fillOpacity: 0.45, color: '#1d4ed8', weight: 2 }),
+    onEachFeature: (feature, layer) => {
+      const p = feature.properties || {};
+      let html = '<strong>Flood extent</strong><br>';
+      if (p.source) html += `source: ${p.source}<br>`;
+      if (p.label_class) html += `label_class: ${p.label_class}<br>`;
+      html += '<div class="popup-note">Derived from labelled flooded buildings/roads, not a measured water boundary.</div>';
+      layer.bindPopup(html);
+    }
+  });
+  // starts OFF by default (see layer control); not added to map here
+  allBoundsLayers.push(floodExtentLayer);
+
+  // --- Zones layer (built from bbox) ---
+  const zoneFeatures = zonesData.zones.map(z => ({
+    type: 'Feature',
+    properties: z,
+    geometry: {
+      type: 'Polygon',
+      coordinates: [[
+        [z.bbox[0], z.bbox[1]],
+        [z.bbox[2], z.bbox[1]],
+        [z.bbox[2], z.bbox[3]],
+        [z.bbox[0], z.bbox[3]],
+        [z.bbox[0], z.bbox[1]]
+      ]]
+    }
+  }));
+  const zonesLayer = L.geoJSON({ type: 'FeatureCollection', features: zoneFeatures }, {
+    style: (feature) => {
+      const color = ACCESS_COLORS[feature.properties.accessibility] || ACCESS_COLORS.UNKNOWN;
+      return { color: color, weight: 2, fillColor: color, fillOpacity: 0.25, opacity: 1 };
+    },
+    onEachFeature: (feature, layer) => {
+      const z = feature.properties;
+      const html = `<strong>${z.zone_id}</strong><br>
+        flooded_percent: ${round1(z.flooded_percent)}%<br>
+        total_buildings: ${z.total_buildings}<br>
+        exposed_buildings: ${z.exposed_buildings}<br>
+        accessibility: ${z.accessibility}<br>
+        road_length_m: ${round1(z.road_length_m)}<br>
+        flooded_road_length_m: ${round1(z.flooded_road_length_m)}`;
+      layer.bindPopup(html);
+    }
+  }).addTo(map); // zones ON by default
+  allBoundsLayers.push(zonesLayer);
+
+  // --- Roads layer ---
+  let safeRouteMode = false;
+  const roadStyle = (feature) => {
+    const flooded = feature.properties.flooded;
+    if (flooded) return { color: '#dc2626', dashArray: '6,6', weight: 3 };
+    return safeRouteMode
+      ? { color: '#2563eb', weight: 4 } // Safe Route Mode: non-flooded roads read as "safe/passable" blue
+      : { color: '#334155', weight: 2 };
+  };
+  const roadPopup = (feature, layer) => {
+    const p = feature.properties || {};
+    const status = p.flooded ? 'Flooded' : 'Not flooded';
+    let html = `<strong>Road</strong><br>status: ${status}<br>${propsTable(p, ['flooded'])}`;
+    layer.bindPopup(html);
+  };
+  // Visible, correctly-styled road lines.
+  const roadsVisibleLayer = L.geoJSON(roads, { pane: 'roadsPane', style: roadStyle, onEachFeature: roadPopup });
+  // Invisible wide line underneath for an easy-to-click hit area (roads render too thin to click precisely).
+  const roadsHitLayer = L.geoJSON(roads, {
+    pane: 'roadsPane',
+    style: () => ({ weight: 16, opacity: 0, interactive: true }),
+    onEachFeature: roadPopup
+  });
+  const roadsLayer = L.layerGroup([roadsHitLayer, roadsVisibleLayer]); // roads OFF by default
+  allBoundsLayers.push(roadsVisibleLayer);
+
+  // Safe Route Mode: empty dummy layer so it can live as a checkbox in the overlay
+  // control without rendering anything itself; toggling it just restyles roads.
+  const safeRouteToggleLayer = L.layerGroup();
+
+  // --- Buildings layer ---
+  const buildingsLayer = L.geoJSON(buildings, {
+    pane: 'buildingsPane',
+    style: (feature) => {
+      const flooded = feature.properties.flooded;
+      return {
+        fillColor: flooded ? '#dc2626' : '#94a3b8',
+        fillOpacity: 0.7,
+        color: '#1e293b',
+        weight: 0.5
+      };
+    },
+    onEachFeature: (feature, layer) => {
+      const p = feature.properties || {};
+      const status = p.flooded ? 'Flooded' : 'Not flooded';
+      let html = `<strong>Building</strong><br>status: ${status}<br>${propsTable(p, ['flooded'])}`;
+      layer.bindPopup(html);
+    }
+  }); // buildings OFF by default
+  allBoundsLayers.push(buildingsLayer);
+
+  // --- AI Predicted layer (experimental) — built from ai_validation_summary.json per_tile bboxes ---
+  // Tile bbox is the bounding box of that tile's own labelled building/road features
+  // (same source geometry as ground truth), not invented coordinates.
+  const aiFeatures = [];
+  for (const [tileId, t] of Object.entries(aiValidation.per_tile || {})) {
+    if (!t.bbox) continue;
+    const [minx, miny, maxx, maxy] = t.bbox;
+    aiFeatures.push({
+      type: 'Feature',
+      properties: { tile_id: tileId, ...t },
+      geometry: {
+        type: 'Polygon',
+        coordinates: [[[minx, miny], [maxx, miny], [maxx, maxy], [minx, maxy], [minx, miny]]]
+      }
+    });
+  }
+  const aiPredictedLayer = L.geoJSON({ type: 'FeatureCollection', features: aiFeatures }, {
+    style: (feature) => {
+      const p = feature.properties;
+      if (p.category === 'UNCERTAIN') {
+        return { color: '#94a3b8', weight: 1.5, fillColor: 'url(#ai-hatch-gray)', fillOpacity: 1, dashArray: '2,3' };
+      }
+      const color = p.ai_predicted_flooded ? '#dc2626' : '#2563eb';
+      const pattern = p.ai_predicted_flooded ? 'url(#ai-hatch-red)' : 'url(#ai-hatch-blue)';
+      return { color: color, weight: 1.5, fillColor: pattern, fillOpacity: 1 };
+    },
+    onEachFeature: (feature, layer) => {
+      const p = feature.properties;
+      const statusLabel = p.category === 'UNCERTAIN'
+        ? 'UNCERTAIN (low confidence)'
+        : (p.ai_predicted_flooded ? 'Flooded (AI prediction)' : 'Not flooded (AI prediction)');
+      const html = `<strong>AI PREDICTED — ${p.tile_id}</strong><br>
+        <span class="popup-note">Model prediction, not ground truth.</span><br>
+        flood_damage_detected: ${p.ai_predicted_flooded}<br>
+        confidence: ${p.confidence}<br>
+        status: ${statusLabel}<br>
+        reasoning: ${p.reasoning}`;
+      layer.bindPopup(html);
+    }
+  }); // AI layer OFF by default
+
+  // --- Layer control (base layers + overlays together) ---
+  const aiAccPct = Math.round(aiValidation.confident_accuracy * 1000) / 10;
+  const aiStatHtml = `AI Predicted (experimental)<span id="ai-stat-line">${aiAccPct}% accurate on ${aiValidation.confident_tiles_scored} confidently-assessed tiles (${aiValidation.uncertain_tile_count} uncertain)</span>`;
+  const layerControl = L.control.layers(baseLayers, {
+    'Flood extent (derived)': floodExtentLayer,
+    'Zones (accessibility)': zonesLayer,
+    'Roads': roadsLayer,
+    'Buildings': buildingsLayer,
+    'Safe Route Mode': safeRouteToggleLayer,
+    [aiStatHtml]: aiPredictedLayer
+  }, { collapsed: false, position: 'topright' }).addTo(map);
+
+  // Auto-dim ground-truth Zones while AI Predicted is active, so AI tiles visually pop.
+  // Only touches opacity — never toggles Zones on/off itself.
+  let zonesWasDimmed = false;
+  function setAiActive(active) {
+    if (active) {
+      if (map.hasLayer(zonesLayer)) {
+        zonesLayer.setStyle({ opacity: 0.15, fillOpacity: 0.15 });
+        zonesWasDimmed = true;
+      }
+    } else if (zonesWasDimmed) {
+      zonesLayer.eachLayer((l) => zonesLayer.resetStyle(l));
+      zonesWasDimmed = false;
+    }
+  }
+
+  function updateRoadLegend() {
+    document.getElementById('legend-road-notflooded-swatch').style.borderColor = safeRouteMode ? '#2563eb' : '#334155';
+    document.getElementById('legend-road-notflooded-label').textContent =
+      safeRouteMode ? 'Not flooded road (Safe Route Mode: blue = passable)' : 'Not flooded road';
+  }
+
+  map.on('overlayadd overlayremove', (e) => {
+    if (e.layer === aiPredictedLayer) {
+      setAiActive(map.hasLayer(aiPredictedLayer));
+    }
+    if (e.layer === safeRouteToggleLayer) {
+      safeRouteMode = map.hasLayer(safeRouteToggleLayer);
+      roadsVisibleLayer.setStyle(roadStyle); // restyles even while roads layer is hidden
+      updateRoadLegend();
+      // Safe Route Mode ON must make roads visible even if "Roads" wasn't checked.
+      // Choice: auto-check/add the Roads layer here (so the UI reflects what's shown),
+      // but turning Safe Route Mode back OFF does NOT auto-hide it again — it just
+      // reverts the color scheme to gray/red and leaves Roads checked, since the
+      // "Roads" checkbox is the one source of truth for baseline visibility and a
+      // user who explicitly unchecks "Roads" later should always win (roads hide
+      // immediately even if Safe Route Mode is still ON, orphaned until re-checked).
+      if (safeRouteMode && !map.hasLayer(roadsLayer)) {
+        map.addLayer(roadsLayer);
+        layerControl._update(); // force the "Roads" checkbox to visually reflect it's now on
+      }
+    }
+    // Keep flood-extent always at the bottom of the stack, independent of toggle order,
+    // so its translucent blue never dulls building/road/zone colors.
+    if (map.hasLayer(floodExtentLayer)) floodExtentLayer.bringToBack();
+    if (map.hasLayer(zonesLayer)) zonesLayer.bringToFront();
+    if (map.hasLayer(buildingsLayer)) buildingsLayer.bringToFront();
+    if (map.hasLayer(aiPredictedLayer)) aiPredictedLayer.bringToFront();
+  });
+
+  // --- Fit bounds to combined extent ---
+  const group = L.featureGroup(allBoundsLayers);
+  map.fitBounds(group.getBounds(), { padding: [20, 20] });
+
+  // --- Stat card (computed from real zones.json) ---
+  const flagged = zonesData.zones.filter(z => z.accessibility === 'BLOCKED' || z.accessibility === 'PARTIAL').length;
+  document.getElementById('statcard').innerHTML =
+    `<strong>${flagged} of ${zonesData.zones.length}</strong> zones flagged BLOCKED or PARTIAL access — click a zone for details.`;
+
+}).catch(err => {
+  document.getElementById('header').innerHTML += '<br><span style="color:#dc2626;font-weight:400;">Error loading data: ' + err.message + ' — if opened via file://, Chrome blocks local fetch(); run a local server instead (see README).</span>';
+  console.error(err);
+});
+</script>
+</body>
+</html>

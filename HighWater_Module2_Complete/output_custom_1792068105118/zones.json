@@ -1,0 +1,67 @@
+{
+  "schema_version": "1.0",
+  "source": "SpaceNet 8 Custom area (10/15/2026, 6:11:45 PM)",
+  "crs": "EPSG:4326",
+  "zones": [
+    {
+      "zone_id": "zone-001",
+      "bbox": [
+        6.9905953484379175,
+        50.49206816239961,
+        6.994936518657508,
+        50.494837401608955
+      ],
+      "centroid": [
+        6.992765993445654,
+        50.493452793054395
+      ],
+      "flooded_percent": 0.0,
+      "flooded_area_m2": null,
+      "total_buildings": 0,
+      "exposed_buildings": 0,
+      "road_length_m": 292.3,
+      "flooded_road_length_m": 0,
+      "accessibility": "ACCESSIBLE"
+    },
+    {
+      "zone_id": "zone-002",
+      "bbox": [
+        6.994822340982101,
+        50.49214106968616,
+        6.995777907017168,
+        50.49485189776266
+      ],
+      "centroid": [
+        6.995300135431623,
+        50.49349649615965
+      ],
+      "flooded_percent": 0.0,
+      "flooded_area_m2": null,
+      "total_buildings": 0,
+      "exposed_buildings": 0,
+      "road_length_m": 87.6,
+      "flooded_road_length_m": 0,
+      "accessibility": "ACCESSIBLE"
+    },
+    {
+      "zone_id": "zone-003",
+      "bbox": [
+        6.99049986340746,
+        50.494764487377225,
+        6.994822340982101,
+        50.49708725066309
+      ],
+      "centroid": [
+        6.992661152316628,
+        50.495925876476356
+      ],
+      "flooded_percent": 0.0,
+      "flooded_area_m2": null,
+      "total_buildings": 0,
+      "exposed_buildings": 0,
+      "road_length_m": 438.0,
+      "flooded_road_length_m": 0,
+      "accessibility": "ACCESSIBLE"
+    }
+  ]
+}

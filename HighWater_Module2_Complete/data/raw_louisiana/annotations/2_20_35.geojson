@@ -1,0 +1,10 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "id": "way/847383942", "building": "yes", "flooded": null, "highway": null, "lanes": null, "surface": null, "oneway": null, "bridge": null, "layer": null, "tunnel": null, "type": null, "image_id": "10300100AF395C00", "location": "Louisiana-East_Training_Public" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -90.0970305, 29.8115603 ], [ -90.0970439, 29.8113101 ], [ -90.0972891, 29.81132 ], [ -90.0972757, 29.8115702 ], [ -90.0970305, 29.8115603 ] ] ] } },
+{ "type": "Feature", "properties": { "id": "way/847378008", "building": null, "flooded": null, "highway": "secondary", "lanes": "2", "surface": "paved", "oneway": "yes", "bridge": null, "layer": null, "tunnel": null, "type": null, "image_id": "10300100AF395C00", "location": "Louisiana-East_Training_Public" }, "geometry": { "type": "LineString", "coordinates": [ [ -90.098142, 29.8130608 ], [ -90.0982023, 29.8117089 ], [ -90.0982225, 29.8112548 ], [ -90.0983137, 29.809514 ], [ -90.098346953603581, 29.808998465872421 ] ] } },
+{ "type": "Feature", "properties": { "id": "way/847378009", "building": null, "flooded": null, "highway": "secondary", "lanes": "2", "surface": "paved", "oneway": "yes", "bridge": null, "layer": null, "tunnel": null, "type": null, "image_id": "10300100AF395C00", "location": "Louisiana-East_Training_Public" }, "geometry": { "type": "LineString", "coordinates": [ [ -90.098078266142977, 29.808998465872421 ], [ -90.0979891, 29.8104007 ], [ -90.0979184, 29.811676 ], [ -90.0979033, 29.8119484 ], [ -90.0978282, 29.8131399 ] ] } },
+{ "type": "Feature", "properties": { "id": "way/847378051", "building": null, "flooded": null, "highway": "secondary", "lanes": "1", "surface": "paved", "oneway": "yes", "bridge": null, "layer": null, "tunnel": null, "type": null, "image_id": "10300100AF395C00", "location": "Louisiana-East_Training_Public" }, "geometry": { "type": "LineString", "coordinates": [ [ -90.0982023, 29.8117089 ], [ -90.0979184, 29.811676 ] ] } }
+]
+}

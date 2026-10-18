@@ -1,0 +1,75 @@
+{
+  "method": "SegFormer-B0 offline validation vs SpaceNet 8 ground truth annotations",
+  "tiles_total_in_aoi": 4,
+  "tiles_compared": 3,
+  "tiles_skipped_no_ground_truth_features": [],
+  "tiles_skipped_no_prediction": [],
+  "tiles_skipped_prediction_error": [
+    "0_27_63"
+  ],
+  "accuracy": 1.0,
+  "confusion": {
+    "true_positive_flooded_correctly_caught": 0,
+    "true_negative_dry_correctly_identified": 3,
+    "false_positive_false_alarm": 0,
+    "false_negative_flooded_missed": 0
+  },
+  "flat_accuracy": 1.0,
+  "flat_confusion": {
+    "true_positive_flooded_correctly_caught": 0,
+    "true_negative_dry_correctly_identified": 3,
+    "false_positive_false_alarm": 0,
+    "false_negative_flooded_missed": 0
+  },
+  "confident_tiles_scored": 3,
+  "confident_accuracy": 1.0,
+  "confident_confusion": {
+    "true_positive_flooded_correctly_caught": 0,
+    "true_negative_dry_correctly_identified": 3,
+    "false_positive_false_alarm": 0,
+    "false_negative_flooded_missed": 0
+  },
+  "uncertain_tile_count": 0,
+  "uncertain_tile_ids": [],
+  "per_tile": {
+    "0_26_63": {
+      "ground_truth_flooded": false,
+      "ai_predicted_flooded": false,
+      "confidence": "medium",
+      "reasoning": "Flooded area is 0.0% before and 0.0% after, only 0.0% newly inundated, below the 0.1% threshold.",
+      "category": "CONFIDENT",
+      "bbox": [
+        6.9679284,
+        50.508712,
+        6.971242710404196,
+        50.5116155170656
+      ]
+    },
+    "0_27_62": {
+      "ground_truth_flooded": false,
+      "ai_predicted_flooded": false,
+      "confidence": "medium",
+      "reasoning": "Flooded area is 0.0% before and 0.0% after, only 0.0% newly inundated, below the 0.1% threshold.",
+      "category": "CONFIDENT",
+      "bbox": [
+        6.9720563,
+        50.5116155170656,
+        6.975870411965144,
+        50.5134214
+      ]
+    },
+    "0_26_62": {
+      "ground_truth_flooded": false,
+      "ai_predicted_flooded": false,
+      "confidence": "medium",
+      "reasoning": "Flooded area is 0.0% before and 0.0% after, only 0.0% newly inundated, below the 0.1% threshold.",
+      "category": "CONFIDENT",
+      "bbox": [
+        6.966376835948545,
+        50.5116155170656,
+        6.9686741,
+        50.51431978697581
+      ]
+    }
+  }
+}

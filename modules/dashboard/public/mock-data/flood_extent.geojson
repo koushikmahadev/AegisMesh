@@ -1,0 +1,74 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "feature_id": "flood-001",
+        "zone_id": "zone-001",
+        "flood_status": "FLOODED",
+        "water_depth_m": 1.4,
+        "area_sqkm": 2.4,
+        "provenance": "observed"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [77.6600, 12.9300],
+            [77.6850, 12.9300],
+            [77.6850, 12.9550],
+            [77.6600, 12.9550],
+            [77.6600, 12.9300]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "feature_id": "flood-002",
+        "zone_id": "zone-002",
+        "flood_status": "FLOODED",
+        "water_depth_m": 0.8,
+        "area_sqkm": 1.1,
+        "provenance": "derived"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [77.7100, 12.9400],
+            [77.7400, 12.9400],
+            [77.7400, 12.9600],
+            [77.7100, 12.9600],
+            [77.7100, 12.9400]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "feature_id": "flood-003",
+        "zone_id": "zone-005",
+        "flood_status": "FLOODED",
+        "water_depth_m": 1.8,
+        "area_sqkm": 3.8,
+        "provenance": "observed"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [77.6800, 12.9800],
+            [77.7150, 12.9800],
+            [77.7150, 13.0050],
+            [77.6800, 13.0050],
+            [77.6800, 12.9800]
+          ]
+        ]
+      }
+    }
+  ]
+}

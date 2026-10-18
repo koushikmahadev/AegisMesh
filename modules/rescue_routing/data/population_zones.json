@@ -1,0 +1,23 @@
+{
+  "ZONE_NORTH_RESIDENTIAL": {
+    "residents": 2400,
+    "catchment_note": "North residential sector (Arrabal) between Ebro riverbank and Av. San Juan de la Pena",
+    "share_elderly": 0.22,
+    "share_infants": 0.08,
+    "synthetic": true
+  },
+  "ZONE_ISLAND_COMMUNITY": {
+    "residents": 450,
+    "catchment_note": "Isolated Ebro mid-channel sandbar settlement with single causeway access",
+    "share_elderly": 0.18,
+    "share_infants": 0.12,
+    "synthetic": true
+  },
+  "PUENTE_SANTIAGO_NORTH": {
+    "residents": 150,
+    "catchment_note": "North bridgehead staging area and commercial refuge enclave",
+    "share_elderly": 0.15,
+    "share_infants": 0.05,
+    "synthetic": true
+  }
+}

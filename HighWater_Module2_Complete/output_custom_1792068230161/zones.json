@@ -1,0 +1,167 @@
+{
+  "schema_version": "1.0",
+  "source": "SpaceNet 8 Custom area (10/15/2026, 6:13:50 PM)",
+  "crs": "EPSG:4326",
+  "zones": [
+    {
+      "zone_id": "zone-001",
+      "bbox": [
+        7.010077439844692,
+        50.5211816573106,
+        7.014420268273799,
+        50.523950237443465
+      ],
+      "centroid": [
+        7.012248914059739,
+        50.52256595845644
+      ],
+      "flooded_percent": 0.0,
+      "flooded_area_m2": 0.0,
+      "total_buildings": 10,
+      "exposed_buildings": 0,
+      "road_length_m": 149.3,
+      "flooded_road_length_m": 0,
+      "accessibility": "ACCESSIBLE"
+    },
+    {
+      "zone_id": "zone-002",
+      "bbox": [
+        7.0143070827144065,
+        50.52125388709322,
+        7.018649687723093,
+        50.52402232053836
+      ],
+      "centroid": [
+        7.016478445220475,
+        50.52263811489896
+      ],
+      "flooded_percent": 0.0,
+      "flooded_area_m2": 0.0,
+      "total_buildings": 109,
+      "exposed_buildings": 0,
+      "road_length_m": 904.1,
+      "flooded_road_length_m": 0,
+      "accessibility": "ACCESSIBLE"
+    },
+    {
+      "zone_id": "zone-003",
+      "bbox": [
+        7.0185367428716345,
+        50.521325963320635,
+        7.020219487662521,
+        50.52404903589409
+      ],
+      "centroid": [
+        7.019378137116634,
+        50.52268751176588
+      ],
+      "flooded_percent": 0.29,
+      "flooded_area_m2": 97.8,
+      "total_buildings": 36,
+      "exposed_buildings": 0,
+      "road_length_m": 552.7,
+      "flooded_road_length_m": 7.0,
+      "accessibility": "ACCESSIBLE"
+    },
+    {
+      "zone_id": "zone-004",
+      "bbox": [
+        7.009963996256603,
+        50.52387800077877,
+        7.0143070827144065,
+        50.52664658635367
+      ],
+      "centroid": [
+        7.01213559949506,
+        50.52526230464663
+      ],
+      "flooded_percent": 0.0,
+      "flooded_area_m2": 0.0,
+      "total_buildings": 1,
+      "exposed_buildings": 0,
+      "road_length_m": 380.2,
+      "flooded_road_length_m": 0,
+      "accessibility": "ACCESSIBLE"
+    },
+    {
+      "zone_id": "zone-005",
+      "bbox": [
+        7.0141938798675,
+        50.523950237443465,
+        7.0185367428716345,
+        50.5267186763168
+      ],
+      "centroid": [
+        7.016365371380352,
+        50.52533446796431
+      ],
+      "flooded_percent": 0.0,
+      "flooded_area_m2": 0.0,
+      "total_buildings": 41,
+      "exposed_buildings": 0,
+      "road_length_m": 757.3,
+      "flooded_road_length_m": 0,
+      "accessibility": "ACCESSIBLE"
+    },
+    {
+      "zone_id": "zone-006",
+      "bbox": [
+        7.018423780769362,
+        50.52402232053836,
+        7.020106632153337,
+        50.526745394218025
+      ],
+      "centroid": [
+        7.019265228314183,
+        50.52538386953784
+      ],
+      "flooded_percent": 0.0,
+      "flooded_area_m2": 0.0,
+      "total_buildings": 26,
+      "exposed_buildings": 0,
+      "road_length_m": 277.1,
+      "flooded_road_length_m": 0,
+      "accessibility": "ACCESSIBLE"
+    },
+    {
+      "zone_id": "zone-007",
+      "bbox": [
+        7.009864256242993,
+        50.52657434280612,
+        7.0141938798675,
+        50.52901688474075
+      ],
+      "centroid": [
+        7.012029120916734,
+        50.527795622155345
+      ],
+      "flooded_percent": 0.0,
+      "flooded_area_m2": 0.0,
+      "total_buildings": 0,
+      "exposed_buildings": 0,
+      "road_length_m": 22.6,
+      "flooded_road_length_m": 0,
+      "accessibility": "ACCESSIBLE"
+    },
+    {
+      "zone_id": "zone-008",
+      "bbox": [
+        7.014094351514354,
+        50.52664658635367,
+        7.018423780769362,
+        50.52908898074223
+      ],
+      "centroid": [
+        7.0162591190042125,
+        50.52786779193315
+      ],
+      "flooded_percent": 0.0,
+      "flooded_area_m2": 0.0,
+      "total_buildings": 2,
+      "exposed_buildings": 0,
+      "road_length_m": 0,
+      "flooded_road_length_m": 0,
+      "accessibility": "UNKNOWN"
+    }
+  ]
+}

@@ -1,0 +1,712 @@
+{
+  "accuracy": 0.94,
+  "confident_accuracy": 0.94,
+  "confident_tiles_scored": 64,
+  "uncertain_tile_count": 0,
+  "per_tile": {
+    "eq_0_0": {
+      "ground_truth_flooded": false,
+      "ai_predicted_flooded": false,
+      "confidence": "high",
+      "bbox": [
+        36.8688,
+        37.5258,
+        36.8838,
+        37.5408
+      ]
+    },
+    "eq_0_1": {
+      "ground_truth_flooded": false,
+      "ai_predicted_flooded": false,
+      "confidence": "high",
+      "bbox": [
+        36.8838,
+        37.5258,
+        36.8988,
+        37.5408
+      ]
+    },
+    "eq_0_2": {
+      "ground_truth_flooded": false,
+      "ai_predicted_flooded": false,
+      "confidence": "high",
+      "bbox": [
+        36.8988,
+        37.5258,
+        36.9138,
+        37.5408
+      ]
+    },
+    "eq_0_3": {
+      "ground_truth_flooded": false,
+      "ai_predicted_flooded": false,
+      "confidence": "high",
+      "bbox": [
+        36.9138,
+        37.5258,
+        36.9288,
+        37.5408
+      ]
+    },
+    "eq_0_4": {
+      "ground_truth_flooded": false,
+      "ai_predicted_flooded": false,
+      "confidence": "high",
+      "bbox": [
+        36.9288,
+        37.5258,
+        36.9438,
+        37.5408
+      ]
+    },
+    "eq_0_5": {
+      "ground_truth_flooded": false,
+      "ai_predicted_flooded": false,
+      "confidence": "high",
+      "bbox": [
+        36.9438,
+        37.5258,
+        36.9588,
+        37.5408
+      ]
+    },
+    "eq_0_6": {
+      "ground_truth_flooded": false,
+      "ai_predicted_flooded": false,
+      "confidence": "high",
+      "bbox": [
+        36.9588,
+        37.5258,
+        36.9738,
+        37.5408
+      ]
+    },
+    "eq_0_7": {
+      "ground_truth_flooded": false,
+      "ai_predicted_flooded": false,
+      "confidence": "high",
+      "bbox": [
+        36.9738,
+        37.5258,
+        36.9888,
+        37.5408
+      ]
+    },
+    "eq_1_0": {
+      "ground_truth_flooded": false,
+      "ai_predicted_flooded": false,
+      "confidence": "high",
+      "bbox": [
+        36.8688,
+        37.5408,
+        36.8838,
+        37.5558
+      ]
+    },
+    "eq_1_1": {
+      "ground_truth_flooded": false,
+      "ai_predicted_flooded": false,
+      "confidence": "high",
+      "bbox": [
+        36.8838,
+        37.5408,
+        36.8988,
+        37.5558
+      ]
+    },
+    "eq_1_2": {
+      "ground_truth_flooded": false,
+      "ai_predicted_flooded": false,
+      "confidence": "high",
+      "bbox": [
+        36.8988,
+        37.5408,
+        36.9138,
+        37.5558
+      ]
+    },
+    "eq_1_3": {
+      "ground_truth_flooded": true,
+      "ai_predicted_flooded": true,
+      "confidence": "high",
+      "bbox": [
+        36.9138,
+        37.5408,
+        36.9288,
+        37.5558
+      ]
+    },
+    "eq_1_4": {
+      "ground_truth_flooded": true,
+      "ai_predicted_flooded": true,
+      "confidence": "high",
+      "bbox": [
+        36.9288,
+        37.5408,
+        36.9438,
+        37.5558
+      ]
+    },
+    "eq_1_5": {
+      "ground_truth_flooded": false,
+      "ai_predicted_flooded": false,
+      "confidence": "high",
+      "bbox": [
+        36.9438,
+        37.5408,
+        36.9588,
+        37.5558
+      ]
+    },
+    "eq_1_6": {
+      "ground_truth_flooded": false,
+      "ai_predicted_flooded": false,
+      "confidence": "high",
+      "bbox": [
+        36.9588,
+        37.5408,
+        36.9738,
+        37.5558
+      ]
+    },
+    "eq_1_7": {
+      "ground_truth_flooded": false,
+      "ai_predicted_flooded": false,
+      "confidence": "high",
+      "bbox": [
+        36.9738,
+        37.5408,
+        36.9888,
+        37.5558
+      ]
+    },
+    "eq_2_0": {
+      "ground_truth_flooded": false,
+      "ai_predicted_flooded": false,
+      "confidence": "high",
+      "bbox": [
+        36.8688,
+        37.5558,
+        36.8838,
+        37.5708
+      ]
+    },
+    "eq_2_1": {
+      "ground_truth_flooded": false,
+      "ai_predicted_flooded": false,
+      "confidence": "high",
+      "bbox": [
+        36.8838,
+        37.5558,
+        36.8988,
+        37.5708
+      ]
+    },
+    "eq_2_2": {
+      "ground_truth_flooded": true,
+      "ai_predicted_flooded": true,
+      "confidence": "high",
+      "bbox": [
+        36.8988,
+        37.5558,
+        36.9138,
+        37.5708
+      ]
+    },
+    "eq_2_3": {
+      "ground_truth_flooded": true,
+      "ai_predicted_flooded": true,
+      "confidence": "high",
+      "bbox": [
+        36.9138,
+        37.5558,
+        36.9288,
+        37.5708
+      ]
+    },
+    "eq_2_4": {
+      "ground_truth_flooded": true,
+      "ai_predicted_flooded": true,
+      "confidence": "high",
+      "bbox": [
+        36.9288,
+        37.5558,
+        36.9438,
+        37.5708
+      ]
+    },
+    "eq_2_5": {
+      "ground_truth_flooded": true,
+      "ai_predicted_flooded": true,
+      "confidence": "high",
+      "bbox": [
+        36.9438,
+        37.5558,
+        36.9588,
+        37.5708
+      ]
+    },
+    "eq_2_6": {
+      "ground_truth_flooded": false,
+      "ai_predicted_flooded": false,
+      "confidence": "high",
+      "bbox": [
+        36.9588,
+        37.5558,
+        36.9738,
+        37.5708
+      ]
+    },
+    "eq_2_7": {
+      "ground_truth_flooded": false,
+      "ai_predicted_flooded": false,
+      "confidence": "high",
+      "bbox": [
+        36.9738,
+        37.5558,
+        36.9888,
+        37.5708
+      ]
+    },
+    "eq_3_0": {
+      "ground_truth_flooded": false,
+      "ai_predicted_flooded": false,
+      "confidence": "high",
+      "bbox": [
+        36.8688,
+        37.5708,
+        36.8838,
+        37.5858
+      ]
+    },
+    "eq_3_1": {
+      "ground_truth_flooded": true,
+      "ai_predicted_flooded": true,
+      "confidence": "high",
+      "bbox": [
+        36.8838,
+        37.5708,
+        36.8988,
+        37.5858
+      ]
+    },
+    "eq_3_2": {
+      "ground_truth_flooded": true,
+      "ai_predicted_flooded": true,
+      "confidence": "high",
+      "bbox": [
+        36.8988,
+        37.5708,
+        36.9138,
+        37.5858
+      ]
+    },
+    "eq_3_3": {
+      "ground_truth_flooded": true,
+      "ai_predicted_flooded": true,
+      "confidence": "high",
+      "bbox": [
+        36.9138,
+        37.5708,
+        36.9288,
+        37.5858
+      ]
+    },
+    "eq_3_4": {
+      "ground_truth_flooded": true,
+      "ai_predicted_flooded": true,
+      "confidence": "high",
+      "bbox": [
+        36.9288,
+        37.5708,
+        36.9438,
+        37.5858
+      ]
+    },
+    "eq_3_5": {
+      "ground_truth_flooded": true,
+      "ai_predicted_flooded": true,
+      "confidence": "high",
+      "bbox": [
+        36.9438,
+        37.5708,
+        36.9588,
+        37.5858
+      ]
+    },
+    "eq_3_6": {
+      "ground_truth_flooded": true,
+      "ai_predicted_flooded": true,
+      "confidence": "high",
+      "bbox": [
+        36.9588,
+        37.5708,
+        36.9738,
+        37.5858
+      ]
+    },
+    "eq_3_7": {
+      "ground_truth_flooded": false,
+      "ai_predicted_flooded": false,
+      "confidence": "high",
+      "bbox": [
+        36.9738,
+        37.5708,
+        36.9888,
+        37.5858
+      ]
+    },
+    "eq_4_0": {
+      "ground_truth_flooded": false,
+      "ai_predicted_flooded": false,
+      "confidence": "high",
+      "bbox": [
+        36.8688,
+        37.5858,
+        36.8838,
+        37.6008
+      ]
+    },
+    "eq_4_1": {
+      "ground_truth_flooded": true,
+      "ai_predicted_flooded": true,
+      "confidence": "high",
+      "bbox": [
+        36.8838,
+        37.5858,
+        36.8988,
+        37.6008
+      ]
+    },
+    "eq_4_2": {
+      "ground_truth_flooded": true,
+      "ai_predicted_flooded": true,
+      "confidence": "high",
+      "bbox": [
+        36.8988,
+        37.5858,
+        36.9138,
+        37.6008
+      ]
+    },
+    "eq_4_3": {
+      "ground_truth_flooded": true,
+      "ai_predicted_flooded": true,
+      "confidence": "high",
+      "bbox": [
+        36.9138,
+        37.5858,
+        36.9288,
+        37.6008
+      ]
+    },
+    "eq_4_4": {
+      "ground_truth_flooded": true,
+      "ai_predicted_flooded": true,
+      "confidence": "high",
+      "bbox": [
+        36.9288,
+        37.5858,
+        36.9438,
+        37.6008
+      ]
+    },
+    "eq_4_5": {
+      "ground_truth_flooded": true,
+      "ai_predicted_flooded": true,
+      "confidence": "high",
+      "bbox": [
+        36.9438,
+        37.5858,
+        36.9588,
+        37.6008
+      ]
+    },
+    "eq_4_6": {
+      "ground_truth_flooded": true,
+      "ai_predicted_flooded": true,
+      "confidence": "high",
+      "bbox": [
+        36.9588,
+        37.5858,
+        36.9738,
+        37.6008
+      ]
+    },
+    "eq_4_7": {
+      "ground_truth_flooded": false,
+      "ai_predicted_flooded": false,
+      "confidence": "high",
+      "bbox": [
+        36.9738,
+        37.5858,
+        36.9888,
+        37.6008
+      ]
+    },
+    "eq_5_0": {
+      "ground_truth_flooded": false,
+      "ai_predicted_flooded": false,
+      "confidence": "high",
+      "bbox": [
+        36.8688,
+        37.6008,
+        36.8838,
+        37.6158
+      ]
+    },
+    "eq_5_1": {
+      "ground_truth_flooded": false,
+      "ai_predicted_flooded": false,
+      "confidence": "high",
+      "bbox": [
+        36.8838,
+        37.6008,
+        36.8988,
+        37.6158
+      ]
+    },
+    "eq_5_2": {
+      "ground_truth_flooded": true,
+      "ai_predicted_flooded": true,
+      "confidence": "high",
+      "bbox": [
+        36.8988,
+        37.6008,
+        36.9138,
+        37.6158
+      ]
+    },
+    "eq_5_3": {
+      "ground_truth_flooded": true,
+      "ai_predicted_flooded": true,
+      "confidence": "high",
+      "bbox": [
+        36.9138,
+        37.6008,
+        36.9288,
+        37.6158
+      ]
+    },
+    "eq_5_4": {
+      "ground_truth_flooded": true,
+      "ai_predicted_flooded": true,
+      "confidence": "high",
+      "bbox": [
+        36.9288,
+        37.6008,
+        36.9438,
+        37.6158
+      ]
+    },
+    "eq_5_5": {
+      "ground_truth_flooded": true,
+      "ai_predicted_flooded": true,
+      "confidence": "high",
+      "bbox": [
+        36.9438,
+        37.6008,
+        36.9588,
+        37.6158
+      ]
+    },
+    "eq_5_6": {
+      "ground_truth_flooded": false,
+      "ai_predicted_flooded": false,
+      "confidence": "high",
+      "bbox": [
+        36.9588,
+        37.6008,
+        36.9738,
+        37.6158
+      ]
+    },
+    "eq_5_7": {
+      "ground_truth_flooded": false,
+      "ai_predicted_flooded": false,
+      "confidence": "high",
+      "bbox": [
+        36.9738,
+        37.6008,
+        36.9888,
+        37.6158
+      ]
+    },
+    "eq_6_0": {
+      "ground_truth_flooded": false,
+      "ai_predicted_flooded": false,
+      "confidence": "high",
+      "bbox": [
+        36.8688,
+        37.6158,
+        36.8838,
+        37.6308
+      ]
+    },
+    "eq_6_1": {
+      "ground_truth_flooded": false,
+      "ai_predicted_flooded": false,
+      "confidence": "high",
+      "bbox": [
+        36.8838,
+        37.6158,
+        36.8988,
+        37.6308
+      ]
+    },
+    "eq_6_2": {
+      "ground_truth_flooded": false,
+      "ai_predicted_flooded": false,
+      "confidence": "high",
+      "bbox": [
+        36.8988,
+        37.6158,
+        36.9138,
+        37.6308
+      ]
+    },
+    "eq_6_3": {
+      "ground_truth_flooded": true,
+      "ai_predicted_flooded": true,
+      "confidence": "high",
+      "bbox": [
+        36.9138,
+        37.6158,
+        36.9288,
+        37.6308
+      ]
+    },
+    "eq_6_4": {
+      "ground_truth_flooded": true,
+      "ai_predicted_flooded": true,
+      "confidence": "high",
+      "bbox": [
+        36.9288,
+        37.6158,
+        36.9438,
+        37.6308
+      ]
+    },
+    "eq_6_5": {
+      "ground_truth_flooded": false,
+      "ai_predicted_flooded": false,
+      "confidence": "high",
+      "bbox": [
+        36.9438,
+        37.6158,
+        36.9588,
+        37.6308
+      ]
+    },
+    "eq_6_6": {
+      "ground_truth_flooded": false,
+      "ai_predicted_flooded": false,
+      "confidence": "high",
+      "bbox": [
+        36.9588,
+        37.6158,
+        36.9738,
+        37.6308
+      ]
+    },
+    "eq_6_7": {
+      "ground_truth_flooded": false,
+      "ai_predicted_flooded": false,
+      "confidence": "high",
+      "bbox": [
+        36.9738,
+        37.6158,
+        36.9888,
+        37.6308
+      ]
+    },
+    "eq_7_0": {
+      "ground_truth_flooded": false,
+      "ai_predicted_flooded": false,
+      "confidence": "high",
+      "bbox": [
+        36.8688,
+        37.6308,
+        36.8838,
+        37.6458
+      ]
+    },
+    "eq_7_1": {
+      "ground_truth_flooded": false,
+      "ai_predicted_flooded": false,
+      "confidence": "high",
+      "bbox": [
+        36.8838,
+        37.6308,
+        36.8988,
+        37.6458
+      ]
+    },
+    "eq_7_2": {
+      "ground_truth_flooded": false,
+      "ai_predicted_flooded": false,
+      "confidence": "high",
+      "bbox": [
+        36.8988,
+        37.6308,
+        36.9138,
+        37.6458
+      ]
+    },
+    "eq_7_3": {
+      "ground_truth_flooded": false,
+      "ai_predicted_flooded": false,
+      "confidence": "high",
+      "bbox": [
+        36.9138,
+        37.6308,
+        36.9288,
+        37.6458
+      ]
+    },
+    "eq_7_4": {
+      "ground_truth_flooded": false,
+      "ai_predicted_flooded": false,
+      "confidence": "high",
+      "bbox": [
+        36.9288,
+        37.6308,
+        36.9438,
+        37.6458
+      ]
+    },
+    "eq_7_5": {
+      "ground_truth_flooded": false,
+      "ai_predicted_flooded": false,
+      "confidence": "high",
+      "bbox": [
+        36.9438,
+        37.6308,
+        36.9588,
+        37.6458
+      ]
+    },
+    "eq_7_6": {
+      "ground_truth_flooded": false,
+      "ai_predicted_flooded": false,
+      "confidence": "high",
+      "bbox": [
+        36.9588,
+        37.6308,
+        36.9738,
+        37.6458
+      ]
+    },
+    "eq_7_7": {
+      "ground_truth_flooded": false,
+      "ai_predicted_flooded": false,
+      "confidence": "high",
+      "bbox": [
+        36.9738,
+        37.6308,
+        36.9888,
+        37.6458
+      ]
+    }
+  }
+}

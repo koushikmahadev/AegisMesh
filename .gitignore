@@ -1,0 +1,64 @@
+# Dependencies
+node_modules/
+*/node_modules/
+
+# Production
+dist/
+*/dist/
+
+# Environment
+.env
+.env.*
+!.env.example
+*.local
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# System and Editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Module 2: Flood Analysis
+modules/flood_analysis/data/raw_louisiana/
+modules/flood_analysis/scripts/groq_config.py
+modules/flood_analysis/scripts/hf_config.py
+modules/flood_analysis/scripts/vision_api_config.py
+HighWater_Module2_Complete/scripts/groq_config.py
+HighWater_Module2_Complete/scripts/hf_config.py
+HighWater_Module2_Complete/scripts/vision_api_config.py
+scripts/groq_config.py
+scripts/hf_config.py
+scripts/vision_api_config.py
+
+
+# Python & Virtual Environments
+.venv/
+*/.venv/
+**/venv/
+**/.venv/
+__pycache__/
+**/__pycache__/
+*.pyc
+
+# Large raw dataset archives (>100MB)
+*.zip
+*.tar.gz
+*.tif
+*.tiff
+floodnet_data/
+HighWater_Module2_Complete/output/
+HighWater_Module2_Complete/data/
+modules/dashboard/public/output_custom_*/
+
+backend/aegis_dynamics/data/
+*.csv.zip
+
+

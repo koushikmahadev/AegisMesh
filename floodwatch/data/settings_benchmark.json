@@ -1,0 +1,62 @@
+{
+  "384": {
+    "name": "INPUT_SIZE 384",
+    "pixel_f1": 2.65,
+    "pixel_iou": 1.35,
+    "roc_auc": 0.553,
+    "spearman_corr": 0.3029,
+    "latency_median_ms": 55.7,
+    "latency_p95_ms": 94.4,
+    "tp": 41468,
+    "fp": 68735,
+    "fn": 2972617
+  },
+  "512": {
+    "name": "INPUT_SIZE 512",
+    "pixel_f1": 9.66,
+    "pixel_iou": 5.08,
+    "roc_auc": 0.5497,
+    "spearman_corr": 0.2502,
+    "latency_median_ms": 60.8,
+    "latency_p95_ms": 87.9,
+    "tp": 165175,
+    "fp": 239884,
+    "fn": 2848910
+  },
+  "768": {
+    "name": "INPUT_SIZE 768",
+    "pixel_f1": 20.5,
+    "pixel_iou": 11.42,
+    "roc_auc": 0.6028,
+    "spearman_corr": 0.3722,
+    "latency_median_ms": 96.6,
+    "latency_p95_ms": 103.7,
+    "tp": 414430,
+    "fp": 614935,
+    "fn": 2599655
+  },
+  "native_full": {
+    "name": "native full-tile",
+    "pixel_f1": 16.5,
+    "pixel_iou": 8.99,
+    "roc_auc": 0.565,
+    "spearman_corr": 0.3765,
+    "latency_median_ms": 129.4,
+    "latency_p95_ms": 136.8,
+    "tp": 321829,
+    "fp": 564319,
+    "fn": 2692256
+  },
+  "native_crops_512": {
+    "name": "native overlapping 512 crops (stride 256)",
+    "pixel_f1": 27.82,
+    "pixel_iou": 16.15,
+    "roc_auc": 0.6466,
+    "spearman_corr": 0.3809,
+    "latency_median_ms": 566.1,
+    "latency_p95_ms": 661.3,
+    "tp": 707333,
+    "fp": 1364444,
+    "fn": 2306752
+  }
+}

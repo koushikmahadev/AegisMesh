@@ -1,0 +1,231 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-10-13T10:00:00Z",
+  "data_mode": "demo",
+  "study_area": "Bengaluru, Karnataka",
+  "zones": [
+    {
+      "zone_id": "zone-001",
+      "name": "Zone 001 - Bellandur Basin",
+      "risk_level": "HIGH",
+      "risk_score": 82,
+      "flooded_percent": 68,
+      "flooded_area_km2": 2.4,
+      "exposed_buildings": 34,
+      "accessibility": "LIMITED",
+      "reasons": [
+        "High flood coverage (68%)",
+        "Many exposed buildings (34)",
+        "Restricted arterial road accessibility"
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [77.6550, 12.9250],
+            [77.6900, 12.9250],
+            [77.6900, 12.9600],
+            [77.6550, 12.9600],
+            [77.6550, 12.9250]
+          ]
+        ]
+      }
+    },
+    {
+      "zone_id": "zone-002",
+      "name": "Zone 002 - Varthur Outflow",
+      "risk_level": "MEDIUM",
+      "risk_score": 54,
+      "flooded_percent": 31,
+      "flooded_area_km2": 1.1,
+      "exposed_buildings": 12,
+      "accessibility": "OPEN",
+      "reasons": [
+        "Moderate flood coverage along spillway",
+        "Agricultural buffer absorbing runoff"
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [77.7050, 12.9350],
+            [77.7450, 12.9350],
+            [77.7450, 12.9650],
+            [77.7050, 12.9650],
+            [77.7050, 12.9350]
+          ]
+        ]
+      }
+    },
+    {
+      "zone_id": "zone-003",
+      "name": "Zone 003 - Indiranagar North",
+      "risk_level": "LOW",
+      "risk_score": 18,
+      "flooded_percent": 8,
+      "flooded_area_km2": 0.3,
+      "exposed_buildings": 4,
+      "accessibility": "OPEN",
+      "reasons": [
+        "Storm drains operating normally",
+        "Minimal localized street water"
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [77.6350, 12.9650],
+            [77.6550, 12.9650],
+            [77.6550, 12.9850],
+            [77.6350, 12.9850],
+            [77.6350, 12.9650]
+          ]
+        ]
+      }
+    },
+    {
+      "zone_id": "zone-004",
+      "name": "Zone 004 - Outer Ring East",
+      "risk_level": "UNKNOWN",
+      "risk_score": null,
+      "flooded_percent": null,
+      "flooded_area_km2": null,
+      "exposed_buildings": null,
+      "accessibility": "UNKNOWN",
+      "reasons": [
+        "Telemetry link offline; awaiting drone recon flight"
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [77.6850, 12.9150],
+            [77.7050, 12.9150],
+            [77.7050, 12.9350],
+            [77.6850, 12.9350],
+            [77.6850, 12.9150]
+          ]
+        ]
+      }
+    },
+    {
+      "zone_id": "zone-005",
+      "name": "Zone 005 - Mahadevapura Lowlands",
+      "risk_level": "HIGH",
+      "risk_score": 91,
+      "flooded_percent": 74,
+      "flooded_area_km2": 3.8,
+      "exposed_buildings": 68,
+      "accessibility": "CUT_OFF",
+      "reasons": [
+        "Major residential inundation",
+        "Access road completely submerged (> 1.2m)",
+        "Elderly population density"
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [77.6750, 12.9750],
+            [77.7200, 12.9750],
+            [77.7200, 13.0100],
+            [77.6750, 13.0100],
+            [77.6750, 12.9750]
+          ]
+        ]
+      }
+    },
+    {
+      "zone_id": "zone-006",
+      "name": "Zone 006 - HSR Layout Sector 7",
+      "risk_level": "MEDIUM",
+      "risk_score": 48,
+      "flooded_percent": 22,
+      "flooded_area_km2": 0.8,
+      "exposed_buildings": 19,
+      "accessibility": "LIMITED",
+      "reasons": [
+        "Basement flooding in multi-story apartments",
+        "Power substation precautionary shutdown"
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [77.6300, 12.9050],
+            [77.6550, 12.9050],
+            [77.6550, 12.9250],
+            [77.6300, 12.9250],
+            [77.6300, 12.9050]
+          ]
+        ]
+      }
+    },
+    {
+      "zone_id": "zone-007",
+      "name": "Zone 007 - Sarjapur Road Junction",
+      "risk_level": "HIGH",
+      "risk_score": 86,
+      "flooded_percent": 58,
+      "flooded_area_km2": 1.9,
+      "exposed_buildings": 45,
+      "accessibility": "CUT_OFF",
+      "reasons": [
+        "Key transport junction submerged",
+        "Multiple stranded civilian vehicles"
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [77.6750, 12.9050],
+            [77.7050, 12.9050],
+            [77.7050, 12.9250],
+            [77.6750, 12.9250],
+            [77.6750, 12.9050]
+          ]
+        ]
+      }
+    },
+    {
+      "zone_id": "zone-008",
+      "name": "Zone 008 - Koramangala Valley",
+      "risk_level": "LOW",
+      "risk_score": 25,
+      "flooded_percent": 12,
+      "flooded_area_km2": 0.5,
+      "exposed_buildings": 8,
+      "accessibility": "OPEN",
+      "reasons": [
+        "Pumping stations operating at capacity",
+        "Water receding"
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [77.6100, 12.9250],
+            [77.6400, 12.9250],
+            [77.6400, 12.9450],
+            [77.6100, 12.9450],
+            [77.6100, 12.9250]
+          ]
+        ]
+      }
+    },
+    {
+      "zone_id": "zone-009",
+      "name": "Zone 009 - Devanahalli Heights (Non-Spatial)",
+      "risk_level": "LOW",
+      "risk_score": 10,
+      "flooded_percent": 0,
+      "flooded_area_km2": 0.0,
+      "exposed_buildings": 0,
+      "accessibility": "OPEN",
+      "reasons": [
+        "High ground staging area; no GIS polygon shape"
+      ],
+      "geometry": null
+    }
+  ]
+}

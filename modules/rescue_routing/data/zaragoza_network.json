@@ -1,0 +1,220 @@
+{
+  "meta": {
+    "coordinates_verified": false,
+    "bridge_order_unverified": true
+  },
+  "nodes": {
+    "HOSPITAL_BASE": {
+      "lat": 41.6347,
+      "lon": -0.8988,
+      "elev_m": 220.0,
+      "type": "base",
+      "description": "Miguel Servet Hospital"
+    },
+    "JUNCTION_PARAISO": {
+      "lat": 41.6468,
+      "lon": -0.8872,
+      "elev_m": 212.0,
+      "type": "junction",
+      "description": "Plaza Paraiso"
+    },
+    "JUNCTION_CENTRO": {
+      "lat": 41.6530,
+      "lon": -0.8820,
+      "elev_m": 205.0,
+      "type": "junction",
+      "description": "Cesar Augusto"
+    },
+    "PUENTE_PIEDRA_SOUTH": {
+      "lat": 41.6562,
+      "lon": -0.8757,
+      "elev_m": 198.0,
+      "type": "bridge",
+      "description": "south bridgehead, Paseo Echegaray y Caballero"
+    },
+    "PUENTE_PIEDRA_NORTH": {
+      "lat": 41.6580,
+      "lon": -0.8751,
+      "elev_m": 198.0,
+      "type": "bridge",
+      "description": "north bridgehead, Calle de Sobrarbe, Arrabal"
+    },
+    "PUENTE_SANTIAGO_SOUTH": {
+      "lat": 41.6575,
+      "lon": -0.8821,
+      "elev_m": 208.0,
+      "type": "bridge",
+      "description": "south bridgehead, Av. Cesar Augusto"
+    },
+    "PUENTE_SANTIAGO_NORTH": {
+      "lat": 41.6602,
+      "lon": -0.8812,
+      "elev_m": 208.0,
+      "type": "bridge",
+      "description": "north bridgehead, Av. de los Pirineos"
+    },
+    "ZONE_NORTH_RESIDENTIAL": {
+      "lat": 41.6635,
+      "lon": -0.8740,
+      "elev_m": 201.0,
+      "type": "zone",
+      "description": "flooded suburb"
+    },
+    "ZONE_ISLAND_COMMUNITY": {
+      "lat": 41.6580,
+      "lon": -0.8690,
+      "elev_m": 195.0,
+      "type": "zone",
+      "description": "isolated sandbar settlement"
+    },
+    "BOAT_RAMP_SOUTH": {
+      "lat": 41.6565,
+      "lon": -0.8768,
+      "elev_m": 194.0,
+      "type": "ramp",
+      "description": "Club Nautico slipway, south bank of the Ebro"
+    },
+    "RIVER_CHANNEL_MID": {
+      "lat": 41.66075,
+      "lon": -0.8715,
+      "elev_m": 194.0,
+      "type": "river_waypoint",
+      "description": "geometric midpoint of river channel between Island Community and North Residential",
+      "derived": true
+    }
+  },
+  "edges": [
+    {
+      "u": "HOSPITAL_BASE",
+      "v": "JUNCTION_PARAISO",
+      "name": "Hospital - Plaza Paraiso",
+      "kind": "road",
+      "elevation_meters": 216.0,
+      "distance_to_river_meters": 1500.0,
+      "road_factor": 1.0,
+      "current_water_depth_meters": 0.0
+    },
+    {
+      "u": "JUNCTION_PARAISO",
+      "v": "JUNCTION_CENTRO",
+      "name": "Plaza Paraiso - Centro",
+      "kind": "road",
+      "elevation_meters": 208.5,
+      "distance_to_river_meters": 800.0,
+      "road_factor": 1.0,
+      "current_water_depth_meters": 0.0
+    },
+    {
+      "u": "JUNCTION_CENTRO",
+      "v": "PUENTE_PIEDRA_SOUTH",
+      "name": "Centro - Puente de Piedra South",
+      "kind": "road",
+      "elevation_meters": 201.5,
+      "distance_to_river_meters": 150.0,
+      "road_factor": 1.0,
+      "current_water_depth_meters": 0.0
+    },
+    {
+      "u": "PUENTE_PIEDRA_SOUTH",
+      "v": "PUENTE_PIEDRA_NORTH",
+      "name": "Puente de Piedra",
+      "kind": "bridge",
+      "elevation_meters": 198.0,
+      "distance_to_river_meters": 0.0,
+      "road_factor": 1.0,
+      "current_water_depth_meters": 0.0
+    },
+    {
+      "u": "PUENTE_PIEDRA_NORTH",
+      "v": "ZONE_NORTH_RESIDENTIAL",
+      "name": "Puente de Piedra North - North Residential",
+      "kind": "road",
+      "elevation_meters": 199.5,
+      "distance_to_river_meters": 250.0,
+      "road_factor": 1.0,
+      "current_water_depth_meters": 0.0
+    },
+    {
+      "u": "JUNCTION_PARAISO",
+      "v": "PUENTE_SANTIAGO_SOUTH",
+      "name": "Plaza Paraiso - Puente de Santiago South",
+      "kind": "road",
+      "elevation_meters": 210.0,
+      "distance_to_river_meters": 600.0,
+      "road_factor": 1.25,
+      "current_water_depth_meters": 0.0
+    },
+    {
+      "u": "PUENTE_SANTIAGO_SOUTH",
+      "v": "PUENTE_SANTIAGO_NORTH",
+      "name": "Puente de Santiago",
+      "kind": "bridge",
+      "elevation_meters": 208.0,
+      "distance_to_river_meters": 0.0,
+      "road_factor": 1.0,
+      "current_water_depth_meters": 0.0
+    },
+    {
+      "u": "PUENTE_SANTIAGO_NORTH",
+      "v": "ZONE_NORTH_RESIDENTIAL",
+      "name": "Puente de Santiago North - North Residential",
+      "kind": "road",
+      "elevation_meters": 204.5,
+      "distance_to_river_meters": 500.0,
+      "road_factor": 1.2,
+      "current_water_depth_meters": 0.0
+    },
+    {
+      "u": "ZONE_NORTH_RESIDENTIAL",
+      "v": "ZONE_ISLAND_COMMUNITY",
+      "name": "North Residential - Island Causeway",
+      "kind": "causeway",
+      "elevation_meters": 195.0,
+      "distance_to_river_meters": 20.0,
+      "road_factor": 1.0,
+      "current_water_depth_meters": 0.0
+    },
+    {
+      "u": "JUNCTION_CENTRO",
+      "v": "BOAT_RAMP_SOUTH",
+      "name": "Centro - Boat Ramp South",
+      "kind": "road",
+      "elevation_meters": 199.5,
+      "distance_to_river_meters": 100.0,
+      "road_factor": 1.0,
+      "current_water_depth_meters": 0.0
+    },
+    {
+      "u": "BOAT_RAMP_SOUTH",
+      "v": "ZONE_ISLAND_COMMUNITY",
+      "name": "Boat Ramp - Island Community (River)",
+      "kind": "river",
+      "elevation_meters": 194.0,
+      "distance_to_river_meters": 0.0,
+      "road_factor": 1.0,
+      "current_water_depth_meters": 2.0
+    },
+    {
+      "u": "ZONE_ISLAND_COMMUNITY",
+      "v": "RIVER_CHANNEL_MID",
+      "name": "Island Community - River Channel Mid (River)",
+      "kind": "river",
+      "elevation_meters": 194.0,
+      "distance_to_river_meters": 0.0,
+      "road_factor": 1.0,
+      "current_water_depth_meters": 2.0,
+      "derived": true
+    },
+    {
+      "u": "RIVER_CHANNEL_MID",
+      "v": "ZONE_NORTH_RESIDENTIAL",
+      "name": "River Channel Mid - North Residential (River)",
+      "kind": "river",
+      "elevation_meters": 194.0,
+      "distance_to_river_meters": 0.0,
+      "road_factor": 1.0,
+      "current_water_depth_meters": 2.0,
+      "derived": true
+    }
+  ]
+}

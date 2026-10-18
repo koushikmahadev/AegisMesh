@@ -1,0 +1,167 @@
+{
+  "schema_version": "1.0",
+  "source": "SpaceNet 8 Custom area (10/15/2026, 2:47:06 AM)",
+  "crs": "EPSG:4326",
+  "zones": [
+    {
+      "zone_id": "zone-001",
+      "bbox": [
+        7.03523825944679,
+        50.530832805649496,
+        7.039580619516306,
+        50.53360051798839
+      ],
+      "centroid": [
+        7.037409499520433,
+        50.53221667292456
+      ],
+      "flooded_percent": 0.0,
+      "flooded_area_m2": 0.0,
+      "total_buildings": 50,
+      "exposed_buildings": 0,
+      "road_length_m": 1188.9,
+      "flooded_road_length_m": 0,
+      "accessibility": "ACCESSIBLE"
+    },
+    {
+      "zone_id": "zone-002",
+      "bbox": [
+        7.03946882932891,
+        50.53090413129356,
+        7.043810965621825,
+        50.5336716968002
+      ],
+      "centroid": [
+        7.041639957515471,
+        50.53228792515627
+      ],
+      "flooded_percent": 20.46,
+      "flooded_area_m2": 18411.9,
+      "total_buildings": 136,
+      "exposed_buildings": 102,
+      "road_length_m": 1080.2,
+      "flooded_road_length_m": 611.4,
+      "accessibility": "PARTIAL"
+    },
+    {
+      "zone_id": "zone-003",
+      "bbox": [
+        7.043699416288549,
+        50.53097530332353,
+        7.048041328764732,
+        50.53374272198181
+      ],
+      "centroid": [
+        7.045870432567966,
+        50.53235902376583
+      ],
+      "flooded_percent": 7.45,
+      "flooded_area_m2": 6707.5,
+      "total_buildings": 21,
+      "exposed_buildings": 20,
+      "road_length_m": 459.8,
+      "flooded_road_length_m": 459.8,
+      "accessibility": "BLOCKED"
+    },
+    {
+      "zone_id": "zone-004",
+      "bbox": [
+        7.047930020288979,
+        50.53104632173789,
+        7.050192371643113,
+        50.53377877763285
+      ],
+      "centroid": [
+        7.04906122614771,
+        50.53241256162715
+      ],
+      "flooded_percent": 2.1,
+      "flooded_area_m2": 959.9,
+      "total_buildings": 2,
+      "exposed_buildings": 2,
+      "road_length_m": 195.9,
+      "flooded_road_length_m": 59.4,
+      "accessibility": "PARTIAL"
+    },
+    {
+      "zone_id": "zone-005",
+      "bbox": [
+        7.035138017270978,
+        50.53352918554785,
+        7.03946882932891,
+        50.53601281754211
+      ],
+      "centroid": [
+        7.0373034771086775,
+        50.53477101027555
+      ],
+      "flooded_percent": 0.0,
+      "flooded_area_m2": 0.0,
+      "total_buildings": 0,
+      "exposed_buildings": 0,
+      "road_length_m": 1040.0,
+      "flooded_road_length_m": 0,
+      "accessibility": "ACCESSIBLE"
+    },
+    {
+      "zone_id": "zone-006",
+      "bbox": [
+        7.039368802659383,
+        50.53360051798839,
+        7.043699416288549,
+        50.536084002421894
+      ],
+      "centroid": [
+        7.041534163283601,
+        50.53484226893907
+      ],
+      "flooded_percent": 11.49,
+      "flooded_area_m2": 9252.6,
+      "total_buildings": 83,
+      "exposed_buildings": 54,
+      "road_length_m": 1001.5,
+      "flooded_road_length_m": 278.6,
+      "accessibility": "PARTIAL"
+    },
+    {
+      "zone_id": "zone-007",
+      "bbox": [
+        7.043599605128363,
+        50.5336716968002,
+        7.047930020288979,
+        50.5361550336584
+      ],
+      "centroid": [
+        7.045764866519209,
+        50.534913373966575
+      ],
+      "flooded_percent": 10.04,
+      "flooded_area_m2": 8081.4,
+      "total_buildings": 43,
+      "exposed_buildings": 43,
+      "road_length_m": 483.0,
+      "flooded_road_length_m": 483.0,
+      "accessibility": "BLOCKED"
+    },
+    {
+      "zone_id": "zone-008",
+      "bbox": [
+        7.047830424641177,
+        50.53374272198181,
+        7.050081185638832,
+        50.53619109238319
+      ],
+      "centroid": [
+        7.048955832205103,
+        50.53496691666071
+      ],
+      "flooded_percent": 2.03,
+      "flooded_area_m2": 829.5,
+      "total_buildings": 1,
+      "exposed_buildings": 1,
+      "road_length_m": 77.4,
+      "flooded_road_length_m": 77.4,
+      "accessibility": "BLOCKED"
+    }
+  ]
+}

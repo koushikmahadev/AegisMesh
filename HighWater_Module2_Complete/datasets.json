@@ -1,0 +1,172 @@
+{
+  "datasets": [
+    {
+      "key": "germany",
+      "label": "Dernau, Germany",
+      "base": "./",
+      "raw_source": "germany",
+      "status": "ready"
+    },
+    {
+      "key": "louisiana",
+      "label": "Louisiana, USA",
+      "base": "../output_louisiana/",
+      "raw_source": "louisiana",
+      "status": "ready"
+    },
+    {
+      "key": "earthquake",
+      "label": "Kahramanmara\u015f, Turkey (Earthquake M7.8)",
+      "base": "../output_eq/",
+      "raw_source": "raw_eq",
+      "status": "ready"
+    },
+    {
+      "key": "custom_1792063006133",
+      "label": "custom_1792063006133",
+      "base": "../output_custom_1792063006133/",
+      "raw_source": "germany",
+      "status": "ready"
+    },
+    {
+      "key": "custom_1792064250775",
+      "label": "custom_1792064250775",
+      "base": "../output_custom_1792064250775/",
+      "raw_source": "germany",
+      "status": "ready"
+    },
+    {
+      "key": "custom_1792068105118",
+      "label": "custom_1792068105118",
+      "base": "../output_custom_1792068105118/",
+      "raw_source": "germany",
+      "status": "ready"
+    },
+    {
+      "key": "custom_1792068230161",
+      "label": "custom_1792068230161",
+      "base": "../output_custom_1792068230161/",
+      "raw_source": "germany",
+      "status": "ready"
+    },
+    {
+      "key": "custom_1792068293333",
+      "label": "custom_1792068293333",
+      "base": "../output_custom_1792068293333/",
+      "raw_source": "germany",
+      "status": "ready"
+    },
+    {
+      "key": "custom_1792069636729",
+      "label": "custom_1792069636729",
+      "base": "../output_custom_1792069636729/",
+      "raw_source": "germany",
+      "status": "ready"
+    },
+    {
+      "key": "custom_1792074313043",
+      "label": "custom_1792074313043",
+      "base": "../output_custom_1792074313043/",
+      "raw_source": "germany",
+      "status": "ready"
+    },
+    {
+      "key": "custom_1792074824592",
+      "label": "custom_1792074824592",
+      "base": "../output_custom_1792074824592/",
+      "raw_source": "germany",
+      "status": "ready"
+    },
+    {
+      "key": "custom_1792075015242",
+      "label": "custom_1792075015242",
+      "base": "../output_custom_1792075015242/",
+      "raw_source": "germany",
+      "status": "ready"
+    },
+    {
+      "key": "custom_1792075037484",
+      "label": "custom_1792075037484",
+      "base": "../output_custom_1792075037484/",
+      "raw_source": "germany",
+      "status": "ready"
+    },
+    {
+      "key": "custom_test_1792069477",
+      "label": "custom_test_1792069477",
+      "base": "../output_custom_test_1792069477/",
+      "raw_source": "germany",
+      "status": "ready"
+    },
+    {
+      "key": "custom_test_1792074733",
+      "label": "custom_test_1792074733",
+      "base": "../output_custom_test_1792074733/",
+      "raw_source": "germany",
+      "status": "ready"
+    },
+    {
+      "key": "custom_1792075061031",
+      "label": "Custom area (10/15/2026, 8:07:41 PM)",
+      "base": "../output_custom_1792075061031/",
+      "raw_source": "louisiana",
+      "status": "ready",
+      "tile_ids": [
+        "2_20_41",
+        "2_20_42",
+        "2_21_41",
+        "2_19_41"
+      ]
+    },
+    {
+      "key": "custom_test_1792075076",
+      "label": "Automated Test (custom_test_1792075076)",
+      "base": "../output_custom_test_1792075076/",
+      "raw_source": "germany",
+      "status": "ready",
+      "tile_ids": [
+        "0_41_58",
+        "0_41_59"
+      ]
+    },
+    {
+      "key": "custom_1792075125982",
+      "label": "Custom area (10/15/2026, 8:08:45 PM)",
+      "base": "../output_custom_1792075125982/",
+      "raw_source": "louisiana",
+      "status": "ready",
+      "tile_ids": [
+        "2_20_43",
+        "2_19_43",
+        "2_18_44",
+        "2_19_44",
+        "2_20_44"
+      ]
+    },
+    {
+      "key": "custom_test_1792075279",
+      "label": "Automated Test (custom_test_1792075279)",
+      "base": "../output_custom_test_1792075279/",
+      "raw_source": "germany",
+      "status": "ready",
+      "tile_ids": [
+        "0_41_58",
+        "0_41_59"
+      ]
+    },
+    {
+      "key": "custom_1792075352603",
+      "label": "Custom area (10/15/2026, 8:12:32 PM)",
+      "base": "../output_custom_1792075352603/",
+      "raw_source": "germany",
+      "status": "ready",
+      "tile_ids": [
+        "0_31_62",
+        "0_31_60",
+        "0_32_62",
+        "0_32_61",
+        "0_31_61"
+      ]
+    }
+  ]
+}

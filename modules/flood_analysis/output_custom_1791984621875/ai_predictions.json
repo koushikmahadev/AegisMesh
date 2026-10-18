@@ -1,0 +1,26 @@
+{
+  "2_22_44": {
+    "flood_damage_detected": true,
+    "confidence": "high",
+    "reasoning": "The POST-event image shows widespread dark floodwaters inundating the land, submerging roads and isolating houses, which were on dry, green terrain in the PRE-event image.",
+    "model": "dots-studio/dots-3-note-preview:free"
+  },
+  "2_22_43": {
+    "flood_damage_detected": true,
+    "confidence": "high",
+    "reasoning": "The POST-event image shows massive water intrusion covering almost the entire land area, submerging fields and isolating buildings, which was dry land in the PRE-event image.",
+    "model": "dots-studio/dots-3-note-preview:free"
+  },
+  "2_21_43": {
+    "flood_damage_detected": false,
+    "confidence": "low",
+    "reasoning": "The POST-event image is heavily obscured by thick cloud cover and green haze, making it impossible to clearly observe the ground and identify any visible flood damage or water intrusion.",
+    "model": "dots-studio/dots-3-note-preview:free"
+  },
+  "2_21_44": {
+    "flood_damage_detected": true,
+    "confidence": "low",
+    "reasoning": "The POST-event image is heavily obscured by clouds, but the visible sections on the left show clear water intrusion with houses surrounded by floodwaters.",
+    "model": "dots-studio/dots-3-note-preview:free"
+  }
+}

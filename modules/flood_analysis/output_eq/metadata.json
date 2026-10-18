@@ -1,0 +1,46 @@
+{
+  "hazard": "earthquake",
+  "event_id": "us6000jllz",
+  "source": "USGS ShakeMap + OpenStreetMap",
+  "dataset": "USGS ShakeMap us6000jllz + OpenStreetMap",
+  "license": "USGS ShakeMap data is public domain (USGS / US Government); OpenStreetMap data is licensed under the Open Database License (ODbL).",
+  "thresholds": {
+    "mmi_building": 7.0,
+    "mmi_road": 8.0
+  },
+  "aoi_bbox_lonlat": [
+    36.8433686,
+    37.5137451,
+    37.0756662,
+    37.6477153
+  ],
+  "input_crs": "EPSG:4326 (OpenStreetMap GeoJSON features and USGS ShakeMap grid)",
+  "output_crs": "EPSG:4326 for GeoJSON outputs; EPSG 32637 used internally for area/length calculations",
+  "label_semantics": "MMI (Modified Mercalli Intensity) sampled from USGS ShakeMap grid. For buildings, sampled at centroid with threshold mmi >= 7.0. For roads, max MMI sampled along vertices with threshold mmi >= 8.0.",
+  "flooded_attribute_definition": "flooded = (mmi >= threshold), acting as an exposed-to-damaging-shaking proxy (not confirmed structural damage)",
+  "flood_extent_method": "Derived from flagged exposed buildings (polygons) and flagged exposed roads (buffered by 5.0m), unioned and simplified in UTM.",
+  "grid_config": {
+    "cell_size_m": 300.0,
+    "crs_used_for_grid": "EPSG:32637"
+  },
+  "accessibility_thresholds": {
+    "ACCESSIBLE": "flooded_road_length / road_length < 0.1",
+    "PARTIAL": "< 0.6",
+    "BLOCKED": ">= 0.6",
+    "UNKNOWN": "no road data in zone"
+  },
+  "area_length_method": "Computed in UTM zone EPSG:32637 (local projected CRS), not in degrees",
+  "counts": {
+    "total_buildings": 68026,
+    "flooded_buildings": 65766,
+    "total_roads": 8824,
+    "flooded_roads": 3744,
+    "zone_count": 2314
+  },
+  "limitations": [
+    "MMI is a modelled shaking intensity, not measured damage.",
+    "'flooded' flag means exposed-to-shaking proxy (hazard proxy, not confirmed damage).",
+    "Roads flagged by shaking are not confirmed blocked.",
+    "Single event: us6000jllz (Pazarcik earthquake, Kahramanmaras sequence, Feb 2023)."
+  ]
+}

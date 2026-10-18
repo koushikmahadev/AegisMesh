@@ -1,0 +1,112 @@
+{
+  "method": "SegFormer-B0 offline validation vs SpaceNet 8 ground truth annotations",
+  "tiles_total_in_aoi": 6,
+  "tiles_compared": 6,
+  "tiles_skipped_no_ground_truth_features": [],
+  "tiles_skipped_no_prediction": [],
+  "tiles_skipped_prediction_error": [],
+  "accuracy": 1.0,
+  "confusion": {
+    "true_positive_flooded_correctly_caught": 6,
+    "true_negative_dry_correctly_identified": 0,
+    "false_positive_false_alarm": 0,
+    "false_negative_flooded_missed": 0
+  },
+  "flat_accuracy": 1.0,
+  "flat_confusion": {
+    "true_positive_flooded_correctly_caught": 6,
+    "true_negative_dry_correctly_identified": 0,
+    "false_positive_false_alarm": 0,
+    "false_negative_flooded_missed": 0
+  },
+  "confident_tiles_scored": 6,
+  "confident_accuracy": 1.0,
+  "confident_confusion": {
+    "true_positive_flooded_correctly_caught": 6,
+    "true_negative_dry_correctly_identified": 0,
+    "false_positive_false_alarm": 0,
+    "false_negative_flooded_missed": 0
+  },
+  "uncertain_tile_count": 0,
+  "uncertain_tile_ids": [],
+  "per_tile": {
+    "2_14_46": {
+      "ground_truth_flooded": true,
+      "ai_predicted_flooded": true,
+      "confidence": "high",
+      "reasoning": "The POST-event image shows extensive dark floodwaters covering streets and residential properties, which were dry and green in the PRE-event image.",
+      "category": "CONFIDENT",
+      "bbox": [
+        -90.1359344,
+        29.747052640135752,
+        -90.13058219235005,
+        29.752684078839085
+      ]
+    },
+    "2_15_46": {
+      "ground_truth_flooded": true,
+      "ai_predicted_flooded": true,
+      "confidence": "high",
+      "reasoning": "A large, highly reflective flooded field and waterlogged muddy areas are visible in the POST-event image, replacing the dry green fields and vegetation seen in the PRE-event image.",
+      "category": "CONFIDENT",
+      "bbox": [
+        -90.13058219235005,
+        29.747052640135752,
+        -90.1272011,
+        29.752684078839085
+      ]
+    },
+    "2_13_47": {
+      "ground_truth_flooded": true,
+      "ai_predicted_flooded": true,
+      "confidence": "medium",
+      "reasoning": "The POST-event image shows a significant expansion of water over the shoreline and land areas, with bright, sediment-rich or turbulent water covering regions that were dry land in the PRE-event image.",
+      "category": "CONFIDENT",
+      "bbox": [
+        -90.1393404,
+        29.7451884,
+        -90.1371118,
+        29.747052640135752
+      ]
+    },
+    "2_14_47": {
+      "ground_truth_flooded": true,
+      "ai_predicted_flooded": true,
+      "confidence": "high",
+      "reasoning": "The POST-event image shows extensive muddy water with visible ripple patterns covering the land and fields, which were dry green areas in the PRE-event image.",
+      "category": "CONFIDENT",
+      "bbox": [
+        -90.135591,
+        29.74142120143242,
+        -90.13058219235005,
+        29.747052640135752
+      ]
+    },
+    "2_15_47": {
+      "ground_truth_flooded": true,
+      "ai_predicted_flooded": true,
+      "confidence": "high",
+      "reasoning": "The POST-event image shows dark standing water covering the large field and residential yards, which were dry in the PRE-event image.",
+      "category": "CONFIDENT",
+      "bbox": [
+        -90.13058219235005,
+        29.74142120143242,
+        -90.1273563,
+        29.747052640135752
+      ]
+    },
+    "2_13_46": {
+      "ground_truth_flooded": true,
+      "ai_predicted_flooded": true,
+      "confidence": "high",
+      "reasoning": "The POST-event image shows extensive dark floodwaters inundating the land, roads, and properties, which were clearly dry and green in the PRE-event image.",
+      "category": "CONFIDENT",
+      "bbox": [
+        -90.1392925,
+        29.747052640135752,
+        -90.13633054979005,
+        29.752684078839085
+      ]
+    }
+  }
+}

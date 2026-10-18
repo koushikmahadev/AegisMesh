@@ -1,0 +1,358 @@
+{
+  "req1": {
+    "index": 1,
+    "tileId": "0_15_69",
+    "clickToRenderMs": 1164.0999999642372,
+    "serverTiming": "io;dur=500.6, preprocess;dur=66.5, gpu;dur=223.3, postprocess;dur=3.5, encode;dur=211.6, total;dur=1045.6",
+    "ioMs": 500.6,
+    "gpuMs": 223.3,
+    "preMs": 66.5,
+    "postMs": 3.5,
+    "cached": false
+  },
+  "stats": {
+    "min": 611.8999999761581,
+    "med": 713,
+    "p95": 1178.699999988079,
+    "max": 1295.1000000238419
+  },
+  "ioStats": {
+    "min": 309.2,
+    "med": 380.6,
+    "p95": 619.8,
+    "max": 837.1
+  },
+  "osCacheControlled": false,
+  "measurements": [
+    {
+      "index": 1,
+      "tileId": "0_15_69",
+      "clickToRenderMs": 1164.0999999642372,
+      "serverTiming": "io;dur=500.6, preprocess;dur=66.5, gpu;dur=223.3, postprocess;dur=3.5, encode;dur=211.6, total;dur=1045.6",
+      "ioMs": 500.6,
+      "gpuMs": 223.3,
+      "preMs": 66.5,
+      "postMs": 3.5,
+      "cached": false
+    },
+    {
+      "index": 2,
+      "tileId": "0_15_70",
+      "clickToRenderMs": 1099.1000000238419,
+      "serverTiming": "io;dur=619.8, preprocess;dur=45.5, gpu;dur=128.1, postprocess;dur=2.9, encode;dur=166.1, total;dur=1000.3",
+      "ioMs": 619.8,
+      "gpuMs": 128.1,
+      "preMs": 45.5,
+      "postMs": 2.9,
+      "cached": false
+    },
+    {
+      "index": 3,
+      "tileId": "0_16_63",
+      "clickToRenderMs": 1178.699999988079,
+      "serverTiming": "io;dur=562.6, preprocess;dur=45.8, gpu;dur=236.3, postprocess;dur=3.3, encode;dur=162.5, total;dur=1114.4",
+      "ioMs": 562.6,
+      "gpuMs": 236.3,
+      "preMs": 45.8,
+      "postMs": 3.3,
+      "cached": false
+    },
+    {
+      "index": 4,
+      "tileId": "0_16_66",
+      "clickToRenderMs": 821.6000000238419,
+      "serverTiming": "io;dur=419.5, preprocess;dur=33.1, gpu;dur=45.4, postprocess;dur=2.7, encode;dur=211.0, total;dur=719.7",
+      "ioMs": 419.5,
+      "gpuMs": 45.4,
+      "preMs": 33.1,
+      "postMs": 2.7,
+      "cached": false
+    },
+    {
+      "index": 5,
+      "tileId": "0_16_67",
+      "clickToRenderMs": 745.2000000476837,
+      "serverTiming": "io;dur=419.3, preprocess;dur=34.3, gpu;dur=40.6, postprocess;dur=2.6, encode;dur=170.9, total;dur=677.6",
+      "ioMs": 419.3,
+      "gpuMs": 40.6,
+      "preMs": 34.3,
+      "postMs": 2.6,
+      "cached": false
+    },
+    {
+      "index": 6,
+      "tileId": "0_16_68",
+      "clickToRenderMs": 910,
+      "serverTiming": "io;dur=425.3, preprocess;dur=29.3, gpu;dur=217.8, postprocess;dur=3.5, encode;dur=154.0, total;dur=848.4",
+      "ioMs": 425.3,
+      "gpuMs": 217.8,
+      "preMs": 29.3,
+      "postMs": 3.5,
+      "cached": false
+    },
+    {
+      "index": 7,
+      "tileId": "0_16_70",
+      "clickToRenderMs": 695.3000000119209,
+      "serverTiming": "io;dur=334.0, preprocess;dur=21.6, gpu;dur=38.9, postprocess;dur=3.7, encode;dur=222.6, total;dur=633.1",
+      "ioMs": 334,
+      "gpuMs": 38.9,
+      "preMs": 21.6,
+      "postMs": 3.7,
+      "cached": false
+    },
+    {
+      "index": 8,
+      "tileId": "0_17_63",
+      "clickToRenderMs": 611.8999999761581,
+      "serverTiming": "io;dur=329.8, preprocess;dur=23.2, gpu;dur=40.1, postprocess;dur=2.7, encode;dur=141.4, total;dur=544.5",
+      "ioMs": 329.8,
+      "gpuMs": 40.1,
+      "preMs": 23.2,
+      "postMs": 2.7,
+      "cached": false
+    },
+    {
+      "index": 9,
+      "tileId": "0_17_66",
+      "clickToRenderMs": 627.1999999880791,
+      "serverTiming": "io;dur=309.2, preprocess;dur=30.5, gpu;dur=53.9, postprocess;dur=4.1, encode;dur=166.4, total;dur=575.9",
+      "ioMs": 309.2,
+      "gpuMs": 53.9,
+      "preMs": 30.5,
+      "postMs": 4.1,
+      "cached": false
+    },
+    {
+      "index": 10,
+      "tileId": "0_17_67",
+      "clickToRenderMs": 724.7999999523163,
+      "serverTiming": "io;dur=391.0, preprocess;dur=33.3, gpu;dur=71.8, postprocess;dur=4.8, encode;dur=149.2, total;dur=658.8",
+      "ioMs": 391,
+      "gpuMs": 71.8,
+      "preMs": 33.3,
+      "postMs": 4.8,
+      "cached": false
+    },
+    {
+      "index": 11,
+      "tileId": "0_17_68",
+      "clickToRenderMs": 660.3999999761581,
+      "serverTiming": "io;dur=323.8, preprocess;dur=19.4, gpu;dur=83.2, postprocess;dur=5.9, encode;dur=162.1, total;dur=606.7",
+      "ioMs": 323.8,
+      "gpuMs": 83.2,
+      "preMs": 19.4,
+      "postMs": 5.9,
+      "cached": false
+    },
+    {
+      "index": 12,
+      "tileId": "0_18_63",
+      "clickToRenderMs": 1295.1000000238419,
+      "serverTiming": "io;dur=837.1, preprocess;dur=56.2, gpu;dur=133.0, postprocess;dur=4.8, encode;dur=174.0, total;dur=1232.3",
+      "ioMs": 837.1,
+      "gpuMs": 133,
+      "preMs": 56.2,
+      "postMs": 4.8,
+      "cached": false
+    },
+    {
+      "index": 13,
+      "tileId": "0_18_65",
+      "clickToRenderMs": 1083.800000011921,
+      "serverTiming": "io;dur=520.5, preprocess;dur=37.1, gpu;dur=233.4, postprocess;dur=16.7, encode;dur=192.5, total;dur=1022.8",
+      "ioMs": 520.5,
+      "gpuMs": 233.4,
+      "preMs": 37.1,
+      "postMs": 16.7,
+      "cached": false
+    },
+    {
+      "index": 14,
+      "tileId": "0_18_66",
+      "clickToRenderMs": 944.8000000119209,
+      "serverTiming": "io;dur=575.9, preprocess;dur=34.6, gpu;dur=45.8, postprocess;dur=2.6, encode;dur=206.0, total;dur=879.3",
+      "ioMs": 575.9,
+      "gpuMs": 45.8,
+      "preMs": 34.6,
+      "postMs": 2.6,
+      "cached": false
+    },
+    {
+      "index": 15,
+      "tileId": "0_18_67",
+      "clickToRenderMs": 700.8999999761581,
+      "serverTiming": "io;dur=379.2, preprocess;dur=21.8, gpu;dur=39.3, postprocess;dur=2.7, encode;dur=181.0, total;dur=631.9",
+      "ioMs": 379.2,
+      "gpuMs": 39.3,
+      "preMs": 21.8,
+      "postMs": 2.7,
+      "cached": false
+    },
+    {
+      "index": 16,
+      "tileId": "0_18_68",
+      "clickToRenderMs": 958.5999999642372,
+      "serverTiming": "io;dur=406.2, preprocess;dur=46.2, gpu;dur=231.3, postprocess;dur=14.8, encode;dur=173.1, total;dur=891.7",
+      "ioMs": 406.2,
+      "gpuMs": 231.3,
+      "preMs": 46.2,
+      "postMs": 14.8,
+      "cached": false
+    },
+    {
+      "index": 17,
+      "tileId": "0_18_69",
+      "clickToRenderMs": 698.6999999880791,
+      "serverTiming": "io;dur=364.4, preprocess;dur=31.6, gpu;dur=37.9, postprocess;dur=2.6, encode;dur=190.2, total;dur=634.6",
+      "ioMs": 364.4,
+      "gpuMs": 37.9,
+      "preMs": 31.6,
+      "postMs": 2.6,
+      "cached": false
+    },
+    {
+      "index": 18,
+      "tileId": "0_19_63",
+      "clickToRenderMs": 711.6999999880791,
+      "serverTiming": "io;dur=380.6, preprocess;dur=38.6, gpu;dur=44.2, postprocess;dur=2.5, encode;dur=183.0, total;dur=656.3",
+      "ioMs": 380.6,
+      "gpuMs": 44.2,
+      "preMs": 38.6,
+      "postMs": 2.5,
+      "cached": false
+    },
+    {
+      "index": 19,
+      "tileId": "0_19_65",
+      "clickToRenderMs": 745,
+      "serverTiming": "io;dur=419.1, preprocess;dur=24.0, gpu;dur=54.8, postprocess;dur=4.3, encode;dur=172.6, total;dur=684.2",
+      "ioMs": 419.1,
+      "gpuMs": 54.8,
+      "preMs": 24,
+      "postMs": 4.3,
+      "cached": false
+    },
+    {
+      "index": 20,
+      "tileId": "0_19_66",
+      "clickToRenderMs": 712.3000000119209,
+      "serverTiming": "io;dur=349.6, preprocess;dur=20.7, gpu;dur=72.6, postprocess;dur=4.8, encode;dur=160.5, total;dur=622.8",
+      "ioMs": 349.6,
+      "gpuMs": 72.6,
+      "preMs": 20.7,
+      "postMs": 4.8,
+      "cached": false
+    },
+    {
+      "index": 21,
+      "tileId": "0_19_67",
+      "clickToRenderMs": 713,
+      "serverTiming": "io;dur=389.9, preprocess;dur=31.1, gpu;dur=71.7, postprocess;dur=4.5, encode;dur=153.9, total;dur=664.7",
+      "ioMs": 389.9,
+      "gpuMs": 71.7,
+      "preMs": 31.1,
+      "postMs": 4.5,
+      "cached": false
+    },
+    {
+      "index": 22,
+      "tileId": "0_19_68",
+      "clickToRenderMs": 655.8000000119209,
+      "serverTiming": "io;dur=350.4, preprocess;dur=22.0, gpu;dur=69.3, postprocess;dur=5.4, encode;dur=149.6, total;dur=604.7",
+      "ioMs": 350.4,
+      "gpuMs": 69.3,
+      "preMs": 22,
+      "postMs": 5.4,
+      "cached": false
+    },
+    {
+      "index": 23,
+      "tileId": "0_20_63",
+      "clickToRenderMs": 711,
+      "serverTiming": "io;dur=371.4, preprocess;dur=21.6, gpu;dur=85.7, postprocess;dur=5.4, encode;dur=162.2, total;dur=655.4",
+      "ioMs": 371.4,
+      "gpuMs": 85.7,
+      "preMs": 21.6,
+      "postMs": 5.4,
+      "cached": false
+    },
+    {
+      "index": 24,
+      "tileId": "0_20_65",
+      "clickToRenderMs": 728.3999999761581,
+      "serverTiming": "io;dur=363.1, preprocess;dur=31.3, gpu;dur=107.9, postprocess;dur=6.2, encode;dur=154.9, total;dur=672.8",
+      "ioMs": 363.1,
+      "gpuMs": 107.9,
+      "preMs": 31.3,
+      "postMs": 6.2,
+      "cached": false
+    },
+    {
+      "index": 25,
+      "tileId": "0_20_66",
+      "clickToRenderMs": 895.1999999880791,
+      "serverTiming": "io;dur=392.4, preprocess;dur=26.1, gpu;dur=182.6, postprocess;dur=2.6, encode;dur=215.6, total;dur=842.4",
+      "ioMs": 392.4,
+      "gpuMs": 182.6,
+      "preMs": 26.1,
+      "postMs": 2.6,
+      "cached": false
+    },
+    {
+      "index": 26,
+      "tileId": "0_20_67",
+      "clickToRenderMs": 630.0999999642372,
+      "serverTiming": "io;dur=325.8, preprocess;dur=25.0, gpu;dur=34.5, postprocess;dur=2.5, encode;dur=172.4, total;dur=568.3",
+      "ioMs": 325.8,
+      "gpuMs": 34.5,
+      "preMs": 25,
+      "postMs": 2.5,
+      "cached": false
+    },
+    {
+      "index": 27,
+      "tileId": "0_20_68",
+      "clickToRenderMs": 613.5,
+      "serverTiming": "io;dur=322.1, preprocess;dur=25.0, gpu;dur=40.4, postprocess;dur=2.5, encode;dur=166.9, total;dur=564.1",
+      "ioMs": 322.1,
+      "gpuMs": 40.4,
+      "preMs": 25,
+      "postMs": 2.5,
+      "cached": false
+    },
+    {
+      "index": 28,
+      "tileId": "0_21_63",
+      "clickToRenderMs": 695.8000000119209,
+      "serverTiming": "io;dur=342.5, preprocess;dur=40.8, gpu;dur=60.5, postprocess;dur=5.0, encode;dur=192.5, total;dur=653.7",
+      "ioMs": 342.5,
+      "gpuMs": 60.5,
+      "preMs": 40.8,
+      "postMs": 5,
+      "cached": false
+    },
+    {
+      "index": 29,
+      "tileId": "0_21_65",
+      "clickToRenderMs": 744.8000000119209,
+      "serverTiming": "io;dur=396.8, preprocess;dur=28.8, gpu;dur=74.5, postprocess;dur=4.9, encode;dur=172.6, total;dur=686.0",
+      "ioMs": 396.8,
+      "gpuMs": 74.5,
+      "preMs": 28.8,
+      "postMs": 4.9,
+      "cached": false
+    },
+    {
+      "index": 30,
+      "tileId": "0_21_66",
+      "clickToRenderMs": 709.3000000119209,
+      "serverTiming": "io;dur=362.5, preprocess;dur=28.3, gpu;dur=71.8, postprocess;dur=4.7, encode;dur=176.6, total;dur=652.1",
+      "ioMs": 362.5,
+      "gpuMs": 71.8,
+      "preMs": 28.3,
+      "postMs": 4.7,
+      "cached": false
+    }
+  ]
+}

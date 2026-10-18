@@ -1,0 +1,97 @@
+{
+  "start_tile": "0_15_63",
+  "end_tile": "0_27_63",
+  "repetitions": 5,
+  "condition_a_with_latest_wins": {
+    "median_time_from_last_key_ms": 936.8,
+    "median_requests_sent": 5,
+    "runs": [
+      {
+        "endTile": "0_27_63",
+        "timeFromLastKey": 1525.5515000000005,
+        "totalTimeFromStart": 2781.161400000001,
+        "sent": 6,
+        "resp": 1,
+        "fail": 5
+      },
+      {
+        "endTile": "0_27_63",
+        "timeFromLastKey": 1198.0650000000005,
+        "totalTimeFromStart": 2258.5666,
+        "sent": 1,
+        "resp": 1,
+        "fail": 0
+      },
+      {
+        "endTile": "0_27_63",
+        "timeFromLastKey": 816.4330999999984,
+        "totalTimeFromStart": 1835.3230000000003,
+        "sent": 1,
+        "resp": 1,
+        "fail": 0
+      },
+      {
+        "endTile": "0_27_63",
+        "timeFromLastKey": 936.7751000000026,
+        "totalTimeFromStart": 2040.163700000001,
+        "sent": 6,
+        "resp": 1,
+        "fail": 5
+      },
+      {
+        "endTile": "0_27_63",
+        "timeFromLastKey": 889.6054999999978,
+        "totalTimeFromStart": 1986.1886000000013,
+        "sent": 5,
+        "resp": 1,
+        "fail": 4
+      }
+    ]
+  },
+  "condition_b_without_latest_wins": {
+    "median_time_from_last_key_ms": 823.8,
+    "median_requests_sent": 10,
+    "runs": [
+      {
+        "endTile": "0_27_63",
+        "timeFromLastKey": 792.594299999997,
+        "totalTimeFromStart": 1902.8238999999958,
+        "sent": 10,
+        "resp": 1,
+        "fail": 9
+      },
+      {
+        "endTile": "0_27_63",
+        "timeFromLastKey": 772.3701999999976,
+        "totalTimeFromStart": 1856.8131999999969,
+        "sent": 10,
+        "resp": 1,
+        "fail": 9
+      },
+      {
+        "endTile": "0_27_63",
+        "timeFromLastKey": 962.1852999999974,
+        "totalTimeFromStart": 2127.0262999999977,
+        "sent": 10,
+        "resp": 1,
+        "fail": 9
+      },
+      {
+        "endTile": "0_27_63",
+        "timeFromLastKey": 823.7989000000089,
+        "totalTimeFromStart": 1905.6840000000084,
+        "sent": 10,
+        "resp": 1,
+        "fail": 9
+      },
+      {
+        "endTile": "0_27_63",
+        "timeFromLastKey": 871.5578999999998,
+        "totalTimeFromStart": 1993.7042000000074,
+        "sent": 10,
+        "resp": 1,
+        "fail": 9
+      }
+    ]
+  }
+}

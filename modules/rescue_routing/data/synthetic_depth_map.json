@@ -1,0 +1,7 @@
+{
+  "synthetic": true,
+  "depth_age_min": 45,
+  "depths": {
+    "PUENTE_PIEDRA_SOUTH|PUENTE_PIEDRA_NORTH": 0.85
+  }
+}

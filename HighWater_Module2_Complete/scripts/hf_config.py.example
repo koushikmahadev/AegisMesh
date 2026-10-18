@@ -1,0 +1,3 @@
+HF_API_TOKENS = [
+    "your_hf_token_here",
+]

@@ -1,0 +1,56 @@
+{
+  "2_19_43": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "The POST-event image is completely obscured by thick cloud cover, making it impossible to visually detect any ground-level flood damage or water intrusion.",
+    "model": "dots-studio/dots-3-note-preview:free"
+  },
+  "2_20_45": {
+    "flood_damage_detected": true,
+    "confidence": "medium",
+    "reasoning": "The POST-event image shows a widespread dark, murky green hue over the vegetation and low-lying areas, indicating significant water intrusion and flood inundation that was not present in the clearer PRE-event image.",
+    "model": "dots-studio/dots-3-note-preview:free"
+  },
+  "2_21_43": {
+    "flood_damage_detected": false,
+    "confidence": "low",
+    "reasoning": "The POST-event image is heavily obscured by thick cloud cover, preventing clear visual assessment of the ground for any new water intrusion or flood damage.",
+    "model": "dots-studio/dots-3-note-preview:free"
+  },
+  "2_21_44": {
+    "flood_damage_detected": true,
+    "confidence": "medium",
+    "reasoning": "The visible parts of the POST-event image show houses and land submerged under dark floodwaters, indicating clear water intrusion.",
+    "model": "dots-studio/dots-3-note-preview:free"
+  },
+  "2_20_43": {
+    "flood_damage_detected": true,
+    "confidence": "medium",
+    "reasoning": "The POST-image shows dark, waterlogged ground and inundation around the roads and buildings despite partial cloud cover.",
+    "model": "dots-studio/dots-3-note-preview:free"
+  },
+  "2_18_44": {
+    "flood_damage_detected": false,
+    "confidence": "low",
+    "reasoning": "The POST-event image is almost completely obscured by thick cloud cover, preventing any clear visual assessment of surface flood damage or water intrusion.",
+    "model": "dots-studio/dots-3-note-preview:free"
+  },
+  "2_19_44": {
+    "flood_damage_detected": true,
+    "confidence": "medium",
+    "reasoning": "The POST-event image shows the residential area covered by dark floodwaters with only rooftops visible, compared to the dry land and clear roads in the PRE-event image.",
+    "model": "dots-studio/dots-3-note-preview:free"
+  },
+  "2_19_45": {
+    "flood_damage_detected": true,
+    "confidence": "medium",
+    "reasoning": "The low-lying field and access paths appear dark and submerged under floodwaters in the post-event image compared to the dry pre-event conditions.",
+    "model": "dots-studio/dots-3-note-preview:free"
+  },
+  "2_20_44": {
+    "flood_damage_detected": true,
+    "confidence": "high",
+    "reasoning": "The POST-event image shows a massive greyish debris and floodwater plume covering the river and surrounding land, which was dry and clear in the PRE-event image.",
+    "model": "dots-studio/dots-3-note-preview:free"
+  }
+}

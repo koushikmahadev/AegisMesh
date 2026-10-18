@@ -1,0 +1,2245 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.8718,
+              37.5288
+            ],
+            [
+              36.8768,
+              37.5288
+            ],
+            [
+              36.8768,
+              37.5338
+            ],
+            [
+              36.8718,
+              37.5338
+            ],
+            [
+              36.8718,
+              37.5288
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "building": "residential",
+        "flooded": false,
+        "hazard_value": 6.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.8868,
+              37.5288
+            ],
+            [
+              36.8918,
+              37.5288
+            ],
+            [
+              36.8918,
+              37.5338
+            ],
+            [
+              36.8868,
+              37.5338
+            ],
+            [
+              36.8868,
+              37.5288
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "building": "residential",
+        "flooded": false,
+        "hazard_value": 6.4
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9018,
+              37.5288
+            ],
+            [
+              36.9068,
+              37.5288
+            ],
+            [
+              36.9068,
+              37.5338
+            ],
+            [
+              36.9018,
+              37.5338
+            ],
+            [
+              36.9018,
+              37.5288
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "building": "residential",
+        "flooded": false,
+        "hazard_value": 6.7
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9168,
+              37.5288
+            ],
+            [
+              36.9218,
+              37.5288
+            ],
+            [
+              36.9218,
+              37.5338
+            ],
+            [
+              36.9168,
+              37.5338
+            ],
+            [
+              36.9168,
+              37.5288
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "building": "residential",
+        "flooded": false,
+        "hazard_value": 6.9
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9318,
+              37.5288
+            ],
+            [
+              36.9368,
+              37.5288
+            ],
+            [
+              36.9368,
+              37.5338
+            ],
+            [
+              36.9318,
+              37.5338
+            ],
+            [
+              36.9318,
+              37.5288
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "building": "residential",
+        "flooded": false,
+        "hazard_value": 6.9
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9468,
+              37.5288
+            ],
+            [
+              36.9518,
+              37.5288
+            ],
+            [
+              36.9518,
+              37.5338
+            ],
+            [
+              36.9468,
+              37.5338
+            ],
+            [
+              36.9468,
+              37.5288
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "building": "residential",
+        "flooded": false,
+        "hazard_value": 6.7
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9618,
+              37.5288
+            ],
+            [
+              36.9668,
+              37.5288
+            ],
+            [
+              36.9668,
+              37.5338
+            ],
+            [
+              36.9618,
+              37.5338
+            ],
+            [
+              36.9618,
+              37.5288
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "building": "residential",
+        "flooded": false,
+        "hazard_value": 6.4
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9768,
+              37.5288
+            ],
+            [
+              36.9818,
+              37.5288
+            ],
+            [
+              36.9818,
+              37.5338
+            ],
+            [
+              36.9768,
+              37.5338
+            ],
+            [
+              36.9768,
+              37.5288
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "building": "residential",
+        "flooded": false,
+        "hazard_value": 6.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.8718,
+              37.5438
+            ],
+            [
+              36.8768,
+              37.5438
+            ],
+            [
+              36.8768,
+              37.5488
+            ],
+            [
+              36.8718,
+              37.5488
+            ],
+            [
+              36.8718,
+              37.5438
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "building": "residential",
+        "flooded": false,
+        "hazard_value": 6.4
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.8868,
+              37.5438
+            ],
+            [
+              36.8918,
+              37.5438
+            ],
+            [
+              36.8918,
+              37.5488
+            ],
+            [
+              36.8868,
+              37.5488
+            ],
+            [
+              36.8868,
+              37.5438
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "building": "residential",
+        "flooded": false,
+        "hazard_value": 6.9
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9018,
+              37.5438
+            ],
+            [
+              36.9068,
+              37.5438
+            ],
+            [
+              36.9068,
+              37.5488
+            ],
+            [
+              36.9018,
+              37.5488
+            ],
+            [
+              36.9018,
+              37.5438
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "building": "residential",
+        "flooded": true,
+        "hazard_value": 7.3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9168,
+              37.5438
+            ],
+            [
+              36.9218,
+              37.5438
+            ],
+            [
+              36.9218,
+              37.5488
+            ],
+            [
+              36.9168,
+              37.5488
+            ],
+            [
+              36.9168,
+              37.5438
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "building": "residential",
+        "flooded": true,
+        "hazard_value": 7.5
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9318,
+              37.5438
+            ],
+            [
+              36.9368,
+              37.5438
+            ],
+            [
+              36.9368,
+              37.5488
+            ],
+            [
+              36.9318,
+              37.5488
+            ],
+            [
+              36.9318,
+              37.5438
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "building": "residential",
+        "flooded": true,
+        "hazard_value": 7.5
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9468,
+              37.5438
+            ],
+            [
+              36.9518,
+              37.5438
+            ],
+            [
+              36.9518,
+              37.5488
+            ],
+            [
+              36.9468,
+              37.5488
+            ],
+            [
+              36.9468,
+              37.5438
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "building": "residential",
+        "flooded": true,
+        "hazard_value": 7.3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9618,
+              37.5438
+            ],
+            [
+              36.9668,
+              37.5438
+            ],
+            [
+              36.9668,
+              37.5488
+            ],
+            [
+              36.9618,
+              37.5488
+            ],
+            [
+              36.9618,
+              37.5438
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "building": "residential",
+        "flooded": false,
+        "hazard_value": 6.9
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9768,
+              37.5438
+            ],
+            [
+              36.9818,
+              37.5438
+            ],
+            [
+              36.9818,
+              37.5488
+            ],
+            [
+              36.9768,
+              37.5488
+            ],
+            [
+              36.9768,
+              37.5438
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "building": "residential",
+        "flooded": false,
+        "hazard_value": 6.4
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.8718,
+              37.5588
+            ],
+            [
+              36.8768,
+              37.5588
+            ],
+            [
+              36.8768,
+              37.5638
+            ],
+            [
+              36.8718,
+              37.5638
+            ],
+            [
+              36.8718,
+              37.5588
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "building": "residential",
+        "flooded": false,
+        "hazard_value": 6.7
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.8868,
+              37.5588
+            ],
+            [
+              36.8918,
+              37.5588
+            ],
+            [
+              36.8918,
+              37.5638
+            ],
+            [
+              36.8868,
+              37.5638
+            ],
+            [
+              36.8868,
+              37.5588
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "building": "residential",
+        "flooded": true,
+        "hazard_value": 7.3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9018,
+              37.5588
+            ],
+            [
+              36.9068,
+              37.5588
+            ],
+            [
+              36.9068,
+              37.5638
+            ],
+            [
+              36.9018,
+              37.5638
+            ],
+            [
+              36.9018,
+              37.5588
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "building": "residential",
+        "flooded": true,
+        "hazard_value": 7.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9168,
+              37.5588
+            ],
+            [
+              36.9218,
+              37.5588
+            ],
+            [
+              36.9218,
+              37.5638
+            ],
+            [
+              36.9168,
+              37.5638
+            ],
+            [
+              36.9168,
+              37.5588
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "building": "residential",
+        "flooded": true,
+        "hazard_value": 8.2
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9318,
+              37.5588
+            ],
+            [
+              36.9368,
+              37.5588
+            ],
+            [
+              36.9368,
+              37.5638
+            ],
+            [
+              36.9318,
+              37.5638
+            ],
+            [
+              36.9318,
+              37.5588
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "building": "residential",
+        "flooded": true,
+        "hazard_value": 8.2
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9468,
+              37.5588
+            ],
+            [
+              36.9518,
+              37.5588
+            ],
+            [
+              36.9518,
+              37.5638
+            ],
+            [
+              36.9468,
+              37.5638
+            ],
+            [
+              36.9468,
+              37.5588
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "building": "residential",
+        "flooded": true,
+        "hazard_value": 7.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9618,
+              37.5588
+            ],
+            [
+              36.9668,
+              37.5588
+            ],
+            [
+              36.9668,
+              37.5638
+            ],
+            [
+              36.9618,
+              37.5638
+            ],
+            [
+              36.9618,
+              37.5588
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "building": "residential",
+        "flooded": true,
+        "hazard_value": 7.3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9768,
+              37.5588
+            ],
+            [
+              36.9818,
+              37.5588
+            ],
+            [
+              36.9818,
+              37.5638
+            ],
+            [
+              36.9768,
+              37.5638
+            ],
+            [
+              36.9768,
+              37.5588
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "building": "residential",
+        "flooded": false,
+        "hazard_value": 6.7
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.8718,
+              37.5738
+            ],
+            [
+              36.8768,
+              37.5738
+            ],
+            [
+              36.8768,
+              37.5788
+            ],
+            [
+              36.8718,
+              37.5788
+            ],
+            [
+              36.8718,
+              37.5738
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "building": "residential",
+        "flooded": false,
+        "hazard_value": 6.9
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.8868,
+              37.5738
+            ],
+            [
+              36.8918,
+              37.5738
+            ],
+            [
+              36.8918,
+              37.5788
+            ],
+            [
+              36.8868,
+              37.5788
+            ],
+            [
+              36.8868,
+              37.5738
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "building": "residential",
+        "flooded": true,
+        "hazard_value": 7.5
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9018,
+              37.5738
+            ],
+            [
+              36.9068,
+              37.5738
+            ],
+            [
+              36.9068,
+              37.5788
+            ],
+            [
+              36.9018,
+              37.5788
+            ],
+            [
+              36.9018,
+              37.5738
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "building": "residential",
+        "flooded": true,
+        "hazard_value": 8.2
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9168,
+              37.5738
+            ],
+            [
+              36.9218,
+              37.5738
+            ],
+            [
+              36.9218,
+              37.5788
+            ],
+            [
+              36.9168,
+              37.5788
+            ],
+            [
+              36.9168,
+              37.5738
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "building": "residential",
+        "flooded": true,
+        "hazard_value": 8.7
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9318,
+              37.5738
+            ],
+            [
+              36.9368,
+              37.5738
+            ],
+            [
+              36.9368,
+              37.5788
+            ],
+            [
+              36.9318,
+              37.5788
+            ],
+            [
+              36.9318,
+              37.5738
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "building": "residential",
+        "flooded": true,
+        "hazard_value": 8.7
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9468,
+              37.5738
+            ],
+            [
+              36.9518,
+              37.5738
+            ],
+            [
+              36.9518,
+              37.5788
+            ],
+            [
+              36.9468,
+              37.5788
+            ],
+            [
+              36.9468,
+              37.5738
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "building": "residential",
+        "flooded": true,
+        "hazard_value": 8.2
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9618,
+              37.5738
+            ],
+            [
+              36.9668,
+              37.5738
+            ],
+            [
+              36.9668,
+              37.5788
+            ],
+            [
+              36.9618,
+              37.5788
+            ],
+            [
+              36.9618,
+              37.5738
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "building": "residential",
+        "flooded": true,
+        "hazard_value": 7.5
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9768,
+              37.5738
+            ],
+            [
+              36.9818,
+              37.5738
+            ],
+            [
+              36.9818,
+              37.5788
+            ],
+            [
+              36.9768,
+              37.5788
+            ],
+            [
+              36.9768,
+              37.5738
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "building": "residential",
+        "flooded": false,
+        "hazard_value": 6.9
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.8718,
+              37.5888
+            ],
+            [
+              36.8768,
+              37.5888
+            ],
+            [
+              36.8768,
+              37.5938
+            ],
+            [
+              36.8718,
+              37.5938
+            ],
+            [
+              36.8718,
+              37.5888
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "building": "residential",
+        "flooded": false,
+        "hazard_value": 6.9
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.8868,
+              37.5888
+            ],
+            [
+              36.8918,
+              37.5888
+            ],
+            [
+              36.8918,
+              37.5938
+            ],
+            [
+              36.8868,
+              37.5938
+            ],
+            [
+              36.8868,
+              37.5888
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "building": "residential",
+        "flooded": true,
+        "hazard_value": 7.5
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9018,
+              37.5888
+            ],
+            [
+              36.9068,
+              37.5888
+            ],
+            [
+              36.9068,
+              37.5938
+            ],
+            [
+              36.9018,
+              37.5938
+            ],
+            [
+              36.9018,
+              37.5888
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "building": "residential",
+        "flooded": true,
+        "hazard_value": 8.2
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9168,
+              37.5888
+            ],
+            [
+              36.9218,
+              37.5888
+            ],
+            [
+              36.9218,
+              37.5938
+            ],
+            [
+              36.9168,
+              37.5938
+            ],
+            [
+              36.9168,
+              37.5888
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "building": "residential",
+        "flooded": true,
+        "hazard_value": 8.7
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9318,
+              37.5888
+            ],
+            [
+              36.9368,
+              37.5888
+            ],
+            [
+              36.9368,
+              37.5938
+            ],
+            [
+              36.9318,
+              37.5938
+            ],
+            [
+              36.9318,
+              37.5888
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "building": "residential",
+        "flooded": true,
+        "hazard_value": 8.7
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9468,
+              37.5888
+            ],
+            [
+              36.9518,
+              37.5888
+            ],
+            [
+              36.9518,
+              37.5938
+            ],
+            [
+              36.9468,
+              37.5938
+            ],
+            [
+              36.9468,
+              37.5888
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "building": "residential",
+        "flooded": true,
+        "hazard_value": 8.2
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9618,
+              37.5888
+            ],
+            [
+              36.9668,
+              37.5888
+            ],
+            [
+              36.9668,
+              37.5938
+            ],
+            [
+              36.9618,
+              37.5938
+            ],
+            [
+              36.9618,
+              37.5888
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "building": "residential",
+        "flooded": true,
+        "hazard_value": 7.5
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9768,
+              37.5888
+            ],
+            [
+              36.9818,
+              37.5888
+            ],
+            [
+              36.9818,
+              37.5938
+            ],
+            [
+              36.9768,
+              37.5938
+            ],
+            [
+              36.9768,
+              37.5888
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "building": "residential",
+        "flooded": false,
+        "hazard_value": 6.9
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.8718,
+              37.6038
+            ],
+            [
+              36.8768,
+              37.6038
+            ],
+            [
+              36.8768,
+              37.6088
+            ],
+            [
+              36.8718,
+              37.6088
+            ],
+            [
+              36.8718,
+              37.6038
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "building": "residential",
+        "flooded": false,
+        "hazard_value": 6.7
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.8868,
+              37.6038
+            ],
+            [
+              36.8918,
+              37.6038
+            ],
+            [
+              36.8918,
+              37.6088
+            ],
+            [
+              36.8868,
+              37.6088
+            ],
+            [
+              36.8868,
+              37.6038
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "building": "residential",
+        "flooded": true,
+        "hazard_value": 7.3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9018,
+              37.6038
+            ],
+            [
+              36.9068,
+              37.6038
+            ],
+            [
+              36.9068,
+              37.6088
+            ],
+            [
+              36.9018,
+              37.6088
+            ],
+            [
+              36.9018,
+              37.6038
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "building": "residential",
+        "flooded": true,
+        "hazard_value": 7.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9168,
+              37.6038
+            ],
+            [
+              36.9218,
+              37.6038
+            ],
+            [
+              36.9218,
+              37.6088
+            ],
+            [
+              36.9168,
+              37.6088
+            ],
+            [
+              36.9168,
+              37.6038
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "building": "residential",
+        "flooded": true,
+        "hazard_value": 8.2
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9318,
+              37.6038
+            ],
+            [
+              36.9368,
+              37.6038
+            ],
+            [
+              36.9368,
+              37.6088
+            ],
+            [
+              36.9318,
+              37.6088
+            ],
+            [
+              36.9318,
+              37.6038
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "building": "residential",
+        "flooded": true,
+        "hazard_value": 8.2
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9468,
+              37.6038
+            ],
+            [
+              36.9518,
+              37.6038
+            ],
+            [
+              36.9518,
+              37.6088
+            ],
+            [
+              36.9468,
+              37.6088
+            ],
+            [
+              36.9468,
+              37.6038
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "building": "residential",
+        "flooded": true,
+        "hazard_value": 7.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9618,
+              37.6038
+            ],
+            [
+              36.9668,
+              37.6038
+            ],
+            [
+              36.9668,
+              37.6088
+            ],
+            [
+              36.9618,
+              37.6088
+            ],
+            [
+              36.9618,
+              37.6038
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "building": "residential",
+        "flooded": true,
+        "hazard_value": 7.3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9768,
+              37.6038
+            ],
+            [
+              36.9818,
+              37.6038
+            ],
+            [
+              36.9818,
+              37.6088
+            ],
+            [
+              36.9768,
+              37.6088
+            ],
+            [
+              36.9768,
+              37.6038
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "building": "residential",
+        "flooded": false,
+        "hazard_value": 6.7
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.8718,
+              37.6188
+            ],
+            [
+              36.8768,
+              37.6188
+            ],
+            [
+              36.8768,
+              37.6238
+            ],
+            [
+              36.8718,
+              37.6238
+            ],
+            [
+              36.8718,
+              37.6188
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "building": "residential",
+        "flooded": false,
+        "hazard_value": 6.4
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.8868,
+              37.6188
+            ],
+            [
+              36.8918,
+              37.6188
+            ],
+            [
+              36.8918,
+              37.6238
+            ],
+            [
+              36.8868,
+              37.6238
+            ],
+            [
+              36.8868,
+              37.6188
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "building": "residential",
+        "flooded": false,
+        "hazard_value": 6.9
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9018,
+              37.6188
+            ],
+            [
+              36.9068,
+              37.6188
+            ],
+            [
+              36.9068,
+              37.6238
+            ],
+            [
+              36.9018,
+              37.6238
+            ],
+            [
+              36.9018,
+              37.6188
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "building": "residential",
+        "flooded": true,
+        "hazard_value": 7.3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9168,
+              37.6188
+            ],
+            [
+              36.9218,
+              37.6188
+            ],
+            [
+              36.9218,
+              37.6238
+            ],
+            [
+              36.9168,
+              37.6238
+            ],
+            [
+              36.9168,
+              37.6188
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "building": "residential",
+        "flooded": true,
+        "hazard_value": 7.5
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9318,
+              37.6188
+            ],
+            [
+              36.9368,
+              37.6188
+            ],
+            [
+              36.9368,
+              37.6238
+            ],
+            [
+              36.9318,
+              37.6238
+            ],
+            [
+              36.9318,
+              37.6188
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "building": "residential",
+        "flooded": true,
+        "hazard_value": 7.5
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9468,
+              37.6188
+            ],
+            [
+              36.9518,
+              37.6188
+            ],
+            [
+              36.9518,
+              37.6238
+            ],
+            [
+              36.9468,
+              37.6238
+            ],
+            [
+              36.9468,
+              37.6188
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "building": "residential",
+        "flooded": true,
+        "hazard_value": 7.3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9618,
+              37.6188
+            ],
+            [
+              36.9668,
+              37.6188
+            ],
+            [
+              36.9668,
+              37.6238
+            ],
+            [
+              36.9618,
+              37.6238
+            ],
+            [
+              36.9618,
+              37.6188
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "building": "residential",
+        "flooded": false,
+        "hazard_value": 6.9
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9768,
+              37.6188
+            ],
+            [
+              36.9818,
+              37.6188
+            ],
+            [
+              36.9818,
+              37.6238
+            ],
+            [
+              36.9768,
+              37.6238
+            ],
+            [
+              36.9768,
+              37.6188
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "building": "residential",
+        "flooded": false,
+        "hazard_value": 6.4
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.8718,
+              37.6338
+            ],
+            [
+              36.8768,
+              37.6338
+            ],
+            [
+              36.8768,
+              37.6388
+            ],
+            [
+              36.8718,
+              37.6388
+            ],
+            [
+              36.8718,
+              37.6338
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "building": "residential",
+        "flooded": false,
+        "hazard_value": 6.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.8868,
+              37.6338
+            ],
+            [
+              36.8918,
+              37.6338
+            ],
+            [
+              36.8918,
+              37.6388
+            ],
+            [
+              36.8868,
+              37.6388
+            ],
+            [
+              36.8868,
+              37.6338
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "building": "residential",
+        "flooded": false,
+        "hazard_value": 6.4
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9018,
+              37.6338
+            ],
+            [
+              36.9068,
+              37.6338
+            ],
+            [
+              36.9068,
+              37.6388
+            ],
+            [
+              36.9018,
+              37.6388
+            ],
+            [
+              36.9018,
+              37.6338
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "building": "residential",
+        "flooded": false,
+        "hazard_value": 6.7
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9168,
+              37.6338
+            ],
+            [
+              36.9218,
+              37.6338
+            ],
+            [
+              36.9218,
+              37.6388
+            ],
+            [
+              36.9168,
+              37.6388
+            ],
+            [
+              36.9168,
+              37.6338
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "building": "residential",
+        "flooded": false,
+        "hazard_value": 6.9
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9318,
+              37.6338
+            ],
+            [
+              36.9368,
+              37.6338
+            ],
+            [
+              36.9368,
+              37.6388
+            ],
+            [
+              36.9318,
+              37.6388
+            ],
+            [
+              36.9318,
+              37.6338
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "building": "residential",
+        "flooded": false,
+        "hazard_value": 6.9
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9468,
+              37.6338
+            ],
+            [
+              36.9518,
+              37.6338
+            ],
+            [
+              36.9518,
+              37.6388
+            ],
+            [
+              36.9468,
+              37.6388
+            ],
+            [
+              36.9468,
+              37.6338
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "building": "residential",
+        "flooded": false,
+        "hazard_value": 6.7
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9618,
+              37.6338
+            ],
+            [
+              36.9668,
+              37.6338
+            ],
+            [
+              36.9668,
+              37.6388
+            ],
+            [
+              36.9618,
+              37.6388
+            ],
+            [
+              36.9618,
+              37.6338
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "building": "residential",
+        "flooded": false,
+        "hazard_value": 6.4
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9768,
+              37.6338
+            ],
+            [
+              36.9818,
+              37.6338
+            ],
+            [
+              36.9818,
+              37.6388
+            ],
+            [
+              36.9768,
+              37.6388
+            ],
+            [
+              36.9768,
+              37.6338
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "building": "residential",
+        "flooded": false,
+        "hazard_value": 6.0
+      }
+    }
+  ]
+}

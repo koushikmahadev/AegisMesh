@@ -1,0 +1,74 @@
+{
+  "2_20_43": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "Dry landscape with no significant flood inundation (0.0% water detected).",
+    "water_coverage_percent": 0.0,
+    "net_change_percent": 0.0,
+    "model": "segformer-b0-local-offline"
+  },
+  "2_20_44": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "Dry landscape with no significant flood inundation (0.0% water detected).",
+    "water_coverage_percent": 0.0,
+    "net_change_percent": 0.0,
+    "model": "segformer-b0-local-offline"
+  },
+  "2_20_45": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "Dry landscape with no significant flood inundation (0.0% water detected).",
+    "water_coverage_percent": 0.0,
+    "net_change_percent": 0.0,
+    "model": "segformer-b0-local-offline"
+  },
+  "2_19_43": {
+    "flood_damage_detected": true,
+    "confidence": "high",
+    "reasoning": "SegFormer detected 34.4% water coverage in POST-event satellite tile (net surge: +34.4% vs PRE baseline).",
+    "water_coverage_percent": 34.36,
+    "net_change_percent": 34.36,
+    "model": "segformer-b0-local-offline"
+  },
+  "2_21_43": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "Dry landscape with no significant flood inundation (0.0% water detected).",
+    "water_coverage_percent": 0.0,
+    "net_change_percent": 0.0,
+    "model": "segformer-b0-local-offline"
+  },
+  "2_21_44": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "Dry landscape with no significant flood inundation (0.0% water detected).",
+    "water_coverage_percent": 0.0,
+    "net_change_percent": 0.0,
+    "model": "segformer-b0-local-offline"
+  },
+  "2_18_44": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "Dry landscape with no significant flood inundation (0.0% water detected).",
+    "water_coverage_percent": 0.0,
+    "net_change_percent": 0.0,
+    "model": "segformer-b0-local-offline"
+  },
+  "2_19_45": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "Dry landscape with no significant flood inundation (0.0% water detected).",
+    "water_coverage_percent": 0.0,
+    "net_change_percent": 0.0,
+    "model": "segformer-b0-local-offline"
+  },
+  "2_19_44": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "Dry landscape with no significant flood inundation (0.0% water detected).",
+    "water_coverage_percent": 0.0,
+    "net_change_percent": 0.0,
+    "model": "segformer-b0-local-offline"
+  }
+}

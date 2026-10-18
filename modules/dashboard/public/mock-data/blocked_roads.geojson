@@ -1,0 +1,63 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "road_id": "road-001",
+        "name": "Outer Ring Road (EcoSpace Underpass)",
+        "status": "BLOCKED",
+        "water_depth_m": 1.5,
+        "length_km": 1.8,
+        "reason": "Underpass completely submerged",
+        "provenance": "derived"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [77.6750, 12.9250],
+          [77.6820, 12.9320],
+          [77.6880, 12.9380]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "road_id": "road-002",
+        "name": "Sarjapur Main Road (Wipro Gate)",
+        "status": "BLOCKED",
+        "water_depth_m": 0.9,
+        "length_km": 1.2,
+        "reason": "Overflowing storm canal across roadway",
+        "provenance": "derived"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [77.6850, 12.9100],
+          [77.6950, 12.9140]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "road_id": "road-003",
+        "name": "Varthur Lake Spillway Road",
+        "status": "BLOCKED",
+        "water_depth_m": 1.1,
+        "length_km": 2.0,
+        "reason": "Embankment breach",
+        "provenance": "simulated"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [77.7150, 12.9450],
+          [77.7300, 12.9520]
+        ]
+      }
+    }
+  ]
+}

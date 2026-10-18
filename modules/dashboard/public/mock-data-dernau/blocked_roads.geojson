@@ -1,0 +1,1462 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "road_id": "way/847402042",
+        "reason": "Road labelled flooded in ground-truth annotations",
+        "provenance": "derived"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            7.019796954361426,
+            50.5213472659769
+          ],
+          [
+            7.0197836,
+            50.5214098
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "road_id": "way/847402047",
+        "reason": "Road labelled flooded in ground-truth annotations",
+        "provenance": "derived"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            7.0198846,
+            50.5179697
+          ],
+          [
+            7.019901454960709,
+            50.517954425355384
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "road_id": "way/847402048",
+        "reason": "Road labelled flooded in ground-truth annotations",
+        "provenance": "derived"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            7.0197858,
+            50.5180592
+          ],
+          [
+            7.0198846,
+            50.5179697
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "road_id": "way/847406347",
+        "reason": "Road labelled flooded in ground-truth annotations",
+        "provenance": "derived"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            7.0220071,
+            50.5220169
+          ],
+          [
+            7.0223585,
+            50.5220527
+          ],
+          [
+            7.0227045,
+            50.5221107
+          ],
+          [
+            7.0231927,
+            50.5222624
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "road_id": "way/847406835",
+        "reason": "Road labelled flooded in ground-truth annotations",
+        "provenance": "derived"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            7.0201805,
+            50.5218276
+          ],
+          [
+            7.0205185,
+            50.5218771
+          ],
+          [
+            7.0215055,
+            50.521964
+          ],
+          [
+            7.0220071,
+            50.5220169
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "road_id": "way/847402046",
+        "reason": "Road labelled flooded in ground-truth annotations",
+        "provenance": "derived"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            7.0202067,
+            50.5176778
+          ],
+          [
+            7.0202851,
+            50.5176068
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "road_id": "way/847406837",
+        "reason": "Road labelled flooded in ground-truth annotations",
+        "provenance": "derived"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            7.0205668,
+            50.5183913
+          ],
+          [
+            7.0205104,
+            50.5185618
+          ],
+          [
+            7.0204166,
+            50.5187981
+          ],
+          [
+            7.0201758,
+            50.5191298
+          ],
+          [
+            7.0200109,
+            50.5193092
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "road_id": "way/847402041",
+        "reason": "Road labelled flooded in ground-truth annotations",
+        "provenance": "derived"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            7.029469,
+            50.5165971
+          ],
+          [
+            7.029477916006988,
+            50.51648139152125
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "road_id": "way/847406350",
+        "reason": "Road labelled flooded in ground-truth annotations",
+        "provenance": "derived"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            7.0270228,
+            50.5181764
+          ],
+          [
+            7.0271811,
+            50.5180178
+          ],
+          [
+            7.0273769,
+            50.5178916
+          ],
+          [
+            7.0277846,
+            50.5176665
+          ],
+          [
+            7.028203,
+            50.5174328
+          ],
+          [
+            7.028549,
+            50.5172572
+          ],
+          [
+            7.028946,
+            50.5170491
+          ],
+          [
+            7.0292973,
+            50.5168308
+          ],
+          [
+            7.0293161,
+            50.5168069
+          ],
+          [
+            7.029469,
+            50.5165971
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "road_id": "way/847402040",
+        "reason": "Road labelled flooded in ground-truth annotations",
+        "provenance": "derived"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            7.0294824,
+            50.5164232
+          ],
+          [
+            7.0295736,
+            50.5162424
+          ],
+          [
+            7.029633203872012,
+            50.516191453245646
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "road_id": "way/847402021",
+        "reason": "Road labelled flooded in ground-truth annotations",
+        "provenance": "derived"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            7.0342326,
+            50.5119836
+          ],
+          [
+            7.034499078327663,
+            50.51224613978335
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "road_id": "way/847406371",
+        "reason": "Road labelled flooded in ground-truth annotations",
+        "provenance": "derived"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            7.034499078327663,
+            50.511949275550485
+          ],
+          [
+            7.0342326,
+            50.5119836
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "road_id": "way/847401779",
+        "reason": "Road labelled flooded in ground-truth annotations",
+        "provenance": "derived"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            7.039364952783314,
+            50.529931889544315
+          ],
+          [
+            7.038846,
+            50.5300379
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "road_id": "way/847402174",
+        "reason": "Road labelled flooded in ground-truth annotations",
+        "provenance": "derived"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            7.039364952783314,
+            50.528514767031524
+          ],
+          [
+            7.0392296,
+            50.528309
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "road_id": "way/847402206",
+        "reason": "Road labelled flooded in ground-truth annotations",
+        "provenance": "derived"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            7.0391652,
+            50.5279783
+          ],
+          [
+            7.0390847,
+            50.5273081
+          ],
+          [
+            7.0390043,
+            50.5267267
+          ],
+          [
+            7.0389453,
+            50.5264215
+          ],
+          [
+            7.0389077,
+            50.5262152
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "road_id": "way/847406365",
+        "reason": "Road labelled flooded in ground-truth annotations",
+        "provenance": "derived"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            7.039364952783314,
+            50.52811144377101
+          ],
+          [
+            7.039192,
+            50.5281965
+          ],
+          [
+            7.0390418,
+            50.5282425
+          ],
+          [
+            7.0388983,
+            50.5282852
+          ],
+          [
+            7.0385389,
+            50.5283636
+          ],
+          [
+            7.0383699,
+            50.5284122
+          ],
+          [
+            7.0382291,
+            50.5284727
+          ],
+          [
+            7.0380601,
+            50.5285426
+          ],
+          [
+            7.0379341,
+            50.5286228
+          ],
+          [
+            7.0377946,
+            50.5287251
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "road_id": "way/847406832",
+        "reason": "Road labelled flooded in ground-truth annotations",
+        "provenance": "derived"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            7.0393476,
+            50.521831
+          ],
+          [
+            7.0393181,
+            50.5215838
+          ],
+          [
+            7.039264982558088,
+            50.5213472659769
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "road_id": "way/847402066",
+        "reason": "Road labelled flooded in ground-truth annotations",
+        "provenance": "derived"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            7.0391008,
+            50.5178268
+          ],
+          [
+            7.0393288,
+            50.517808
+          ],
+          [
+            7.039364952783314,
+            50.51780590430558
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "road_id": "way/847402069",
+        "reason": "Road labelled flooded in ground-truth annotations",
+        "provenance": "derived"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            7.039364952783314,
+            50.52041064763632
+          ],
+          [
+            7.0390043,
+            50.5204565
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "road_id": "way/847402074",
+        "reason": "Road labelled flooded in ground-truth annotations",
+        "provenance": "derived"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            7.0386234,
+            50.5188313
+          ],
+          [
+            7.0384732,
+            50.5185124
+          ],
+          [
+            7.038323,
+            50.5180809
+          ],
+          [
+            7.038309,
+            50.5180376
+          ],
+          [
+            7.0381728,
+            50.517617
+          ],
+          [
+            7.0381594,
+            50.5172504
+          ],
+          [
+            7.038103,
+            50.516697
+          ],
+          [
+            7.038077453971713,
+            50.51648139152125
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "road_id": "way/847406824",
+        "reason": "Road labelled flooded in ground-truth annotations",
+        "provenance": "derived"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            7.0391008,
+            50.5178268
+          ],
+          [
+            7.0389104,
+            50.5168205
+          ],
+          [
+            7.038846989471454,
+            50.51648139152125
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "road_id": "way/847402020",
+        "reason": "Road labelled flooded in ground-truth annotations",
+        "provenance": "derived"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            7.0386046,
+            50.5134521
+          ],
+          [
+            7.0382184,
+            50.5135016
+          ],
+          [
+            7.0379448,
+            50.5135425
+          ],
+          [
+            7.0378429,
+            50.5134743
+          ],
+          [
+            7.0377731,
+            50.5133071
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "road_id": "way/847402067",
+        "reason": "Road labelled flooded in ground-truth annotations",
+        "provenance": "derived"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            7.039364952783314,
+            50.516039587522656
+          ],
+          [
+            7.0388594,
+            50.5160804
+          ],
+          [
+            7.0386717,
+            50.516077
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "road_id": "way/847402068",
+        "reason": "Road labelled flooded in ground-truth annotations",
+        "provenance": "derived"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            7.0392644,
+            50.5141651
+          ],
+          [
+            7.039364952783314,
+            50.51428978545131
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "road_id": "way/847402070",
+        "reason": "Road labelled flooded in ground-truth annotations",
+        "provenance": "derived"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            7.0392644,
+            50.5141651
+          ],
+          [
+            7.039364952783314,
+            50.51417541542207
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "road_id": "way/847402071",
+        "reason": "Road labelled flooded in ground-truth annotations",
+        "provenance": "derived"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            7.0362067,
+            50.5138103
+          ],
+          [
+            7.0359975,
+            50.5137591
+          ],
+          [
+            7.0358822,
+            50.513725
+          ],
+          [
+            7.0358312,
+            50.5137131
+          ],
+          [
+            7.0357293,
+            50.5136227
+          ],
+          [
+            7.0356166,
+            50.5134965
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "road_id": "way/847402072",
+        "reason": "Road labelled flooded in ground-truth annotations",
+        "provenance": "derived"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            7.0362067,
+            50.5138103
+          ],
+          [
+            7.0363677,
+            50.5137983
+          ],
+          [
+            7.0365715,
+            50.5137387
+          ],
+          [
+            7.0368183,
+            50.5136295
+          ],
+          [
+            7.0369711,
+            50.513505
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "road_id": "way/847406290",
+        "reason": "Road labelled flooded in ground-truth annotations",
+        "provenance": "derived"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            7.0372662,
+            50.5146341
+          ],
+          [
+            7.0373923,
+            50.5145369
+          ],
+          [
+            7.0381942,
+            50.5142452
+          ],
+          [
+            7.0385349,
+            50.5141105
+          ],
+          [
+            7.039015,
+            50.5141412
+          ],
+          [
+            7.0392644,
+            50.5141651
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "road_id": "way/847406291",
+        "reason": "Road labelled flooded in ground-truth annotations",
+        "provenance": "derived"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            7.0362764,
+            50.514343
+          ],
+          [
+            7.0362067,
+            50.5138103
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "road_id": "way/847406330",
+        "reason": "Road labelled flooded in ground-truth annotations",
+        "provenance": "derived"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            7.0372662,
+            50.5146341
+          ],
+          [
+            7.0371079,
+            50.5145318
+          ],
+          [
+            7.0368746,
+            50.5144345
+          ],
+          [
+            7.0364347,
+            50.5143441
+          ],
+          [
+            7.0362764,
+            50.514343
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "road_id": "way/847406368",
+        "reason": "Road labelled flooded in ground-truth annotations",
+        "provenance": "derived"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            7.039364952783314,
+            50.513478459089704
+          ],
+          [
+            7.0390686,
+            50.5135118
+          ],
+          [
+            7.0386529,
+            50.5135681
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "road_id": "way/847406369",
+        "reason": "Road labelled flooded in ground-truth annotations",
+        "provenance": "derived"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            7.0386529,
+            50.5135681
+          ],
+          [
+            7.0386046,
+            50.5134521
+          ],
+          [
+            7.038559,
+            50.5130922
+          ],
+          [
+            7.0387253,
+            50.5128876
+          ],
+          [
+            7.0388648,
+            50.5126624
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "road_id": "way/847401774",
+        "reason": "Road labelled flooded in ground-truth annotations",
+        "provenance": "derived"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            7.0407785,
+            50.5293278
+          ],
+          [
+            7.0406967,
+            50.5293457
+          ],
+          [
+            7.0405626,
+            50.5294702
+          ],
+          [
+            7.0404954,
+            50.5295702
+          ],
+          [
+            7.0404178,
+            50.5296859
+          ],
+          [
+            7.0404017,
+            50.5297941
+          ],
+          [
+            7.0403346,
+            50.5300959
+          ],
+          [
+            7.0403588,
+            50.5303892
+          ],
+          [
+            7.040391,
+            50.5305887
+          ],
+          [
+            7.0404687,
+            50.53087
+          ],
+          [
+            7.0405492,
+            50.5310285
+          ],
+          [
+            7.040581823789938,
+            50.531079014888206
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "road_id": "way/847401780",
+        "reason": "Road labelled flooded in ground-truth annotations",
+        "provenance": "derived"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            7.0419721,
+            50.5273934
+          ],
+          [
+            7.0419131,
+            50.5273457
+          ],
+          [
+            7.0419574,
+            50.5272331
+          ],
+          [
+            7.0419842,
+            50.5271257
+          ],
+          [
+            7.0419386,
+            50.5270302
+          ],
+          [
+            7.0413566,
+            50.5262851
+          ],
+          [
+            7.041301588046175,
+            50.52621314043255
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "road_id": "way/847401891",
+        "reason": "Road labelled flooded in ground-truth annotations",
+        "provenance": "derived"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            7.043188557396627,
+            50.531079014888206
+          ],
+          [
+            7.0430008,
+            50.5305853
+          ],
+          [
+            7.0428586,
+            50.5301948
+          ],
+          [
+            7.0428425,
+            50.5298947
+          ],
+          [
+            7.0428666,
+            50.5295588
+          ],
+          [
+            7.0429471,
+            50.5292468
+          ],
+          [
+            7.0430061,
+            50.528899
+          ],
+          [
+            7.0429873,
+            50.5286245
+          ],
+          [
+            7.0428827,
+            50.5281027
+          ],
+          [
+            7.0427674,
+            50.5276287
+          ],
+          [
+            7.0427352,
+            50.5274173
+          ],
+          [
+            7.0426253,
+            50.5272399
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "road_id": "way/847402173",
+        "reason": "Road labelled flooded in ground-truth annotations",
+        "provenance": "derived"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            7.041988591375389,
+            50.531079014888206
+          ],
+          [
+            7.0419332,
+            50.5309672
+          ],
+          [
+            7.0418045,
+            50.5307268
+          ],
+          [
+            7.0416838,
+            50.5305537
+          ],
+          [
+            7.0415524,
+            50.5303781
+          ],
+          [
+            7.041433,
+            50.5302204
+          ],
+          [
+            7.0412707,
+            50.5300107
+          ],
+          [
+            7.0409422,
+            50.529587
+          ],
+          [
+            7.0407785,
+            50.5293278
+          ],
+          [
+            7.0406605,
+            50.5290209
+          ],
+          [
+            7.040568,
+            50.528714
+          ],
+          [
+            7.0405452,
+            50.5285588
+          ],
+          [
+            7.0405064,
+            50.5283116
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "road_id": "way/847406339",
+        "reason": "Road labelled flooded in ground-truth annotations",
+        "provenance": "derived"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            7.042298,
+            50.5303483
+          ],
+          [
+            7.0423517,
+            50.5296509
+          ],
+          [
+            7.0424134,
+            50.529315
+          ],
+          [
+            7.0424992,
+            50.5287165
+          ],
+          [
+            7.0424643,
+            50.528309
+          ],
+          [
+            7.0423704,
+            50.5280465
+          ],
+          [
+            7.0422457,
+            50.5277788
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "road_id": "way/847406340",
+        "reason": "Road labelled flooded in ground-truth annotations",
+        "provenance": "derived"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            7.0422457,
+            50.5277788
+          ],
+          [
+            7.0421036,
+            50.5275886
+          ],
+          [
+            7.0419721,
+            50.5273934
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "road_id": "way/847406341",
+        "reason": "Road labelled flooded in ground-truth annotations",
+        "provenance": "derived"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            7.0426253,
+            50.5272399
+          ],
+          [
+            7.0424321,
+            50.5269535
+          ],
+          [
+            7.0422377,
+            50.5265519
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "road_id": "way/847406343",
+        "reason": "Road labelled flooded in ground-truth annotations",
+        "provenance": "derived"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            7.0422377,
+            50.5265519
+          ],
+          [
+            7.0422015,
+            50.526459
+          ],
+          [
+            7.0421478,
+            50.5262919
+          ],
+          [
+            7.042129893101603,
+            50.52621314043255
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "road_id": "way/847406345",
+        "reason": "Road labelled flooded in ground-truth annotations",
+        "provenance": "derived"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            7.0420942,
+            50.5273124
+          ],
+          [
+            7.0419131,
+            50.5273457
+          ],
+          [
+            7.0415752,
+            50.5274181
+          ],
+          [
+            7.0409596,
+            50.5275665
+          ],
+          [
+            7.0406874,
+            50.5276577
+          ],
+          [
+            7.0406404,
+            50.5276969
+          ],
+          [
+            7.0406149,
+            50.5277395
+          ],
+          [
+            7.0405988,
+            50.5278112
+          ],
+          [
+            7.0406136,
+            50.5278819
+          ],
+          [
+            7.0406619,
+            50.5279996
+          ],
+          [
+            7.0407692,
+            50.5282076
+          ],
+          [
+            7.0408013,
+            50.5283099
+          ],
+          [
+            7.0408148,
+            50.528361
+          ],
+          [
+            7.040804,
+            50.5284148
+          ],
+          [
+            7.0407759,
+            50.5284685
+          ],
+          [
+            7.0407088,
+            50.528506
+          ],
+          [
+            7.0405452,
+            50.5285588
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "road_id": "way/847406363",
+        "reason": "Road labelled flooded in ground-truth annotations",
+        "provenance": "derived"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            7.0435962,
+            50.5268648
+          ],
+          [
+            7.0432502,
+            50.5269944
+          ],
+          [
+            7.0429552,
+            50.5271308
+          ],
+          [
+            7.0426253,
+            50.5272399
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "road_id": "way/847406364",
+        "reason": "Road labelled flooded in ground-truth annotations",
+        "provenance": "derived"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            7.0405064,
+            50.5283116
+          ],
+          [
+            7.0404339,
+            50.5277549
+          ],
+          [
+            7.0403749,
+            50.5274036
+          ],
+          [
+            7.0402998,
+            50.5269876
+          ],
+          [
+            7.0402461,
+            50.5268341
+          ],
+          [
+            7.0401683,
+            50.5266483
+          ],
+          [
+            7.0400423,
+            50.5264675
+          ],
+          [
+            7.0398894,
+            50.5262595
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "road_id": "way/847402197",
+        "reason": "Road labelled flooded in ground-truth annotations",
+        "provenance": "derived"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            7.0399135,
+            50.5225762
+          ],
+          [
+            7.0408925,
+            50.5224978
+          ],
+          [
+            7.0415367,
+            50.5224584
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "road_id": "way/847402198",
+        "reason": "Road labelled flooded in ground-truth annotations",
+        "provenance": "derived"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            7.040697638072563,
+            50.5213472659769
+          ],
+          [
+            7.0407826,
+            50.5219009
+          ],
+          [
+            7.0408925,
+            50.5224978
+          ]
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,322 @@
+{
+  "eq_0_0": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "MMI 6.0 structural deformation analysis"
+  },
+  "eq_0_1": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "MMI 6.4 structural deformation analysis"
+  },
+  "eq_0_2": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "MMI 6.7 structural deformation analysis"
+  },
+  "eq_0_3": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "MMI 6.9 structural deformation analysis"
+  },
+  "eq_0_4": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "MMI 6.9 structural deformation analysis"
+  },
+  "eq_0_5": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "MMI 6.7 structural deformation analysis"
+  },
+  "eq_0_6": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "MMI 6.4 structural deformation analysis"
+  },
+  "eq_0_7": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "MMI 6.0 structural deformation analysis"
+  },
+  "eq_1_0": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "MMI 6.4 structural deformation analysis"
+  },
+  "eq_1_1": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "MMI 6.9 structural deformation analysis"
+  },
+  "eq_1_2": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "MMI 7.3 structural deformation analysis"
+  },
+  "eq_1_3": {
+    "flood_damage_detected": true,
+    "confidence": "high",
+    "reasoning": "MMI 7.5 structural deformation analysis"
+  },
+  "eq_1_4": {
+    "flood_damage_detected": true,
+    "confidence": "high",
+    "reasoning": "MMI 7.5 structural deformation analysis"
+  },
+  "eq_1_5": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "MMI 7.3 structural deformation analysis"
+  },
+  "eq_1_6": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "MMI 6.9 structural deformation analysis"
+  },
+  "eq_1_7": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "MMI 6.4 structural deformation analysis"
+  },
+  "eq_2_0": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "MMI 6.7 structural deformation analysis"
+  },
+  "eq_2_1": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "MMI 7.3 structural deformation analysis"
+  },
+  "eq_2_2": {
+    "flood_damage_detected": true,
+    "confidence": "high",
+    "reasoning": "MMI 7.8 structural deformation analysis"
+  },
+  "eq_2_3": {
+    "flood_damage_detected": true,
+    "confidence": "high",
+    "reasoning": "MMI 8.2 structural deformation analysis"
+  },
+  "eq_2_4": {
+    "flood_damage_detected": true,
+    "confidence": "high",
+    "reasoning": "MMI 8.2 structural deformation analysis"
+  },
+  "eq_2_5": {
+    "flood_damage_detected": true,
+    "confidence": "high",
+    "reasoning": "MMI 7.8 structural deformation analysis"
+  },
+  "eq_2_6": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "MMI 7.3 structural deformation analysis"
+  },
+  "eq_2_7": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "MMI 6.7 structural deformation analysis"
+  },
+  "eq_3_0": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "MMI 6.9 structural deformation analysis"
+  },
+  "eq_3_1": {
+    "flood_damage_detected": true,
+    "confidence": "high",
+    "reasoning": "MMI 7.5 structural deformation analysis"
+  },
+  "eq_3_2": {
+    "flood_damage_detected": true,
+    "confidence": "high",
+    "reasoning": "MMI 8.2 structural deformation analysis"
+  },
+  "eq_3_3": {
+    "flood_damage_detected": true,
+    "confidence": "high",
+    "reasoning": "MMI 8.7 structural deformation analysis"
+  },
+  "eq_3_4": {
+    "flood_damage_detected": true,
+    "confidence": "high",
+    "reasoning": "MMI 8.7 structural deformation analysis"
+  },
+  "eq_3_5": {
+    "flood_damage_detected": true,
+    "confidence": "high",
+    "reasoning": "MMI 8.2 structural deformation analysis"
+  },
+  "eq_3_6": {
+    "flood_damage_detected": true,
+    "confidence": "high",
+    "reasoning": "MMI 7.5 structural deformation analysis"
+  },
+  "eq_3_7": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "MMI 6.9 structural deformation analysis"
+  },
+  "eq_4_0": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "MMI 6.9 structural deformation analysis"
+  },
+  "eq_4_1": {
+    "flood_damage_detected": true,
+    "confidence": "high",
+    "reasoning": "MMI 7.5 structural deformation analysis"
+  },
+  "eq_4_2": {
+    "flood_damage_detected": true,
+    "confidence": "high",
+    "reasoning": "MMI 8.2 structural deformation analysis"
+  },
+  "eq_4_3": {
+    "flood_damage_detected": true,
+    "confidence": "high",
+    "reasoning": "MMI 8.7 structural deformation analysis"
+  },
+  "eq_4_4": {
+    "flood_damage_detected": true,
+    "confidence": "high",
+    "reasoning": "MMI 8.7 structural deformation analysis"
+  },
+  "eq_4_5": {
+    "flood_damage_detected": true,
+    "confidence": "high",
+    "reasoning": "MMI 8.2 structural deformation analysis"
+  },
+  "eq_4_6": {
+    "flood_damage_detected": true,
+    "confidence": "high",
+    "reasoning": "MMI 7.5 structural deformation analysis"
+  },
+  "eq_4_7": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "MMI 6.9 structural deformation analysis"
+  },
+  "eq_5_0": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "MMI 6.7 structural deformation analysis"
+  },
+  "eq_5_1": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "MMI 7.3 structural deformation analysis"
+  },
+  "eq_5_2": {
+    "flood_damage_detected": true,
+    "confidence": "high",
+    "reasoning": "MMI 7.8 structural deformation analysis"
+  },
+  "eq_5_3": {
+    "flood_damage_detected": true,
+    "confidence": "high",
+    "reasoning": "MMI 8.2 structural deformation analysis"
+  },
+  "eq_5_4": {
+    "flood_damage_detected": true,
+    "confidence": "high",
+    "reasoning": "MMI 8.2 structural deformation analysis"
+  },
+  "eq_5_5": {
+    "flood_damage_detected": true,
+    "confidence": "high",
+    "reasoning": "MMI 7.8 structural deformation analysis"
+  },
+  "eq_5_6": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "MMI 7.3 structural deformation analysis"
+  },
+  "eq_5_7": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "MMI 6.7 structural deformation analysis"
+  },
+  "eq_6_0": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "MMI 6.4 structural deformation analysis"
+  },
+  "eq_6_1": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "MMI 6.9 structural deformation analysis"
+  },
+  "eq_6_2": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "MMI 7.3 structural deformation analysis"
+  },
+  "eq_6_3": {
+    "flood_damage_detected": true,
+    "confidence": "high",
+    "reasoning": "MMI 7.5 structural deformation analysis"
+  },
+  "eq_6_4": {
+    "flood_damage_detected": true,
+    "confidence": "high",
+    "reasoning": "MMI 7.5 structural deformation analysis"
+  },
+  "eq_6_5": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "MMI 7.3 structural deformation analysis"
+  },
+  "eq_6_6": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "MMI 6.9 structural deformation analysis"
+  },
+  "eq_6_7": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "MMI 6.4 structural deformation analysis"
+  },
+  "eq_7_0": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "MMI 6.0 structural deformation analysis"
+  },
+  "eq_7_1": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "MMI 6.4 structural deformation analysis"
+  },
+  "eq_7_2": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "MMI 6.7 structural deformation analysis"
+  },
+  "eq_7_3": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "MMI 6.9 structural deformation analysis"
+  },
+  "eq_7_4": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "MMI 6.9 structural deformation analysis"
+  },
+  "eq_7_5": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "MMI 6.7 structural deformation analysis"
+  },
+  "eq_7_6": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "MMI 6.4 structural deformation analysis"
+  },
+  "eq_7_7": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "MMI 6.0 structural deformation analysis"
+  }
+}

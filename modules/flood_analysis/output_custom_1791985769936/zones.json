@@ -1,0 +1,87 @@
+{
+  "schema_version": "1.0",
+  "source": "SpaceNet 8 Custom area (10/14/2026, 7:19:29 PM)",
+  "crs": "EPSG:4326",
+  "zones": [
+    {
+      "zone_id": "zone-001",
+      "bbox": [
+        -90.08565884661147,
+        29.76951283673096,
+        -90.08248110032271,
+        29.772285183533082
+      ],
+      "centroid": [
+        -90.08406999458609,
+        29.77089901432954
+      ],
+      "flooded_percent": 0.0,
+      "flooded_area_m2": null,
+      "total_buildings": 54,
+      "exposed_buildings": 0,
+      "road_length_m": 673.5,
+      "flooded_road_length_m": 0,
+      "accessibility": "ACCESSIBLE"
+    },
+    {
+      "zone_id": "zone-002",
+      "bbox": [
+        -90.08255953061513,
+        29.769454160719437,
+        -90.07982434910791,
+        29.772216791442226
+      ],
+      "centroid": [
+        -90.0811919578737,
+        29.770835480539645
+      ],
+      "flooded_percent": 0.0,
+      "flooded_area_m2": null,
+      "total_buildings": 9,
+      "exposed_buildings": 0,
+      "road_length_m": 167.6,
+      "flooded_road_length_m": 0,
+      "accessibility": "ACCESSIBLE"
+    },
+    {
+      "zone_id": "zone-003",
+      "bbox": [
+        -90.08558049935097,
+        29.772216791442226,
+        -90.08242762648602,
+        29.774128535226296
+      ],
+      "centroid": [
+        -90.08400407752617,
+        29.773172664887408
+      ],
+      "flooded_percent": 0.0,
+      "flooded_area_m2": null,
+      "total_buildings": 15,
+      "exposed_buildings": 0,
+      "road_length_m": 0,
+      "flooded_road_length_m": 0,
+      "accessibility": "UNKNOWN"
+    },
+    {
+      "zone_id": "zone-004",
+      "bbox": [
+        -90.08248110032271,
+        29.772158109037566,
+        -90.07977082674557,
+        29.77406013805572
+      ],
+      "centroid": [
+        -90.08112597597848,
+        29.773109125276935
+      ],
+      "flooded_percent": 0.0,
+      "flooded_area_m2": null,
+      "total_buildings": 4,
+      "exposed_buildings": 0,
+      "road_length_m": 220.7,
+      "flooded_road_length_m": 0,
+      "accessibility": "ACCESSIBLE"
+    }
+  ]
+}

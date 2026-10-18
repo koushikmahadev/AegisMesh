@@ -1,0 +1,2588 @@
+{
+  "system": {
+    "gpu": "NVIDIA GeForce RTX 3050 Laptop GPU (4 GB VRAM)",
+    "pytorch_version": "2.6.0+cu124",
+    "cuda_available": true,
+    "model": "nvidia/mit-b0 (SegFormer-B0)",
+    "checkpoint": "checkpoints_joint",
+    "model_size_mb": 14.6,
+    "peak_gpu_vram_mb": 721.12
+  },
+  "dataset": {
+    "total_tiles": 202,
+    "flooded_gt_tiles": 66,
+    "training_pool_tiles": 66,
+    "pool_overlap_pct": 100.0,
+    "non_training_tiles": 136,
+    "held_out_validation_tiles_in_pool": 0,
+    "checkpoint_selection_criterion": "drone validation mIoU only (no satellite validation split)",
+    "resolution": {
+      "latitude_deg": 50.53,
+      "geotiff_transform_deg_per_px": 4.60082608e-06,
+      "ground_resolution_lon_m_per_px": 0.326,
+      "ground_resolution_lat_m_per_px": 0.512,
+      "ground_resolution_avg_m_per_px": 0.419,
+      "road_buffer_radius_m": 2.0,
+      "road_corridor_width_m": 4.0,
+      "road_corridor_width_px": 9.55,
+      "road_corridor_width_x_px": 12.27,
+      "road_corridor_width_y_px": 7.81
+    },
+    "gt_composition_2m": {
+      "building_pixels": 1653312,
+      "building_pct": 54.85,
+      "road_pixels": 1367621,
+      "road_pct": 45.37,
+      "overlap_pixels": 6848,
+      "overlap_pct": 0.23,
+      "total_gt_pixels": 3014085
+    },
+    "road_buffer_sensitivity": {
+      "1m": {
+        "corridor_width_m": 2.0,
+        "corridor_width_px": 4.77,
+        "gt_road_pixels": 749310,
+        "road_pct": 31.2,
+        "building_pixels": 1653312,
+        "building_pct": 68.85,
+        "total_gt_pixels": 2401363,
+        "fast_road_recall_pct": 4.66,
+        "accurate_road_recall_pct": 8.91,
+        "fast_building_recall_pct": 21.27,
+        "accurate_building_recall_pct": 35.57,
+        "fast_combined_recall_pct": 16.09,
+        "accurate_combined_recall_pct": 27.26,
+        "fast_iou_pct": 12.7,
+        "accurate_iou_pct": 17.63,
+        "fast_f1_pct": 22.53,
+        "accurate_f1_pct": 29.97
+      },
+      "2m": {
+        "corridor_width_m": 4.0,
+        "corridor_width_px": 9.55,
+        "gt_road_pixels": 1367621,
+        "road_pct": 45.37,
+        "building_pixels": 1653312,
+        "building_pct": 54.85,
+        "total_gt_pixels": 3014085,
+        "fast_road_recall_pct": 4.69,
+        "accurate_road_recall_pct": 8.88,
+        "fast_building_recall_pct": 21.27,
+        "accurate_building_recall_pct": 35.57,
+        "fast_combined_recall_pct": 13.75,
+        "accurate_combined_recall_pct": 23.47,
+        "fast_iou_pct": 11.42,
+        "accurate_iou_pct": 16.55,
+        "fast_f1_pct": 20.5,
+        "accurate_f1_pct": 28.4
+      },
+      "3m": {
+        "corridor_width_m": 6.0,
+        "corridor_width_px": 14.32,
+        "gt_road_pixels": 1984154,
+        "road_pct": 54.86,
+        "building_pixels": 1653312,
+        "building_pct": 45.71,
+        "total_gt_pixels": 3616603,
+        "fast_road_recall_pct": 4.7,
+        "accurate_road_recall_pct": 8.88,
+        "fast_building_recall_pct": 21.27,
+        "accurate_building_recall_pct": 35.57,
+        "fast_combined_recall_pct": 12.16,
+        "accurate_combined_recall_pct": 20.92,
+        "fast_iou_pct": 10.46,
+        "accurate_iou_pct": 15.67,
+        "fast_f1_pct": 18.93,
+        "accurate_f1_pct": 27.1
+      }
+    },
+    "accuracy_modes_2m": {
+      "fast_768": {
+        "tp_bldg": 351612,
+        "tp_road": 64074,
+        "tp_overlap": 1256,
+        "tp_all": 414430,
+        "fp": 614586,
+        "fn": 2599655,
+        "predicted_positive_pixels": 1029016,
+        "building_recall_pct": 21.27,
+        "road_recall_pct": 4.69,
+        "combined_recall_pct": 13.75,
+        "combined_precision_pct": 40.27,
+        "precision_vs_bldg_pct": 34.17,
+        "precision_vs_road_pct": 6.23,
+        "iou_pct": 11.42,
+        "f1_pct": 20.5,
+        "roc_auc": 0.6028,
+        "spearman_corr": 0.3722
+      },
+      "accurate_512_sliding": {
+        "tp_bldg": 588091,
+        "tp_road": 121500,
+        "tp_overlap": 2258,
+        "tp_all": 707333,
+        "fp": 1259418,
+        "fn": 2306752,
+        "predicted_positive_pixels": 1966751,
+        "building_recall_pct": 35.57,
+        "road_recall_pct": 8.88,
+        "combined_recall_pct": 23.47,
+        "combined_precision_pct": 35.96,
+        "precision_vs_bldg_pct": 29.9,
+        "precision_vs_road_pct": 6.18,
+        "iou_pct": 16.55,
+        "f1_pct": 28.4,
+        "roc_auc": 0.6466,
+        "spearman_corr": 0.3809
+      }
+    },
+    "dry_tiles_false_alarm_comparison_136": {
+      "fast_mode": {
+        "before_dist": {
+          "min": 0.0,
+          "median": 0.0,
+          "p90": 0.0,
+          "max": 3.32
+        },
+        "after_dist": {
+          "min": 0.0,
+          "median": 0.0,
+          "p90": 0.0,
+          "max": 0.02
+        },
+        "net_dist": {
+          "min": -3.32,
+          "median": 0.0,
+          "p90": 0.0,
+          "max": 0.02
+        },
+        "count_before_gt_0_1": 1,
+        "count_after_gt_0_1": 0,
+        "count_net_eq_0": 134,
+        "count_net_gt_0": 1,
+        "count_net_lt_0": 1,
+        "max_before": 3.32,
+        "max_after": 0.02,
+        "max_net": 0.02,
+        "min_net": -3.32,
+        "pct_net_eq_0": 98.53
+      },
+      "accurate_mode": {
+        "before_dist": {
+          "min": 0.0,
+          "median": 0.0,
+          "p90": 0.0,
+          "max": 4.77
+        },
+        "after_dist": {
+          "min": 0.0,
+          "median": 0.0,
+          "p90": 0.005,
+          "max": 1.33
+        },
+        "net_dist": {
+          "min": -4.27,
+          "median": 0.0,
+          "p90": 0.0,
+          "max": 1.14
+        },
+        "count_before_gt_0_1": 5,
+        "count_after_gt_0_1": 8,
+        "count_net_eq_0": 117,
+        "count_net_gt_0": 11,
+        "count_net_lt_0": 8,
+        "max_before": 4.77,
+        "max_after": 1.33,
+        "max_net": 1.14,
+        "min_net": -4.27,
+        "pct_net_eq_0": 86.03
+      }
+    },
+    "not_in_pool_anomalies": [
+      {
+        "tile_id": "0_20_66",
+        "before": 3.32,
+        "after": 0.0,
+        "net": -3.32
+      },
+      {
+        "tile_id": "0_29_68",
+        "before": 0.0,
+        "after": 0.02,
+        "net": 0.02
+      }
+    ],
+    "settings_benchmark": {
+      "384": {
+        "name": "INPUT_SIZE 384",
+        "pixel_f1": 2.65,
+        "pixel_iou": 1.35,
+        "roc_auc": 0.553,
+        "spearman_corr": 0.3029,
+        "latency_median_ms": 55.7,
+        "latency_p95_ms": 94.4,
+        "tp": 41468,
+        "fp": 68735,
+        "fn": 2972617
+      },
+      "512": {
+        "name": "INPUT_SIZE 512",
+        "pixel_f1": 9.66,
+        "pixel_iou": 5.08,
+        "roc_auc": 0.5497,
+        "spearman_corr": 0.2502,
+        "latency_median_ms": 60.8,
+        "latency_p95_ms": 87.9,
+        "tp": 165175,
+        "fp": 239884,
+        "fn": 2848910
+      },
+      "768": {
+        "name": "INPUT_SIZE 768",
+        "pixel_f1": 20.5,
+        "pixel_iou": 11.42,
+        "roc_auc": 0.6028,
+        "spearman_corr": 0.3722,
+        "latency_median_ms": 96.6,
+        "latency_p95_ms": 103.7,
+        "tp": 414430,
+        "fp": 614935,
+        "fn": 2599655
+      },
+      "native_full": {
+        "name": "native full-tile",
+        "pixel_f1": 16.5,
+        "pixel_iou": 8.99,
+        "roc_auc": 0.565,
+        "spearman_corr": 0.3765,
+        "latency_median_ms": 129.4,
+        "latency_p95_ms": 136.8,
+        "tp": 321829,
+        "fp": 564319,
+        "fn": 2692256
+      },
+      "native_crops_512": {
+        "name": "native overlapping 512 crops (stride 256)",
+        "pixel_f1": 27.82,
+        "pixel_iou": 16.15,
+        "roc_auc": 0.6466,
+        "spearman_corr": 0.3809,
+        "latency_median_ms": 566.1,
+        "latency_p95_ms": 661.3,
+        "tp": 707333,
+        "fp": 1364444,
+        "fn": 2306752
+      }
+    },
+    "flooded_tiles_net_gt_1_comparison_66": {
+      "fast_gt_1_count": 6,
+      "fast_gt_1_pct": 9.090909090909092,
+      "accurate_gt_1_count": 14,
+      "accurate_gt_1_pct": 21.21212121212121,
+      "fast_net_dist": {
+        "min": -0.15,
+        "median": 0.0,
+        "p90": 0.815,
+        "max": 39.0
+      },
+      "accurate_net_dist": {
+        "min": -1.64,
+        "median": 0.0,
+        "p90": 5.93,
+        "max": 22.26
+      }
+    },
+    "flooded_tiles_66_all": [
+      {
+        "tile_id": "0_18_63",
+        "fast_before": 0.0,
+        "fast_after": 0.0,
+        "fast_net": 0.0,
+        "accurate_before": 0.0,
+        "accurate_after": 0.0,
+        "accurate_net": 0.0,
+        "gt_flooded_count": 1,
+        "latency_ms": 741
+      },
+      {
+        "tile_id": "0_19_63",
+        "fast_before": 0.0,
+        "fast_after": 0.0,
+        "fast_net": 0.0,
+        "accurate_before": 0.0,
+        "accurate_after": 0.0,
+        "accurate_net": 0.0,
+        "gt_flooded_count": 2,
+        "latency_ms": 793
+      },
+      {
+        "tile_id": "0_20_63",
+        "fast_before": 0.0,
+        "fast_after": 0.0,
+        "fast_net": 0.0,
+        "accurate_before": 0.0,
+        "accurate_after": 0.0,
+        "accurate_net": 0.0,
+        "gt_flooded_count": 1,
+        "latency_ms": 774
+      },
+      {
+        "tile_id": "0_21_63",
+        "fast_before": 0.0,
+        "fast_after": 0.0,
+        "fast_net": 0.0,
+        "accurate_before": 0.0,
+        "accurate_after": 0.0,
+        "accurate_net": 0.0,
+        "gt_flooded_count": 1,
+        "latency_ms": 809
+      },
+      {
+        "tile_id": "0_22_62",
+        "fast_before": 0.0,
+        "fast_after": 0.0,
+        "fast_net": 0.0,
+        "accurate_before": 0.0,
+        "accurate_after": 0.01,
+        "accurate_net": 0.01,
+        "gt_flooded_count": 15,
+        "latency_ms": 744
+      },
+      {
+        "tile_id": "0_22_63",
+        "fast_before": 0.0,
+        "fast_after": 0.0,
+        "fast_net": 0.0,
+        "accurate_before": 0.0,
+        "accurate_after": 0.08,
+        "accurate_net": 0.08,
+        "gt_flooded_count": 32,
+        "latency_ms": 744
+      },
+      {
+        "tile_id": "0_22_70",
+        "fast_before": 0.0,
+        "fast_after": 0.0,
+        "fast_net": 0.0,
+        "accurate_before": 0.0,
+        "accurate_after": 0.51,
+        "accurate_net": 0.51,
+        "gt_flooded_count": 6,
+        "latency_ms": 755
+      },
+      {
+        "tile_id": "0_23_62",
+        "fast_before": 0.0,
+        "fast_after": 0.08,
+        "fast_net": 0.08,
+        "accurate_before": 0.08,
+        "accurate_after": 0.66,
+        "accurate_net": 0.58,
+        "gt_flooded_count": 101,
+        "latency_ms": 742
+      },
+      {
+        "tile_id": "0_23_63",
+        "fast_before": 0.0,
+        "fast_after": 0.0,
+        "fast_net": 0.0,
+        "accurate_before": 0.0,
+        "accurate_after": 0.0,
+        "accurate_net": 0.0,
+        "gt_flooded_count": 8,
+        "latency_ms": 762
+      },
+      {
+        "tile_id": "0_23_70",
+        "fast_before": 0.0,
+        "fast_after": 0.0,
+        "fast_net": 0.0,
+        "accurate_before": 0.0,
+        "accurate_after": 0.0,
+        "accurate_net": 0.0,
+        "gt_flooded_count": 6,
+        "latency_ms": 737
+      },
+      {
+        "tile_id": "0_24_67",
+        "fast_before": 0.0,
+        "fast_after": 0.0,
+        "fast_net": 0.0,
+        "accurate_before": 0.0,
+        "accurate_after": 0.0,
+        "accurate_net": 0.0,
+        "gt_flooded_count": 1,
+        "latency_ms": 759
+      },
+      {
+        "tile_id": "0_24_68",
+        "fast_before": 0.0,
+        "fast_after": 0.0,
+        "fast_net": 0.0,
+        "accurate_before": 0.0,
+        "accurate_after": 0.0,
+        "accurate_net": 0.0,
+        "gt_flooded_count": 1,
+        "latency_ms": 772
+      },
+      {
+        "tile_id": "0_24_70",
+        "fast_before": 0.0,
+        "fast_after": 0.0,
+        "fast_net": 0.0,
+        "accurate_before": 0.0,
+        "accurate_after": 0.0,
+        "accurate_net": 0.0,
+        "gt_flooded_count": 2,
+        "latency_ms": 773
+      },
+      {
+        "tile_id": "0_25_68",
+        "fast_before": 0.0,
+        "fast_after": 0.0,
+        "fast_net": 0.0,
+        "accurate_before": 0.0,
+        "accurate_after": 0.0,
+        "accurate_net": 0.0,
+        "gt_flooded_count": 1,
+        "latency_ms": 776
+      },
+      {
+        "tile_id": "0_25_70",
+        "fast_before": 0.0,
+        "fast_after": 0.0,
+        "fast_net": 0.0,
+        "accurate_before": 0.0,
+        "accurate_after": 0.02,
+        "accurate_net": 0.02,
+        "gt_flooded_count": 1,
+        "latency_ms": 859
+      },
+      {
+        "tile_id": "0_26_67",
+        "fast_before": 0.0,
+        "fast_after": 0.0,
+        "fast_net": 0.0,
+        "accurate_before": 0.0,
+        "accurate_after": 0.0,
+        "accurate_net": 0.0,
+        "gt_flooded_count": 11,
+        "latency_ms": 758
+      },
+      {
+        "tile_id": "0_26_68",
+        "fast_before": 0.0,
+        "fast_after": 0.01,
+        "fast_net": 0.01,
+        "accurate_before": 0.02,
+        "accurate_after": 0.85,
+        "accurate_net": 0.83,
+        "gt_flooded_count": 30,
+        "latency_ms": 769
+      },
+      {
+        "tile_id": "0_26_69",
+        "fast_before": 0.0,
+        "fast_after": 0.0,
+        "fast_net": 0.0,
+        "accurate_before": 0.0,
+        "accurate_after": 0.0,
+        "accurate_net": 0.0,
+        "gt_flooded_count": 22,
+        "latency_ms": 772
+      },
+      {
+        "tile_id": "0_27_63",
+        "fast_before": 0.0,
+        "fast_after": 0.84,
+        "fast_net": 0.84,
+        "accurate_before": 0.02,
+        "accurate_after": 7.81,
+        "accurate_net": 7.79,
+        "gt_flooded_count": 5,
+        "latency_ms": 746
+      },
+      {
+        "tile_id": "0_27_64",
+        "fast_before": 0.0,
+        "fast_after": 0.0,
+        "fast_net": 0.0,
+        "accurate_before": 0.0,
+        "accurate_after": 0.0,
+        "accurate_net": 0.0,
+        "gt_flooded_count": 2,
+        "latency_ms": 763
+      },
+      {
+        "tile_id": "0_27_66",
+        "fast_before": 0.0,
+        "fast_after": 0.0,
+        "fast_net": 0.0,
+        "accurate_before": 0.0,
+        "accurate_after": 0.0,
+        "accurate_net": 0.0,
+        "gt_flooded_count": 5,
+        "latency_ms": 778
+      },
+      {
+        "tile_id": "0_27_67",
+        "fast_before": 0.0,
+        "fast_after": 2.38,
+        "fast_net": 2.38,
+        "accurate_before": 0.0,
+        "accurate_after": 6.88,
+        "accurate_net": 6.88,
+        "gt_flooded_count": 46,
+        "latency_ms": 760
+      },
+      {
+        "tile_id": "0_27_68",
+        "fast_before": 0.0,
+        "fast_after": 6.96,
+        "fast_net": 6.96,
+        "accurate_before": 0.0,
+        "accurate_after": 10.08,
+        "accurate_net": 10.08,
+        "gt_flooded_count": 86,
+        "latency_ms": 751
+      },
+      {
+        "tile_id": "0_27_69",
+        "fast_before": 0.0,
+        "fast_after": 0.0,
+        "fast_net": 0.0,
+        "accurate_before": 0.0,
+        "accurate_after": 0.0,
+        "accurate_net": 0.0,
+        "gt_flooded_count": 3,
+        "latency_ms": 755
+      },
+      {
+        "tile_id": "0_28_62",
+        "fast_before": 0.0,
+        "fast_after": 0.0,
+        "fast_net": 0.0,
+        "accurate_before": 0.0,
+        "accurate_after": 0.0,
+        "accurate_net": 0.0,
+        "gt_flooded_count": 1,
+        "latency_ms": 749
+      },
+      {
+        "tile_id": "0_28_63",
+        "fast_before": 0.0,
+        "fast_after": 1.23,
+        "fast_net": 1.23,
+        "accurate_before": 0.02,
+        "accurate_after": 4.34,
+        "accurate_net": 4.32,
+        "gt_flooded_count": 70,
+        "latency_ms": 779
+      },
+      {
+        "tile_id": "0_28_64",
+        "fast_before": 0.0,
+        "fast_after": 0.79,
+        "fast_net": 0.79,
+        "accurate_before": 0.0,
+        "accurate_after": 1.1,
+        "accurate_net": 1.1,
+        "gt_flooded_count": 81,
+        "latency_ms": 794
+      },
+      {
+        "tile_id": "0_28_65",
+        "fast_before": 0.0,
+        "fast_after": 0.0,
+        "fast_net": 0.0,
+        "accurate_before": 0.0,
+        "accurate_after": 0.0,
+        "accurate_net": 0.0,
+        "gt_flooded_count": 17,
+        "latency_ms": 790
+      },
+      {
+        "tile_id": "0_28_66",
+        "fast_before": 0.0,
+        "fast_after": 0.09,
+        "fast_net": 0.09,
+        "accurate_before": 0.0,
+        "accurate_after": 0.17,
+        "accurate_net": 0.17,
+        "gt_flooded_count": 20,
+        "latency_ms": 757
+      },
+      {
+        "tile_id": "0_28_67",
+        "fast_before": 0.0,
+        "fast_after": 0.0,
+        "fast_net": 0.0,
+        "accurate_before": 0.0,
+        "accurate_after": 0.0,
+        "accurate_net": 0.0,
+        "gt_flooded_count": 1,
+        "latency_ms": 741
+      },
+      {
+        "tile_id": "0_28_68",
+        "fast_before": 0.0,
+        "fast_after": 0.01,
+        "fast_net": 0.01,
+        "accurate_before": 0.0,
+        "accurate_after": 0.01,
+        "accurate_net": 0.01,
+        "gt_flooded_count": 1,
+        "latency_ms": 752
+      },
+      {
+        "tile_id": "0_29_61",
+        "fast_before": 0.0,
+        "fast_after": 0.0,
+        "fast_net": 0.0,
+        "accurate_before": 0.0,
+        "accurate_after": 0.0,
+        "accurate_net": 0.0,
+        "gt_flooded_count": 7,
+        "latency_ms": 718
+      },
+      {
+        "tile_id": "0_29_62",
+        "fast_before": 0.0,
+        "fast_after": 0.0,
+        "fast_net": 0.0,
+        "accurate_before": 0.0,
+        "accurate_after": 0.01,
+        "accurate_net": 0.01,
+        "gt_flooded_count": 33,
+        "latency_ms": 708
+      },
+      {
+        "tile_id": "0_29_63",
+        "fast_before": 0.0,
+        "fast_after": 0.0,
+        "fast_net": 0.0,
+        "accurate_before": 0.03,
+        "accurate_after": 0.21,
+        "accurate_net": 0.18,
+        "gt_flooded_count": 52,
+        "latency_ms": 723
+      },
+      {
+        "tile_id": "0_29_66",
+        "fast_before": 0.0,
+        "fast_after": 0.0,
+        "fast_net": 0.0,
+        "accurate_before": 0.11,
+        "accurate_after": 0.0,
+        "accurate_net": -0.11,
+        "gt_flooded_count": 95,
+        "latency_ms": 724
+      },
+      {
+        "tile_id": "0_30_61",
+        "fast_before": 0.0,
+        "fast_after": 0.0,
+        "fast_net": 0.0,
+        "accurate_before": 0.0,
+        "accurate_after": 0.0,
+        "accurate_net": 0.0,
+        "gt_flooded_count": 9,
+        "latency_ms": 695
+      },
+      {
+        "tile_id": "0_30_62",
+        "fast_before": 0.0,
+        "fast_after": 0.0,
+        "fast_net": 0.0,
+        "accurate_before": 0.0,
+        "accurate_after": 0.0,
+        "accurate_net": 0.0,
+        "gt_flooded_count": 73,
+        "latency_ms": 697
+      },
+      {
+        "tile_id": "0_30_63",
+        "fast_before": 0.0,
+        "fast_after": 3.93,
+        "fast_net": 3.93,
+        "accurate_before": 0.0,
+        "accurate_after": 5.73,
+        "accurate_net": 5.73,
+        "gt_flooded_count": 62,
+        "latency_ms": 708
+      },
+      {
+        "tile_id": "0_31_63",
+        "fast_before": 0.0,
+        "fast_after": 0.0,
+        "fast_net": 0.0,
+        "accurate_before": 0.0,
+        "accurate_after": 0.0,
+        "accurate_net": 0.0,
+        "gt_flooded_count": 3,
+        "latency_ms": 685
+      },
+      {
+        "tile_id": "0_32_61",
+        "fast_before": 0.0,
+        "fast_after": 0.0,
+        "fast_net": 0.0,
+        "accurate_before": 0.0,
+        "accurate_after": 0.0,
+        "accurate_net": 0.0,
+        "gt_flooded_count": 2,
+        "latency_ms": 729
+      },
+      {
+        "tile_id": "0_32_62",
+        "fast_before": 0.0,
+        "fast_after": 0.0,
+        "fast_net": 0.0,
+        "accurate_before": 0.0,
+        "accurate_after": 0.0,
+        "accurate_net": 0.0,
+        "gt_flooded_count": 4,
+        "latency_ms": 678
+      },
+      {
+        "tile_id": "0_33_61",
+        "fast_before": 0.0,
+        "fast_after": 0.0,
+        "fast_net": 0.0,
+        "accurate_before": 0.0,
+        "accurate_after": 0.0,
+        "accurate_net": 0.0,
+        "gt_flooded_count": 15,
+        "latency_ms": 685
+      },
+      {
+        "tile_id": "0_34_61",
+        "fast_before": 0.0,
+        "fast_after": 0.0,
+        "fast_net": 0.0,
+        "accurate_before": 0.0,
+        "accurate_after": 0.0,
+        "accurate_net": 0.0,
+        "gt_flooded_count": 20,
+        "latency_ms": 688
+      },
+      {
+        "tile_id": "0_34_62",
+        "fast_before": 0.0,
+        "fast_after": 0.0,
+        "fast_net": 0.0,
+        "accurate_before": 0.0,
+        "accurate_after": 0.0,
+        "accurate_net": 0.0,
+        "gt_flooded_count": 2,
+        "latency_ms": 689
+      },
+      {
+        "tile_id": "0_35_61",
+        "fast_before": 0.0,
+        "fast_after": 0.0,
+        "fast_net": 0.0,
+        "accurate_before": 0.06,
+        "accurate_after": 0.0,
+        "accurate_net": -0.06,
+        "gt_flooded_count": 15,
+        "latency_ms": 680
+      },
+      {
+        "tile_id": "0_35_62",
+        "fast_before": 0.0,
+        "fast_after": 0.0,
+        "fast_net": 0.0,
+        "accurate_before": 0.02,
+        "accurate_after": 0.11,
+        "accurate_net": 0.09,
+        "gt_flooded_count": 16,
+        "latency_ms": 687
+      },
+      {
+        "tile_id": "0_35_63",
+        "fast_before": 0.0,
+        "fast_after": 0.0,
+        "fast_net": 0.0,
+        "accurate_before": 0.0,
+        "accurate_after": 0.0,
+        "accurate_net": 0.0,
+        "gt_flooded_count": 1,
+        "latency_ms": 730
+      },
+      {
+        "tile_id": "0_36_60",
+        "fast_before": 0.04,
+        "fast_after": 0.0,
+        "fast_net": -0.04,
+        "accurate_before": 1.12,
+        "accurate_after": 0.0,
+        "accurate_net": -1.12,
+        "gt_flooded_count": 1,
+        "latency_ms": 697
+      },
+      {
+        "tile_id": "0_36_61",
+        "fast_before": 0.15,
+        "fast_after": 0.0,
+        "fast_net": -0.15,
+        "accurate_before": 1.64,
+        "accurate_after": 0.0,
+        "accurate_net": -1.64,
+        "gt_flooded_count": 15,
+        "latency_ms": 700
+      },
+      {
+        "tile_id": "0_36_62",
+        "fast_before": 0.0,
+        "fast_after": 0.0,
+        "fast_net": 0.0,
+        "accurate_before": 0.0,
+        "accurate_after": 0.0,
+        "accurate_net": 0.0,
+        "gt_flooded_count": 1,
+        "latency_ms": 681
+      },
+      {
+        "tile_id": "0_37_60",
+        "fast_before": 0.0,
+        "fast_after": 0.0,
+        "fast_net": 0.0,
+        "accurate_before": 1.39,
+        "accurate_after": 2.4,
+        "accurate_net": 1.01,
+        "gt_flooded_count": 12,
+        "latency_ms": 694
+      },
+      {
+        "tile_id": "0_37_61",
+        "fast_before": 0.0,
+        "fast_after": 0.01,
+        "fast_net": 0.01,
+        "accurate_before": 0.29,
+        "accurate_after": 6.58,
+        "accurate_net": 6.29,
+        "gt_flooded_count": 29,
+        "latency_ms": 716
+      },
+      {
+        "tile_id": "0_38_61",
+        "fast_before": 0.0,
+        "fast_after": 0.0,
+        "fast_net": 0.0,
+        "accurate_before": 0.0,
+        "accurate_after": 0.0,
+        "accurate_net": 0.0,
+        "gt_flooded_count": 2,
+        "latency_ms": 678
+      },
+      {
+        "tile_id": "0_38_62",
+        "fast_before": 0.0,
+        "fast_after": 0.0,
+        "fast_net": 0.0,
+        "accurate_before": 0.0,
+        "accurate_after": 0.0,
+        "accurate_net": 0.0,
+        "gt_flooded_count": 2,
+        "latency_ms": 680
+      },
+      {
+        "tile_id": "0_39_62",
+        "fast_before": 0.0,
+        "fast_after": 0.0,
+        "fast_net": 0.0,
+        "accurate_before": 0.0,
+        "accurate_after": 0.0,
+        "accurate_net": 0.0,
+        "gt_flooded_count": 3,
+        "latency_ms": 681
+      },
+      {
+        "tile_id": "0_40_59",
+        "fast_before": 0.0,
+        "fast_after": 0.0,
+        "fast_net": 0.0,
+        "accurate_before": 0.05,
+        "accurate_after": 6.18,
+        "accurate_net": 6.13,
+        "gt_flooded_count": 11,
+        "latency_ms": 695
+      },
+      {
+        "tile_id": "0_40_60",
+        "fast_before": 0.01,
+        "fast_after": 0.0,
+        "fast_net": -0.01,
+        "accurate_before": 0.15,
+        "accurate_after": 0.0,
+        "accurate_net": -0.15,
+        "gt_flooded_count": 1,
+        "latency_ms": 702
+      },
+      {
+        "tile_id": "0_40_61",
+        "fast_before": 0.0,
+        "fast_after": 0.0,
+        "fast_net": 0.0,
+        "accurate_before": 0.0,
+        "accurate_after": 3.03,
+        "accurate_net": 3.03,
+        "gt_flooded_count": 14,
+        "latency_ms": 692
+      },
+      {
+        "tile_id": "0_40_62",
+        "fast_before": 0.0,
+        "fast_after": 0.02,
+        "fast_net": 0.02,
+        "accurate_before": 0.01,
+        "accurate_after": 2.38,
+        "accurate_net": 2.37,
+        "gt_flooded_count": 88,
+        "latency_ms": 787
+      },
+      {
+        "tile_id": "0_41_58",
+        "fast_before": 0.54,
+        "fast_after": 39.54,
+        "fast_net": 39.0,
+        "accurate_before": 21.17,
+        "accurate_after": 43.43,
+        "accurate_net": 22.26,
+        "gt_flooded_count": 181,
+        "latency_ms": 687
+      },
+      {
+        "tile_id": "0_41_59",
+        "fast_before": 0.03,
+        "fast_after": 5.0,
+        "fast_net": 4.97,
+        "accurate_before": 0.85,
+        "accurate_after": 10.27,
+        "accurate_net": 9.42,
+        "gt_flooded_count": 90,
+        "latency_ms": 709
+      },
+      {
+        "tile_id": "0_41_60",
+        "fast_before": 0.0,
+        "fast_after": 0.0,
+        "fast_net": 0.0,
+        "accurate_before": 0.0,
+        "accurate_after": 0.0,
+        "accurate_net": 0.0,
+        "gt_flooded_count": 7,
+        "latency_ms": 705
+      },
+      {
+        "tile_id": "0_41_61",
+        "fast_before": 0.0,
+        "fast_after": 0.0,
+        "fast_net": 0.0,
+        "accurate_before": 0.0,
+        "accurate_after": 0.0,
+        "accurate_net": 0.0,
+        "gt_flooded_count": 6,
+        "latency_ms": 724
+      },
+      {
+        "tile_id": "0_41_62",
+        "fast_before": 0.0,
+        "fast_after": 0.0,
+        "fast_net": 0.0,
+        "accurate_before": 0.0,
+        "accurate_after": 0.0,
+        "accurate_net": 0.0,
+        "gt_flooded_count": 5,
+        "latency_ms": 709
+      },
+      {
+        "tile_id": "0_42_58",
+        "fast_before": 0.0,
+        "fast_after": 0.0,
+        "fast_net": 0.0,
+        "accurate_before": 1.2,
+        "accurate_after": 3.51,
+        "accurate_net": 2.31,
+        "gt_flooded_count": 48,
+        "latency_ms": 687
+      },
+      {
+        "tile_id": "0_43_58",
+        "fast_before": 0.0,
+        "fast_after": 0.0,
+        "fast_net": 0.0,
+        "accurate_before": 0.0,
+        "accurate_after": 0.0,
+        "accurate_net": 0.0,
+        "gt_flooded_count": 1,
+        "latency_ms": 684
+      }
+    ],
+    "demo_tiles": [
+      {
+        "tile_id": "0_41_58",
+        "label": "Model Hit: +39.00% Net",
+        "description": "181 GT flooded features (169 buildings, 12 roads)",
+        "before_pct": 0.54,
+        "after_pct": 39.54,
+        "net_intrusion_pct": 39.0,
+        "gt_flooded_count": 181,
+        "gt_bldg_count": 169,
+        "gt_road_count": 12,
+        "latency_ms": 429,
+        "seen_in_training": true,
+        "split": "train",
+        "agreement": {
+          "fast": {
+            "pred_pixels": 668297,
+            "tp": 236289,
+            "tp_bldg": 184814,
+            "tp_road": 52704,
+            "tp_overlap": 1229,
+            "fp": 432008,
+            "fn": 41242,
+            "precision_pct": 35.36,
+            "recall_pct": 85.14,
+            "iou_pct": 33.3,
+            "bldg_recall_pct": 84.85,
+            "road_recall_pct": 86.37
+          },
+          "accurate": {
+            "pred_pixels": 733988,
+            "tp": 253878,
+            "tp_bldg": 196475,
+            "tp_road": 58711,
+            "tp_overlap": 1308,
+            "fp": 480110,
+            "fn": 23653,
+            "precision_pct": 34.59,
+            "recall_pct": 91.48,
+            "iou_pct": 33.51,
+            "bldg_recall_pct": 90.2,
+            "road_recall_pct": 96.21
+          },
+          "gt_pixels": {
+            "bldg_pixels": 217818,
+            "road_pixels": 61023,
+            "overlap_pixels": 1310,
+            "total_gt_pixels": 277531
+          }
+        }
+      },
+      {
+        "tile_id": "0_27_68",
+        "label": "Model Hit: +6.96% Net",
+        "description": "86 GT flooded features (80 buildings, 6 roads)",
+        "before_pct": 0.0,
+        "after_pct": 6.96,
+        "net_intrusion_pct": 6.96,
+        "gt_flooded_count": 86,
+        "gt_bldg_count": 80,
+        "gt_road_count": 6,
+        "latency_ms": 395,
+        "seen_in_training": true,
+        "split": "train",
+        "agreement": {
+          "fast": {
+            "pred_pixels": 117574,
+            "tp": 65660,
+            "tp_bldg": 63146,
+            "tp_road": 2541,
+            "tp_overlap": 27,
+            "fp": 51914,
+            "fn": 125984,
+            "precision_pct": 55.85,
+            "recall_pct": 34.26,
+            "iou_pct": 26.96,
+            "bldg_recall_pct": 41.42,
+            "road_recall_pct": 6.47
+          },
+          "accurate": {
+            "pred_pixels": 170420,
+            "tp": 96213,
+            "tp_bldg": 92122,
+            "tp_road": 4119,
+            "tp_overlap": 28,
+            "fp": 74207,
+            "fn": 95431,
+            "precision_pct": 56.46,
+            "recall_pct": 50.2,
+            "iou_pct": 36.19,
+            "bldg_recall_pct": 60.43,
+            "road_recall_pct": 10.49
+          },
+          "gt_pixels": {
+            "bldg_pixels": 152456,
+            "road_pixels": 39279,
+            "overlap_pixels": 91,
+            "total_gt_pixels": 191644
+          }
+        }
+      },
+      {
+        "tile_id": "0_41_59",
+        "label": "Model Hit: +4.97% Net",
+        "description": "90 GT flooded features (76 buildings, 14 roads)",
+        "before_pct": 0.03,
+        "after_pct": 5.0,
+        "net_intrusion_pct": 4.97,
+        "gt_flooded_count": 90,
+        "gt_bldg_count": 76,
+        "gt_road_count": 14,
+        "latency_ms": 364,
+        "seen_in_training": true,
+        "split": "train",
+        "agreement": {
+          "fast": {
+            "pred_pixels": 84417,
+            "tp": 39034,
+            "tp_bldg": 33785,
+            "tp_road": 5249,
+            "tp_overlap": 0,
+            "fp": 45383,
+            "fn": 175734,
+            "precision_pct": 46.24,
+            "recall_pct": 18.17,
+            "iou_pct": 15.0,
+            "bldg_recall_pct": 28.44,
+            "road_recall_pct": 5.46
+          },
+          "accurate": {
+            "pred_pixels": 173642,
+            "tp": 73588,
+            "tp_bldg": 62634,
+            "tp_road": 10961,
+            "tp_overlap": 7,
+            "fp": 100054,
+            "fn": 141180,
+            "precision_pct": 42.38,
+            "recall_pct": 34.26,
+            "iou_pct": 23.37,
+            "bldg_recall_pct": 52.73,
+            "road_recall_pct": 11.4
+          },
+          "gt_pixels": {
+            "bldg_pixels": 118776,
+            "road_pixels": 96121,
+            "overlap_pixels": 129,
+            "total_gt_pixels": 214768
+          }
+        }
+      },
+      {
+        "tile_id": "0_30_63",
+        "label": "Model Hit: +3.93% Net",
+        "description": "62 GT flooded features (48 buildings, 14 roads)",
+        "before_pct": 0.0,
+        "after_pct": 3.93,
+        "net_intrusion_pct": 3.93,
+        "gt_flooded_count": 62,
+        "gt_bldg_count": 48,
+        "gt_road_count": 14,
+        "latency_ms": 342,
+        "seen_in_training": true,
+        "split": "train",
+        "agreement": {
+          "fast": {
+            "pred_pixels": 66348,
+            "tp": 24261,
+            "tp_bldg": 21655,
+            "tp_road": 2606,
+            "tp_overlap": 0,
+            "fp": 42087,
+            "fn": 155133,
+            "precision_pct": 36.57,
+            "recall_pct": 13.52,
+            "iou_pct": 10.95,
+            "bldg_recall_pct": 19.45,
+            "road_recall_pct": 3.82
+          },
+          "accurate": {
+            "pred_pixels": 96797,
+            "tp": 31962,
+            "tp_bldg": 24845,
+            "tp_road": 7209,
+            "tp_overlap": 92,
+            "fp": 64835,
+            "fn": 147432,
+            "precision_pct": 33.02,
+            "recall_pct": 17.82,
+            "iou_pct": 13.09,
+            "bldg_recall_pct": 22.32,
+            "road_recall_pct": 10.56
+          },
+          "gt_pixels": {
+            "bldg_pixels": 111318,
+            "road_pixels": 68256,
+            "overlap_pixels": 180,
+            "total_gt_pixels": 179394
+          }
+        }
+      },
+      {
+        "tile_id": "0_27_67",
+        "label": "Model Hit: +2.38% Net",
+        "description": "46 GT flooded features (43 buildings, 3 roads)",
+        "before_pct": 0.0,
+        "after_pct": 2.38,
+        "net_intrusion_pct": 2.38,
+        "gt_flooded_count": 46,
+        "gt_bldg_count": 43,
+        "gt_road_count": 3,
+        "latency_ms": 448,
+        "seen_in_training": true,
+        "split": "train",
+        "agreement": {
+          "fast": {
+            "pred_pixels": 40306,
+            "tp": 25128,
+            "tp_bldg": 24262,
+            "tp_road": 866,
+            "tp_overlap": 0,
+            "fp": 15178,
+            "fn": 91733,
+            "precision_pct": 62.34,
+            "recall_pct": 21.5,
+            "iou_pct": 19.03,
+            "bldg_recall_pct": 31.64,
+            "road_recall_pct": 2.16
+          },
+          "accurate": {
+            "pred_pixels": 116327,
+            "tp": 64103,
+            "tp_bldg": 55547,
+            "tp_road": 8556,
+            "tp_overlap": 0,
+            "fp": 52224,
+            "fn": 52758,
+            "precision_pct": 55.11,
+            "recall_pct": 54.85,
+            "iou_pct": 37.91,
+            "bldg_recall_pct": 72.43,
+            "road_recall_pct": 21.3
+          },
+          "gt_pixels": {
+            "bldg_pixels": 76692,
+            "road_pixels": 40169,
+            "overlap_pixels": 0,
+            "total_gt_pixels": 116861
+          }
+        }
+      },
+      {
+        "tile_id": "0_28_63",
+        "label": "Model Hit: +1.23% Net",
+        "description": "70 GT flooded features (58 buildings, 12 roads)",
+        "before_pct": 0.0,
+        "after_pct": 1.23,
+        "net_intrusion_pct": 1.23,
+        "gt_flooded_count": 70,
+        "gt_bldg_count": 58,
+        "gt_road_count": 12,
+        "latency_ms": 393,
+        "seen_in_training": true,
+        "split": "train",
+        "agreement": {
+          "fast": {
+            "pred_pixels": 20734,
+            "tp": 14129,
+            "tp_bldg": 14075,
+            "tp_road": 54,
+            "tp_overlap": 0,
+            "fp": 6605,
+            "fn": 171085,
+            "precision_pct": 68.14,
+            "recall_pct": 7.63,
+            "iou_pct": 7.37,
+            "bldg_recall_pct": 12.9,
+            "road_recall_pct": 0.07
+          },
+          "accurate": {
+            "pred_pixels": 73423,
+            "tp": 43520,
+            "tp_bldg": 38321,
+            "tp_road": 5199,
+            "tp_overlap": 0,
+            "fp": 29903,
+            "fn": 141694,
+            "precision_pct": 59.27,
+            "recall_pct": 23.5,
+            "iou_pct": 20.23,
+            "bldg_recall_pct": 35.12,
+            "road_recall_pct": 6.83
+          },
+          "gt_pixels": {
+            "bldg_pixels": 109126,
+            "road_pixels": 76111,
+            "overlap_pixels": 23,
+            "total_gt_pixels": 185214
+          }
+        }
+      },
+      {
+        "tile_id": "0_23_62",
+        "label": "Model Miss: +0.08% Net",
+        "description": "101 GT flooded features (94 buildings, 7 roads) missed by model",
+        "before_pct": 0.0,
+        "after_pct": 0.08,
+        "net_intrusion_pct": 0.08,
+        "gt_flooded_count": 101,
+        "gt_bldg_count": 94,
+        "gt_road_count": 7,
+        "latency_ms": 366,
+        "seen_in_training": true,
+        "split": "train",
+        "agreement": {
+          "fast": {
+            "pred_pixels": 1389,
+            "tp": 435,
+            "tp_bldg": 381,
+            "tp_road": 54,
+            "tp_overlap": 0,
+            "fp": 954,
+            "fn": 69897,
+            "precision_pct": 31.32,
+            "recall_pct": 0.62,
+            "iou_pct": 0.61,
+            "bldg_recall_pct": 0.99,
+            "road_recall_pct": 0.17
+          },
+          "accurate": {
+            "pred_pixels": 11095,
+            "tp": 3191,
+            "tp_bldg": 2037,
+            "tp_road": 1156,
+            "tp_overlap": 2,
+            "fp": 7904,
+            "fn": 67141,
+            "precision_pct": 28.76,
+            "recall_pct": 4.54,
+            "iou_pct": 4.08,
+            "bldg_recall_pct": 5.31,
+            "road_recall_pct": 3.6
+          },
+          "gt_pixels": {
+            "bldg_pixels": 38326,
+            "road_pixels": 32122,
+            "overlap_pixels": 116,
+            "total_gt_pixels": 70332
+          }
+        }
+      },
+      {
+        "tile_id": "0_29_66",
+        "label": "Model Miss: +0.00% Net",
+        "description": "95 GT flooded features (90 buildings, 5 roads) missed by model",
+        "before_pct": 0.0,
+        "after_pct": 0.0,
+        "net_intrusion_pct": 0.0,
+        "gt_flooded_count": 95,
+        "gt_bldg_count": 90,
+        "gt_road_count": 5,
+        "latency_ms": 398,
+        "seen_in_training": true,
+        "split": "train",
+        "agreement": {
+          "fast": {
+            "pred_pixels": 0,
+            "tp": 0,
+            "tp_bldg": 0,
+            "tp_road": 0,
+            "tp_overlap": 0,
+            "fp": 0,
+            "fn": 65042,
+            "precision_pct": 0.0,
+            "recall_pct": 0.0,
+            "iou_pct": 0.0,
+            "bldg_recall_pct": 0.0,
+            "road_recall_pct": 0.0
+          },
+          "accurate": {
+            "pred_pixels": 0,
+            "tp": 0,
+            "tp_bldg": 0,
+            "tp_road": 0,
+            "tp_overlap": 0,
+            "fp": 0,
+            "fn": 65042,
+            "precision_pct": 0.0,
+            "recall_pct": 0.0,
+            "iou_pct": 0.0,
+            "bldg_recall_pct": 0.0,
+            "road_recall_pct": 0.0
+          },
+          "gt_pixels": {
+            "bldg_pixels": 35816,
+            "road_pixels": 30431,
+            "overlap_pixels": 1205,
+            "total_gt_pixels": 65042
+          }
+        }
+      },
+      {
+        "tile_id": "0_40_62",
+        "label": "Model Miss: +0.02% Net",
+        "description": "88 GT flooded features (72 buildings, 16 roads) missed by model",
+        "before_pct": 0.0,
+        "after_pct": 0.02,
+        "net_intrusion_pct": 0.02,
+        "gt_flooded_count": 88,
+        "gt_bldg_count": 72,
+        "gt_road_count": 16,
+        "latency_ms": 338,
+        "seen_in_training": true,
+        "split": "train",
+        "agreement": {
+          "fast": {
+            "pred_pixels": 286,
+            "tp": 0,
+            "tp_bldg": 0,
+            "tp_road": 0,
+            "tp_overlap": 0,
+            "fp": 286,
+            "fn": 152239,
+            "precision_pct": 0.0,
+            "recall_pct": 0.0,
+            "iou_pct": 0.0,
+            "bldg_recall_pct": 0.0,
+            "road_recall_pct": 0.0
+          },
+          "accurate": {
+            "pred_pixels": 40266,
+            "tp": 11887,
+            "tp_bldg": 10872,
+            "tp_road": 1015,
+            "tp_overlap": 0,
+            "fp": 28379,
+            "fn": 140352,
+            "precision_pct": 29.52,
+            "recall_pct": 7.81,
+            "iou_pct": 6.58,
+            "bldg_recall_pct": 11.51,
+            "road_recall_pct": 1.75
+          },
+          "gt_pixels": {
+            "bldg_pixels": 94438,
+            "road_pixels": 57837,
+            "overlap_pixels": 36,
+            "total_gt_pixels": 152239
+          }
+        }
+      },
+      {
+        "tile_id": "0_39_62",
+        "label": "Model Miss: +0.00% Net",
+        "description": "3 GT flooded road segments missed by model",
+        "before_pct": 0.0,
+        "after_pct": 0.0,
+        "net_intrusion_pct": 0.0,
+        "gt_flooded_count": 3,
+        "gt_bldg_count": 0,
+        "gt_road_count": 3,
+        "latency_ms": 370,
+        "seen_in_training": true,
+        "split": "train",
+        "agreement": {
+          "fast": {
+            "pred_pixels": 0,
+            "tp": 0,
+            "tp_bldg": 0,
+            "tp_road": 0,
+            "tp_overlap": 0,
+            "fp": 0,
+            "fn": 7666,
+            "precision_pct": 0.0,
+            "recall_pct": 0.0,
+            "iou_pct": 0.0,
+            "bldg_recall_pct": 0.0,
+            "road_recall_pct": 0.0
+          },
+          "accurate": {
+            "pred_pixels": 0,
+            "tp": 0,
+            "tp_bldg": 0,
+            "tp_road": 0,
+            "tp_overlap": 0,
+            "fp": 0,
+            "fn": 7666,
+            "precision_pct": 0.0,
+            "recall_pct": 0.0,
+            "iou_pct": 0.0,
+            "bldg_recall_pct": 0.0,
+            "road_recall_pct": 0.0
+          },
+          "gt_pixels": {
+            "bldg_pixels": 0,
+            "road_pixels": 7666,
+            "overlap_pixels": 0,
+            "total_gt_pixels": 7666
+          }
+        }
+      },
+      {
+        "tile_id": "0_15_63",
+        "label": "True Negative: 0.00% Net",
+        "description": "0 GT flooded features; model correctly reports 0.0%",
+        "before_pct": 0.0,
+        "after_pct": 0.0,
+        "net_intrusion_pct": 0.0,
+        "gt_flooded_count": 0,
+        "gt_bldg_count": 0,
+        "gt_road_count": 0,
+        "latency_ms": 964,
+        "seen_in_training": false,
+        "split": "not_in_pool",
+        "agreement": {
+          "fast": {
+            "pred_pixels": 0,
+            "tp": 0,
+            "tp_bldg": 0,
+            "tp_road": 0,
+            "tp_overlap": 0,
+            "fp": 0,
+            "fn": 0,
+            "precision_pct": 100.0,
+            "recall_pct": 100.0,
+            "iou_pct": 100.0,
+            "bldg_recall_pct": 0.0,
+            "road_recall_pct": 0.0
+          },
+          "accurate": {
+            "pred_pixels": 0,
+            "tp": 0,
+            "tp_bldg": 0,
+            "tp_road": 0,
+            "tp_overlap": 0,
+            "fp": 0,
+            "fn": 0,
+            "precision_pct": 100.0,
+            "recall_pct": 100.0,
+            "iou_pct": 100.0,
+            "bldg_recall_pct": 0.0,
+            "road_recall_pct": 0.0
+          },
+          "gt_pixels": {
+            "bldg_pixels": 0,
+            "road_pixels": 0,
+            "overlap_pixels": 0,
+            "total_gt_pixels": 0
+          }
+        }
+      },
+      {
+        "tile_id": "0_15_68",
+        "label": "True Negative: 0.00% Net",
+        "description": "0 GT flooded features; model correctly reports 0.0%",
+        "before_pct": 0.0,
+        "after_pct": 0.0,
+        "net_intrusion_pct": 0.0,
+        "gt_flooded_count": 0,
+        "gt_bldg_count": 0,
+        "gt_road_count": 0,
+        "latency_ms": 469,
+        "seen_in_training": false,
+        "split": "not_in_pool",
+        "agreement": {
+          "fast": {
+            "pred_pixels": 0,
+            "tp": 0,
+            "tp_bldg": 0,
+            "tp_road": 0,
+            "tp_overlap": 0,
+            "fp": 0,
+            "fn": 0,
+            "precision_pct": 100.0,
+            "recall_pct": 100.0,
+            "iou_pct": 100.0,
+            "bldg_recall_pct": 0.0,
+            "road_recall_pct": 0.0
+          },
+          "accurate": {
+            "pred_pixels": 0,
+            "tp": 0,
+            "tp_bldg": 0,
+            "tp_road": 0,
+            "tp_overlap": 0,
+            "fp": 0,
+            "fn": 0,
+            "precision_pct": 100.0,
+            "recall_pct": 100.0,
+            "iou_pct": 100.0,
+            "bldg_recall_pct": 0.0,
+            "road_recall_pct": 0.0
+          },
+          "gt_pixels": {
+            "bldg_pixels": 0,
+            "road_pixels": 0,
+            "overlap_pixels": 0,
+            "total_gt_pixels": 0
+          }
+        }
+      },
+      {
+        "tile_id": "0_15_65",
+        "label": "True Negative: 0.00% Net",
+        "description": "0 GT flooded features; model correctly reports 0.0%",
+        "before_pct": 0.0,
+        "after_pct": 0.0,
+        "net_intrusion_pct": 0.0,
+        "gt_flooded_count": 0,
+        "gt_bldg_count": 0,
+        "gt_road_count": 0,
+        "latency_ms": 397,
+        "seen_in_training": false,
+        "split": "not_in_pool",
+        "agreement": {
+          "fast": {
+            "pred_pixels": 0,
+            "tp": 0,
+            "tp_bldg": 0,
+            "tp_road": 0,
+            "tp_overlap": 0,
+            "fp": 0,
+            "fn": 0,
+            "precision_pct": 100.0,
+            "recall_pct": 100.0,
+            "iou_pct": 100.0,
+            "bldg_recall_pct": 0.0,
+            "road_recall_pct": 0.0
+          },
+          "accurate": {
+            "pred_pixels": 0,
+            "tp": 0,
+            "tp_bldg": 0,
+            "tp_road": 0,
+            "tp_overlap": 0,
+            "fp": 0,
+            "fn": 0,
+            "precision_pct": 100.0,
+            "recall_pct": 100.0,
+            "iou_pct": 100.0,
+            "bldg_recall_pct": 0.0,
+            "road_recall_pct": 0.0
+          },
+          "gt_pixels": {
+            "bldg_pixels": 0,
+            "road_pixels": 0,
+            "overlap_pixels": 0,
+            "total_gt_pixels": 0
+          }
+        }
+      },
+      {
+        "tile_id": "0_20_66",
+        "label": "Pre-event FP: -3.32% Net",
+        "description": "False positive on pre-event imagery: model flags 3.32% flooded; 0 annotated flooded features (cause not determined)",
+        "before_pct": 3.32,
+        "after_pct": 0.0,
+        "net_intrusion_pct": -3.32,
+        "gt_flooded_count": 0,
+        "gt_bldg_count": 0,
+        "gt_road_count": 0,
+        "latency_ms": 421,
+        "seen_in_training": false,
+        "split": "not_in_pool",
+        "agreement": {
+          "fast": {
+            "pred_pixels": 0,
+            "tp": 0,
+            "tp_bldg": 0,
+            "tp_road": 0,
+            "tp_overlap": 0,
+            "fp": 0,
+            "fn": 0,
+            "precision_pct": 100.0,
+            "recall_pct": 100.0,
+            "iou_pct": 100.0,
+            "bldg_recall_pct": 0.0,
+            "road_recall_pct": 0.0
+          },
+          "accurate": {
+            "pred_pixels": 8406,
+            "tp": 0,
+            "tp_bldg": 0,
+            "tp_road": 0,
+            "tp_overlap": 0,
+            "fp": 8406,
+            "fn": 0,
+            "precision_pct": 0.0,
+            "recall_pct": 0.0,
+            "iou_pct": 0.0,
+            "bldg_recall_pct": 0.0,
+            "road_recall_pct": 0.0
+          },
+          "gt_pixels": {
+            "bldg_pixels": 0,
+            "road_pixels": 0,
+            "overlap_pixels": 0,
+            "total_gt_pixels": 0
+          }
+        }
+      }
+    ],
+    "demo_tiles_agreement": [
+      {
+        "tile_id": "0_41_58",
+        "split": "train",
+        "gt_features": 181,
+        "gt_bldg_count": 169,
+        "gt_road_count": 12,
+        "gt_composition": {
+          "bldg_pixels": 217818,
+          "road_pixels": 61023,
+          "overlap_pixels": 1310,
+          "total_gt_pixels": 277531
+        },
+        "fast_mode": {
+          "pred_pixels": 668297,
+          "tp": 236289,
+          "tp_bldg": 184814,
+          "tp_road": 52704,
+          "tp_overlap": 1229,
+          "fp": 432008,
+          "fn": 41242,
+          "precision_pct": 35.36,
+          "recall_pct": 85.14,
+          "iou_pct": 33.3,
+          "bldg_recall_pct": 84.85,
+          "road_recall_pct": 86.37,
+          "after_pct": 39.54
+        },
+        "accurate_mode": {
+          "pred_pixels": 733988,
+          "tp": 253878,
+          "tp_bldg": 196475,
+          "tp_road": 58711,
+          "tp_overlap": 1308,
+          "fp": 480110,
+          "fn": 23653,
+          "precision_pct": 34.59,
+          "recall_pct": 91.48,
+          "iou_pct": 33.51,
+          "bldg_recall_pct": 90.2,
+          "road_recall_pct": 96.21,
+          "after_pct": 43.43
+        },
+        "shape": [
+          1300,
+          1300
+        ]
+      },
+      {
+        "tile_id": "0_27_68",
+        "split": "train",
+        "gt_features": 86,
+        "gt_bldg_count": 80,
+        "gt_road_count": 6,
+        "gt_composition": {
+          "bldg_pixels": 152456,
+          "road_pixels": 39279,
+          "overlap_pixels": 91,
+          "total_gt_pixels": 191644
+        },
+        "fast_mode": {
+          "pred_pixels": 117574,
+          "tp": 65660,
+          "tp_bldg": 63146,
+          "tp_road": 2541,
+          "tp_overlap": 27,
+          "fp": 51914,
+          "fn": 125984,
+          "precision_pct": 55.85,
+          "recall_pct": 34.26,
+          "iou_pct": 26.96,
+          "bldg_recall_pct": 41.42,
+          "road_recall_pct": 6.47,
+          "after_pct": 6.96
+        },
+        "accurate_mode": {
+          "pred_pixels": 170420,
+          "tp": 96213,
+          "tp_bldg": 92122,
+          "tp_road": 4119,
+          "tp_overlap": 28,
+          "fp": 74207,
+          "fn": 95431,
+          "precision_pct": 56.46,
+          "recall_pct": 50.2,
+          "iou_pct": 36.19,
+          "bldg_recall_pct": 60.43,
+          "road_recall_pct": 10.49,
+          "after_pct": 10.08
+        },
+        "shape": [
+          1300,
+          1300
+        ]
+      },
+      {
+        "tile_id": "0_41_59",
+        "split": "train",
+        "gt_features": 90,
+        "gt_bldg_count": 76,
+        "gt_road_count": 14,
+        "gt_composition": {
+          "bldg_pixels": 118776,
+          "road_pixels": 96121,
+          "overlap_pixels": 129,
+          "total_gt_pixels": 214768
+        },
+        "fast_mode": {
+          "pred_pixels": 84417,
+          "tp": 39034,
+          "tp_bldg": 33785,
+          "tp_road": 5249,
+          "tp_overlap": 0,
+          "fp": 45383,
+          "fn": 175734,
+          "precision_pct": 46.24,
+          "recall_pct": 18.17,
+          "iou_pct": 15.0,
+          "bldg_recall_pct": 28.44,
+          "road_recall_pct": 5.46,
+          "after_pct": 5.0
+        },
+        "accurate_mode": {
+          "pred_pixels": 173642,
+          "tp": 73588,
+          "tp_bldg": 62634,
+          "tp_road": 10961,
+          "tp_overlap": 7,
+          "fp": 100054,
+          "fn": 141180,
+          "precision_pct": 42.38,
+          "recall_pct": 34.26,
+          "iou_pct": 23.37,
+          "bldg_recall_pct": 52.73,
+          "road_recall_pct": 11.4,
+          "after_pct": 10.27
+        },
+        "shape": [
+          1300,
+          1300
+        ]
+      },
+      {
+        "tile_id": "0_30_63",
+        "split": "train",
+        "gt_features": 62,
+        "gt_bldg_count": 48,
+        "gt_road_count": 14,
+        "gt_composition": {
+          "bldg_pixels": 111318,
+          "road_pixels": 68256,
+          "overlap_pixels": 180,
+          "total_gt_pixels": 179394
+        },
+        "fast_mode": {
+          "pred_pixels": 66348,
+          "tp": 24261,
+          "tp_bldg": 21655,
+          "tp_road": 2606,
+          "tp_overlap": 0,
+          "fp": 42087,
+          "fn": 155133,
+          "precision_pct": 36.57,
+          "recall_pct": 13.52,
+          "iou_pct": 10.95,
+          "bldg_recall_pct": 19.45,
+          "road_recall_pct": 3.82,
+          "after_pct": 3.93
+        },
+        "accurate_mode": {
+          "pred_pixels": 96797,
+          "tp": 31962,
+          "tp_bldg": 24845,
+          "tp_road": 7209,
+          "tp_overlap": 92,
+          "fp": 64835,
+          "fn": 147432,
+          "precision_pct": 33.02,
+          "recall_pct": 17.82,
+          "iou_pct": 13.09,
+          "bldg_recall_pct": 22.32,
+          "road_recall_pct": 10.56,
+          "after_pct": 5.73
+        },
+        "shape": [
+          1300,
+          1300
+        ]
+      },
+      {
+        "tile_id": "0_27_67",
+        "split": "train",
+        "gt_features": 46,
+        "gt_bldg_count": 43,
+        "gt_road_count": 3,
+        "gt_composition": {
+          "bldg_pixels": 76692,
+          "road_pixels": 40169,
+          "overlap_pixels": 0,
+          "total_gt_pixels": 116861
+        },
+        "fast_mode": {
+          "pred_pixels": 40306,
+          "tp": 25128,
+          "tp_bldg": 24262,
+          "tp_road": 866,
+          "tp_overlap": 0,
+          "fp": 15178,
+          "fn": 91733,
+          "precision_pct": 62.34,
+          "recall_pct": 21.5,
+          "iou_pct": 19.03,
+          "bldg_recall_pct": 31.64,
+          "road_recall_pct": 2.16,
+          "after_pct": 2.38
+        },
+        "accurate_mode": {
+          "pred_pixels": 116327,
+          "tp": 64103,
+          "tp_bldg": 55547,
+          "tp_road": 8556,
+          "tp_overlap": 0,
+          "fp": 52224,
+          "fn": 52758,
+          "precision_pct": 55.11,
+          "recall_pct": 54.85,
+          "iou_pct": 37.91,
+          "bldg_recall_pct": 72.43,
+          "road_recall_pct": 21.3,
+          "after_pct": 6.88
+        },
+        "shape": [
+          1300,
+          1300
+        ]
+      },
+      {
+        "tile_id": "0_28_63",
+        "split": "train",
+        "gt_features": 70,
+        "gt_bldg_count": 58,
+        "gt_road_count": 12,
+        "gt_composition": {
+          "bldg_pixels": 109126,
+          "road_pixels": 76111,
+          "overlap_pixels": 23,
+          "total_gt_pixels": 185214
+        },
+        "fast_mode": {
+          "pred_pixels": 20734,
+          "tp": 14129,
+          "tp_bldg": 14075,
+          "tp_road": 54,
+          "tp_overlap": 0,
+          "fp": 6605,
+          "fn": 171085,
+          "precision_pct": 68.14,
+          "recall_pct": 7.63,
+          "iou_pct": 7.37,
+          "bldg_recall_pct": 12.9,
+          "road_recall_pct": 0.07,
+          "after_pct": 1.23
+        },
+        "accurate_mode": {
+          "pred_pixels": 73423,
+          "tp": 43520,
+          "tp_bldg": 38321,
+          "tp_road": 5199,
+          "tp_overlap": 0,
+          "fp": 29903,
+          "fn": 141694,
+          "precision_pct": 59.27,
+          "recall_pct": 23.5,
+          "iou_pct": 20.23,
+          "bldg_recall_pct": 35.12,
+          "road_recall_pct": 6.83,
+          "after_pct": 4.34
+        },
+        "shape": [
+          1300,
+          1300
+        ]
+      },
+      {
+        "tile_id": "0_23_62",
+        "split": "train",
+        "gt_features": 101,
+        "gt_bldg_count": 94,
+        "gt_road_count": 7,
+        "gt_composition": {
+          "bldg_pixels": 38326,
+          "road_pixels": 32122,
+          "overlap_pixels": 116,
+          "total_gt_pixels": 70332
+        },
+        "fast_mode": {
+          "pred_pixels": 1389,
+          "tp": 435,
+          "tp_bldg": 381,
+          "tp_road": 54,
+          "tp_overlap": 0,
+          "fp": 954,
+          "fn": 69897,
+          "precision_pct": 31.32,
+          "recall_pct": 0.62,
+          "iou_pct": 0.61,
+          "bldg_recall_pct": 0.99,
+          "road_recall_pct": 0.17,
+          "after_pct": 0.08
+        },
+        "accurate_mode": {
+          "pred_pixels": 11095,
+          "tp": 3191,
+          "tp_bldg": 2037,
+          "tp_road": 1156,
+          "tp_overlap": 2,
+          "fp": 7904,
+          "fn": 67141,
+          "precision_pct": 28.76,
+          "recall_pct": 4.54,
+          "iou_pct": 4.08,
+          "bldg_recall_pct": 5.31,
+          "road_recall_pct": 3.6,
+          "after_pct": 0.66
+        },
+        "shape": [
+          1300,
+          1300
+        ]
+      },
+      {
+        "tile_id": "0_29_66",
+        "split": "train",
+        "gt_features": 95,
+        "gt_bldg_count": 90,
+        "gt_road_count": 5,
+        "gt_composition": {
+          "bldg_pixels": 35816,
+          "road_pixels": 30431,
+          "overlap_pixels": 1205,
+          "total_gt_pixels": 65042
+        },
+        "fast_mode": {
+          "pred_pixels": 0,
+          "tp": 0,
+          "tp_bldg": 0,
+          "tp_road": 0,
+          "tp_overlap": 0,
+          "fp": 0,
+          "fn": 65042,
+          "precision_pct": 0.0,
+          "recall_pct": 0.0,
+          "iou_pct": 0.0,
+          "bldg_recall_pct": 0.0,
+          "road_recall_pct": 0.0,
+          "after_pct": 0.0
+        },
+        "accurate_mode": {
+          "pred_pixels": 0,
+          "tp": 0,
+          "tp_bldg": 0,
+          "tp_road": 0,
+          "tp_overlap": 0,
+          "fp": 0,
+          "fn": 65042,
+          "precision_pct": 0.0,
+          "recall_pct": 0.0,
+          "iou_pct": 0.0,
+          "bldg_recall_pct": 0.0,
+          "road_recall_pct": 0.0,
+          "after_pct": 0.0
+        },
+        "shape": [
+          1300,
+          1300
+        ]
+      },
+      {
+        "tile_id": "0_40_62",
+        "split": "train",
+        "gt_features": 88,
+        "gt_bldg_count": 72,
+        "gt_road_count": 16,
+        "gt_composition": {
+          "bldg_pixels": 94438,
+          "road_pixels": 57837,
+          "overlap_pixels": 36,
+          "total_gt_pixels": 152239
+        },
+        "fast_mode": {
+          "pred_pixels": 286,
+          "tp": 0,
+          "tp_bldg": 0,
+          "tp_road": 0,
+          "tp_overlap": 0,
+          "fp": 286,
+          "fn": 152239,
+          "precision_pct": 0.0,
+          "recall_pct": 0.0,
+          "iou_pct": 0.0,
+          "bldg_recall_pct": 0.0,
+          "road_recall_pct": 0.0,
+          "after_pct": 0.02
+        },
+        "accurate_mode": {
+          "pred_pixels": 40266,
+          "tp": 11887,
+          "tp_bldg": 10872,
+          "tp_road": 1015,
+          "tp_overlap": 0,
+          "fp": 28379,
+          "fn": 140352,
+          "precision_pct": 29.52,
+          "recall_pct": 7.81,
+          "iou_pct": 6.58,
+          "bldg_recall_pct": 11.51,
+          "road_recall_pct": 1.75,
+          "after_pct": 2.38
+        },
+        "shape": [
+          1300,
+          1300
+        ]
+      },
+      {
+        "tile_id": "0_39_62",
+        "split": "train",
+        "gt_features": 3,
+        "gt_bldg_count": 0,
+        "gt_road_count": 3,
+        "gt_composition": {
+          "bldg_pixels": 0,
+          "road_pixels": 7666,
+          "overlap_pixels": 0,
+          "total_gt_pixels": 7666
+        },
+        "fast_mode": {
+          "pred_pixels": 0,
+          "tp": 0,
+          "tp_bldg": 0,
+          "tp_road": 0,
+          "tp_overlap": 0,
+          "fp": 0,
+          "fn": 7666,
+          "precision_pct": 0.0,
+          "recall_pct": 0.0,
+          "iou_pct": 0.0,
+          "bldg_recall_pct": 0.0,
+          "road_recall_pct": 0.0,
+          "after_pct": 0.0
+        },
+        "accurate_mode": {
+          "pred_pixels": 0,
+          "tp": 0,
+          "tp_bldg": 0,
+          "tp_road": 0,
+          "tp_overlap": 0,
+          "fp": 0,
+          "fn": 7666,
+          "precision_pct": 0.0,
+          "recall_pct": 0.0,
+          "iou_pct": 0.0,
+          "bldg_recall_pct": 0.0,
+          "road_recall_pct": 0.0,
+          "after_pct": 0.0
+        },
+        "shape": [
+          1300,
+          1300
+        ]
+      },
+      {
+        "tile_id": "0_15_63",
+        "split": "not_in_pool",
+        "gt_features": 0,
+        "gt_bldg_count": 0,
+        "gt_road_count": 0,
+        "gt_composition": {
+          "bldg_pixels": 0,
+          "road_pixels": 0,
+          "overlap_pixels": 0,
+          "total_gt_pixels": 0
+        },
+        "fast_mode": {
+          "pred_pixels": 0,
+          "tp": 0,
+          "tp_bldg": 0,
+          "tp_road": 0,
+          "tp_overlap": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision_pct": 100.0,
+          "recall_pct": 100.0,
+          "iou_pct": 100.0,
+          "bldg_recall_pct": 0.0,
+          "road_recall_pct": 0.0,
+          "after_pct": 0.0
+        },
+        "accurate_mode": {
+          "pred_pixels": 0,
+          "tp": 0,
+          "tp_bldg": 0,
+          "tp_road": 0,
+          "tp_overlap": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision_pct": 100.0,
+          "recall_pct": 100.0,
+          "iou_pct": 100.0,
+          "bldg_recall_pct": 0.0,
+          "road_recall_pct": 0.0,
+          "after_pct": 0.0
+        },
+        "shape": [
+          1300,
+          1300
+        ]
+      },
+      {
+        "tile_id": "0_15_68",
+        "split": "not_in_pool",
+        "gt_features": 0,
+        "gt_bldg_count": 0,
+        "gt_road_count": 0,
+        "gt_composition": {
+          "bldg_pixels": 0,
+          "road_pixels": 0,
+          "overlap_pixels": 0,
+          "total_gt_pixels": 0
+        },
+        "fast_mode": {
+          "pred_pixels": 0,
+          "tp": 0,
+          "tp_bldg": 0,
+          "tp_road": 0,
+          "tp_overlap": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision_pct": 100.0,
+          "recall_pct": 100.0,
+          "iou_pct": 100.0,
+          "bldg_recall_pct": 0.0,
+          "road_recall_pct": 0.0,
+          "after_pct": 0.0
+        },
+        "accurate_mode": {
+          "pred_pixels": 0,
+          "tp": 0,
+          "tp_bldg": 0,
+          "tp_road": 0,
+          "tp_overlap": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision_pct": 100.0,
+          "recall_pct": 100.0,
+          "iou_pct": 100.0,
+          "bldg_recall_pct": 0.0,
+          "road_recall_pct": 0.0,
+          "after_pct": 0.0
+        },
+        "shape": [
+          1300,
+          1300
+        ]
+      },
+      {
+        "tile_id": "0_15_65",
+        "split": "not_in_pool",
+        "gt_features": 0,
+        "gt_bldg_count": 0,
+        "gt_road_count": 0,
+        "gt_composition": {
+          "bldg_pixels": 0,
+          "road_pixels": 0,
+          "overlap_pixels": 0,
+          "total_gt_pixels": 0
+        },
+        "fast_mode": {
+          "pred_pixels": 0,
+          "tp": 0,
+          "tp_bldg": 0,
+          "tp_road": 0,
+          "tp_overlap": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision_pct": 100.0,
+          "recall_pct": 100.0,
+          "iou_pct": 100.0,
+          "bldg_recall_pct": 0.0,
+          "road_recall_pct": 0.0,
+          "after_pct": 0.0
+        },
+        "accurate_mode": {
+          "pred_pixels": 0,
+          "tp": 0,
+          "tp_bldg": 0,
+          "tp_road": 0,
+          "tp_overlap": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision_pct": 100.0,
+          "recall_pct": 100.0,
+          "iou_pct": 100.0,
+          "bldg_recall_pct": 0.0,
+          "road_recall_pct": 0.0,
+          "after_pct": 0.0
+        },
+        "shape": [
+          1300,
+          1300
+        ]
+      },
+      {
+        "tile_id": "0_20_66",
+        "split": "not_in_pool",
+        "gt_features": 0,
+        "gt_bldg_count": 0,
+        "gt_road_count": 0,
+        "gt_composition": {
+          "bldg_pixels": 0,
+          "road_pixels": 0,
+          "overlap_pixels": 0,
+          "total_gt_pixels": 0
+        },
+        "fast_mode": {
+          "pred_pixels": 0,
+          "tp": 0,
+          "tp_bldg": 0,
+          "tp_road": 0,
+          "tp_overlap": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision_pct": 100.0,
+          "recall_pct": 100.0,
+          "iou_pct": 100.0,
+          "bldg_recall_pct": 0.0,
+          "road_recall_pct": 0.0,
+          "after_pct": 0.0
+        },
+        "accurate_mode": {
+          "pred_pixels": 8406,
+          "tp": 0,
+          "tp_bldg": 0,
+          "tp_road": 0,
+          "tp_overlap": 0,
+          "fp": 8406,
+          "fn": 0,
+          "precision_pct": 0.0,
+          "recall_pct": 0.0,
+          "iou_pct": 0.0,
+          "bldg_recall_pct": 0.0,
+          "road_recall_pct": 0.0,
+          "after_pct": 0.5
+        },
+        "shape": [
+          1300,
+          1300
+        ]
+      }
+    ]
+  },
+  "benchmarks": {
+    "cold_click_to_render_30_tiles": {
+      "request_1_startup": {
+        "index": 1,
+        "tileId": "0_15_69",
+        "clickToRenderMs": 1164.0999999642372,
+        "serverTiming": "io;dur=500.6, preprocess;dur=66.5, gpu;dur=223.3, postprocess;dur=3.5, encode;dur=211.6, total;dur=1045.6",
+        "ioMs": 500.6,
+        "gpuMs": 223.3,
+        "preMs": 66.5,
+        "postMs": 3.5,
+        "cached": false,
+        "click_to_render_ms": 1164.1,
+        "io_ms": 500.6,
+        "gpu_ms": 223.3,
+        "encode_ms": 211.6,
+        "client_render_ms": 118.5
+      },
+      "requests_2_to_30_uncached": {
+        "count": 29,
+        "min_ms": 611.8999999761581,
+        "median_ms": 713,
+        "p95_ms": 1178.699999988079,
+        "max_ms": 1295.1000000238419,
+        "server_timing_io_median_ms": 380.6,
+        "server_timing_io_min_ms": 309.2,
+        "server_timing_io_max_ms": 837.1
+      },
+      "os_cache_controlled": false,
+      "os_cache_note": "OS file-system cache state was not controlled (GeoTIFFs read via GDAL/rasterio)"
+    },
+    "stress_test_stages": {
+      "stage1_fast_50": {
+        "count": 50,
+        "min_ms": 439.1462000203319,
+        "median_ms": 498.1229000259191,
+        "p95_ms": 645.6424999632873,
+        "max_ms": 756.4529000082985,
+        "ram_mb": 1246.53,
+        "peak_vram_mb": 721.12,
+        "cache_size": 50
+      },
+      "stage2_concurrent_20": {
+        "count": 20,
+        "min_ms": 467.52020000712946,
+        "median_ms": 2003.0004000291228,
+        "p95_ms": 2266.5797999943607,
+        "max_ms": 2266.5797999943607,
+        "ram_mb": 1244.81,
+        "peak_vram_mb": 721.12,
+        "cache_size": 20
+      },
+      "stage3_accurate_10": {
+        "count": 10,
+        "min_ms": 784.6540000173263,
+        "median_ms": 884.6985999844037,
+        "p95_ms": 1103.4398999763653,
+        "max_ms": 1103.4398999763653,
+        "ram_mb": 1244.84,
+        "peak_vram_mb": 721.12,
+        "cache_size": 10
+      }
+    },
+    "warm_end_to_end_uncached_stage1": {
+      "metric_label": "Client wall roundtrip (I/O + preprocess + GPU + postprocess + network)",
+      "count": 50,
+      "min_ms": 439.1462000203319,
+      "median_ms": 498.1229000259191,
+      "p95_ms": 645.6424999632873,
+      "max_ms": 756.4529000082985
+    },
+    "stage3_accurate_client_wall_time": {
+      "count": 10,
+      "min_ms": 784.6540000173263,
+      "median_ms": 884.6985999844037,
+      "p95_ms": 1103.4398999763653,
+      "max_ms": 1103.4398999763653,
+      "note": "Stage 3 measured client wall time, not server processing time"
+    },
+    "prewarmed_click_to_render_30_tiles": {
+      "min": 13.299999952316284,
+      "med": 61.30000001192093,
+      "p95": 90.19999998807907,
+      "max": 106.80000001192093,
+      "median_ms": 61.3,
+      "p95_ms": 90.2
+    },
+    "accurate_mode_click_to_render_10_tiles": {
+      "min": 1429.199999988079,
+      "med": 1696.300000011921,
+      "p95": 2816.699999988079,
+      "max": 2816.699999988079,
+      "median_ms": 1696.3,
+      "p95_ms": 2816.7
+    },
+    "mask_toggle_latency_ms": {
+      "tile_0_41_58": {
+        "dtOff": 6.800000011920929,
+        "dtOn": 32.5
+      },
+      "tile_0_27_68": {
+        "dtOff": 7.800000011920929,
+        "dtOn": 34
+      }
+    },
+    "rapid_keys_5runs": {
+      "repetitions": 5,
+      "start_tile": "0_15_63",
+      "end_tile": "0_27_63",
+      "condition_a_with_latest_wins": {
+        "median_time_from_last_key_ms": 936.8,
+        "median_requests_sent": 5
+      },
+      "condition_b_without_latest_wins": {
+        "median_time_from_last_key_ms": 823.8,
+        "median_requests_sent": 10
+      },
+      "finding": "Latest-wins halves network requests sent (5 vs 10); render latency after last key is comparable (936.8 ms vs 823.8 ms)."
+    },
+    "tile_0_41_58_timing_breakdown": {
+      "server_inference_core_ms": 333,
+      "server_eager_mask_encoding_ms": 177.71,
+      "total_uncached_response_ms": 510.71,
+      "note": "Server-Timing total (333 ms) covers I/O and GPU inference core; eager PNG mask encoding adds ~178 ms in src/api.py for ~511 ms total uncached response."
+    },
+    "eager_mask_encoding_tile_0_41_58": {
+      "tile_id": "0_41_58",
+      "pre_mask_bytes": 8752,
+      "pre_mask_encode_ms": 59.13359997794032,
+      "post_mask_bytes": 28013,
+      "post_mask_encode_ms": 118.57779999263585,
+      "total_added_encode_ms": 177.71139997057617,
+      "policy": "eager_in_analyze_path"
+    },
+    "threadpool_concurrency_proof": {
+      "accurate_gpu_latency_ms": 1232.8689999994822,
+      "concurrent_health_latencies_ms": [
+        6.485099962446839,
+        3.404300019610673,
+        5.0404000212438405,
+        3.791600000113249,
+        4.274100007023662
+      ],
+      "median_health_ms": 4.274100007023662,
+      "max_health_ms": 6.485099962446839,
+      "event_loop_unblocked": true
+    },
+    "cache_prewarm_all": {
+      "duration_seconds": 129.4,
+      "cached_entries": 216,
+      "cache_capacity": 256,
+      "cache_memory_mb": 109.8,
+      "kb_per_entry": 508.0,
+      "process_ram_rss_mb": 1319.22
+    },
+    "stress_test": {
+      "ram_mb": 1244.84,
+      "peak_vram_mb": 721.12,
+      "cache_size": 10,
+      "cache_mb": 5.48,
+      "ram_growth_mb": -75.19000000000005,
+      "errors": 0
+    }
+  },
+  "inspections": {
+    "tile_0_20_66": {
+      "images_viewed": [
+        "docs/inspection/0_20_66_pre.jpg",
+        "docs/inspection/0_20_66_pre_fast_mask.jpg",
+        "docs/inspection/0_20_66_pre_acc_mask.jpg",
+        "docs/inspection/0_20_66_post.jpg"
+      ],
+      "finding": "Pre-event imagery shows false-positive cyan masks on settlement structures (3.32% Fast, 4.77% Accurate); post-event predicts 0.00% Fast, 0.50% Accurate; ground-truth records 0 flooded features; specific root cause not determined."
+    },
+    "tile_0_38_69": {
+      "images_viewed": [
+        "docs/inspection/0_38_69_pre.jpg",
+        "docs/inspection/0_38_69_pre_fast_mask.jpg",
+        "docs/inspection/0_38_69_pre_acc_mask.jpg",
+        "docs/inspection/0_38_69_post.jpg",
+        "docs/inspection/0_38_69_post_fast_mask.jpg",
+        "docs/inspection/0_38_69_post_acc_mask.jpg"
+      ],
+      "finding": "Upper-left settlement has dark residential rooftops and asphalt driveways flagged as class 1 in Accurate Mode (1.33% post vs 0.29% pre, net +1.04%); Fast Mode predicts 0.00% on both; 0 annotated flooded features."
+    },
+    "tile_0_31_69": {
+      "images_viewed": [
+        "docs/inspection/0_31_69_pre.jpg",
+        "docs/inspection/0_31_69_pre_fast_mask.jpg",
+        "docs/inspection/0_31_69_pre_acc_mask.jpg",
+        "docs/inspection/0_31_69_post.jpg",
+        "docs/inspection/0_31_69_post_fast_mask.jpg",
+        "docs/inspection/0_31_69_post_acc_mask.jpg"
+      ],
+      "finding": "Upper hillside residential strip has dark rooftops and paved road segments flagged as class 1 in Accurate Mode (1.14% post vs 0.00% pre, net +1.14%); Fast Mode predicts 0.00% on both; steep forested slopes and fog are unflagged; 0 annotated flooded features."
+    }
+  },
+  "tests": {
+    "total_tests": 13,
+    "passed": 13,
+    "duration_seconds": 21.41
+  }
+}

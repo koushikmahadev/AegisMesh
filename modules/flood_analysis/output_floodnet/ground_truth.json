@@ -1,0 +1,186 @@
+{
+  "method": "flooded = (Building-Flooded class 1 OR Road-Flooded class 3) pixel count >= 500 px, from the raw grayscale class-index label PNG.",
+  "min_flooded_pixels_threshold": 500,
+  "images": {
+    "10163": {
+      "flooded": false,
+      "flooded_pixels": 0,
+      "total_pixels": 12000000,
+      "flooded_percent": 0.0
+    },
+    "10164": {
+      "flooded": false,
+      "flooded_pixels": 0,
+      "total_pixels": 12000000,
+      "flooded_percent": 0.0
+    },
+    "10167": {
+      "flooded": false,
+      "flooded_pixels": 0,
+      "total_pixels": 12000000,
+      "flooded_percent": 0.0
+    },
+    "10174": {
+      "flooded": false,
+      "flooded_pixels": 0,
+      "total_pixels": 12000000,
+      "flooded_percent": 0.0
+    },
+    "10183": {
+      "flooded": false,
+      "flooded_pixels": 0,
+      "total_pixels": 12000000,
+      "flooded_percent": 0.0
+    },
+    "10808": {
+      "flooded": false,
+      "flooded_pixels": 0,
+      "total_pixels": 12000000,
+      "flooded_percent": 0.0
+    },
+    "10812": {
+      "flooded": false,
+      "flooded_pixels": 0,
+      "total_pixels": 12000000,
+      "flooded_percent": 0.0
+    },
+    "10813": {
+      "flooded": false,
+      "flooded_pixels": 0,
+      "total_pixels": 12000000,
+      "flooded_percent": 0.0
+    },
+    "10814": {
+      "flooded": false,
+      "flooded_pixels": 0,
+      "total_pixels": 12000000,
+      "flooded_percent": 0.0
+    },
+    "10823": {
+      "flooded": false,
+      "flooded_pixels": 0,
+      "total_pixels": 14106624,
+      "flooded_percent": 0.0
+    },
+    "10829": {
+      "flooded": false,
+      "flooded_pixels": 0,
+      "total_pixels": 14106624,
+      "flooded_percent": 0.0
+    },
+    "10838": {
+      "flooded": false,
+      "flooded_pixels": 0,
+      "total_pixels": 14106624,
+      "flooded_percent": 0.0
+    },
+    "10839": {
+      "flooded": false,
+      "flooded_pixels": 0,
+      "total_pixels": 14106624,
+      "flooded_percent": 0.0
+    },
+    "10843": {
+      "flooded": false,
+      "flooded_pixels": 0,
+      "total_pixels": 14106624,
+      "flooded_percent": 0.0
+    },
+    "11483": {
+      "flooded": false,
+      "flooded_pixels": 0,
+      "total_pixels": 12000000,
+      "flooded_percent": 0.0
+    },
+    "6336": {
+      "flooded": false,
+      "flooded_pixels": 0,
+      "total_pixels": 12000000,
+      "flooded_percent": 0.0
+    },
+    "6342": {
+      "flooded": false,
+      "flooded_pixels": 0,
+      "total_pixels": 12000000,
+      "flooded_percent": 0.0
+    },
+    "6353": {
+      "flooded": false,
+      "flooded_pixels": 0,
+      "total_pixels": 12000000,
+      "flooded_percent": 0.0
+    },
+    "6362": {
+      "flooded": false,
+      "flooded_pixels": 0,
+      "total_pixels": 12000000,
+      "flooded_percent": 0.0
+    },
+    "6371": {
+      "flooded": false,
+      "flooded_pixels": 0,
+      "total_pixels": 12000000,
+      "flooded_percent": 0.0
+    },
+    "6377": {
+      "flooded": false,
+      "flooded_pixels": 0,
+      "total_pixels": 12000000,
+      "flooded_percent": 0.0
+    },
+    "6383": {
+      "flooded": false,
+      "flooded_pixels": 0,
+      "total_pixels": 12000000,
+      "flooded_percent": 0.0
+    },
+    "6389": {
+      "flooded": false,
+      "flooded_pixels": 0,
+      "total_pixels": 12000000,
+      "flooded_percent": 0.0
+    },
+    "6391": {
+      "flooded": false,
+      "flooded_pixels": 0,
+      "total_pixels": 12000000,
+      "flooded_percent": 0.0
+    },
+    "6394": {
+      "flooded": false,
+      "flooded_pixels": 0,
+      "total_pixels": 12000000,
+      "flooded_percent": 0.0
+    },
+    "6405": {
+      "flooded": false,
+      "flooded_pixels": 0,
+      "total_pixels": 12000000,
+      "flooded_percent": 0.0
+    },
+    "6412": {
+      "flooded": true,
+      "flooded_pixels": 3026715,
+      "total_pixels": 12000000,
+      "flooded_percent": 25.222625
+    },
+    "6417": {
+      "flooded": false,
+      "flooded_pixels": 0,
+      "total_pixels": 12000000,
+      "flooded_percent": 0.0
+    },
+    "6419": {
+      "flooded": false,
+      "flooded_pixels": 0,
+      "total_pixels": 12000000,
+      "flooded_percent": 0.0
+    },
+    "6420": {
+      "flooded": false,
+      "flooded_pixels": 0,
+      "total_pixels": 12000000,
+      "flooded_percent": 0.0
+    }
+  }
+}

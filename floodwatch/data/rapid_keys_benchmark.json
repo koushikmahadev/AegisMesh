@@ -1,0 +1,78 @@
+{
+  "finalSelectedTile": "0_20_63",
+  "burstDurationMs": 1206.7453000000005,
+  "totalLatencyFromBurstStart": 1369.4630000000006,
+  "latencyFromLastKey": 162.71770000000015,
+  "sentRequestsCount": 5,
+  "responsesCount": 4,
+  "abortedCount": 1,
+  "theoreticalUnoptimizedMs": 8500,
+  "speedupFactor": 6.206812451303902,
+  "networkLog": [
+    {
+      "type": "sent",
+      "url": "http://127.0.0.1:8000/api/analyze/0_16_63?mode=fast",
+      "requestId": "24800.17",
+      "timestamp": 6848.2967
+    },
+    {
+      "type": "response",
+      "url": "http://127.0.0.1:8000/api/analyze/0_16_63?mode=fast",
+      "status": 200,
+      "requestId": "24800.17",
+      "timestamp": 6856.1202
+    },
+    {
+      "type": "sent",
+      "url": "http://127.0.0.1:8000/api/analyze/0_17_63?mode=fast",
+      "requestId": "24800.23",
+      "timestamp": 7397.2333
+    },
+    {
+      "type": "response",
+      "url": "http://127.0.0.1:8000/api/analyze/0_17_63?mode=fast",
+      "status": 200,
+      "requestId": "24800.23",
+      "timestamp": 7444.3172
+    },
+    {
+      "type": "sent",
+      "url": "http://127.0.0.1:8000/api/analyze/0_18_63?mode=fast",
+      "requestId": "24800.29",
+      "timestamp": 7643.5819
+    },
+    {
+      "type": "sent",
+      "url": "http://127.0.0.1:8000/api/analyze/0_19_63?mode=fast",
+      "requestId": "24800.30",
+      "timestamp": 7776.5266
+    },
+    {
+      "type": "failed_or_aborted",
+      "requestId": "24800.29",
+      "errorText": "net::ERR_ABORTED",
+      "canceled": true,
+      "timestamp": 7817.1759
+    },
+    {
+      "type": "response",
+      "url": "http://127.0.0.1:8000/api/analyze/0_19_63?mode=fast",
+      "status": 200,
+      "requestId": "24800.30",
+      "timestamp": 7828.0233
+    },
+    {
+      "type": "sent",
+      "url": "http://127.0.0.1:8000/api/analyze/0_20_63?mode=fast",
+      "requestId": "24800.36",
+      "timestamp": 8044.4758
+    },
+    {
+      "type": "response",
+      "url": "http://127.0.0.1:8000/api/analyze/0_20_63?mode=fast",
+      "status": 200,
+      "requestId": "24800.36",
+      "timestamp": 8049.9053
+    }
+  ]
+}

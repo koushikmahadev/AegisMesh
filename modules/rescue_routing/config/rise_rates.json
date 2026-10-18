@@ -1,0 +1,14 @@
+{
+  "_comment": "Mapping of rainfall intensity (mm/h) to flood water rise rate (m/h)",
+  "rainfall_to_rise_rate_mph": {
+    "0": 0.0,
+    "15": 0.05,
+    "30": 0.15,
+    "45": 0.30,
+    "60": 0.50
+  },
+  "provenance": {
+    "source": "ASSUMED_UNCALIBRATED",
+    "note": "Hydrological placeholder lookup mapping surface precipitation to stage rise rate without catchment hydraulic calibration."
+  }
+}

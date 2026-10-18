@@ -1,0 +1,2078 @@
+{
+  "schema_version": "1.0",
+  "analysis_type": "risk_ranking_sensitivity",
+  "timestamp_utc": "2026-10-14T19:10:39.855302+00:00",
+  "disclaimer": "EXPLORATORY SENSITIVITY SCENARIOS \u2014 Alternative weight configurations represent hypothetical operational priorities to test ranking stability. They are NOT scientifically validated, empirical, or predictive models of flood damage or casualty risk.",
+  "summary": {
+    "total_zones": 38,
+    "scenarios_tested_count": 5,
+    "robust_high_priority_count": 3,
+    "volatile_zones_count": 9,
+    "average_kendall_tau": 0.9761,
+    "most_destabilizing_scenario": "isolation_heavy",
+    "most_stable_scenario": "flood_coverage_heavy",
+    "volatile_rank_threshold": 3
+  },
+  "baseline": {
+    "config_version": "1.0",
+    "weights": {
+      "flood_percent": 0.35,
+      "exposure": 0.4,
+      "isolation": 0.15,
+      "flood_area_density": 0.1,
+      "exposure_fraction": 0.0
+    },
+    "weights_fingerprint": "468643b4253fe28d",
+    "priority_thresholds": {
+      "CRITICAL": 70.0,
+      "HIGH": 45.0,
+      "MEDIUM": 20.0,
+      "LOW": 0.0
+    }
+  },
+  "scenarios": [
+    {
+      "scenario_name": "equal_weights",
+      "description": "Equal weight distribution across all four primary risk components.",
+      "assumptions": "Exploratory neutral baseline assuming no single risk component has operational priority.",
+      "weights": {
+        "flood_percent": 0.25,
+        "exposure": 0.25,
+        "isolation": 0.25,
+        "flood_area_density": 0.25,
+        "exposure_fraction": 0.0
+      },
+      "weights_fingerprint": "7bb476ccfb3026e5",
+      "kendall_tau": 0.9687,
+      "max_rank_change": 4,
+      "mean_rank_change": 0.58,
+      "max_score_change": 13.3,
+      "mean_score_change": 3.4,
+      "priority_changes_count": 7,
+      "priority_changes_percent": 18.4,
+      "top_k_overlap_count": 5,
+      "top_k_overlap_percent": 100.0,
+      "high_priority_overlap_count": 3,
+      "high_priority_overlap_percent": 75.0
+    },
+    {
+      "scenario_name": "exposure_heavy",
+      "description": "High building exposure weighting prioritizing structural vulnerability.",
+      "assumptions": "Exploratory scenario simulating urban search-and-rescue where structural density dominates dispatch.",
+      "weights": {
+        "flood_percent": 0.2,
+        "exposure": 0.55,
+        "isolation": 0.15,
+        "flood_area_density": 0.1,
+        "exposure_fraction": 0.0
+      },
+      "weights_fingerprint": "72ac7dbc09886d69",
+      "kendall_tau": 0.9915,
+      "max_rank_change": 2,
+      "mean_rank_change": 0.11,
+      "max_score_change": 5.3,
+      "mean_score_change": 0.62,
+      "priority_changes_count": 0,
+      "priority_changes_percent": 0.0,
+      "top_k_overlap_count": 5,
+      "top_k_overlap_percent": 100.0,
+      "high_priority_overlap_count": 3,
+      "high_priority_overlap_percent": 100.0
+    },
+    {
+      "scenario_name": "flood_coverage_heavy",
+      "description": "High flood coverage weighting prioritizing relative inundated zone percentage.",
+      "assumptions": "Exploratory scenario simulating wide-area flood monitoring where zone saturation drives emergency declarations.",
+      "weights": {
+        "flood_percent": 0.55,
+        "exposure": 0.2,
+        "isolation": 0.15,
+        "flood_area_density": 0.1,
+        "exposure_fraction": 0.0
+      },
+      "weights_fingerprint": "f9e48175985b2a65",
+      "kendall_tau": 0.9943,
+      "max_rank_change": 1,
+      "mean_rank_change": 0.11,
+      "max_score_change": 6.9,
+      "mean_score_change": 0.82,
+      "priority_changes_count": 1,
+      "priority_changes_percent": 2.6,
+      "top_k_overlap_count": 5,
+      "top_k_overlap_percent": 100.0,
+      "high_priority_overlap_count": 3,
+      "high_priority_overlap_percent": 100.0
+    },
+    {
+      "scenario_name": "isolation_heavy",
+      "description": "High road isolation weighting prioritizing cut-off and inaccessible zones.",
+      "assumptions": "Exploratory scenario simulating access-constrained operations where road blockages require specialized air or boat assets.",
+      "weights": {
+        "flood_percent": 0.25,
+        "exposure": 0.2,
+        "isolation": 0.45,
+        "flood_area_density": 0.1,
+        "exposure_fraction": 0.0
+      },
+      "weights_fingerprint": "b7abfe31f9ff5a92",
+      "kendall_tau": 0.9374,
+      "max_rank_change": 5,
+      "mean_rank_change": 1.16,
+      "max_score_change": 29.8,
+      "mean_score_change": 7.79,
+      "priority_changes_count": 12,
+      "priority_changes_percent": 31.6,
+      "top_k_overlap_count": 4,
+      "top_k_overlap_percent": 80.0,
+      "high_priority_overlap_count": 3,
+      "high_priority_overlap_percent": 37.5
+    },
+    {
+      "scenario_name": "areal_extent_heavy",
+      "description": "High flooded area density weighting prioritizing total absolute surface area inundated.",
+      "assumptions": "Exploratory scenario simulating physical water volume response where expansive footprints dictate heavy drainage equipment.",
+      "weights": {
+        "flood_percent": 0.25,
+        "exposure": 0.25,
+        "isolation": 0.15,
+        "flood_area_density": 0.35,
+        "exposure_fraction": 0.0
+      },
+      "weights_fingerprint": "522a520622c6be5d",
+      "kendall_tau": 0.9886,
+      "max_rank_change": 2,
+      "mean_rank_change": 0.21,
+      "max_score_change": 11.7,
+      "mean_score_change": 1.51,
+      "priority_changes_count": 4,
+      "priority_changes_percent": 10.5,
+      "top_k_overlap_count": 5,
+      "top_k_overlap_percent": 100.0,
+      "high_priority_overlap_count": 3,
+      "high_priority_overlap_percent": 75.0
+    }
+  ],
+  "robust_high_priority_zones": [
+    {
+      "zone_id": "zone-036",
+      "baseline_rank": 1,
+      "baseline_score": 65.7,
+      "baseline_priority": "HIGH",
+      "min_score": 63.2,
+      "max_score": 80.0,
+      "min_rank": 1,
+      "max_rank": 1,
+      "priorities_observed": [
+        "CRITICAL",
+        "HIGH"
+      ],
+      "stability_verdict": "Consistently high priority across all tested scenarios"
+    },
+    {
+      "zone_id": "zone-002",
+      "baseline_rank": 2,
+      "baseline_score": 53.4,
+      "baseline_priority": "HIGH",
+      "min_score": 46.5,
+      "max_score": 58.7,
+      "min_rank": 2,
+      "max_rank": 4,
+      "priorities_observed": [
+        "HIGH"
+      ],
+      "stability_verdict": "Consistently high priority across all tested scenarios"
+    },
+    {
+      "zone_id": "zone-038",
+      "baseline_rank": 3,
+      "baseline_score": 52.0,
+      "baseline_priority": "HIGH",
+      "min_score": 48.6,
+      "max_score": 69.7,
+      "min_rank": 2,
+      "max_rank": 3,
+      "priorities_observed": [
+        "HIGH"
+      ],
+      "stability_verdict": "Consistently high priority across all tested scenarios"
+    }
+  ],
+  "volatile_zones": [
+    {
+      "zone_id": "zone-012",
+      "baseline_rank": 10,
+      "baseline_score": 18.5,
+      "baseline_priority": "LOW",
+      "max_rank_delta": 5,
+      "best_rank": 5,
+      "best_scenario": "isolation_heavy",
+      "worst_rank": 10,
+      "worst_scenario": "exposure_heavy",
+      "score_range": [
+        17.5,
+        47.9
+      ],
+      "priority_shifts": [
+        {
+          "scenario": "equal_weights",
+          "from_priority": "LOW",
+          "to_priority": "MEDIUM",
+          "score_delta": 11.2
+        },
+        {
+          "scenario": "isolation_heavy",
+          "from_priority": "LOW",
+          "to_priority": "HIGH",
+          "score_delta": 29.4
+        },
+        {
+          "scenario": "areal_extent_heavy",
+          "from_priority": "LOW",
+          "to_priority": "MEDIUM",
+          "score_delta": 2.4
+        }
+      ],
+      "explanation": "Zone zone-012 shifts between rank #5 under 'isolation_heavy' and rank #10 under 'exposure_heavy' (baseline rank #10), driven by zero building exposure, and low flood coverage (2.0%), and severe road blockage (BLOCKED)."
+    },
+    {
+      "zone_id": "zone-027",
+      "baseline_rank": 11,
+      "baseline_score": 17.5,
+      "baseline_priority": "LOW",
+      "max_rank_delta": 5,
+      "best_rank": 6,
+      "best_scenario": "isolation_heavy",
+      "worst_rank": 11,
+      "worst_scenario": "exposure_heavy",
+      "score_range": [
+        16.8,
+        47.0
+      ],
+      "priority_shifts": [
+        {
+          "scenario": "equal_weights",
+          "from_priority": "LOW",
+          "to_priority": "MEDIUM",
+          "score_delta": 10.8
+        },
+        {
+          "scenario": "isolation_heavy",
+          "from_priority": "LOW",
+          "to_priority": "HIGH",
+          "score_delta": 29.5
+        }
+      ],
+      "explanation": "Zone zone-027 shifts between rank #6 under 'isolation_heavy' and rank #11 under 'exposure_heavy' (baseline rank #11), driven by zero building exposure, and low flood coverage (1.4%), and severe road blockage (BLOCKED)."
+    },
+    {
+      "zone_id": "zone-021",
+      "baseline_rank": 12,
+      "baseline_score": 17.3,
+      "baseline_priority": "LOW",
+      "max_rank_delta": 5,
+      "best_rank": 7,
+      "best_scenario": "isolation_heavy",
+      "worst_rank": 12,
+      "worst_scenario": "exposure_heavy",
+      "score_range": [
+        16.6,
+        46.8
+      ],
+      "priority_shifts": [
+        {
+          "scenario": "equal_weights",
+          "from_priority": "LOW",
+          "to_priority": "MEDIUM",
+          "score_delta": 10.7
+        },
+        {
+          "scenario": "isolation_heavy",
+          "from_priority": "LOW",
+          "to_priority": "HIGH",
+          "score_delta": 29.5
+        }
+      ],
+      "explanation": "Zone zone-021 shifts between rank #7 under 'isolation_heavy' and rank #12 under 'exposure_heavy' (baseline rank #12), driven by zero building exposure, and low flood coverage (1.3%), and severe road blockage (BLOCKED)."
+    },
+    {
+      "zone_id": "zone-011",
+      "baseline_rank": 13,
+      "baseline_score": 16.0,
+      "baseline_priority": "LOW",
+      "max_rank_delta": 5,
+      "best_rank": 8,
+      "best_scenario": "isolation_heavy",
+      "worst_rank": 13,
+      "worst_scenario": "exposure_heavy",
+      "score_range": [
+        15.7,
+        45.8
+      ],
+      "priority_shifts": [
+        {
+          "scenario": "equal_weights",
+          "from_priority": "LOW",
+          "to_priority": "MEDIUM",
+          "score_delta": 10.4
+        },
+        {
+          "scenario": "isolation_heavy",
+          "from_priority": "LOW",
+          "to_priority": "HIGH",
+          "score_delta": 29.8
+        }
+      ],
+      "explanation": "Zone zone-011 shifts between rank #8 under 'isolation_heavy' and rank #13 under 'exposure_heavy' (baseline rank #13), driven by zero building exposure, and low flood coverage (0.6%), and severe road blockage (BLOCKED)."
+    },
+    {
+      "zone_id": "zone-008",
+      "baseline_rank": 5,
+      "baseline_score": 36.5,
+      "baseline_priority": "MEDIUM",
+      "max_rank_delta": 4,
+      "best_rank": 5,
+      "best_scenario": "equal_weights",
+      "worst_rank": 9,
+      "worst_scenario": "isolation_heavy",
+      "score_range": [
+        36.4,
+        43.0
+      ],
+      "priority_shifts": [],
+      "explanation": "Zone zone-008 shifts between rank #5 under 'equal_weights' and rank #9 under 'isolation_heavy' (baseline rank #5), driven by high exposed building count (23)."
+    },
+    {
+      "zone_id": "zone-010",
+      "baseline_rank": 6,
+      "baseline_score": 31.4,
+      "baseline_priority": "MEDIUM",
+      "max_rank_delta": 4,
+      "best_rank": 6,
+      "best_scenario": "equal_weights",
+      "worst_rank": 10,
+      "worst_scenario": "isolation_heavy",
+      "score_range": [
+        31.1,
+        38.6
+      ],
+      "priority_shifts": [],
+      "explanation": "Zone zone-010 shifts between rank #6 under 'equal_weights' and rank #10 under 'isolation_heavy' (baseline rank #6), driven by high exposed building count (20)."
+    },
+    {
+      "zone_id": "zone-017",
+      "baseline_rank": 7,
+      "baseline_score": 28.6,
+      "baseline_priority": "MEDIUM",
+      "max_rank_delta": 4,
+      "best_rank": 7,
+      "best_scenario": "equal_weights",
+      "worst_rank": 11,
+      "worst_scenario": "isolation_heavy",
+      "score_range": [
+        26.7,
+        36.1
+      ],
+      "priority_shifts": [],
+      "explanation": "Zone zone-017 shifts between rank #7 under 'equal_weights' and rank #11 under 'isolation_heavy' (baseline rank #7), driven by high exposed building count (21)."
+    },
+    {
+      "zone_id": "zone-035",
+      "baseline_rank": 8,
+      "baseline_score": 22.8,
+      "baseline_priority": "MEDIUM",
+      "max_rank_delta": 4,
+      "best_rank": 8,
+      "best_scenario": "exposure_heavy",
+      "worst_rank": 12,
+      "worst_scenario": "isolation_heavy",
+      "score_range": [
+        22.0,
+        32.6
+      ],
+      "priority_shifts": [],
+      "explanation": "Zone zone-035 shifts between rank #8 under 'exposure_heavy' and rank #12 under 'isolation_heavy' (baseline rank #8), driven by low flood coverage (4.4%)."
+    },
+    {
+      "zone_id": "zone-014",
+      "baseline_rank": 9,
+      "baseline_score": 18.7,
+      "baseline_priority": "LOW",
+      "max_rank_delta": 4,
+      "best_rank": 9,
+      "best_scenario": "exposure_heavy",
+      "worst_rank": 13,
+      "worst_scenario": "equal_weights",
+      "score_range": [
+        17.7,
+        30.6
+      ],
+      "priority_shifts": [
+        {
+          "scenario": "equal_weights",
+          "from_priority": "LOW",
+          "to_priority": "MEDIUM",
+          "score_delta": 6.4
+        },
+        {
+          "scenario": "flood_coverage_heavy",
+          "from_priority": "LOW",
+          "to_priority": "MEDIUM",
+          "score_delta": 1.4
+        },
+        {
+          "scenario": "isolation_heavy",
+          "from_priority": "LOW",
+          "to_priority": "MEDIUM",
+          "score_delta": 11.9
+        },
+        {
+          "scenario": "areal_extent_heavy",
+          "from_priority": "LOW",
+          "to_priority": "MEDIUM",
+          "score_delta": 4.1
+        }
+      ],
+      "explanation": "Zone zone-014 shifts between rank #9 under 'exposure_heavy' and rank #13 under 'equal_weights' (baseline rank #9), driven by low flood coverage (4.5%)."
+    }
+  ],
+  "zone_sensitivity": [
+    {
+      "zone_id": "zone-036",
+      "baseline_rank": 1,
+      "baseline_score": 65.7,
+      "baseline_priority": "HIGH",
+      "min_score": 63.2,
+      "max_score": 80.0,
+      "mean_score": 72.1,
+      "max_score_delta": 14.3,
+      "min_rank": 1,
+      "max_rank": 1,
+      "mean_rank": 1.0,
+      "max_rank_delta": 0,
+      "scores_by_scenario": {
+        "equal_weights": 77.4,
+        "exposure_heavy": 63.2,
+        "flood_coverage_heavy": 68.9,
+        "isolation_heavy": 80.0,
+        "areal_extent_heavy": 77.4
+      },
+      "ranks_by_scenario": {
+        "equal_weights": 1,
+        "exposure_heavy": 1,
+        "flood_coverage_heavy": 1,
+        "isolation_heavy": 1,
+        "areal_extent_heavy": 1
+      },
+      "priorities_by_scenario": {
+        "equal_weights": "CRITICAL",
+        "exposure_heavy": "HIGH",
+        "flood_coverage_heavy": "HIGH",
+        "isolation_heavy": "CRITICAL",
+        "areal_extent_heavy": "CRITICAL"
+      },
+      "priority_shifts": [
+        {
+          "scenario": "equal_weights",
+          "from_priority": "HIGH",
+          "to_priority": "CRITICAL",
+          "score_delta": 11.7
+        },
+        {
+          "scenario": "isolation_heavy",
+          "from_priority": "HIGH",
+          "to_priority": "CRITICAL",
+          "score_delta": 14.3
+        },
+        {
+          "scenario": "areal_extent_heavy",
+          "from_priority": "HIGH",
+          "to_priority": "CRITICAL",
+          "score_delta": 11.7
+        }
+      ],
+      "is_robust_high_priority": true,
+      "is_robust_top_k": true,
+      "is_volatile": true
+    },
+    {
+      "zone_id": "zone-002",
+      "baseline_rank": 2,
+      "baseline_score": 53.4,
+      "baseline_priority": "HIGH",
+      "min_score": 46.5,
+      "max_score": 58.7,
+      "mean_score": 53.1,
+      "max_score_delta": 6.9,
+      "min_rank": 2,
+      "max_rank": 4,
+      "mean_rank": 2.8,
+      "max_rank_delta": 2,
+      "scores_by_scenario": {
+        "equal_weights": 53.9,
+        "exposure_heavy": 58.7,
+        "flood_coverage_heavy": 46.5,
+        "isolation_heavy": 51.1,
+        "areal_extent_heavy": 55.1
+      },
+      "ranks_by_scenario": {
+        "equal_weights": 4,
+        "exposure_heavy": 2,
+        "flood_coverage_heavy": 3,
+        "isolation_heavy": 4,
+        "areal_extent_heavy": 2
+      },
+      "priorities_by_scenario": {
+        "equal_weights": "HIGH",
+        "exposure_heavy": "HIGH",
+        "flood_coverage_heavy": "HIGH",
+        "isolation_heavy": "HIGH",
+        "areal_extent_heavy": "HIGH"
+      },
+      "priority_shifts": [],
+      "is_robust_high_priority": true,
+      "is_robust_top_k": true,
+      "is_volatile": false
+    },
+    {
+      "zone_id": "zone-038",
+      "baseline_rank": 3,
+      "baseline_score": 52.0,
+      "baseline_priority": "HIGH",
+      "min_score": 48.6,
+      "max_score": 69.7,
+      "mean_score": 55.9,
+      "max_score_delta": 17.7,
+      "min_rank": 2,
+      "max_rank": 3,
+      "mean_rank": 2.5,
+      "max_rank_delta": 1,
+      "scores_by_scenario": {
+        "equal_weights": 57.4,
+        "exposure_heavy": 48.6,
+        "flood_coverage_heavy": 56.6,
+        "isolation_heavy": 69.7,
+        "areal_extent_heavy": 51.4
+      },
+      "ranks_by_scenario": {
+        "equal_weights": 2,
+        "exposure_heavy": 3,
+        "flood_coverage_heavy": 2,
+        "isolation_heavy": 2,
+        "areal_extent_heavy": 3
+      },
+      "priorities_by_scenario": {
+        "equal_weights": "HIGH",
+        "exposure_heavy": "HIGH",
+        "flood_coverage_heavy": "HIGH",
+        "isolation_heavy": "HIGH",
+        "areal_extent_heavy": "HIGH"
+      },
+      "priority_shifts": [],
+      "is_robust_high_priority": true,
+      "is_robust_top_k": true,
+      "is_volatile": false
+    },
+    {
+      "zone_id": "zone-031",
+      "baseline_rank": 4,
+      "baseline_score": 40.6,
+      "baseline_priority": "MEDIUM",
+      "min_score": 37.9,
+      "max_score": 63.6,
+      "mean_score": 48.4,
+      "max_score_delta": 23.0,
+      "min_rank": 3,
+      "max_rank": 4,
+      "mean_rank": 3.7,
+      "max_rank_delta": 1,
+      "scores_by_scenario": {
+        "equal_weights": 53.9,
+        "exposure_heavy": 37.9,
+        "flood_coverage_heavy": 44.1,
+        "isolation_heavy": 63.6,
+        "areal_extent_heavy": 50.2
+      },
+      "ranks_by_scenario": {
+        "equal_weights": 3,
+        "exposure_heavy": 4,
+        "flood_coverage_heavy": 4,
+        "isolation_heavy": 3,
+        "areal_extent_heavy": 4
+      },
+      "priorities_by_scenario": {
+        "equal_weights": "HIGH",
+        "exposure_heavy": "MEDIUM",
+        "flood_coverage_heavy": "MEDIUM",
+        "isolation_heavy": "HIGH",
+        "areal_extent_heavy": "HIGH"
+      },
+      "priority_shifts": [
+        {
+          "scenario": "equal_weights",
+          "from_priority": "MEDIUM",
+          "to_priority": "HIGH",
+          "score_delta": 13.3
+        },
+        {
+          "scenario": "isolation_heavy",
+          "from_priority": "MEDIUM",
+          "to_priority": "HIGH",
+          "score_delta": 23.0
+        },
+        {
+          "scenario": "areal_extent_heavy",
+          "from_priority": "MEDIUM",
+          "to_priority": "HIGH",
+          "score_delta": 9.6
+        }
+      ],
+      "is_robust_high_priority": false,
+      "is_robust_top_k": true,
+      "is_volatile": true
+    },
+    {
+      "zone_id": "zone-008",
+      "baseline_rank": 5,
+      "baseline_score": 36.5,
+      "baseline_priority": "MEDIUM",
+      "min_score": 36.4,
+      "max_score": 43.0,
+      "mean_score": 39.5,
+      "max_score_delta": 6.5,
+      "min_rank": 5,
+      "max_rank": 9,
+      "mean_rank": 5.7,
+      "max_rank_delta": 4,
+      "scores_by_scenario": {
+        "equal_weights": 42.3,
+        "exposure_heavy": 36.4,
+        "flood_coverage_heavy": 36.7,
+        "isolation_heavy": 42.2,
+        "areal_extent_heavy": 43.0
+      },
+      "ranks_by_scenario": {
+        "equal_weights": 5,
+        "exposure_heavy": 5,
+        "flood_coverage_heavy": 5,
+        "isolation_heavy": 9,
+        "areal_extent_heavy": 5
+      },
+      "priorities_by_scenario": {
+        "equal_weights": "MEDIUM",
+        "exposure_heavy": "MEDIUM",
+        "flood_coverage_heavy": "MEDIUM",
+        "isolation_heavy": "MEDIUM",
+        "areal_extent_heavy": "MEDIUM"
+      },
+      "priority_shifts": [],
+      "is_robust_high_priority": false,
+      "is_robust_top_k": false,
+      "is_volatile": true
+    },
+    {
+      "zone_id": "zone-010",
+      "baseline_rank": 6,
+      "baseline_score": 31.4,
+      "baseline_priority": "MEDIUM",
+      "min_score": 31.1,
+      "max_score": 38.6,
+      "mean_score": 34.3,
+      "max_score_delta": 7.2,
+      "min_rank": 6,
+      "max_rank": 10,
+      "mean_rank": 6.7,
+      "max_rank_delta": 4,
+      "scores_by_scenario": {
+        "equal_weights": 36.7,
+        "exposure_heavy": 31.7,
+        "flood_coverage_heavy": 31.1,
+        "isolation_heavy": 38.6,
+        "areal_extent_heavy": 36.2
+      },
+      "ranks_by_scenario": {
+        "equal_weights": 6,
+        "exposure_heavy": 6,
+        "flood_coverage_heavy": 6,
+        "isolation_heavy": 10,
+        "areal_extent_heavy": 6
+      },
+      "priorities_by_scenario": {
+        "equal_weights": "MEDIUM",
+        "exposure_heavy": "MEDIUM",
+        "flood_coverage_heavy": "MEDIUM",
+        "isolation_heavy": "MEDIUM",
+        "areal_extent_heavy": "MEDIUM"
+      },
+      "priority_shifts": [],
+      "is_robust_high_priority": false,
+      "is_robust_top_k": false,
+      "is_volatile": true
+    },
+    {
+      "zone_id": "zone-017",
+      "baseline_rank": 7,
+      "baseline_score": 28.6,
+      "baseline_priority": "MEDIUM",
+      "min_score": 26.7,
+      "max_score": 36.1,
+      "mean_score": 30.8,
+      "max_score_delta": 7.5,
+      "min_rank": 7,
+      "max_rank": 11,
+      "mean_rank": 7.7,
+      "max_rank_delta": 4,
+      "scores_by_scenario": {
+        "equal_weights": 32.5,
+        "exposure_heavy": 30.0,
+        "flood_coverage_heavy": 26.7,
+        "isolation_heavy": 36.1,
+        "areal_extent_heavy": 30.9
+      },
+      "ranks_by_scenario": {
+        "equal_weights": 7,
+        "exposure_heavy": 7,
+        "flood_coverage_heavy": 7,
+        "isolation_heavy": 11,
+        "areal_extent_heavy": 7
+      },
+      "priorities_by_scenario": {
+        "equal_weights": "MEDIUM",
+        "exposure_heavy": "MEDIUM",
+        "flood_coverage_heavy": "MEDIUM",
+        "isolation_heavy": "MEDIUM",
+        "areal_extent_heavy": "MEDIUM"
+      },
+      "priority_shifts": [],
+      "is_robust_high_priority": false,
+      "is_robust_top_k": false,
+      "is_volatile": true
+    },
+    {
+      "zone_id": "zone-035",
+      "baseline_rank": 8,
+      "baseline_score": 22.8,
+      "baseline_priority": "MEDIUM",
+      "min_score": 22.0,
+      "max_score": 32.6,
+      "mean_score": 25.6,
+      "max_score_delta": 9.8,
+      "min_rank": 8,
+      "max_rank": 12,
+      "mean_rank": 9.2,
+      "max_rank_delta": 4,
+      "scores_by_scenario": {
+        "equal_weights": 27.5,
+        "exposure_heavy": 23.4,
+        "flood_coverage_heavy": 22.0,
+        "isolation_heavy": 32.6,
+        "areal_extent_heavy": 25.1
+      },
+      "ranks_by_scenario": {
+        "equal_weights": 11,
+        "exposure_heavy": 8,
+        "flood_coverage_heavy": 8,
+        "isolation_heavy": 12,
+        "areal_extent_heavy": 8
+      },
+      "priorities_by_scenario": {
+        "equal_weights": "MEDIUM",
+        "exposure_heavy": "MEDIUM",
+        "flood_coverage_heavy": "MEDIUM",
+        "isolation_heavy": "MEDIUM",
+        "areal_extent_heavy": "MEDIUM"
+      },
+      "priority_shifts": [],
+      "is_robust_high_priority": false,
+      "is_robust_top_k": false,
+      "is_volatile": true
+    },
+    {
+      "zone_id": "zone-014",
+      "baseline_rank": 9,
+      "baseline_score": 18.7,
+      "baseline_priority": "LOW",
+      "min_score": 17.7,
+      "max_score": 30.6,
+      "mean_score": 22.5,
+      "max_score_delta": 11.9,
+      "min_rank": 9,
+      "max_rank": 13,
+      "mean_rank": 10.3,
+      "max_rank_delta": 4,
+      "scores_by_scenario": {
+        "equal_weights": 25.1,
+        "exposure_heavy": 17.7,
+        "flood_coverage_heavy": 20.1,
+        "isolation_heavy": 30.6,
+        "areal_extent_heavy": 22.8
+      },
+      "ranks_by_scenario": {
+        "equal_weights": 13,
+        "exposure_heavy": 9,
+        "flood_coverage_heavy": 9,
+        "isolation_heavy": 13,
+        "areal_extent_heavy": 9
+      },
+      "priorities_by_scenario": {
+        "equal_weights": "MEDIUM",
+        "exposure_heavy": "LOW",
+        "flood_coverage_heavy": "MEDIUM",
+        "isolation_heavy": "MEDIUM",
+        "areal_extent_heavy": "MEDIUM"
+      },
+      "priority_shifts": [
+        {
+          "scenario": "equal_weights",
+          "from_priority": "LOW",
+          "to_priority": "MEDIUM",
+          "score_delta": 6.4
+        },
+        {
+          "scenario": "flood_coverage_heavy",
+          "from_priority": "LOW",
+          "to_priority": "MEDIUM",
+          "score_delta": 1.4
+        },
+        {
+          "scenario": "isolation_heavy",
+          "from_priority": "LOW",
+          "to_priority": "MEDIUM",
+          "score_delta": 11.9
+        },
+        {
+          "scenario": "areal_extent_heavy",
+          "from_priority": "LOW",
+          "to_priority": "MEDIUM",
+          "score_delta": 4.1
+        }
+      ],
+      "is_robust_high_priority": false,
+      "is_robust_top_k": false,
+      "is_volatile": true
+    },
+    {
+      "zone_id": "zone-012",
+      "baseline_rank": 10,
+      "baseline_score": 18.5,
+      "baseline_priority": "LOW",
+      "min_score": 17.5,
+      "max_score": 47.9,
+      "mean_score": 25.7,
+      "max_score_delta": 29.4,
+      "min_rank": 5,
+      "max_rank": 10,
+      "mean_rank": 8.8,
+      "max_rank_delta": 5,
+      "scores_by_scenario": {
+        "equal_weights": 29.7,
+        "exposure_heavy": 17.5,
+        "flood_coverage_heavy": 19.9,
+        "isolation_heavy": 47.9,
+        "areal_extent_heavy": 20.9
+      },
+      "ranks_by_scenario": {
+        "equal_weights": 8,
+        "exposure_heavy": 10,
+        "flood_coverage_heavy": 10,
+        "isolation_heavy": 5,
+        "areal_extent_heavy": 10
+      },
+      "priorities_by_scenario": {
+        "equal_weights": "MEDIUM",
+        "exposure_heavy": "LOW",
+        "flood_coverage_heavy": "LOW",
+        "isolation_heavy": "HIGH",
+        "areal_extent_heavy": "MEDIUM"
+      },
+      "priority_shifts": [
+        {
+          "scenario": "equal_weights",
+          "from_priority": "LOW",
+          "to_priority": "MEDIUM",
+          "score_delta": 11.2
+        },
+        {
+          "scenario": "isolation_heavy",
+          "from_priority": "LOW",
+          "to_priority": "HIGH",
+          "score_delta": 29.4
+        },
+        {
+          "scenario": "areal_extent_heavy",
+          "from_priority": "LOW",
+          "to_priority": "MEDIUM",
+          "score_delta": 2.4
+        }
+      ],
+      "is_robust_high_priority": false,
+      "is_robust_top_k": false,
+      "is_volatile": true
+    },
+    {
+      "zone_id": "zone-027",
+      "baseline_rank": 11,
+      "baseline_score": 17.5,
+      "baseline_priority": "LOW",
+      "min_score": 16.8,
+      "max_score": 47.0,
+      "mean_score": 24.6,
+      "max_score_delta": 29.5,
+      "min_rank": 6,
+      "max_rank": 11,
+      "mean_rank": 9.8,
+      "max_rank_delta": 5,
+      "scores_by_scenario": {
+        "equal_weights": 28.3,
+        "exposure_heavy": 16.8,
+        "flood_coverage_heavy": 18.5,
+        "isolation_heavy": 47.0,
+        "areal_extent_heavy": 19.2
+      },
+      "ranks_by_scenario": {
+        "equal_weights": 9,
+        "exposure_heavy": 11,
+        "flood_coverage_heavy": 11,
+        "isolation_heavy": 6,
+        "areal_extent_heavy": 11
+      },
+      "priorities_by_scenario": {
+        "equal_weights": "MEDIUM",
+        "exposure_heavy": "LOW",
+        "flood_coverage_heavy": "LOW",
+        "isolation_heavy": "HIGH",
+        "areal_extent_heavy": "LOW"
+      },
+      "priority_shifts": [
+        {
+          "scenario": "equal_weights",
+          "from_priority": "LOW",
+          "to_priority": "MEDIUM",
+          "score_delta": 10.8
+        },
+        {
+          "scenario": "isolation_heavy",
+          "from_priority": "LOW",
+          "to_priority": "HIGH",
+          "score_delta": 29.5
+        }
+      ],
+      "is_robust_high_priority": false,
+      "is_robust_top_k": false,
+      "is_volatile": true
+    },
+    {
+      "zone_id": "zone-021",
+      "baseline_rank": 12,
+      "baseline_score": 17.3,
+      "baseline_priority": "LOW",
+      "min_score": 16.6,
+      "max_score": 46.8,
+      "mean_score": 24.3,
+      "max_score_delta": 29.5,
+      "min_rank": 7,
+      "max_rank": 12,
+      "mean_rank": 10.8,
+      "max_rank_delta": 5,
+      "scores_by_scenario": {
+        "equal_weights": 28.0,
+        "exposure_heavy": 16.6,
+        "flood_coverage_heavy": 18.1,
+        "isolation_heavy": 46.8,
+        "areal_extent_heavy": 18.8
+      },
+      "ranks_by_scenario": {
+        "equal_weights": 10,
+        "exposure_heavy": 12,
+        "flood_coverage_heavy": 12,
+        "isolation_heavy": 7,
+        "areal_extent_heavy": 12
+      },
+      "priorities_by_scenario": {
+        "equal_weights": "MEDIUM",
+        "exposure_heavy": "LOW",
+        "flood_coverage_heavy": "LOW",
+        "isolation_heavy": "HIGH",
+        "areal_extent_heavy": "LOW"
+      },
+      "priority_shifts": [
+        {
+          "scenario": "equal_weights",
+          "from_priority": "LOW",
+          "to_priority": "MEDIUM",
+          "score_delta": 10.7
+        },
+        {
+          "scenario": "isolation_heavy",
+          "from_priority": "LOW",
+          "to_priority": "HIGH",
+          "score_delta": 29.5
+        }
+      ],
+      "is_robust_high_priority": false,
+      "is_robust_top_k": false,
+      "is_volatile": true
+    },
+    {
+      "zone_id": "zone-011",
+      "baseline_rank": 13,
+      "baseline_score": 16.0,
+      "baseline_priority": "LOW",
+      "min_score": 15.7,
+      "max_score": 45.8,
+      "mean_score": 22.8,
+      "max_score_delta": 29.8,
+      "min_rank": 8,
+      "max_rank": 13,
+      "mean_rank": 12.0,
+      "max_rank_delta": 5,
+      "scores_by_scenario": {
+        "equal_weights": 26.4,
+        "exposure_heavy": 15.7,
+        "flood_coverage_heavy": 16.4,
+        "isolation_heavy": 45.8,
+        "areal_extent_heavy": 16.7
+      },
+      "ranks_by_scenario": {
+        "equal_weights": 12,
+        "exposure_heavy": 13,
+        "flood_coverage_heavy": 13,
+        "isolation_heavy": 8,
+        "areal_extent_heavy": 13
+      },
+      "priorities_by_scenario": {
+        "equal_weights": "MEDIUM",
+        "exposure_heavy": "LOW",
+        "flood_coverage_heavy": "LOW",
+        "isolation_heavy": "HIGH",
+        "areal_extent_heavy": "LOW"
+      },
+      "priority_shifts": [
+        {
+          "scenario": "equal_weights",
+          "from_priority": "LOW",
+          "to_priority": "MEDIUM",
+          "score_delta": 10.4
+        },
+        {
+          "scenario": "isolation_heavy",
+          "from_priority": "LOW",
+          "to_priority": "HIGH",
+          "score_delta": 29.8
+        }
+      ],
+      "is_robust_high_priority": false,
+      "is_robust_top_k": false,
+      "is_volatile": true
+    },
+    {
+      "zone_id": "zone-030",
+      "baseline_rank": 14,
+      "baseline_score": 10.9,
+      "baseline_priority": "LOW",
+      "min_score": 9.9,
+      "max_score": 25.2,
+      "mean_score": 14.7,
+      "max_score_delta": 14.3,
+      "min_rank": 14,
+      "max_rank": 14,
+      "mean_rank": 14.0,
+      "max_rank_delta": 0,
+      "scores_by_scenario": {
+        "equal_weights": 16.9,
+        "exposure_heavy": 9.9,
+        "flood_coverage_heavy": 12.1,
+        "isolation_heavy": 25.2,
+        "areal_extent_heavy": 13.1
+      },
+      "ranks_by_scenario": {
+        "equal_weights": 14,
+        "exposure_heavy": 14,
+        "flood_coverage_heavy": 14,
+        "isolation_heavy": 14,
+        "areal_extent_heavy": 14
+      },
+      "priorities_by_scenario": {
+        "equal_weights": "LOW",
+        "exposure_heavy": "LOW",
+        "flood_coverage_heavy": "LOW",
+        "isolation_heavy": "MEDIUM",
+        "areal_extent_heavy": "LOW"
+      },
+      "priority_shifts": [
+        {
+          "scenario": "isolation_heavy",
+          "from_priority": "LOW",
+          "to_priority": "MEDIUM",
+          "score_delta": 14.3
+        }
+      ],
+      "is_robust_high_priority": false,
+      "is_robust_top_k": false,
+      "is_volatile": true
+    },
+    {
+      "zone_id": "zone-001",
+      "baseline_rank": 15,
+      "baseline_score": 10.2,
+      "baseline_priority": "LOW",
+      "min_score": 9.8,
+      "max_score": 24.5,
+      "mean_score": 13.8,
+      "max_score_delta": 14.3,
+      "min_rank": 15,
+      "max_rank": 15,
+      "mean_rank": 15.0,
+      "max_rank_delta": 0,
+      "scores_by_scenario": {
+        "equal_weights": 15.7,
+        "exposure_heavy": 9.8,
+        "flood_coverage_heavy": 10.8,
+        "isolation_heavy": 24.5,
+        "areal_extent_heavy": 11.5
+      },
+      "ranks_by_scenario": {
+        "equal_weights": 15,
+        "exposure_heavy": 15,
+        "flood_coverage_heavy": 15,
+        "isolation_heavy": 15,
+        "areal_extent_heavy": 15
+      },
+      "priorities_by_scenario": {
+        "equal_weights": "LOW",
+        "exposure_heavy": "LOW",
+        "flood_coverage_heavy": "LOW",
+        "isolation_heavy": "MEDIUM",
+        "areal_extent_heavy": "LOW"
+      },
+      "priority_shifts": [
+        {
+          "scenario": "isolation_heavy",
+          "from_priority": "LOW",
+          "to_priority": "MEDIUM",
+          "score_delta": 14.3
+        }
+      ],
+      "is_robust_high_priority": false,
+      "is_robust_top_k": false,
+      "is_volatile": true
+    },
+    {
+      "zone_id": "zone-006",
+      "baseline_rank": 16,
+      "baseline_score": 8.8,
+      "baseline_priority": "LOW",
+      "min_score": 8.5,
+      "max_score": 23.6,
+      "mean_score": 12.4,
+      "max_score_delta": 14.8,
+      "min_rank": 16,
+      "max_rank": 16,
+      "mean_rank": 16.0,
+      "max_rank_delta": 0,
+      "scores_by_scenario": {
+        "equal_weights": 14.3,
+        "exposure_heavy": 8.5,
+        "flood_coverage_heavy": 9.3,
+        "isolation_heavy": 23.6,
+        "areal_extent_heavy": 9.7
+      },
+      "ranks_by_scenario": {
+        "equal_weights": 16,
+        "exposure_heavy": 16,
+        "flood_coverage_heavy": 16,
+        "isolation_heavy": 16,
+        "areal_extent_heavy": 16
+      },
+      "priorities_by_scenario": {
+        "equal_weights": "LOW",
+        "exposure_heavy": "LOW",
+        "flood_coverage_heavy": "LOW",
+        "isolation_heavy": "MEDIUM",
+        "areal_extent_heavy": "LOW"
+      },
+      "priority_shifts": [
+        {
+          "scenario": "isolation_heavy",
+          "from_priority": "LOW",
+          "to_priority": "MEDIUM",
+          "score_delta": 14.8
+        }
+      ],
+      "is_robust_high_priority": false,
+      "is_robust_top_k": false,
+      "is_volatile": true
+    },
+    {
+      "zone_id": "zone-018",
+      "baseline_rank": 17,
+      "baseline_score": 7.5,
+      "baseline_priority": "LOW",
+      "min_score": 7.5,
+      "max_score": 22.5,
+      "mean_score": 10.8,
+      "max_score_delta": 15.0,
+      "min_rank": 17,
+      "max_rank": 18,
+      "mean_rank": 17.2,
+      "max_rank_delta": 1,
+      "scores_by_scenario": {
+        "equal_weights": 12.5,
+        "exposure_heavy": 7.5,
+        "flood_coverage_heavy": 7.5,
+        "isolation_heavy": 22.5,
+        "areal_extent_heavy": 7.5
+      },
+      "ranks_by_scenario": {
+        "equal_weights": 17,
+        "exposure_heavy": 17,
+        "flood_coverage_heavy": 17,
+        "isolation_heavy": 17,
+        "areal_extent_heavy": 18
+      },
+      "priorities_by_scenario": {
+        "equal_weights": "LOW",
+        "exposure_heavy": "LOW",
+        "flood_coverage_heavy": "LOW",
+        "isolation_heavy": "MEDIUM",
+        "areal_extent_heavy": "LOW"
+      },
+      "priority_shifts": [
+        {
+          "scenario": "isolation_heavy",
+          "from_priority": "LOW",
+          "to_priority": "MEDIUM",
+          "score_delta": 15.0
+        }
+      ],
+      "is_robust_high_priority": false,
+      "is_robust_top_k": false,
+      "is_volatile": true
+    },
+    {
+      "zone_id": "zone-033",
+      "baseline_rank": 18,
+      "baseline_score": 7.5,
+      "baseline_priority": "LOW",
+      "min_score": 7.5,
+      "max_score": 22.5,
+      "mean_score": 10.8,
+      "max_score_delta": 15.0,
+      "min_rank": 18,
+      "max_rank": 19,
+      "mean_rank": 18.2,
+      "max_rank_delta": 1,
+      "scores_by_scenario": {
+        "equal_weights": 12.5,
+        "exposure_heavy": 7.5,
+        "flood_coverage_heavy": 7.5,
+        "isolation_heavy": 22.5,
+        "areal_extent_heavy": 7.5
+      },
+      "ranks_by_scenario": {
+        "equal_weights": 18,
+        "exposure_heavy": 18,
+        "flood_coverage_heavy": 18,
+        "isolation_heavy": 18,
+        "areal_extent_heavy": 19
+      },
+      "priorities_by_scenario": {
+        "equal_weights": "LOW",
+        "exposure_heavy": "LOW",
+        "flood_coverage_heavy": "LOW",
+        "isolation_heavy": "MEDIUM",
+        "areal_extent_heavy": "LOW"
+      },
+      "priority_shifts": [
+        {
+          "scenario": "isolation_heavy",
+          "from_priority": "LOW",
+          "to_priority": "MEDIUM",
+          "score_delta": 15.0
+        }
+      ],
+      "is_robust_high_priority": false,
+      "is_robust_top_k": false,
+      "is_volatile": true
+    },
+    {
+      "zone_id": "zone-023",
+      "baseline_rank": 19,
+      "baseline_score": 6.6,
+      "baseline_priority": "LOW",
+      "min_score": 4.4,
+      "max_score": 7.6,
+      "mean_score": 6.4,
+      "max_score_delta": 2.2,
+      "min_rank": 17,
+      "max_rank": 19,
+      "mean_rank": 18.7,
+      "max_rank_delta": 2,
+      "scores_by_scenario": {
+        "equal_weights": 6.5,
+        "exposure_heavy": 6.8,
+        "flood_coverage_heavy": 6.3,
+        "isolation_heavy": 4.4,
+        "areal_extent_heavy": 7.6
+      },
+      "ranks_by_scenario": {
+        "equal_weights": 19,
+        "exposure_heavy": 19,
+        "flood_coverage_heavy": 19,
+        "isolation_heavy": 19,
+        "areal_extent_heavy": 17
+      },
+      "priorities_by_scenario": {
+        "equal_weights": "LOW",
+        "exposure_heavy": "LOW",
+        "flood_coverage_heavy": "LOW",
+        "isolation_heavy": "LOW",
+        "areal_extent_heavy": "LOW"
+      },
+      "priority_shifts": [],
+      "is_robust_high_priority": false,
+      "is_robust_top_k": false,
+      "is_volatile": false
+    },
+    {
+      "zone_id": "zone-009",
+      "baseline_rank": 20,
+      "baseline_score": 2.6,
+      "baseline_priority": "LOW",
+      "min_score": 1.6,
+      "max_score": 2.9,
+      "mean_score": 2.4,
+      "max_score_delta": 1.0,
+      "min_rank": 20,
+      "max_rank": 21,
+      "mean_rank": 20.5,
+      "max_rank_delta": 1,
+      "scores_by_scenario": {
+        "equal_weights": 2.3,
+        "exposure_heavy": 2.9,
+        "flood_coverage_heavy": 2.2,
+        "isolation_heavy": 1.6,
+        "areal_extent_heavy": 2.7
+      },
+      "ranks_by_scenario": {
+        "equal_weights": 21,
+        "exposure_heavy": 20,
+        "flood_coverage_heavy": 21,
+        "isolation_heavy": 20,
+        "areal_extent_heavy": 21
+      },
+      "priorities_by_scenario": {
+        "equal_weights": "LOW",
+        "exposure_heavy": "LOW",
+        "flood_coverage_heavy": "LOW",
+        "isolation_heavy": "LOW",
+        "areal_extent_heavy": "LOW"
+      },
+      "priority_shifts": [],
+      "is_robust_high_priority": false,
+      "is_robust_top_k": false,
+      "is_volatile": false
+    },
+    {
+      "zone_id": "zone-020",
+      "baseline_rank": 21,
+      "baseline_score": 1.9,
+      "baseline_priority": "LOW",
+      "min_score": 1.3,
+      "max_score": 3.1,
+      "mean_score": 2.1,
+      "max_score_delta": 1.2,
+      "min_rank": 20,
+      "max_rank": 23,
+      "mean_rank": 20.8,
+      "max_rank_delta": 2,
+      "scores_by_scenario": {
+        "equal_weights": 2.5,
+        "exposure_heavy": 1.3,
+        "flood_coverage_heavy": 2.6,
+        "isolation_heavy": 1.5,
+        "areal_extent_heavy": 3.1
+      },
+      "ranks_by_scenario": {
+        "equal_weights": 20,
+        "exposure_heavy": 23,
+        "flood_coverage_heavy": 20,
+        "isolation_heavy": 21,
+        "areal_extent_heavy": 20
+      },
+      "priorities_by_scenario": {
+        "equal_weights": "LOW",
+        "exposure_heavy": "LOW",
+        "flood_coverage_heavy": "LOW",
+        "isolation_heavy": "LOW",
+        "areal_extent_heavy": "LOW"
+      },
+      "priority_shifts": [],
+      "is_robust_high_priority": false,
+      "is_robust_top_k": false,
+      "is_volatile": false
+    },
+    {
+      "zone_id": "zone-037",
+      "baseline_rank": 22,
+      "baseline_score": 1.5,
+      "baseline_priority": "LOW",
+      "min_score": 0.9,
+      "max_score": 1.8,
+      "mean_score": 1.3,
+      "max_score_delta": 0.6,
+      "min_rank": 22,
+      "max_rank": 23,
+      "mean_rank": 22.3,
+      "max_rank_delta": 1,
+      "scores_by_scenario": {
+        "equal_weights": 1.1,
+        "exposure_heavy": 1.8,
+        "flood_coverage_heavy": 1.2,
+        "isolation_heavy": 0.9,
+        "areal_extent_heavy": 1.2
+      },
+      "ranks_by_scenario": {
+        "equal_weights": 23,
+        "exposure_heavy": 22,
+        "flood_coverage_heavy": 22,
+        "isolation_heavy": 22,
+        "areal_extent_heavy": 23
+      },
+      "priorities_by_scenario": {
+        "equal_weights": "LOW",
+        "exposure_heavy": "LOW",
+        "flood_coverage_heavy": "LOW",
+        "isolation_heavy": "LOW",
+        "areal_extent_heavy": "LOW"
+      },
+      "priority_shifts": [],
+      "is_robust_high_priority": false,
+      "is_robust_top_k": false,
+      "is_volatile": false
+    },
+    {
+      "zone_id": "zone-024",
+      "baseline_rank": 23,
+      "baseline_score": 1.5,
+      "baseline_priority": "LOW",
+      "min_score": 0.9,
+      "max_score": 1.8,
+      "mean_score": 1.3,
+      "max_score_delta": 0.6,
+      "min_rank": 21,
+      "max_rank": 23,
+      "mean_rank": 22.3,
+      "max_rank_delta": 2,
+      "scores_by_scenario": {
+        "equal_weights": 1.2,
+        "exposure_heavy": 1.8,
+        "flood_coverage_heavy": 1.1,
+        "isolation_heavy": 0.9,
+        "areal_extent_heavy": 1.4
+      },
+      "ranks_by_scenario": {
+        "equal_weights": 22,
+        "exposure_heavy": 21,
+        "flood_coverage_heavy": 23,
+        "isolation_heavy": 23,
+        "areal_extent_heavy": 22
+      },
+      "priorities_by_scenario": {
+        "equal_weights": "LOW",
+        "exposure_heavy": "LOW",
+        "flood_coverage_heavy": "LOW",
+        "isolation_heavy": "LOW",
+        "areal_extent_heavy": "LOW"
+      },
+      "priority_shifts": [],
+      "is_robust_high_priority": false,
+      "is_robust_top_k": false,
+      "is_volatile": false
+    },
+    {
+      "zone_id": "zone-004",
+      "baseline_rank": 24,
+      "baseline_score": 0.5,
+      "baseline_priority": "LOW",
+      "min_score": 0.3,
+      "max_score": 0.7,
+      "mean_score": 0.4,
+      "max_score_delta": 0.2,
+      "min_rank": 24,
+      "max_rank": 24,
+      "mean_rank": 24.0,
+      "max_rank_delta": 0,
+      "scores_by_scenario": {
+        "equal_weights": 0.3,
+        "exposure_heavy": 0.7,
+        "flood_coverage_heavy": 0.3,
+        "isolation_heavy": 0.3,
+        "areal_extent_heavy": 0.3
+      },
+      "ranks_by_scenario": {
+        "equal_weights": 24,
+        "exposure_heavy": 24,
+        "flood_coverage_heavy": 24,
+        "isolation_heavy": 24,
+        "areal_extent_heavy": 24
+      },
+      "priorities_by_scenario": {
+        "equal_weights": "LOW",
+        "exposure_heavy": "LOW",
+        "flood_coverage_heavy": "LOW",
+        "isolation_heavy": "LOW",
+        "areal_extent_heavy": "LOW"
+      },
+      "priority_shifts": [],
+      "is_robust_high_priority": false,
+      "is_robust_top_k": false,
+      "is_volatile": false
+    },
+    {
+      "zone_id": "zone-026",
+      "baseline_rank": 25,
+      "baseline_score": 0.1,
+      "baseline_priority": "LOW",
+      "min_score": 0.1,
+      "max_score": 0.2,
+      "mean_score": 0.1,
+      "max_score_delta": 0.1,
+      "min_rank": 25,
+      "max_rank": 25,
+      "mean_rank": 25.0,
+      "max_rank_delta": 0,
+      "scores_by_scenario": {
+        "equal_weights": 0.2,
+        "exposure_heavy": 0.1,
+        "flood_coverage_heavy": 0.2,
+        "isolation_heavy": 0.1,
+        "areal_extent_heavy": 0.2
+      },
+      "ranks_by_scenario": {
+        "equal_weights": 25,
+        "exposure_heavy": 25,
+        "flood_coverage_heavy": 25,
+        "isolation_heavy": 25,
+        "areal_extent_heavy": 25
+      },
+      "priorities_by_scenario": {
+        "equal_weights": "LOW",
+        "exposure_heavy": "LOW",
+        "flood_coverage_heavy": "LOW",
+        "isolation_heavy": "LOW",
+        "areal_extent_heavy": "LOW"
+      },
+      "priority_shifts": [],
+      "is_robust_high_priority": false,
+      "is_robust_top_k": false,
+      "is_volatile": false
+    },
+    {
+      "zone_id": "zone-003",
+      "baseline_rank": 26,
+      "baseline_score": 0.0,
+      "baseline_priority": "LOW",
+      "min_score": 0.0,
+      "max_score": 0.0,
+      "mean_score": 0.0,
+      "max_score_delta": 0.0,
+      "min_rank": 26,
+      "max_rank": 26,
+      "mean_rank": 26.0,
+      "max_rank_delta": 0,
+      "scores_by_scenario": {
+        "equal_weights": 0.0,
+        "exposure_heavy": 0.0,
+        "flood_coverage_heavy": 0.0,
+        "isolation_heavy": 0.0,
+        "areal_extent_heavy": 0.0
+      },
+      "ranks_by_scenario": {
+        "equal_weights": 26,
+        "exposure_heavy": 26,
+        "flood_coverage_heavy": 26,
+        "isolation_heavy": 26,
+        "areal_extent_heavy": 26
+      },
+      "priorities_by_scenario": {
+        "equal_weights": "LOW",
+        "exposure_heavy": "LOW",
+        "flood_coverage_heavy": "LOW",
+        "isolation_heavy": "LOW",
+        "areal_extent_heavy": "LOW"
+      },
+      "priority_shifts": [],
+      "is_robust_high_priority": false,
+      "is_robust_top_k": false,
+      "is_volatile": false
+    },
+    {
+      "zone_id": "zone-005",
+      "baseline_rank": 27,
+      "baseline_score": 0.0,
+      "baseline_priority": "LOW",
+      "min_score": 0.0,
+      "max_score": 0.0,
+      "mean_score": 0.0,
+      "max_score_delta": 0.0,
+      "min_rank": 27,
+      "max_rank": 27,
+      "mean_rank": 27.0,
+      "max_rank_delta": 0,
+      "scores_by_scenario": {
+        "equal_weights": 0.0,
+        "exposure_heavy": 0.0,
+        "flood_coverage_heavy": 0.0,
+        "isolation_heavy": 0.0,
+        "areal_extent_heavy": 0.0
+      },
+      "ranks_by_scenario": {
+        "equal_weights": 27,
+        "exposure_heavy": 27,
+        "flood_coverage_heavy": 27,
+        "isolation_heavy": 27,
+        "areal_extent_heavy": 27
+      },
+      "priorities_by_scenario": {
+        "equal_weights": "LOW",
+        "exposure_heavy": "LOW",
+        "flood_coverage_heavy": "LOW",
+        "isolation_heavy": "LOW",
+        "areal_extent_heavy": "LOW"
+      },
+      "priority_shifts": [],
+      "is_robust_high_priority": false,
+      "is_robust_top_k": false,
+      "is_volatile": false
+    },
+    {
+      "zone_id": "zone-007",
+      "baseline_rank": 28,
+      "baseline_score": 0.0,
+      "baseline_priority": "LOW",
+      "min_score": 0.0,
+      "max_score": 0.0,
+      "mean_score": 0.0,
+      "max_score_delta": 0.0,
+      "min_rank": 28,
+      "max_rank": 28,
+      "mean_rank": 28.0,
+      "max_rank_delta": 0,
+      "scores_by_scenario": {
+        "equal_weights": 0.0,
+        "exposure_heavy": 0.0,
+        "flood_coverage_heavy": 0.0,
+        "isolation_heavy": 0.0,
+        "areal_extent_heavy": 0.0
+      },
+      "ranks_by_scenario": {
+        "equal_weights": 28,
+        "exposure_heavy": 28,
+        "flood_coverage_heavy": 28,
+        "isolation_heavy": 28,
+        "areal_extent_heavy": 28
+      },
+      "priorities_by_scenario": {
+        "equal_weights": "LOW",
+        "exposure_heavy": "LOW",
+        "flood_coverage_heavy": "LOW",
+        "isolation_heavy": "LOW",
+        "areal_extent_heavy": "LOW"
+      },
+      "priority_shifts": [],
+      "is_robust_high_priority": false,
+      "is_robust_top_k": false,
+      "is_volatile": false
+    },
+    {
+      "zone_id": "zone-013",
+      "baseline_rank": 29,
+      "baseline_score": 0.0,
+      "baseline_priority": "LOW",
+      "min_score": 0.0,
+      "max_score": 0.0,
+      "mean_score": 0.0,
+      "max_score_delta": 0.0,
+      "min_rank": 29,
+      "max_rank": 29,
+      "mean_rank": 29.0,
+      "max_rank_delta": 0,
+      "scores_by_scenario": {
+        "equal_weights": 0.0,
+        "exposure_heavy": 0.0,
+        "flood_coverage_heavy": 0.0,
+        "isolation_heavy": 0.0,
+        "areal_extent_heavy": 0.0
+      },
+      "ranks_by_scenario": {
+        "equal_weights": 29,
+        "exposure_heavy": 29,
+        "flood_coverage_heavy": 29,
+        "isolation_heavy": 29,
+        "areal_extent_heavy": 29
+      },
+      "priorities_by_scenario": {
+        "equal_weights": "LOW",
+        "exposure_heavy": "LOW",
+        "flood_coverage_heavy": "LOW",
+        "isolation_heavy": "LOW",
+        "areal_extent_heavy": "LOW"
+      },
+      "priority_shifts": [],
+      "is_robust_high_priority": false,
+      "is_robust_top_k": false,
+      "is_volatile": false
+    },
+    {
+      "zone_id": "zone-015",
+      "baseline_rank": 30,
+      "baseline_score": 0.0,
+      "baseline_priority": "LOW",
+      "min_score": 0.0,
+      "max_score": 0.0,
+      "mean_score": 0.0,
+      "max_score_delta": 0.0,
+      "min_rank": 30,
+      "max_rank": 30,
+      "mean_rank": 30.0,
+      "max_rank_delta": 0,
+      "scores_by_scenario": {
+        "equal_weights": 0.0,
+        "exposure_heavy": 0.0,
+        "flood_coverage_heavy": 0.0,
+        "isolation_heavy": 0.0,
+        "areal_extent_heavy": 0.0
+      },
+      "ranks_by_scenario": {
+        "equal_weights": 30,
+        "exposure_heavy": 30,
+        "flood_coverage_heavy": 30,
+        "isolation_heavy": 30,
+        "areal_extent_heavy": 30
+      },
+      "priorities_by_scenario": {
+        "equal_weights": "LOW",
+        "exposure_heavy": "LOW",
+        "flood_coverage_heavy": "LOW",
+        "isolation_heavy": "LOW",
+        "areal_extent_heavy": "LOW"
+      },
+      "priority_shifts": [],
+      "is_robust_high_priority": false,
+      "is_robust_top_k": false,
+      "is_volatile": false
+    },
+    {
+      "zone_id": "zone-016",
+      "baseline_rank": 31,
+      "baseline_score": 0.0,
+      "baseline_priority": "LOW",
+      "min_score": 0.0,
+      "max_score": 0.0,
+      "mean_score": 0.0,
+      "max_score_delta": 0.0,
+      "min_rank": 31,
+      "max_rank": 31,
+      "mean_rank": 31.0,
+      "max_rank_delta": 0,
+      "scores_by_scenario": {
+        "equal_weights": 0.0,
+        "exposure_heavy": 0.0,
+        "flood_coverage_heavy": 0.0,
+        "isolation_heavy": 0.0,
+        "areal_extent_heavy": 0.0
+      },
+      "ranks_by_scenario": {
+        "equal_weights": 31,
+        "exposure_heavy": 31,
+        "flood_coverage_heavy": 31,
+        "isolation_heavy": 31,
+        "areal_extent_heavy": 31
+      },
+      "priorities_by_scenario": {
+        "equal_weights": "LOW",
+        "exposure_heavy": "LOW",
+        "flood_coverage_heavy": "LOW",
+        "isolation_heavy": "LOW",
+        "areal_extent_heavy": "LOW"
+      },
+      "priority_shifts": [],
+      "is_robust_high_priority": false,
+      "is_robust_top_k": false,
+      "is_volatile": false
+    },
+    {
+      "zone_id": "zone-019",
+      "baseline_rank": 32,
+      "baseline_score": 0.0,
+      "baseline_priority": "LOW",
+      "min_score": 0.0,
+      "max_score": 0.0,
+      "mean_score": 0.0,
+      "max_score_delta": 0.0,
+      "min_rank": 32,
+      "max_rank": 32,
+      "mean_rank": 32.0,
+      "max_rank_delta": 0,
+      "scores_by_scenario": {
+        "equal_weights": 0.0,
+        "exposure_heavy": 0.0,
+        "flood_coverage_heavy": 0.0,
+        "isolation_heavy": 0.0,
+        "areal_extent_heavy": 0.0
+      },
+      "ranks_by_scenario": {
+        "equal_weights": 32,
+        "exposure_heavy": 32,
+        "flood_coverage_heavy": 32,
+        "isolation_heavy": 32,
+        "areal_extent_heavy": 32
+      },
+      "priorities_by_scenario": {
+        "equal_weights": "LOW",
+        "exposure_heavy": "LOW",
+        "flood_coverage_heavy": "LOW",
+        "isolation_heavy": "LOW",
+        "areal_extent_heavy": "LOW"
+      },
+      "priority_shifts": [],
+      "is_robust_high_priority": false,
+      "is_robust_top_k": false,
+      "is_volatile": false
+    },
+    {
+      "zone_id": "zone-022",
+      "baseline_rank": 33,
+      "baseline_score": 0.0,
+      "baseline_priority": "LOW",
+      "min_score": 0.0,
+      "max_score": 0.0,
+      "mean_score": 0.0,
+      "max_score_delta": 0.0,
+      "min_rank": 33,
+      "max_rank": 33,
+      "mean_rank": 33.0,
+      "max_rank_delta": 0,
+      "scores_by_scenario": {
+        "equal_weights": 0.0,
+        "exposure_heavy": 0.0,
+        "flood_coverage_heavy": 0.0,
+        "isolation_heavy": 0.0,
+        "areal_extent_heavy": 0.0
+      },
+      "ranks_by_scenario": {
+        "equal_weights": 33,
+        "exposure_heavy": 33,
+        "flood_coverage_heavy": 33,
+        "isolation_heavy": 33,
+        "areal_extent_heavy": 33
+      },
+      "priorities_by_scenario": {
+        "equal_weights": "LOW",
+        "exposure_heavy": "LOW",
+        "flood_coverage_heavy": "LOW",
+        "isolation_heavy": "LOW",
+        "areal_extent_heavy": "LOW"
+      },
+      "priority_shifts": [],
+      "is_robust_high_priority": false,
+      "is_robust_top_k": false,
+      "is_volatile": false
+    },
+    {
+      "zone_id": "zone-025",
+      "baseline_rank": 34,
+      "baseline_score": 0.0,
+      "baseline_priority": "LOW",
+      "min_score": 0.0,
+      "max_score": 0.0,
+      "mean_score": 0.0,
+      "max_score_delta": 0.0,
+      "min_rank": 34,
+      "max_rank": 34,
+      "mean_rank": 34.0,
+      "max_rank_delta": 0,
+      "scores_by_scenario": {
+        "equal_weights": 0.0,
+        "exposure_heavy": 0.0,
+        "flood_coverage_heavy": 0.0,
+        "isolation_heavy": 0.0,
+        "areal_extent_heavy": 0.0
+      },
+      "ranks_by_scenario": {
+        "equal_weights": 34,
+        "exposure_heavy": 34,
+        "flood_coverage_heavy": 34,
+        "isolation_heavy": 34,
+        "areal_extent_heavy": 34
+      },
+      "priorities_by_scenario": {
+        "equal_weights": "LOW",
+        "exposure_heavy": "LOW",
+        "flood_coverage_heavy": "LOW",
+        "isolation_heavy": "LOW",
+        "areal_extent_heavy": "LOW"
+      },
+      "priority_shifts": [],
+      "is_robust_high_priority": false,
+      "is_robust_top_k": false,
+      "is_volatile": false
+    },
+    {
+      "zone_id": "zone-028",
+      "baseline_rank": 35,
+      "baseline_score": 0.0,
+      "baseline_priority": "LOW",
+      "min_score": 0.0,
+      "max_score": 0.0,
+      "mean_score": 0.0,
+      "max_score_delta": 0.0,
+      "min_rank": 35,
+      "max_rank": 35,
+      "mean_rank": 35.0,
+      "max_rank_delta": 0,
+      "scores_by_scenario": {
+        "equal_weights": 0.0,
+        "exposure_heavy": 0.0,
+        "flood_coverage_heavy": 0.0,
+        "isolation_heavy": 0.0,
+        "areal_extent_heavy": 0.0
+      },
+      "ranks_by_scenario": {
+        "equal_weights": 35,
+        "exposure_heavy": 35,
+        "flood_coverage_heavy": 35,
+        "isolation_heavy": 35,
+        "areal_extent_heavy": 35
+      },
+      "priorities_by_scenario": {
+        "equal_weights": "LOW",
+        "exposure_heavy": "LOW",
+        "flood_coverage_heavy": "LOW",
+        "isolation_heavy": "LOW",
+        "areal_extent_heavy": "LOW"
+      },
+      "priority_shifts": [],
+      "is_robust_high_priority": false,
+      "is_robust_top_k": false,
+      "is_volatile": false
+    },
+    {
+      "zone_id": "zone-029",
+      "baseline_rank": 36,
+      "baseline_score": 0.0,
+      "baseline_priority": "LOW",
+      "min_score": 0.0,
+      "max_score": 0.0,
+      "mean_score": 0.0,
+      "max_score_delta": 0.0,
+      "min_rank": 36,
+      "max_rank": 36,
+      "mean_rank": 36.0,
+      "max_rank_delta": 0,
+      "scores_by_scenario": {
+        "equal_weights": 0.0,
+        "exposure_heavy": 0.0,
+        "flood_coverage_heavy": 0.0,
+        "isolation_heavy": 0.0,
+        "areal_extent_heavy": 0.0
+      },
+      "ranks_by_scenario": {
+        "equal_weights": 36,
+        "exposure_heavy": 36,
+        "flood_coverage_heavy": 36,
+        "isolation_heavy": 36,
+        "areal_extent_heavy": 36
+      },
+      "priorities_by_scenario": {
+        "equal_weights": "LOW",
+        "exposure_heavy": "LOW",
+        "flood_coverage_heavy": "LOW",
+        "isolation_heavy": "LOW",
+        "areal_extent_heavy": "LOW"
+      },
+      "priority_shifts": [],
+      "is_robust_high_priority": false,
+      "is_robust_top_k": false,
+      "is_volatile": false
+    },
+    {
+      "zone_id": "zone-032",
+      "baseline_rank": 37,
+      "baseline_score": 0.0,
+      "baseline_priority": "LOW",
+      "min_score": 0.0,
+      "max_score": 0.0,
+      "mean_score": 0.0,
+      "max_score_delta": 0.0,
+      "min_rank": 37,
+      "max_rank": 37,
+      "mean_rank": 37.0,
+      "max_rank_delta": 0,
+      "scores_by_scenario": {
+        "equal_weights": 0.0,
+        "exposure_heavy": 0.0,
+        "flood_coverage_heavy": 0.0,
+        "isolation_heavy": 0.0,
+        "areal_extent_heavy": 0.0
+      },
+      "ranks_by_scenario": {
+        "equal_weights": 37,
+        "exposure_heavy": 37,
+        "flood_coverage_heavy": 37,
+        "isolation_heavy": 37,
+        "areal_extent_heavy": 37
+      },
+      "priorities_by_scenario": {
+        "equal_weights": "LOW",
+        "exposure_heavy": "LOW",
+        "flood_coverage_heavy": "LOW",
+        "isolation_heavy": "LOW",
+        "areal_extent_heavy": "LOW"
+      },
+      "priority_shifts": [],
+      "is_robust_high_priority": false,
+      "is_robust_top_k": false,
+      "is_volatile": false
+    },
+    {
+      "zone_id": "zone-034",
+      "baseline_rank": 38,
+      "baseline_score": 0.0,
+      "baseline_priority": "LOW",
+      "min_score": 0.0,
+      "max_score": 0.0,
+      "mean_score": 0.0,
+      "max_score_delta": 0.0,
+      "min_rank": 38,
+      "max_rank": 38,
+      "mean_rank": 38.0,
+      "max_rank_delta": 0,
+      "scores_by_scenario": {
+        "equal_weights": 0.0,
+        "exposure_heavy": 0.0,
+        "flood_coverage_heavy": 0.0,
+        "isolation_heavy": 0.0,
+        "areal_extent_heavy": 0.0
+      },
+      "ranks_by_scenario": {
+        "equal_weights": 38,
+        "exposure_heavy": 38,
+        "flood_coverage_heavy": 38,
+        "isolation_heavy": 38,
+        "areal_extent_heavy": 38
+      },
+      "priorities_by_scenario": {
+        "equal_weights": "LOW",
+        "exposure_heavy": "LOW",
+        "flood_coverage_heavy": "LOW",
+        "isolation_heavy": "LOW",
+        "areal_extent_heavy": "LOW"
+      },
+      "priority_shifts": [],
+      "is_robust_high_priority": false,
+      "is_robust_top_k": false,
+      "is_volatile": false
+    }
+  ]
+}

@@ -1,0 +1,2 @@
+[console_scripts]
+risk-engine = risk_engine.cli:main

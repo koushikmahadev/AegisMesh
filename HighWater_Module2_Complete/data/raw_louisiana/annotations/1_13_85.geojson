@@ -1,0 +1,10 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "id": "way/847378153", "building": null, "flooded": null, "highway": "unclassified", "lanes": "2", "surface": "unpaved", "oneway": null, "bridge": null, "layer": null, "tunnel": null, "type": null, "image_id": "10400100684A4B00", "location": "Louisiana-East_Training_Public" }, "geometry": { "type": "LineString", "coordinates": [ [ -89.998189874403053, 29.837957472717257 ], [ -89.9979988, 29.8379141 ], [ -89.9977657, 29.8379055 ], [ -89.997623718780261, 29.837957472717257 ] ] } },
+{ "type": "Feature", "properties": { "id": "way/847378155", "building": null, "flooded": null, "highway": "unclassified", "lanes": "2", "surface": "paved", "oneway": null, "bridge": null, "layer": null, "tunnel": null, "type": null, "image_id": "10400100684A4B00", "location": "Louisiana-East_Training_Public" }, "geometry": { "type": "LineString", "coordinates": [ [ -89.997032784729456, 29.837957472717257 ], [ -89.997763, 29.8371959 ], [ -89.998404424798736, 29.836196848150212 ] ] } },
+{ "type": "Feature", "properties": { "id": "way/847378659", "building": null, "flooded": null, "highway": "unclassified", "lanes": "2", "surface": "unpaved", "oneway": null, "bridge": null, "layer": null, "tunnel": null, "type": null, "image_id": "10400100684A4B00", "location": "Louisiana-East_Training_Public" }, "geometry": { "type": "LineString", "coordinates": [ [ -89.998404424798736, 29.837436121846814 ], [ -89.9979988, 29.8379141 ] ] } },
+{ "type": "Feature", "properties": { "id": "way/847378844", "building": null, "flooded": null, "highway": "unclassified", "lanes": "2", "surface": "paved", "oneway": null, "bridge": null, "layer": null, "tunnel": null, "type": null, "image_id": "10400100684A4B00", "location": "Louisiana-East_Training_Public" }, "geometry": { "type": "LineString", "coordinates": [ [ -89.997264181489584, 29.837957472717257 ], [ -89.9977577, 29.8374425 ], [ -89.9979723, 29.8371959 ], [ -89.998404424798736, 29.836512587132169 ] ] } }
+]
+}

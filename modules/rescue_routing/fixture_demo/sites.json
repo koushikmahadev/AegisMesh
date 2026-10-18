@@ -1,0 +1,15 @@
+[
+  {
+    "id": "BASE_STATION",
+    "kind": "base",
+    "lat": 41.005,
+    "lon": -1.0
+  },
+  {
+    "id": "ZONE_RIVER_VILLAGE",
+    "kind": "zone",
+    "lat": 41.005,
+    "lon": -0.99,
+    "residents": 600
+  }
+]

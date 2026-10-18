@@ -1,0 +1,38 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.8688,
+              37.5258
+            ],
+            [
+              36.9888,
+              37.5258
+            ],
+            [
+              36.9888,
+              37.6458
+            ],
+            [
+              36.8688,
+              37.6458
+            ],
+            [
+              36.8688,
+              37.5258
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "event": "Pazarcik, Kahramanmaras Earthquake (M7.8)"
+      }
+    }
+  ]
+}

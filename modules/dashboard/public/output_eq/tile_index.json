@@ -1,0 +1,770 @@
+{
+  "eq_0_0": {
+    "bbox": [
+      36.8688,
+      37.5258,
+      36.8838,
+      37.5408
+    ],
+    "buildings": 122,
+    "roads": 15,
+    "flooded_buildings": 18,
+    "flooded_roads": 0
+  },
+  "eq_0_1": {
+    "bbox": [
+      36.8838,
+      37.5258,
+      36.8988,
+      37.5408
+    ],
+    "buildings": 126,
+    "roads": 15,
+    "flooded_buildings": 19,
+    "flooded_roads": 0
+  },
+  "eq_0_2": {
+    "bbox": [
+      36.8988,
+      37.5258,
+      36.9138,
+      37.5408
+    ],
+    "buildings": 130,
+    "roads": 15,
+    "flooded_buildings": 20,
+    "flooded_roads": 0
+  },
+  "eq_0_3": {
+    "bbox": [
+      36.9138,
+      37.5258,
+      36.9288,
+      37.5408
+    ],
+    "buildings": 132,
+    "roads": 15,
+    "flooded_buildings": 20,
+    "flooded_roads": 0
+  },
+  "eq_0_4": {
+    "bbox": [
+      36.9288,
+      37.5258,
+      36.9438,
+      37.5408
+    ],
+    "buildings": 132,
+    "roads": 15,
+    "flooded_buildings": 20,
+    "flooded_roads": 0
+  },
+  "eq_0_5": {
+    "bbox": [
+      36.9438,
+      37.5258,
+      36.9588,
+      37.5408
+    ],
+    "buildings": 130,
+    "roads": 15,
+    "flooded_buildings": 20,
+    "flooded_roads": 0
+  },
+  "eq_0_6": {
+    "bbox": [
+      36.9588,
+      37.5258,
+      36.9738,
+      37.5408
+    ],
+    "buildings": 126,
+    "roads": 15,
+    "flooded_buildings": 19,
+    "flooded_roads": 0
+  },
+  "eq_0_7": {
+    "bbox": [
+      36.9738,
+      37.5258,
+      36.9888,
+      37.5408
+    ],
+    "buildings": 122,
+    "roads": 15,
+    "flooded_buildings": 18,
+    "flooded_roads": 0
+  },
+  "eq_1_0": {
+    "bbox": [
+      36.8688,
+      37.5408,
+      36.8838,
+      37.5558
+    ],
+    "buildings": 126,
+    "roads": 15,
+    "flooded_buildings": 19,
+    "flooded_roads": 0
+  },
+  "eq_1_1": {
+    "bbox": [
+      36.8838,
+      37.5408,
+      36.8988,
+      37.5558
+    ],
+    "buildings": 132,
+    "roads": 15,
+    "flooded_buildings": 20,
+    "flooded_roads": 0
+  },
+  "eq_1_2": {
+    "bbox": [
+      36.8988,
+      37.5408,
+      36.9138,
+      37.5558
+    ],
+    "buildings": 137,
+    "roads": 15,
+    "flooded_buildings": 100,
+    "flooded_roads": 0
+  },
+  "eq_1_3": {
+    "bbox": [
+      36.9138,
+      37.5408,
+      36.9288,
+      37.5558
+    ],
+    "buildings": 140,
+    "roads": 15,
+    "flooded_buildings": 102,
+    "flooded_roads": 0
+  },
+  "eq_1_4": {
+    "bbox": [
+      36.9288,
+      37.5408,
+      36.9438,
+      37.5558
+    ],
+    "buildings": 140,
+    "roads": 15,
+    "flooded_buildings": 102,
+    "flooded_roads": 0
+  },
+  "eq_1_5": {
+    "bbox": [
+      36.9438,
+      37.5408,
+      36.9588,
+      37.5558
+    ],
+    "buildings": 137,
+    "roads": 15,
+    "flooded_buildings": 100,
+    "flooded_roads": 0
+  },
+  "eq_1_6": {
+    "bbox": [
+      36.9588,
+      37.5408,
+      36.9738,
+      37.5558
+    ],
+    "buildings": 132,
+    "roads": 15,
+    "flooded_buildings": 20,
+    "flooded_roads": 0
+  },
+  "eq_1_7": {
+    "bbox": [
+      36.9738,
+      37.5408,
+      36.9888,
+      37.5558
+    ],
+    "buildings": 126,
+    "roads": 15,
+    "flooded_buildings": 19,
+    "flooded_roads": 0
+  },
+  "eq_2_0": {
+    "bbox": [
+      36.8688,
+      37.5558,
+      36.8838,
+      37.5708
+    ],
+    "buildings": 130,
+    "roads": 15,
+    "flooded_buildings": 20,
+    "flooded_roads": 0
+  },
+  "eq_2_1": {
+    "bbox": [
+      36.8838,
+      37.5558,
+      36.8988,
+      37.5708
+    ],
+    "buildings": 137,
+    "roads": 15,
+    "flooded_buildings": 100,
+    "flooded_roads": 0
+  },
+  "eq_2_2": {
+    "bbox": [
+      36.8988,
+      37.5558,
+      36.9138,
+      37.5708
+    ],
+    "buildings": 143,
+    "roads": 15,
+    "flooded_buildings": 105,
+    "flooded_roads": 0
+  },
+  "eq_2_3": {
+    "bbox": [
+      36.9138,
+      37.5558,
+      36.9288,
+      37.5708
+    ],
+    "buildings": 148,
+    "roads": 15,
+    "flooded_buildings": 108,
+    "flooded_roads": 8
+  },
+  "eq_2_4": {
+    "bbox": [
+      36.9288,
+      37.5558,
+      36.9438,
+      37.5708
+    ],
+    "buildings": 148,
+    "roads": 15,
+    "flooded_buildings": 108,
+    "flooded_roads": 8
+  },
+  "eq_2_5": {
+    "bbox": [
+      36.9438,
+      37.5558,
+      36.9588,
+      37.5708
+    ],
+    "buildings": 143,
+    "roads": 15,
+    "flooded_buildings": 105,
+    "flooded_roads": 0
+  },
+  "eq_2_6": {
+    "bbox": [
+      36.9588,
+      37.5558,
+      36.9738,
+      37.5708
+    ],
+    "buildings": 137,
+    "roads": 15,
+    "flooded_buildings": 100,
+    "flooded_roads": 0
+  },
+  "eq_2_7": {
+    "bbox": [
+      36.9738,
+      37.5558,
+      36.9888,
+      37.5708
+    ],
+    "buildings": 130,
+    "roads": 15,
+    "flooded_buildings": 20,
+    "flooded_roads": 0
+  },
+  "eq_3_0": {
+    "bbox": [
+      36.8688,
+      37.5708,
+      36.8838,
+      37.5858
+    ],
+    "buildings": 132,
+    "roads": 15,
+    "flooded_buildings": 20,
+    "flooded_roads": 0
+  },
+  "eq_3_1": {
+    "bbox": [
+      36.8838,
+      37.5708,
+      36.8988,
+      37.5858
+    ],
+    "buildings": 140,
+    "roads": 15,
+    "flooded_buildings": 102,
+    "flooded_roads": 0
+  },
+  "eq_3_2": {
+    "bbox": [
+      36.8988,
+      37.5708,
+      36.9138,
+      37.5858
+    ],
+    "buildings": 148,
+    "roads": 15,
+    "flooded_buildings": 108,
+    "flooded_roads": 8
+  },
+  "eq_3_3": {
+    "bbox": [
+      36.9138,
+      37.5708,
+      36.9288,
+      37.5858
+    ],
+    "buildings": 154,
+    "roads": 15,
+    "flooded_buildings": 113,
+    "flooded_roads": 8
+  },
+  "eq_3_4": {
+    "bbox": [
+      36.9288,
+      37.5708,
+      36.9438,
+      37.5858
+    ],
+    "buildings": 154,
+    "roads": 15,
+    "flooded_buildings": 113,
+    "flooded_roads": 8
+  },
+  "eq_3_5": {
+    "bbox": [
+      36.9438,
+      37.5708,
+      36.9588,
+      37.5858
+    ],
+    "buildings": 148,
+    "roads": 15,
+    "flooded_buildings": 108,
+    "flooded_roads": 8
+  },
+  "eq_3_6": {
+    "bbox": [
+      36.9588,
+      37.5708,
+      36.9738,
+      37.5858
+    ],
+    "buildings": 140,
+    "roads": 15,
+    "flooded_buildings": 102,
+    "flooded_roads": 0
+  },
+  "eq_3_7": {
+    "bbox": [
+      36.9738,
+      37.5708,
+      36.9888,
+      37.5858
+    ],
+    "buildings": 132,
+    "roads": 15,
+    "flooded_buildings": 20,
+    "flooded_roads": 0
+  },
+  "eq_4_0": {
+    "bbox": [
+      36.8688,
+      37.5858,
+      36.8838,
+      37.6008
+    ],
+    "buildings": 132,
+    "roads": 15,
+    "flooded_buildings": 20,
+    "flooded_roads": 0
+  },
+  "eq_4_1": {
+    "bbox": [
+      36.8838,
+      37.5858,
+      36.8988,
+      37.6008
+    ],
+    "buildings": 140,
+    "roads": 15,
+    "flooded_buildings": 102,
+    "flooded_roads": 0
+  },
+  "eq_4_2": {
+    "bbox": [
+      36.8988,
+      37.5858,
+      36.9138,
+      37.6008
+    ],
+    "buildings": 148,
+    "roads": 15,
+    "flooded_buildings": 108,
+    "flooded_roads": 8
+  },
+  "eq_4_3": {
+    "bbox": [
+      36.9138,
+      37.5858,
+      36.9288,
+      37.6008
+    ],
+    "buildings": 154,
+    "roads": 15,
+    "flooded_buildings": 113,
+    "flooded_roads": 8
+  },
+  "eq_4_4": {
+    "bbox": [
+      36.9288,
+      37.5858,
+      36.9438,
+      37.6008
+    ],
+    "buildings": 154,
+    "roads": 15,
+    "flooded_buildings": 113,
+    "flooded_roads": 8
+  },
+  "eq_4_5": {
+    "bbox": [
+      36.9438,
+      37.5858,
+      36.9588,
+      37.6008
+    ],
+    "buildings": 148,
+    "roads": 15,
+    "flooded_buildings": 108,
+    "flooded_roads": 8
+  },
+  "eq_4_6": {
+    "bbox": [
+      36.9588,
+      37.5858,
+      36.9738,
+      37.6008
+    ],
+    "buildings": 140,
+    "roads": 15,
+    "flooded_buildings": 102,
+    "flooded_roads": 0
+  },
+  "eq_4_7": {
+    "bbox": [
+      36.9738,
+      37.5858,
+      36.9888,
+      37.6008
+    ],
+    "buildings": 132,
+    "roads": 15,
+    "flooded_buildings": 20,
+    "flooded_roads": 0
+  },
+  "eq_5_0": {
+    "bbox": [
+      36.8688,
+      37.6008,
+      36.8838,
+      37.6158
+    ],
+    "buildings": 130,
+    "roads": 15,
+    "flooded_buildings": 20,
+    "flooded_roads": 0
+  },
+  "eq_5_1": {
+    "bbox": [
+      36.8838,
+      37.6008,
+      36.8988,
+      37.6158
+    ],
+    "buildings": 137,
+    "roads": 15,
+    "flooded_buildings": 100,
+    "flooded_roads": 0
+  },
+  "eq_5_2": {
+    "bbox": [
+      36.8988,
+      37.6008,
+      36.9138,
+      37.6158
+    ],
+    "buildings": 143,
+    "roads": 15,
+    "flooded_buildings": 105,
+    "flooded_roads": 0
+  },
+  "eq_5_3": {
+    "bbox": [
+      36.9138,
+      37.6008,
+      36.9288,
+      37.6158
+    ],
+    "buildings": 148,
+    "roads": 15,
+    "flooded_buildings": 108,
+    "flooded_roads": 8
+  },
+  "eq_5_4": {
+    "bbox": [
+      36.9288,
+      37.6008,
+      36.9438,
+      37.6158
+    ],
+    "buildings": 148,
+    "roads": 15,
+    "flooded_buildings": 108,
+    "flooded_roads": 8
+  },
+  "eq_5_5": {
+    "bbox": [
+      36.9438,
+      37.6008,
+      36.9588,
+      37.6158
+    ],
+    "buildings": 143,
+    "roads": 15,
+    "flooded_buildings": 105,
+    "flooded_roads": 0
+  },
+  "eq_5_6": {
+    "bbox": [
+      36.9588,
+      37.6008,
+      36.9738,
+      37.6158
+    ],
+    "buildings": 137,
+    "roads": 15,
+    "flooded_buildings": 100,
+    "flooded_roads": 0
+  },
+  "eq_5_7": {
+    "bbox": [
+      36.9738,
+      37.6008,
+      36.9888,
+      37.6158
+    ],
+    "buildings": 130,
+    "roads": 15,
+    "flooded_buildings": 20,
+    "flooded_roads": 0
+  },
+  "eq_6_0": {
+    "bbox": [
+      36.8688,
+      37.6158,
+      36.8838,
+      37.6308
+    ],
+    "buildings": 126,
+    "roads": 15,
+    "flooded_buildings": 19,
+    "flooded_roads": 0
+  },
+  "eq_6_1": {
+    "bbox": [
+      36.8838,
+      37.6158,
+      36.8988,
+      37.6308
+    ],
+    "buildings": 132,
+    "roads": 15,
+    "flooded_buildings": 20,
+    "flooded_roads": 0
+  },
+  "eq_6_2": {
+    "bbox": [
+      36.8988,
+      37.6158,
+      36.9138,
+      37.6308
+    ],
+    "buildings": 137,
+    "roads": 15,
+    "flooded_buildings": 100,
+    "flooded_roads": 0
+  },
+  "eq_6_3": {
+    "bbox": [
+      36.9138,
+      37.6158,
+      36.9288,
+      37.6308
+    ],
+    "buildings": 140,
+    "roads": 15,
+    "flooded_buildings": 102,
+    "flooded_roads": 0
+  },
+  "eq_6_4": {
+    "bbox": [
+      36.9288,
+      37.6158,
+      36.9438,
+      37.6308
+    ],
+    "buildings": 140,
+    "roads": 15,
+    "flooded_buildings": 102,
+    "flooded_roads": 0
+  },
+  "eq_6_5": {
+    "bbox": [
+      36.9438,
+      37.6158,
+      36.9588,
+      37.6308
+    ],
+    "buildings": 137,
+    "roads": 15,
+    "flooded_buildings": 100,
+    "flooded_roads": 0
+  },
+  "eq_6_6": {
+    "bbox": [
+      36.9588,
+      37.6158,
+      36.9738,
+      37.6308
+    ],
+    "buildings": 132,
+    "roads": 15,
+    "flooded_buildings": 20,
+    "flooded_roads": 0
+  },
+  "eq_6_7": {
+    "bbox": [
+      36.9738,
+      37.6158,
+      36.9888,
+      37.6308
+    ],
+    "buildings": 126,
+    "roads": 15,
+    "flooded_buildings": 19,
+    "flooded_roads": 0
+  },
+  "eq_7_0": {
+    "bbox": [
+      36.8688,
+      37.6308,
+      36.8838,
+      37.6458
+    ],
+    "buildings": 122,
+    "roads": 15,
+    "flooded_buildings": 18,
+    "flooded_roads": 0
+  },
+  "eq_7_1": {
+    "bbox": [
+      36.8838,
+      37.6308,
+      36.8988,
+      37.6458
+    ],
+    "buildings": 126,
+    "roads": 15,
+    "flooded_buildings": 19,
+    "flooded_roads": 0
+  },
+  "eq_7_2": {
+    "bbox": [
+      36.8988,
+      37.6308,
+      36.9138,
+      37.6458
+    ],
+    "buildings": 130,
+    "roads": 15,
+    "flooded_buildings": 20,
+    "flooded_roads": 0
+  },
+  "eq_7_3": {
+    "bbox": [
+      36.9138,
+      37.6308,
+      36.9288,
+      37.6458
+    ],
+    "buildings": 132,
+    "roads": 15,
+    "flooded_buildings": 20,
+    "flooded_roads": 0
+  },
+  "eq_7_4": {
+    "bbox": [
+      36.9288,
+      37.6308,
+      36.9438,
+      37.6458
+    ],
+    "buildings": 132,
+    "roads": 15,
+    "flooded_buildings": 20,
+    "flooded_roads": 0
+  },
+  "eq_7_5": {
+    "bbox": [
+      36.9438,
+      37.6308,
+      36.9588,
+      37.6458
+    ],
+    "buildings": 130,
+    "roads": 15,
+    "flooded_buildings": 20,
+    "flooded_roads": 0
+  },
+  "eq_7_6": {
+    "bbox": [
+      36.9588,
+      37.6308,
+      36.9738,
+      37.6458
+    ],
+    "buildings": 126,
+    "roads": 15,
+    "flooded_buildings": 19,
+    "flooded_roads": 0
+  },
+  "eq_7_7": {
+    "bbox": [
+      36.9738,
+      37.6308,
+      36.9888,
+      37.6458
+    ],
+    "buildings": 122,
+    "roads": 15,
+    "flooded_buildings": 18,
+    "flooded_roads": 0
+  }
+}

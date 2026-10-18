@@ -1,0 +1,50 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "facility_id": "fac-001",
+        "name": "Command Post Alpha (HAL Sports Club)",
+        "type": "depot",
+        "capacity": 500,
+        "occupancy": 120,
+        "status": "ACTIVE"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [77.6650, 12.9600]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "facility_id": "fac-002",
+        "name": "Community Relief Shelter #2 (Indiranagar)",
+        "type": "shelter",
+        "capacity": 800,
+        "occupancy": 340,
+        "status": "ACTIVE"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [77.6400, 12.9780]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "facility_id": "fac-003",
+        "name": "Emergency Medical Staging (Whitefield)",
+        "type": "hospital",
+        "capacity": 250,
+        "occupancy": 95,
+        "status": "ACTIVE"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [77.7500, 12.9700]
+      }
+    }
+  ]
+}

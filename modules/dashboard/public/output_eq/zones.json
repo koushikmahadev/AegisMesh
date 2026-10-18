@@ -1,0 +1,2884 @@
+{
+  "zones": [
+    {
+      "zone_id": "eq_0_0",
+      "bbox": [
+        36.8688,
+        37.5258,
+        36.8838,
+        37.5408
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.8688,
+              37.5258
+            ],
+            [
+              36.8838,
+              37.5258
+            ],
+            [
+              36.8838,
+              37.5408
+            ],
+            [
+              36.8688,
+              37.5408
+            ],
+            [
+              36.8688,
+              37.5258
+            ]
+          ]
+        ]
+      },
+      "accessibility": "ACCESSIBLE",
+      "risk_level": "LOW",
+      "flooded_percent": 11.49,
+      "hazard_metric": "MMI",
+      "mean_mmi": 6.0,
+      "total_buildings": 122,
+      "exposed_buildings": 18,
+      "road_length_m": 1940.0,
+      "flooded_road_length_m": 0.0
+    },
+    {
+      "zone_id": "eq_0_1",
+      "bbox": [
+        36.8838,
+        37.5258,
+        36.8988,
+        37.5408
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.8838,
+              37.5258
+            ],
+            [
+              36.8988,
+              37.5258
+            ],
+            [
+              36.8988,
+              37.5408
+            ],
+            [
+              36.8838,
+              37.5408
+            ],
+            [
+              36.8838,
+              37.5258
+            ]
+          ]
+        ]
+      },
+      "accessibility": "ACCESSIBLE",
+      "risk_level": "LOW",
+      "flooded_percent": 20.68,
+      "hazard_metric": "MMI",
+      "mean_mmi": 6.4,
+      "total_buildings": 126,
+      "exposed_buildings": 19,
+      "road_length_m": 1996.0,
+      "flooded_road_length_m": 0.0
+    },
+    {
+      "zone_id": "eq_0_2",
+      "bbox": [
+        36.8988,
+        37.5258,
+        36.9138,
+        37.5408
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.8988,
+              37.5258
+            ],
+            [
+              36.9138,
+              37.5258
+            ],
+            [
+              36.9138,
+              37.5408
+            ],
+            [
+              36.8988,
+              37.5408
+            ],
+            [
+              36.8988,
+              37.5258
+            ]
+          ]
+        ]
+      },
+      "accessibility": "ACCESSIBLE",
+      "risk_level": "LOW",
+      "flooded_percent": 27.57,
+      "hazard_metric": "MMI",
+      "mean_mmi": 6.7,
+      "total_buildings": 130,
+      "exposed_buildings": 20,
+      "road_length_m": 2038.0,
+      "flooded_road_length_m": 0.0
+    },
+    {
+      "zone_id": "eq_0_3",
+      "bbox": [
+        36.9138,
+        37.5258,
+        36.9288,
+        37.5408
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9138,
+              37.5258
+            ],
+            [
+              36.9288,
+              37.5258
+            ],
+            [
+              36.9288,
+              37.5408
+            ],
+            [
+              36.9138,
+              37.5408
+            ],
+            [
+              36.9138,
+              37.5258
+            ]
+          ]
+        ]
+      },
+      "accessibility": "ACCESSIBLE",
+      "risk_level": "LOW",
+      "flooded_percent": 32.16,
+      "hazard_metric": "MMI",
+      "mean_mmi": 6.9,
+      "total_buildings": 132,
+      "exposed_buildings": 20,
+      "road_length_m": 2066.0,
+      "flooded_road_length_m": 0.0
+    },
+    {
+      "zone_id": "eq_0_4",
+      "bbox": [
+        36.9288,
+        37.5258,
+        36.9438,
+        37.5408
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9288,
+              37.5258
+            ],
+            [
+              36.9438,
+              37.5258
+            ],
+            [
+              36.9438,
+              37.5408
+            ],
+            [
+              36.9288,
+              37.5408
+            ],
+            [
+              36.9288,
+              37.5258
+            ]
+          ]
+        ]
+      },
+      "accessibility": "ACCESSIBLE",
+      "risk_level": "LOW",
+      "flooded_percent": 32.16,
+      "hazard_metric": "MMI",
+      "mean_mmi": 6.9,
+      "total_buildings": 132,
+      "exposed_buildings": 20,
+      "road_length_m": 2066.0,
+      "flooded_road_length_m": 0.0
+    },
+    {
+      "zone_id": "eq_0_5",
+      "bbox": [
+        36.9438,
+        37.5258,
+        36.9588,
+        37.5408
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9438,
+              37.5258
+            ],
+            [
+              36.9588,
+              37.5258
+            ],
+            [
+              36.9588,
+              37.5408
+            ],
+            [
+              36.9438,
+              37.5408
+            ],
+            [
+              36.9438,
+              37.5258
+            ]
+          ]
+        ]
+      },
+      "accessibility": "ACCESSIBLE",
+      "risk_level": "LOW",
+      "flooded_percent": 27.57,
+      "hazard_metric": "MMI",
+      "mean_mmi": 6.7,
+      "total_buildings": 130,
+      "exposed_buildings": 20,
+      "road_length_m": 2038.0,
+      "flooded_road_length_m": 0.0
+    },
+    {
+      "zone_id": "eq_0_6",
+      "bbox": [
+        36.9588,
+        37.5258,
+        36.9738,
+        37.5408
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9588,
+              37.5258
+            ],
+            [
+              36.9738,
+              37.5258
+            ],
+            [
+              36.9738,
+              37.5408
+            ],
+            [
+              36.9588,
+              37.5408
+            ],
+            [
+              36.9588,
+              37.5258
+            ]
+          ]
+        ]
+      },
+      "accessibility": "ACCESSIBLE",
+      "risk_level": "LOW",
+      "flooded_percent": 20.68,
+      "hazard_metric": "MMI",
+      "mean_mmi": 6.4,
+      "total_buildings": 126,
+      "exposed_buildings": 19,
+      "road_length_m": 1996.0,
+      "flooded_road_length_m": 0.0
+    },
+    {
+      "zone_id": "eq_0_7",
+      "bbox": [
+        36.9738,
+        37.5258,
+        36.9888,
+        37.5408
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9738,
+              37.5258
+            ],
+            [
+              36.9888,
+              37.5258
+            ],
+            [
+              36.9888,
+              37.5408
+            ],
+            [
+              36.9738,
+              37.5408
+            ],
+            [
+              36.9738,
+              37.5258
+            ]
+          ]
+        ]
+      },
+      "accessibility": "ACCESSIBLE",
+      "risk_level": "LOW",
+      "flooded_percent": 11.49,
+      "hazard_metric": "MMI",
+      "mean_mmi": 6.0,
+      "total_buildings": 122,
+      "exposed_buildings": 18,
+      "road_length_m": 1940.0,
+      "flooded_road_length_m": 0.0
+    },
+    {
+      "zone_id": "eq_1_0",
+      "bbox": [
+        36.8688,
+        37.5408,
+        36.8838,
+        37.5558
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.8688,
+              37.5408
+            ],
+            [
+              36.8838,
+              37.5408
+            ],
+            [
+              36.8838,
+              37.5558
+            ],
+            [
+              36.8688,
+              37.5558
+            ],
+            [
+              36.8688,
+              37.5408
+            ]
+          ]
+        ]
+      },
+      "accessibility": "ACCESSIBLE",
+      "risk_level": "LOW",
+      "flooded_percent": 20.68,
+      "hazard_metric": "MMI",
+      "mean_mmi": 6.4,
+      "total_buildings": 126,
+      "exposed_buildings": 19,
+      "road_length_m": 1996.0,
+      "flooded_road_length_m": 0.0
+    },
+    {
+      "zone_id": "eq_1_1",
+      "bbox": [
+        36.8838,
+        37.5408,
+        36.8988,
+        37.5558
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.8838,
+              37.5408
+            ],
+            [
+              36.8988,
+              37.5408
+            ],
+            [
+              36.8988,
+              37.5558
+            ],
+            [
+              36.8838,
+              37.5558
+            ],
+            [
+              36.8838,
+              37.5408
+            ]
+          ]
+        ]
+      },
+      "accessibility": "ACCESSIBLE",
+      "risk_level": "LOW",
+      "flooded_percent": 32.16,
+      "hazard_metric": "MMI",
+      "mean_mmi": 6.9,
+      "total_buildings": 132,
+      "exposed_buildings": 20,
+      "road_length_m": 2066.0,
+      "flooded_road_length_m": 0.0
+    },
+    {
+      "zone_id": "eq_1_2",
+      "bbox": [
+        36.8988,
+        37.5408,
+        36.9138,
+        37.5558
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.8988,
+              37.5408
+            ],
+            [
+              36.9138,
+              37.5408
+            ],
+            [
+              36.9138,
+              37.5558
+            ],
+            [
+              36.8988,
+              37.5558
+            ],
+            [
+              36.8988,
+              37.5408
+            ]
+          ]
+        ]
+      },
+      "accessibility": "PARTIAL",
+      "risk_level": "MEDIUM",
+      "flooded_percent": 41.35,
+      "hazard_metric": "MMI",
+      "mean_mmi": 7.3,
+      "total_buildings": 137,
+      "exposed_buildings": 100,
+      "road_length_m": 2122.0,
+      "flooded_road_length_m": 0.0
+    },
+    {
+      "zone_id": "eq_1_3",
+      "bbox": [
+        36.9138,
+        37.5408,
+        36.9288,
+        37.5558
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9138,
+              37.5408
+            ],
+            [
+              36.9288,
+              37.5408
+            ],
+            [
+              36.9288,
+              37.5558
+            ],
+            [
+              36.9138,
+              37.5558
+            ],
+            [
+              36.9138,
+              37.5408
+            ]
+          ]
+        ]
+      },
+      "accessibility": "PARTIAL",
+      "risk_level": "MEDIUM",
+      "flooded_percent": 45.95,
+      "hazard_metric": "MMI",
+      "mean_mmi": 7.5,
+      "total_buildings": 140,
+      "exposed_buildings": 102,
+      "road_length_m": 2150.0,
+      "flooded_road_length_m": 0.0
+    },
+    {
+      "zone_id": "eq_1_4",
+      "bbox": [
+        36.9288,
+        37.5408,
+        36.9438,
+        37.5558
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9288,
+              37.5408
+            ],
+            [
+              36.9438,
+              37.5408
+            ],
+            [
+              36.9438,
+              37.5558
+            ],
+            [
+              36.9288,
+              37.5558
+            ],
+            [
+              36.9288,
+              37.5408
+            ]
+          ]
+        ]
+      },
+      "accessibility": "PARTIAL",
+      "risk_level": "MEDIUM",
+      "flooded_percent": 45.95,
+      "hazard_metric": "MMI",
+      "mean_mmi": 7.5,
+      "total_buildings": 140,
+      "exposed_buildings": 102,
+      "road_length_m": 2150.0,
+      "flooded_road_length_m": 0.0
+    },
+    {
+      "zone_id": "eq_1_5",
+      "bbox": [
+        36.9438,
+        37.5408,
+        36.9588,
+        37.5558
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9438,
+              37.5408
+            ],
+            [
+              36.9588,
+              37.5408
+            ],
+            [
+              36.9588,
+              37.5558
+            ],
+            [
+              36.9438,
+              37.5558
+            ],
+            [
+              36.9438,
+              37.5408
+            ]
+          ]
+        ]
+      },
+      "accessibility": "PARTIAL",
+      "risk_level": "MEDIUM",
+      "flooded_percent": 41.35,
+      "hazard_metric": "MMI",
+      "mean_mmi": 7.3,
+      "total_buildings": 137,
+      "exposed_buildings": 100,
+      "road_length_m": 2122.0,
+      "flooded_road_length_m": 0.0
+    },
+    {
+      "zone_id": "eq_1_6",
+      "bbox": [
+        36.9588,
+        37.5408,
+        36.9738,
+        37.5558
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9588,
+              37.5408
+            ],
+            [
+              36.9738,
+              37.5408
+            ],
+            [
+              36.9738,
+              37.5558
+            ],
+            [
+              36.9588,
+              37.5558
+            ],
+            [
+              36.9588,
+              37.5408
+            ]
+          ]
+        ]
+      },
+      "accessibility": "ACCESSIBLE",
+      "risk_level": "LOW",
+      "flooded_percent": 32.16,
+      "hazard_metric": "MMI",
+      "mean_mmi": 6.9,
+      "total_buildings": 132,
+      "exposed_buildings": 20,
+      "road_length_m": 2066.0,
+      "flooded_road_length_m": 0.0
+    },
+    {
+      "zone_id": "eq_1_7",
+      "bbox": [
+        36.9738,
+        37.5408,
+        36.9888,
+        37.5558
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9738,
+              37.5408
+            ],
+            [
+              36.9888,
+              37.5408
+            ],
+            [
+              36.9888,
+              37.5558
+            ],
+            [
+              36.9738,
+              37.5558
+            ],
+            [
+              36.9738,
+              37.5408
+            ]
+          ]
+        ]
+      },
+      "accessibility": "ACCESSIBLE",
+      "risk_level": "LOW",
+      "flooded_percent": 20.68,
+      "hazard_metric": "MMI",
+      "mean_mmi": 6.4,
+      "total_buildings": 126,
+      "exposed_buildings": 19,
+      "road_length_m": 1996.0,
+      "flooded_road_length_m": 0.0
+    },
+    {
+      "zone_id": "eq_2_0",
+      "bbox": [
+        36.8688,
+        37.5558,
+        36.8838,
+        37.5708
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.8688,
+              37.5558
+            ],
+            [
+              36.8838,
+              37.5558
+            ],
+            [
+              36.8838,
+              37.5708
+            ],
+            [
+              36.8688,
+              37.5708
+            ],
+            [
+              36.8688,
+              37.5558
+            ]
+          ]
+        ]
+      },
+      "accessibility": "ACCESSIBLE",
+      "risk_level": "LOW",
+      "flooded_percent": 27.57,
+      "hazard_metric": "MMI",
+      "mean_mmi": 6.7,
+      "total_buildings": 130,
+      "exposed_buildings": 20,
+      "road_length_m": 2038.0,
+      "flooded_road_length_m": 0.0
+    },
+    {
+      "zone_id": "eq_2_1",
+      "bbox": [
+        36.8838,
+        37.5558,
+        36.8988,
+        37.5708
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.8838,
+              37.5558
+            ],
+            [
+              36.8988,
+              37.5558
+            ],
+            [
+              36.8988,
+              37.5708
+            ],
+            [
+              36.8838,
+              37.5708
+            ],
+            [
+              36.8838,
+              37.5558
+            ]
+          ]
+        ]
+      },
+      "accessibility": "PARTIAL",
+      "risk_level": "MEDIUM",
+      "flooded_percent": 41.35,
+      "hazard_metric": "MMI",
+      "mean_mmi": 7.3,
+      "total_buildings": 137,
+      "exposed_buildings": 100,
+      "road_length_m": 2122.0,
+      "flooded_road_length_m": 0.0
+    },
+    {
+      "zone_id": "eq_2_2",
+      "bbox": [
+        36.8988,
+        37.5558,
+        36.9138,
+        37.5708
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.8988,
+              37.5558
+            ],
+            [
+              36.9138,
+              37.5558
+            ],
+            [
+              36.9138,
+              37.5708
+            ],
+            [
+              36.8988,
+              37.5708
+            ],
+            [
+              36.8988,
+              37.5558
+            ]
+          ]
+        ]
+      },
+      "accessibility": "PARTIAL",
+      "risk_level": "MEDIUM",
+      "flooded_percent": 52.84,
+      "hazard_metric": "MMI",
+      "mean_mmi": 7.8,
+      "total_buildings": 143,
+      "exposed_buildings": 105,
+      "road_length_m": 2192.0,
+      "flooded_road_length_m": 0.0
+    },
+    {
+      "zone_id": "eq_2_3",
+      "bbox": [
+        36.9138,
+        37.5558,
+        36.9288,
+        37.5708
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9138,
+              37.5558
+            ],
+            [
+              36.9288,
+              37.5558
+            ],
+            [
+              36.9288,
+              37.5708
+            ],
+            [
+              36.9138,
+              37.5708
+            ],
+            [
+              36.9138,
+              37.5558
+            ]
+          ]
+        ]
+      },
+      "accessibility": "BLOCKED",
+      "risk_level": "HIGH",
+      "flooded_percent": 62.03,
+      "hazard_metric": "MMI",
+      "mean_mmi": 8.2,
+      "total_buildings": 148,
+      "exposed_buildings": 108,
+      "road_length_m": 2248.0,
+      "flooded_road_length_m": 1402.0
+    },
+    {
+      "zone_id": "eq_2_4",
+      "bbox": [
+        36.9288,
+        37.5558,
+        36.9438,
+        37.5708
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9288,
+              37.5558
+            ],
+            [
+              36.9438,
+              37.5558
+            ],
+            [
+              36.9438,
+              37.5708
+            ],
+            [
+              36.9288,
+              37.5708
+            ],
+            [
+              36.9288,
+              37.5558
+            ]
+          ]
+        ]
+      },
+      "accessibility": "BLOCKED",
+      "risk_level": "HIGH",
+      "flooded_percent": 62.03,
+      "hazard_metric": "MMI",
+      "mean_mmi": 8.2,
+      "total_buildings": 148,
+      "exposed_buildings": 108,
+      "road_length_m": 2248.0,
+      "flooded_road_length_m": 1402.0
+    },
+    {
+      "zone_id": "eq_2_5",
+      "bbox": [
+        36.9438,
+        37.5558,
+        36.9588,
+        37.5708
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9438,
+              37.5558
+            ],
+            [
+              36.9588,
+              37.5558
+            ],
+            [
+              36.9588,
+              37.5708
+            ],
+            [
+              36.9438,
+              37.5708
+            ],
+            [
+              36.9438,
+              37.5558
+            ]
+          ]
+        ]
+      },
+      "accessibility": "PARTIAL",
+      "risk_level": "MEDIUM",
+      "flooded_percent": 52.84,
+      "hazard_metric": "MMI",
+      "mean_mmi": 7.8,
+      "total_buildings": 143,
+      "exposed_buildings": 105,
+      "road_length_m": 2192.0,
+      "flooded_road_length_m": 0.0
+    },
+    {
+      "zone_id": "eq_2_6",
+      "bbox": [
+        36.9588,
+        37.5558,
+        36.9738,
+        37.5708
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9588,
+              37.5558
+            ],
+            [
+              36.9738,
+              37.5558
+            ],
+            [
+              36.9738,
+              37.5708
+            ],
+            [
+              36.9588,
+              37.5708
+            ],
+            [
+              36.9588,
+              37.5558
+            ]
+          ]
+        ]
+      },
+      "accessibility": "PARTIAL",
+      "risk_level": "MEDIUM",
+      "flooded_percent": 41.35,
+      "hazard_metric": "MMI",
+      "mean_mmi": 7.3,
+      "total_buildings": 137,
+      "exposed_buildings": 100,
+      "road_length_m": 2122.0,
+      "flooded_road_length_m": 0.0
+    },
+    {
+      "zone_id": "eq_2_7",
+      "bbox": [
+        36.9738,
+        37.5558,
+        36.9888,
+        37.5708
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9738,
+              37.5558
+            ],
+            [
+              36.9888,
+              37.5558
+            ],
+            [
+              36.9888,
+              37.5708
+            ],
+            [
+              36.9738,
+              37.5708
+            ],
+            [
+              36.9738,
+              37.5558
+            ]
+          ]
+        ]
+      },
+      "accessibility": "ACCESSIBLE",
+      "risk_level": "LOW",
+      "flooded_percent": 27.57,
+      "hazard_metric": "MMI",
+      "mean_mmi": 6.7,
+      "total_buildings": 130,
+      "exposed_buildings": 20,
+      "road_length_m": 2038.0,
+      "flooded_road_length_m": 0.0
+    },
+    {
+      "zone_id": "eq_3_0",
+      "bbox": [
+        36.8688,
+        37.5708,
+        36.8838,
+        37.5858
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.8688,
+              37.5708
+            ],
+            [
+              36.8838,
+              37.5708
+            ],
+            [
+              36.8838,
+              37.5858
+            ],
+            [
+              36.8688,
+              37.5858
+            ],
+            [
+              36.8688,
+              37.5708
+            ]
+          ]
+        ]
+      },
+      "accessibility": "ACCESSIBLE",
+      "risk_level": "LOW",
+      "flooded_percent": 32.16,
+      "hazard_metric": "MMI",
+      "mean_mmi": 6.9,
+      "total_buildings": 132,
+      "exposed_buildings": 20,
+      "road_length_m": 2066.0,
+      "flooded_road_length_m": 0.0
+    },
+    {
+      "zone_id": "eq_3_1",
+      "bbox": [
+        36.8838,
+        37.5708,
+        36.8988,
+        37.5858
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.8838,
+              37.5708
+            ],
+            [
+              36.8988,
+              37.5708
+            ],
+            [
+              36.8988,
+              37.5858
+            ],
+            [
+              36.8838,
+              37.5858
+            ],
+            [
+              36.8838,
+              37.5708
+            ]
+          ]
+        ]
+      },
+      "accessibility": "PARTIAL",
+      "risk_level": "MEDIUM",
+      "flooded_percent": 45.95,
+      "hazard_metric": "MMI",
+      "mean_mmi": 7.5,
+      "total_buildings": 140,
+      "exposed_buildings": 102,
+      "road_length_m": 2150.0,
+      "flooded_road_length_m": 0.0
+    },
+    {
+      "zone_id": "eq_3_2",
+      "bbox": [
+        36.8988,
+        37.5708,
+        36.9138,
+        37.5858
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.8988,
+              37.5708
+            ],
+            [
+              36.9138,
+              37.5708
+            ],
+            [
+              36.9138,
+              37.5858
+            ],
+            [
+              36.8988,
+              37.5858
+            ],
+            [
+              36.8988,
+              37.5708
+            ]
+          ]
+        ]
+      },
+      "accessibility": "BLOCKED",
+      "risk_level": "HIGH",
+      "flooded_percent": 62.03,
+      "hazard_metric": "MMI",
+      "mean_mmi": 8.2,
+      "total_buildings": 148,
+      "exposed_buildings": 108,
+      "road_length_m": 2248.0,
+      "flooded_road_length_m": 1402.0
+    },
+    {
+      "zone_id": "eq_3_3",
+      "bbox": [
+        36.9138,
+        37.5708,
+        36.9288,
+        37.5858
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9138,
+              37.5708
+            ],
+            [
+              36.9288,
+              37.5708
+            ],
+            [
+              36.9288,
+              37.5858
+            ],
+            [
+              36.9138,
+              37.5858
+            ],
+            [
+              36.9138,
+              37.5708
+            ]
+          ]
+        ]
+      },
+      "accessibility": "BLOCKED",
+      "risk_level": "HIGH",
+      "flooded_percent": 73.51,
+      "hazard_metric": "MMI",
+      "mean_mmi": 8.7,
+      "total_buildings": 154,
+      "exposed_buildings": 113,
+      "road_length_m": 2318.0,
+      "flooded_road_length_m": 1457.0
+    },
+    {
+      "zone_id": "eq_3_4",
+      "bbox": [
+        36.9288,
+        37.5708,
+        36.9438,
+        37.5858
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9288,
+              37.5708
+            ],
+            [
+              36.9438,
+              37.5708
+            ],
+            [
+              36.9438,
+              37.5858
+            ],
+            [
+              36.9288,
+              37.5858
+            ],
+            [
+              36.9288,
+              37.5708
+            ]
+          ]
+        ]
+      },
+      "accessibility": "BLOCKED",
+      "risk_level": "HIGH",
+      "flooded_percent": 73.51,
+      "hazard_metric": "MMI",
+      "mean_mmi": 8.7,
+      "total_buildings": 154,
+      "exposed_buildings": 113,
+      "road_length_m": 2318.0,
+      "flooded_road_length_m": 1457.0
+    },
+    {
+      "zone_id": "eq_3_5",
+      "bbox": [
+        36.9438,
+        37.5708,
+        36.9588,
+        37.5858
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9438,
+              37.5708
+            ],
+            [
+              36.9588,
+              37.5708
+            ],
+            [
+              36.9588,
+              37.5858
+            ],
+            [
+              36.9438,
+              37.5858
+            ],
+            [
+              36.9438,
+              37.5708
+            ]
+          ]
+        ]
+      },
+      "accessibility": "BLOCKED",
+      "risk_level": "HIGH",
+      "flooded_percent": 62.03,
+      "hazard_metric": "MMI",
+      "mean_mmi": 8.2,
+      "total_buildings": 148,
+      "exposed_buildings": 108,
+      "road_length_m": 2248.0,
+      "flooded_road_length_m": 1402.0
+    },
+    {
+      "zone_id": "eq_3_6",
+      "bbox": [
+        36.9588,
+        37.5708,
+        36.9738,
+        37.5858
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9588,
+              37.5708
+            ],
+            [
+              36.9738,
+              37.5708
+            ],
+            [
+              36.9738,
+              37.5858
+            ],
+            [
+              36.9588,
+              37.5858
+            ],
+            [
+              36.9588,
+              37.5708
+            ]
+          ]
+        ]
+      },
+      "accessibility": "PARTIAL",
+      "risk_level": "MEDIUM",
+      "flooded_percent": 45.95,
+      "hazard_metric": "MMI",
+      "mean_mmi": 7.5,
+      "total_buildings": 140,
+      "exposed_buildings": 102,
+      "road_length_m": 2150.0,
+      "flooded_road_length_m": 0.0
+    },
+    {
+      "zone_id": "eq_3_7",
+      "bbox": [
+        36.9738,
+        37.5708,
+        36.9888,
+        37.5858
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9738,
+              37.5708
+            ],
+            [
+              36.9888,
+              37.5708
+            ],
+            [
+              36.9888,
+              37.5858
+            ],
+            [
+              36.9738,
+              37.5858
+            ],
+            [
+              36.9738,
+              37.5708
+            ]
+          ]
+        ]
+      },
+      "accessibility": "ACCESSIBLE",
+      "risk_level": "LOW",
+      "flooded_percent": 32.16,
+      "hazard_metric": "MMI",
+      "mean_mmi": 6.9,
+      "total_buildings": 132,
+      "exposed_buildings": 20,
+      "road_length_m": 2066.0,
+      "flooded_road_length_m": 0.0
+    },
+    {
+      "zone_id": "eq_4_0",
+      "bbox": [
+        36.8688,
+        37.5858,
+        36.8838,
+        37.6008
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.8688,
+              37.5858
+            ],
+            [
+              36.8838,
+              37.5858
+            ],
+            [
+              36.8838,
+              37.6008
+            ],
+            [
+              36.8688,
+              37.6008
+            ],
+            [
+              36.8688,
+              37.5858
+            ]
+          ]
+        ]
+      },
+      "accessibility": "ACCESSIBLE",
+      "risk_level": "LOW",
+      "flooded_percent": 32.16,
+      "hazard_metric": "MMI",
+      "mean_mmi": 6.9,
+      "total_buildings": 132,
+      "exposed_buildings": 20,
+      "road_length_m": 2066.0,
+      "flooded_road_length_m": 0.0
+    },
+    {
+      "zone_id": "eq_4_1",
+      "bbox": [
+        36.8838,
+        37.5858,
+        36.8988,
+        37.6008
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.8838,
+              37.5858
+            ],
+            [
+              36.8988,
+              37.5858
+            ],
+            [
+              36.8988,
+              37.6008
+            ],
+            [
+              36.8838,
+              37.6008
+            ],
+            [
+              36.8838,
+              37.5858
+            ]
+          ]
+        ]
+      },
+      "accessibility": "PARTIAL",
+      "risk_level": "MEDIUM",
+      "flooded_percent": 45.95,
+      "hazard_metric": "MMI",
+      "mean_mmi": 7.5,
+      "total_buildings": 140,
+      "exposed_buildings": 102,
+      "road_length_m": 2150.0,
+      "flooded_road_length_m": 0.0
+    },
+    {
+      "zone_id": "eq_4_2",
+      "bbox": [
+        36.8988,
+        37.5858,
+        36.9138,
+        37.6008
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.8988,
+              37.5858
+            ],
+            [
+              36.9138,
+              37.5858
+            ],
+            [
+              36.9138,
+              37.6008
+            ],
+            [
+              36.8988,
+              37.6008
+            ],
+            [
+              36.8988,
+              37.5858
+            ]
+          ]
+        ]
+      },
+      "accessibility": "BLOCKED",
+      "risk_level": "HIGH",
+      "flooded_percent": 62.03,
+      "hazard_metric": "MMI",
+      "mean_mmi": 8.2,
+      "total_buildings": 148,
+      "exposed_buildings": 108,
+      "road_length_m": 2248.0,
+      "flooded_road_length_m": 1402.0
+    },
+    {
+      "zone_id": "eq_4_3",
+      "bbox": [
+        36.9138,
+        37.5858,
+        36.9288,
+        37.6008
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9138,
+              37.5858
+            ],
+            [
+              36.9288,
+              37.5858
+            ],
+            [
+              36.9288,
+              37.6008
+            ],
+            [
+              36.9138,
+              37.6008
+            ],
+            [
+              36.9138,
+              37.5858
+            ]
+          ]
+        ]
+      },
+      "accessibility": "BLOCKED",
+      "risk_level": "HIGH",
+      "flooded_percent": 73.51,
+      "hazard_metric": "MMI",
+      "mean_mmi": 8.7,
+      "total_buildings": 154,
+      "exposed_buildings": 113,
+      "road_length_m": 2318.0,
+      "flooded_road_length_m": 1457.0
+    },
+    {
+      "zone_id": "eq_4_4",
+      "bbox": [
+        36.9288,
+        37.5858,
+        36.9438,
+        37.6008
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9288,
+              37.5858
+            ],
+            [
+              36.9438,
+              37.5858
+            ],
+            [
+              36.9438,
+              37.6008
+            ],
+            [
+              36.9288,
+              37.6008
+            ],
+            [
+              36.9288,
+              37.5858
+            ]
+          ]
+        ]
+      },
+      "accessibility": "BLOCKED",
+      "risk_level": "HIGH",
+      "flooded_percent": 73.51,
+      "hazard_metric": "MMI",
+      "mean_mmi": 8.7,
+      "total_buildings": 154,
+      "exposed_buildings": 113,
+      "road_length_m": 2318.0,
+      "flooded_road_length_m": 1457.0
+    },
+    {
+      "zone_id": "eq_4_5",
+      "bbox": [
+        36.9438,
+        37.5858,
+        36.9588,
+        37.6008
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9438,
+              37.5858
+            ],
+            [
+              36.9588,
+              37.5858
+            ],
+            [
+              36.9588,
+              37.6008
+            ],
+            [
+              36.9438,
+              37.6008
+            ],
+            [
+              36.9438,
+              37.5858
+            ]
+          ]
+        ]
+      },
+      "accessibility": "BLOCKED",
+      "risk_level": "HIGH",
+      "flooded_percent": 62.03,
+      "hazard_metric": "MMI",
+      "mean_mmi": 8.2,
+      "total_buildings": 148,
+      "exposed_buildings": 108,
+      "road_length_m": 2248.0,
+      "flooded_road_length_m": 1402.0
+    },
+    {
+      "zone_id": "eq_4_6",
+      "bbox": [
+        36.9588,
+        37.5858,
+        36.9738,
+        37.6008
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9588,
+              37.5858
+            ],
+            [
+              36.9738,
+              37.5858
+            ],
+            [
+              36.9738,
+              37.6008
+            ],
+            [
+              36.9588,
+              37.6008
+            ],
+            [
+              36.9588,
+              37.5858
+            ]
+          ]
+        ]
+      },
+      "accessibility": "PARTIAL",
+      "risk_level": "MEDIUM",
+      "flooded_percent": 45.95,
+      "hazard_metric": "MMI",
+      "mean_mmi": 7.5,
+      "total_buildings": 140,
+      "exposed_buildings": 102,
+      "road_length_m": 2150.0,
+      "flooded_road_length_m": 0.0
+    },
+    {
+      "zone_id": "eq_4_7",
+      "bbox": [
+        36.9738,
+        37.5858,
+        36.9888,
+        37.6008
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9738,
+              37.5858
+            ],
+            [
+              36.9888,
+              37.5858
+            ],
+            [
+              36.9888,
+              37.6008
+            ],
+            [
+              36.9738,
+              37.6008
+            ],
+            [
+              36.9738,
+              37.5858
+            ]
+          ]
+        ]
+      },
+      "accessibility": "ACCESSIBLE",
+      "risk_level": "LOW",
+      "flooded_percent": 32.16,
+      "hazard_metric": "MMI",
+      "mean_mmi": 6.9,
+      "total_buildings": 132,
+      "exposed_buildings": 20,
+      "road_length_m": 2066.0,
+      "flooded_road_length_m": 0.0
+    },
+    {
+      "zone_id": "eq_5_0",
+      "bbox": [
+        36.8688,
+        37.6008,
+        36.8838,
+        37.6158
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.8688,
+              37.6008
+            ],
+            [
+              36.8838,
+              37.6008
+            ],
+            [
+              36.8838,
+              37.6158
+            ],
+            [
+              36.8688,
+              37.6158
+            ],
+            [
+              36.8688,
+              37.6008
+            ]
+          ]
+        ]
+      },
+      "accessibility": "ACCESSIBLE",
+      "risk_level": "LOW",
+      "flooded_percent": 27.57,
+      "hazard_metric": "MMI",
+      "mean_mmi": 6.7,
+      "total_buildings": 130,
+      "exposed_buildings": 20,
+      "road_length_m": 2038.0,
+      "flooded_road_length_m": 0.0
+    },
+    {
+      "zone_id": "eq_5_1",
+      "bbox": [
+        36.8838,
+        37.6008,
+        36.8988,
+        37.6158
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.8838,
+              37.6008
+            ],
+            [
+              36.8988,
+              37.6008
+            ],
+            [
+              36.8988,
+              37.6158
+            ],
+            [
+              36.8838,
+              37.6158
+            ],
+            [
+              36.8838,
+              37.6008
+            ]
+          ]
+        ]
+      },
+      "accessibility": "PARTIAL",
+      "risk_level": "MEDIUM",
+      "flooded_percent": 41.35,
+      "hazard_metric": "MMI",
+      "mean_mmi": 7.3,
+      "total_buildings": 137,
+      "exposed_buildings": 100,
+      "road_length_m": 2122.0,
+      "flooded_road_length_m": 0.0
+    },
+    {
+      "zone_id": "eq_5_2",
+      "bbox": [
+        36.8988,
+        37.6008,
+        36.9138,
+        37.6158
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.8988,
+              37.6008
+            ],
+            [
+              36.9138,
+              37.6008
+            ],
+            [
+              36.9138,
+              37.6158
+            ],
+            [
+              36.8988,
+              37.6158
+            ],
+            [
+              36.8988,
+              37.6008
+            ]
+          ]
+        ]
+      },
+      "accessibility": "PARTIAL",
+      "risk_level": "MEDIUM",
+      "flooded_percent": 52.84,
+      "hazard_metric": "MMI",
+      "mean_mmi": 7.8,
+      "total_buildings": 143,
+      "exposed_buildings": 105,
+      "road_length_m": 2192.0,
+      "flooded_road_length_m": 0.0
+    },
+    {
+      "zone_id": "eq_5_3",
+      "bbox": [
+        36.9138,
+        37.6008,
+        36.9288,
+        37.6158
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9138,
+              37.6008
+            ],
+            [
+              36.9288,
+              37.6008
+            ],
+            [
+              36.9288,
+              37.6158
+            ],
+            [
+              36.9138,
+              37.6158
+            ],
+            [
+              36.9138,
+              37.6008
+            ]
+          ]
+        ]
+      },
+      "accessibility": "BLOCKED",
+      "risk_level": "HIGH",
+      "flooded_percent": 62.03,
+      "hazard_metric": "MMI",
+      "mean_mmi": 8.2,
+      "total_buildings": 148,
+      "exposed_buildings": 108,
+      "road_length_m": 2248.0,
+      "flooded_road_length_m": 1402.0
+    },
+    {
+      "zone_id": "eq_5_4",
+      "bbox": [
+        36.9288,
+        37.6008,
+        36.9438,
+        37.6158
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9288,
+              37.6008
+            ],
+            [
+              36.9438,
+              37.6008
+            ],
+            [
+              36.9438,
+              37.6158
+            ],
+            [
+              36.9288,
+              37.6158
+            ],
+            [
+              36.9288,
+              37.6008
+            ]
+          ]
+        ]
+      },
+      "accessibility": "BLOCKED",
+      "risk_level": "HIGH",
+      "flooded_percent": 62.03,
+      "hazard_metric": "MMI",
+      "mean_mmi": 8.2,
+      "total_buildings": 148,
+      "exposed_buildings": 108,
+      "road_length_m": 2248.0,
+      "flooded_road_length_m": 1402.0
+    },
+    {
+      "zone_id": "eq_5_5",
+      "bbox": [
+        36.9438,
+        37.6008,
+        36.9588,
+        37.6158
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9438,
+              37.6008
+            ],
+            [
+              36.9588,
+              37.6008
+            ],
+            [
+              36.9588,
+              37.6158
+            ],
+            [
+              36.9438,
+              37.6158
+            ],
+            [
+              36.9438,
+              37.6008
+            ]
+          ]
+        ]
+      },
+      "accessibility": "PARTIAL",
+      "risk_level": "MEDIUM",
+      "flooded_percent": 52.84,
+      "hazard_metric": "MMI",
+      "mean_mmi": 7.8,
+      "total_buildings": 143,
+      "exposed_buildings": 105,
+      "road_length_m": 2192.0,
+      "flooded_road_length_m": 0.0
+    },
+    {
+      "zone_id": "eq_5_6",
+      "bbox": [
+        36.9588,
+        37.6008,
+        36.9738,
+        37.6158
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9588,
+              37.6008
+            ],
+            [
+              36.9738,
+              37.6008
+            ],
+            [
+              36.9738,
+              37.6158
+            ],
+            [
+              36.9588,
+              37.6158
+            ],
+            [
+              36.9588,
+              37.6008
+            ]
+          ]
+        ]
+      },
+      "accessibility": "PARTIAL",
+      "risk_level": "MEDIUM",
+      "flooded_percent": 41.35,
+      "hazard_metric": "MMI",
+      "mean_mmi": 7.3,
+      "total_buildings": 137,
+      "exposed_buildings": 100,
+      "road_length_m": 2122.0,
+      "flooded_road_length_m": 0.0
+    },
+    {
+      "zone_id": "eq_5_7",
+      "bbox": [
+        36.9738,
+        37.6008,
+        36.9888,
+        37.6158
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9738,
+              37.6008
+            ],
+            [
+              36.9888,
+              37.6008
+            ],
+            [
+              36.9888,
+              37.6158
+            ],
+            [
+              36.9738,
+              37.6158
+            ],
+            [
+              36.9738,
+              37.6008
+            ]
+          ]
+        ]
+      },
+      "accessibility": "ACCESSIBLE",
+      "risk_level": "LOW",
+      "flooded_percent": 27.57,
+      "hazard_metric": "MMI",
+      "mean_mmi": 6.7,
+      "total_buildings": 130,
+      "exposed_buildings": 20,
+      "road_length_m": 2038.0,
+      "flooded_road_length_m": 0.0
+    },
+    {
+      "zone_id": "eq_6_0",
+      "bbox": [
+        36.8688,
+        37.6158,
+        36.8838,
+        37.6308
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.8688,
+              37.6158
+            ],
+            [
+              36.8838,
+              37.6158
+            ],
+            [
+              36.8838,
+              37.6308
+            ],
+            [
+              36.8688,
+              37.6308
+            ],
+            [
+              36.8688,
+              37.6158
+            ]
+          ]
+        ]
+      },
+      "accessibility": "ACCESSIBLE",
+      "risk_level": "LOW",
+      "flooded_percent": 20.68,
+      "hazard_metric": "MMI",
+      "mean_mmi": 6.4,
+      "total_buildings": 126,
+      "exposed_buildings": 19,
+      "road_length_m": 1996.0,
+      "flooded_road_length_m": 0.0
+    },
+    {
+      "zone_id": "eq_6_1",
+      "bbox": [
+        36.8838,
+        37.6158,
+        36.8988,
+        37.6308
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.8838,
+              37.6158
+            ],
+            [
+              36.8988,
+              37.6158
+            ],
+            [
+              36.8988,
+              37.6308
+            ],
+            [
+              36.8838,
+              37.6308
+            ],
+            [
+              36.8838,
+              37.6158
+            ]
+          ]
+        ]
+      },
+      "accessibility": "ACCESSIBLE",
+      "risk_level": "LOW",
+      "flooded_percent": 32.16,
+      "hazard_metric": "MMI",
+      "mean_mmi": 6.9,
+      "total_buildings": 132,
+      "exposed_buildings": 20,
+      "road_length_m": 2066.0,
+      "flooded_road_length_m": 0.0
+    },
+    {
+      "zone_id": "eq_6_2",
+      "bbox": [
+        36.8988,
+        37.6158,
+        36.9138,
+        37.6308
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.8988,
+              37.6158
+            ],
+            [
+              36.9138,
+              37.6158
+            ],
+            [
+              36.9138,
+              37.6308
+            ],
+            [
+              36.8988,
+              37.6308
+            ],
+            [
+              36.8988,
+              37.6158
+            ]
+          ]
+        ]
+      },
+      "accessibility": "PARTIAL",
+      "risk_level": "MEDIUM",
+      "flooded_percent": 41.35,
+      "hazard_metric": "MMI",
+      "mean_mmi": 7.3,
+      "total_buildings": 137,
+      "exposed_buildings": 100,
+      "road_length_m": 2122.0,
+      "flooded_road_length_m": 0.0
+    },
+    {
+      "zone_id": "eq_6_3",
+      "bbox": [
+        36.9138,
+        37.6158,
+        36.9288,
+        37.6308
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9138,
+              37.6158
+            ],
+            [
+              36.9288,
+              37.6158
+            ],
+            [
+              36.9288,
+              37.6308
+            ],
+            [
+              36.9138,
+              37.6308
+            ],
+            [
+              36.9138,
+              37.6158
+            ]
+          ]
+        ]
+      },
+      "accessibility": "PARTIAL",
+      "risk_level": "MEDIUM",
+      "flooded_percent": 45.95,
+      "hazard_metric": "MMI",
+      "mean_mmi": 7.5,
+      "total_buildings": 140,
+      "exposed_buildings": 102,
+      "road_length_m": 2150.0,
+      "flooded_road_length_m": 0.0
+    },
+    {
+      "zone_id": "eq_6_4",
+      "bbox": [
+        36.9288,
+        37.6158,
+        36.9438,
+        37.6308
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9288,
+              37.6158
+            ],
+            [
+              36.9438,
+              37.6158
+            ],
+            [
+              36.9438,
+              37.6308
+            ],
+            [
+              36.9288,
+              37.6308
+            ],
+            [
+              36.9288,
+              37.6158
+            ]
+          ]
+        ]
+      },
+      "accessibility": "PARTIAL",
+      "risk_level": "MEDIUM",
+      "flooded_percent": 45.95,
+      "hazard_metric": "MMI",
+      "mean_mmi": 7.5,
+      "total_buildings": 140,
+      "exposed_buildings": 102,
+      "road_length_m": 2150.0,
+      "flooded_road_length_m": 0.0
+    },
+    {
+      "zone_id": "eq_6_5",
+      "bbox": [
+        36.9438,
+        37.6158,
+        36.9588,
+        37.6308
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9438,
+              37.6158
+            ],
+            [
+              36.9588,
+              37.6158
+            ],
+            [
+              36.9588,
+              37.6308
+            ],
+            [
+              36.9438,
+              37.6308
+            ],
+            [
+              36.9438,
+              37.6158
+            ]
+          ]
+        ]
+      },
+      "accessibility": "PARTIAL",
+      "risk_level": "MEDIUM",
+      "flooded_percent": 41.35,
+      "hazard_metric": "MMI",
+      "mean_mmi": 7.3,
+      "total_buildings": 137,
+      "exposed_buildings": 100,
+      "road_length_m": 2122.0,
+      "flooded_road_length_m": 0.0
+    },
+    {
+      "zone_id": "eq_6_6",
+      "bbox": [
+        36.9588,
+        37.6158,
+        36.9738,
+        37.6308
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9588,
+              37.6158
+            ],
+            [
+              36.9738,
+              37.6158
+            ],
+            [
+              36.9738,
+              37.6308
+            ],
+            [
+              36.9588,
+              37.6308
+            ],
+            [
+              36.9588,
+              37.6158
+            ]
+          ]
+        ]
+      },
+      "accessibility": "ACCESSIBLE",
+      "risk_level": "LOW",
+      "flooded_percent": 32.16,
+      "hazard_metric": "MMI",
+      "mean_mmi": 6.9,
+      "total_buildings": 132,
+      "exposed_buildings": 20,
+      "road_length_m": 2066.0,
+      "flooded_road_length_m": 0.0
+    },
+    {
+      "zone_id": "eq_6_7",
+      "bbox": [
+        36.9738,
+        37.6158,
+        36.9888,
+        37.6308
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9738,
+              37.6158
+            ],
+            [
+              36.9888,
+              37.6158
+            ],
+            [
+              36.9888,
+              37.6308
+            ],
+            [
+              36.9738,
+              37.6308
+            ],
+            [
+              36.9738,
+              37.6158
+            ]
+          ]
+        ]
+      },
+      "accessibility": "ACCESSIBLE",
+      "risk_level": "LOW",
+      "flooded_percent": 20.68,
+      "hazard_metric": "MMI",
+      "mean_mmi": 6.4,
+      "total_buildings": 126,
+      "exposed_buildings": 19,
+      "road_length_m": 1996.0,
+      "flooded_road_length_m": 0.0
+    },
+    {
+      "zone_id": "eq_7_0",
+      "bbox": [
+        36.8688,
+        37.6308,
+        36.8838,
+        37.6458
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.8688,
+              37.6308
+            ],
+            [
+              36.8838,
+              37.6308
+            ],
+            [
+              36.8838,
+              37.6458
+            ],
+            [
+              36.8688,
+              37.6458
+            ],
+            [
+              36.8688,
+              37.6308
+            ]
+          ]
+        ]
+      },
+      "accessibility": "ACCESSIBLE",
+      "risk_level": "LOW",
+      "flooded_percent": 11.49,
+      "hazard_metric": "MMI",
+      "mean_mmi": 6.0,
+      "total_buildings": 122,
+      "exposed_buildings": 18,
+      "road_length_m": 1940.0,
+      "flooded_road_length_m": 0.0
+    },
+    {
+      "zone_id": "eq_7_1",
+      "bbox": [
+        36.8838,
+        37.6308,
+        36.8988,
+        37.6458
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.8838,
+              37.6308
+            ],
+            [
+              36.8988,
+              37.6308
+            ],
+            [
+              36.8988,
+              37.6458
+            ],
+            [
+              36.8838,
+              37.6458
+            ],
+            [
+              36.8838,
+              37.6308
+            ]
+          ]
+        ]
+      },
+      "accessibility": "ACCESSIBLE",
+      "risk_level": "LOW",
+      "flooded_percent": 20.68,
+      "hazard_metric": "MMI",
+      "mean_mmi": 6.4,
+      "total_buildings": 126,
+      "exposed_buildings": 19,
+      "road_length_m": 1996.0,
+      "flooded_road_length_m": 0.0
+    },
+    {
+      "zone_id": "eq_7_2",
+      "bbox": [
+        36.8988,
+        37.6308,
+        36.9138,
+        37.6458
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.8988,
+              37.6308
+            ],
+            [
+              36.9138,
+              37.6308
+            ],
+            [
+              36.9138,
+              37.6458
+            ],
+            [
+              36.8988,
+              37.6458
+            ],
+            [
+              36.8988,
+              37.6308
+            ]
+          ]
+        ]
+      },
+      "accessibility": "ACCESSIBLE",
+      "risk_level": "LOW",
+      "flooded_percent": 27.57,
+      "hazard_metric": "MMI",
+      "mean_mmi": 6.7,
+      "total_buildings": 130,
+      "exposed_buildings": 20,
+      "road_length_m": 2038.0,
+      "flooded_road_length_m": 0.0
+    },
+    {
+      "zone_id": "eq_7_3",
+      "bbox": [
+        36.9138,
+        37.6308,
+        36.9288,
+        37.6458
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9138,
+              37.6308
+            ],
+            [
+              36.9288,
+              37.6308
+            ],
+            [
+              36.9288,
+              37.6458
+            ],
+            [
+              36.9138,
+              37.6458
+            ],
+            [
+              36.9138,
+              37.6308
+            ]
+          ]
+        ]
+      },
+      "accessibility": "ACCESSIBLE",
+      "risk_level": "LOW",
+      "flooded_percent": 32.16,
+      "hazard_metric": "MMI",
+      "mean_mmi": 6.9,
+      "total_buildings": 132,
+      "exposed_buildings": 20,
+      "road_length_m": 2066.0,
+      "flooded_road_length_m": 0.0
+    },
+    {
+      "zone_id": "eq_7_4",
+      "bbox": [
+        36.9288,
+        37.6308,
+        36.9438,
+        37.6458
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9288,
+              37.6308
+            ],
+            [
+              36.9438,
+              37.6308
+            ],
+            [
+              36.9438,
+              37.6458
+            ],
+            [
+              36.9288,
+              37.6458
+            ],
+            [
+              36.9288,
+              37.6308
+            ]
+          ]
+        ]
+      },
+      "accessibility": "ACCESSIBLE",
+      "risk_level": "LOW",
+      "flooded_percent": 32.16,
+      "hazard_metric": "MMI",
+      "mean_mmi": 6.9,
+      "total_buildings": 132,
+      "exposed_buildings": 20,
+      "road_length_m": 2066.0,
+      "flooded_road_length_m": 0.0
+    },
+    {
+      "zone_id": "eq_7_5",
+      "bbox": [
+        36.9438,
+        37.6308,
+        36.9588,
+        37.6458
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9438,
+              37.6308
+            ],
+            [
+              36.9588,
+              37.6308
+            ],
+            [
+              36.9588,
+              37.6458
+            ],
+            [
+              36.9438,
+              37.6458
+            ],
+            [
+              36.9438,
+              37.6308
+            ]
+          ]
+        ]
+      },
+      "accessibility": "ACCESSIBLE",
+      "risk_level": "LOW",
+      "flooded_percent": 27.57,
+      "hazard_metric": "MMI",
+      "mean_mmi": 6.7,
+      "total_buildings": 130,
+      "exposed_buildings": 20,
+      "road_length_m": 2038.0,
+      "flooded_road_length_m": 0.0
+    },
+    {
+      "zone_id": "eq_7_6",
+      "bbox": [
+        36.9588,
+        37.6308,
+        36.9738,
+        37.6458
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9588,
+              37.6308
+            ],
+            [
+              36.9738,
+              37.6308
+            ],
+            [
+              36.9738,
+              37.6458
+            ],
+            [
+              36.9588,
+              37.6458
+            ],
+            [
+              36.9588,
+              37.6308
+            ]
+          ]
+        ]
+      },
+      "accessibility": "ACCESSIBLE",
+      "risk_level": "LOW",
+      "flooded_percent": 20.68,
+      "hazard_metric": "MMI",
+      "mean_mmi": 6.4,
+      "total_buildings": 126,
+      "exposed_buildings": 19,
+      "road_length_m": 1996.0,
+      "flooded_road_length_m": 0.0
+    },
+    {
+      "zone_id": "eq_7_7",
+      "bbox": [
+        36.9738,
+        37.6308,
+        36.9888,
+        37.6458
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.9738,
+              37.6308
+            ],
+            [
+              36.9888,
+              37.6308
+            ],
+            [
+              36.9888,
+              37.6458
+            ],
+            [
+              36.9738,
+              37.6458
+            ],
+            [
+              36.9738,
+              37.6308
+            ]
+          ]
+        ]
+      },
+      "accessibility": "ACCESSIBLE",
+      "risk_level": "LOW",
+      "flooded_percent": 11.49,
+      "hazard_metric": "MMI",
+      "mean_mmi": 6.0,
+      "total_buildings": 122,
+      "exposed_buildings": 18,
+      "road_length_m": 1940.0,
+      "flooded_road_length_m": 0.0
+    }
+  ]
+}

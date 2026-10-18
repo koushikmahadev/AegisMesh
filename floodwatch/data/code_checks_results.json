@@ -1,0 +1,30 @@
+{
+  "threadpool_verification": {
+    "accurate_gpu_latency_ms": 1232.8689999994822,
+    "concurrent_health_latencies_ms": [
+      6.485099962446839,
+      3.404300019610673,
+      5.0404000212438405,
+      3.791600000113249,
+      4.274100007023662
+    ],
+    "median_health_ms": 4.274100007023662,
+    "max_health_ms": 6.485099962446839,
+    "event_loop_unblocked": true
+  },
+  "eager_mask_encoding": {
+    "tile_id": "0_41_58",
+    "pre_mask_bytes": 8752,
+    "pre_mask_encode_ms": 59.13359997794032,
+    "post_mask_bytes": 28013,
+    "post_mask_encode_ms": 118.57779999263585,
+    "total_added_encode_ms": 177.71139997057617,
+    "policy": "eager_in_analyze_path"
+  },
+  "nocache_verification": {
+    "cached_req_ms": 2.8304000152274966,
+    "nocache_req_ms": 593.3960000402294,
+    "nocache_cached_flag": false,
+    "subsequent_cached_req_ms": 3.113300015684217
+  }
+}

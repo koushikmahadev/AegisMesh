@@ -1,0 +1,1424 @@
+{
+  "summary": {
+    "fast_mode": {
+      "before_dist": {
+        "min": 0.0,
+        "median": 0.0,
+        "p90": 0.0,
+        "max": 3.32
+      },
+      "after_dist": {
+        "min": 0.0,
+        "median": 0.0,
+        "p90": 0.0,
+        "max": 0.02
+      },
+      "net_dist": {
+        "min": -3.32,
+        "median": 0.0,
+        "p90": 0.0,
+        "max": 0.02
+      },
+      "count_before_gt_0_1": 1,
+      "count_after_gt_0_1": 0,
+      "count_net_eq_0": 134,
+      "count_net_gt_0": 1,
+      "count_net_lt_0": 1,
+      "max_before": 3.32,
+      "max_after": 0.02,
+      "max_net": 0.02,
+      "min_net": -3.32
+    },
+    "accurate_mode": {
+      "before_dist": {
+        "min": 0.0,
+        "median": 0.0,
+        "p90": 0.0,
+        "max": 4.77
+      },
+      "after_dist": {
+        "min": 0.0,
+        "median": 0.0,
+        "p90": 0.005,
+        "max": 1.33
+      },
+      "net_dist": {
+        "min": -4.27,
+        "median": 0.0,
+        "p90": 0.0,
+        "max": 1.14
+      },
+      "count_before_gt_0_1": 5,
+      "count_after_gt_0_1": 8,
+      "count_net_eq_0": 117,
+      "count_net_gt_0": 11,
+      "count_net_lt_0": 8,
+      "max_before": 4.77,
+      "max_after": 1.33,
+      "max_net": 1.14,
+      "min_net": -4.27
+    }
+  },
+  "tiles": [
+    {
+      "tile_id": "0_15_63",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 1424
+    },
+    {
+      "tile_id": "0_15_65",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 780
+    },
+    {
+      "tile_id": "0_15_66",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 748
+    },
+    {
+      "tile_id": "0_15_67",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 756
+    },
+    {
+      "tile_id": "0_15_68",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 721
+    },
+    {
+      "tile_id": "0_15_69",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 752
+    },
+    {
+      "tile_id": "0_15_70",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 739
+    },
+    {
+      "tile_id": "0_16_63",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 731
+    },
+    {
+      "tile_id": "0_16_66",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 731
+    },
+    {
+      "tile_id": "0_16_67",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 742
+    },
+    {
+      "tile_id": "0_16_68",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 749
+    },
+    {
+      "tile_id": "0_16_70",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 721
+    },
+    {
+      "tile_id": "0_17_63",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 737
+    },
+    {
+      "tile_id": "0_17_66",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 742
+    },
+    {
+      "tile_id": "0_17_67",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 749
+    },
+    {
+      "tile_id": "0_17_68",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 749
+    },
+    {
+      "tile_id": "0_18_65",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 747
+    },
+    {
+      "tile_id": "0_18_66",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 742
+    },
+    {
+      "tile_id": "0_18_67",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 740
+    },
+    {
+      "tile_id": "0_18_68",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 742
+    },
+    {
+      "tile_id": "0_18_69",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 738
+    },
+    {
+      "tile_id": "0_19_65",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 820
+    },
+    {
+      "tile_id": "0_19_66",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 773
+    },
+    {
+      "tile_id": "0_19_67",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 781
+    },
+    {
+      "tile_id": "0_19_68",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 764
+    },
+    {
+      "tile_id": "0_20_65",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.17,
+      "accurate_after": 0.0,
+      "accurate_net": -0.17,
+      "latency_ms": 768
+    },
+    {
+      "tile_id": "0_20_66",
+      "fast_before": 3.32,
+      "fast_after": 0.0,
+      "fast_net": -3.32,
+      "accurate_before": 4.77,
+      "accurate_after": 0.5,
+      "accurate_net": -4.27,
+      "latency_ms": 759
+    },
+    {
+      "tile_id": "0_20_67",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 751
+    },
+    {
+      "tile_id": "0_20_68",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 763
+    },
+    {
+      "tile_id": "0_21_65",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 742
+    },
+    {
+      "tile_id": "0_21_66",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 747
+    },
+    {
+      "tile_id": "0_21_67",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 759
+    },
+    {
+      "tile_id": "0_21_68",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 754
+    },
+    {
+      "tile_id": "0_22_65",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 759
+    },
+    {
+      "tile_id": "0_22_66",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 744
+    },
+    {
+      "tile_id": "0_22_69",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 748
+    },
+    {
+      "tile_id": "0_23_65",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 751
+    },
+    {
+      "tile_id": "0_23_66",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 747
+    },
+    {
+      "tile_id": "0_23_68",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 744
+    },
+    {
+      "tile_id": "0_23_69",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 751
+    },
+    {
+      "tile_id": "0_24_62",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 733
+    },
+    {
+      "tile_id": "0_24_65",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 740
+    },
+    {
+      "tile_id": "0_24_66",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 748
+    },
+    {
+      "tile_id": "0_25_62",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 713
+    },
+    {
+      "tile_id": "0_25_67",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 743
+    },
+    {
+      "tile_id": "0_25_69",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 730
+    },
+    {
+      "tile_id": "0_26_62",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 716
+    },
+    {
+      "tile_id": "0_26_63",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.01,
+      "accurate_net": 0.01,
+      "latency_ms": 726
+    },
+    {
+      "tile_id": "0_27_62",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 724
+    },
+    {
+      "tile_id": "0_28_59",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 686
+    },
+    {
+      "tile_id": "0_28_60",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 684
+    },
+    {
+      "tile_id": "0_28_61",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 704
+    },
+    {
+      "tile_id": "0_29_59",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 697
+    },
+    {
+      "tile_id": "0_29_60",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 692
+    },
+    {
+      "tile_id": "0_29_64",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 700
+    },
+    {
+      "tile_id": "0_29_65",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 685
+    },
+    {
+      "tile_id": "0_29_67",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 698
+    },
+    {
+      "tile_id": "0_29_68",
+      "fast_before": 0.0,
+      "fast_after": 0.02,
+      "fast_net": 0.02,
+      "accurate_before": 0.0,
+      "accurate_after": 1.02,
+      "accurate_net": 1.02,
+      "latency_ms": 713
+    },
+    {
+      "tile_id": "0_29_69",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.23,
+      "accurate_after": 0.32,
+      "accurate_net": 0.09,
+      "latency_ms": 693
+    },
+    {
+      "tile_id": "0_29_70",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 689
+    },
+    {
+      "tile_id": "0_30_59",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 695
+    },
+    {
+      "tile_id": "0_30_60",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.01,
+      "accurate_after": 0.0,
+      "accurate_net": -0.01,
+      "latency_ms": 691
+    },
+    {
+      "tile_id": "0_30_66",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 700
+    },
+    {
+      "tile_id": "0_30_67",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 702
+    },
+    {
+      "tile_id": "0_30_68",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.4,
+      "accurate_net": 0.4,
+      "latency_ms": 701
+    },
+    {
+      "tile_id": "0_30_69",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.03,
+      "accurate_net": 0.03,
+      "latency_ms": 708
+    },
+    {
+      "tile_id": "0_30_70",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.06,
+      "accurate_after": 0.02,
+      "accurate_net": -0.04,
+      "latency_ms": 722
+    },
+    {
+      "tile_id": "0_31_57",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 703
+    },
+    {
+      "tile_id": "0_31_59",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.01,
+      "accurate_net": 0.01,
+      "latency_ms": 697
+    },
+    {
+      "tile_id": "0_31_60",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.02,
+      "accurate_after": 0.29,
+      "accurate_net": 0.27,
+      "latency_ms": 744
+    },
+    {
+      "tile_id": "0_31_61",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.32,
+      "accurate_after": 0.0,
+      "accurate_net": -0.32,
+      "latency_ms": 695
+    },
+    {
+      "tile_id": "0_31_62",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 710
+    },
+    {
+      "tile_id": "0_31_65",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 695
+    },
+    {
+      "tile_id": "0_31_66",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 689
+    },
+    {
+      "tile_id": "0_31_67",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 707
+    },
+    {
+      "tile_id": "0_31_68",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 687
+    },
+    {
+      "tile_id": "0_31_69",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 1.14,
+      "accurate_net": 1.14,
+      "latency_ms": 682
+    },
+    {
+      "tile_id": "0_32_56",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 693
+    },
+    {
+      "tile_id": "0_32_57",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 686
+    },
+    {
+      "tile_id": "0_32_58",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 682
+    },
+    {
+      "tile_id": "0_32_59",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 694
+    },
+    {
+      "tile_id": "0_32_63",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 686
+    },
+    {
+      "tile_id": "0_32_65",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 680
+    },
+    {
+      "tile_id": "0_32_66",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 682
+    },
+    {
+      "tile_id": "0_32_68",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 713
+    },
+    {
+      "tile_id": "0_32_69",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 678
+    },
+    {
+      "tile_id": "0_33_56",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 687
+    },
+    {
+      "tile_id": "0_33_57",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 681
+    },
+    {
+      "tile_id": "0_33_68",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 676
+    },
+    {
+      "tile_id": "0_34_68",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 689
+    },
+    {
+      "tile_id": "0_35_59",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 678
+    },
+    {
+      "tile_id": "0_35_60",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.01,
+      "accurate_after": 0.0,
+      "accurate_net": -0.01,
+      "latency_ms": 680
+    },
+    {
+      "tile_id": "0_35_68",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 687
+    },
+    {
+      "tile_id": "0_36_59",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 693
+    },
+    {
+      "tile_id": "0_36_68",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 679
+    },
+    {
+      "tile_id": "0_37_59",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 701
+    },
+    {
+      "tile_id": "0_37_62",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 685
+    },
+    {
+      "tile_id": "0_37_67",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 675
+    },
+    {
+      "tile_id": "0_37_68",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.04,
+      "accurate_after": 0.02,
+      "accurate_net": -0.02,
+      "latency_ms": 684
+    },
+    {
+      "tile_id": "0_37_69",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.03,
+      "accurate_after": 0.0,
+      "accurate_net": -0.03,
+      "latency_ms": 679
+    },
+    {
+      "tile_id": "0_37_70",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 681
+    },
+    {
+      "tile_id": "0_38_60",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 684
+    },
+    {
+      "tile_id": "0_38_68",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 672
+    },
+    {
+      "tile_id": "0_38_69",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.29,
+      "accurate_after": 1.33,
+      "accurate_net": 1.04,
+      "latency_ms": 699
+    },
+    {
+      "tile_id": "0_39_60",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 682
+    },
+    {
+      "tile_id": "0_39_61",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 690
+    },
+    {
+      "tile_id": "0_39_63",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 667
+    },
+    {
+      "tile_id": "0_39_66",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 686
+    },
+    {
+      "tile_id": "0_39_67",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 691
+    },
+    {
+      "tile_id": "0_39_69",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 682
+    },
+    {
+      "tile_id": "0_40_57",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 679
+    },
+    {
+      "tile_id": "0_40_58",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.06,
+      "accurate_after": 1.05,
+      "accurate_net": 0.99,
+      "latency_ms": 679
+    },
+    {
+      "tile_id": "0_40_63",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 674
+    },
+    {
+      "tile_id": "0_40_67",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 686
+    },
+    {
+      "tile_id": "0_40_68",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 680
+    },
+    {
+      "tile_id": "0_40_69",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 681
+    },
+    {
+      "tile_id": "0_41_63",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 676
+    },
+    {
+      "tile_id": "0_41_69",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 683
+    },
+    {
+      "tile_id": "0_42_59",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 683
+    },
+    {
+      "tile_id": "0_42_60",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 674
+    },
+    {
+      "tile_id": "0_42_61",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 673
+    },
+    {
+      "tile_id": "0_42_62",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 686
+    },
+    {
+      "tile_id": "0_42_69",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 704
+    },
+    {
+      "tile_id": "0_43_62",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 693
+    },
+    {
+      "tile_id": "0_43_63",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 678
+    },
+    {
+      "tile_id": "0_43_68",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 687
+    },
+    {
+      "tile_id": "0_43_69",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 678
+    },
+    {
+      "tile_id": "0_44_63",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 676
+    },
+    {
+      "tile_id": "0_44_68",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.1,
+      "accurate_net": 0.1,
+      "latency_ms": 669
+    },
+    {
+      "tile_id": "0_44_69",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 673
+    },
+    {
+      "tile_id": "0_45_63",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 682
+    },
+    {
+      "tile_id": "0_45_64",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 676
+    },
+    {
+      "tile_id": "0_45_67",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 669
+    },
+    {
+      "tile_id": "0_45_68",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 683
+    },
+    {
+      "tile_id": "0_45_69",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 708
+    },
+    {
+      "tile_id": "0_45_70",
+      "fast_before": 0.0,
+      "fast_after": 0.0,
+      "fast_net": 0.0,
+      "accurate_before": 0.0,
+      "accurate_after": 0.0,
+      "accurate_net": 0.0,
+      "latency_ms": 683
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "datasets": [
+    {
+      "key": "germany",
+      "label": "Dernau, Germany",
+      "base": "../output/",
+      "raw_source": "germany",
+      "status": "ready"
+    },
+    {
+      "key": "louisiana",
+      "label": "Louisiana, USA",
+      "base": "../output_louisiana/",
+      "raw_source": "louisiana",
+      "status": "ready"
+    },
+    {
+      "key": "custom_1791982321324",
+      "label": "Custom area (10/14/2026, 6:22:01 PM)",
+      "base": "../output_custom_1791982321324/",
+      "raw_source": "germany",
+      "status": "ready",
+      "tile_ids": [
+        "0_39_62",
+        "0_42_60",
+        "0_42_61",
+        "0_36_60",
+        "0_40_60",
+        "0_40_62",
+        "0_37_59",
+        "0_40_63",
+        "0_43_63",
+        "0_37_60",
+        "0_41_59",
+        "0_41_61",
+        "0_35_63",
+        "0_37_61",
+        "0_39_60",
+        "0_42_59",
+        "0_38_62",
+        "0_40_59",
+        "0_37_62",
+        "0_42_62",
+        "0_41_60",
+        "0_36_62",
+        "0_35_62",
+        "0_43_62",
+        "0_35_59",
+        "0_41_63",
+        "0_40_61",
+        "0_39_61",
+        "0_35_60",
+        "0_35_61",
+        "0_38_60",
+        "0_41_62",
+        "0_36_61",
+        "0_38_61"
+      ]
+    },
+    {
+      "key": "custom_1791983403316",
+      "label": "Custom area (10/14/2026, 6:40:03 PM)",
+      "base": "../output_custom_1791983403316/",
+      "raw_source": "louisiana",
+      "status": "ready",
+      "tile_ids": [
+        "2_20_43",
+        "2_20_45",
+        "2_19_43",
+        "2_21_43",
+        "2_21_44",
+        "2_18_44",
+        "2_19_45",
+        "2_19_44",
+        "2_20_44"
+      ]
+    },
+    {
+      "key": "custom_1791984621875",
+      "label": "Custom area (10/14/2026, 7:00:21 PM)",
+      "base": "../output_custom_1791984621875/",
+      "raw_source": "louisiana",
+      "status": "ready",
+      "tile_ids": [
+        "2_22_43",
+        "2_21_43",
+        "2_22_44",
+        "2_21_44"
+      ]
+    },
+    {
+      "key": "custom_1791985769936",
+      "label": "Custom area (10/14/2026, 7:19:29 PM)",
+      "base": "../output_custom_1791985769936/",
+      "raw_source": "louisiana",
+      "status": "ready",
+      "tile_ids": [
+        "2_23_42"
+      ]
+    }
+  ]
+}

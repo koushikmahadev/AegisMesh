@@ -1,0 +1,182 @@
+{
+  "10163": {
+    "flood_damage_detected": true,
+    "confidence": "medium",
+    "reasoning": "A large expanse of dark standing water is visible covering the field next to the road and grassy area.",
+    "model": "dots-studio/dots-3-note-preview:free"
+  },
+  "10164": {
+    "flood_damage_detected": true,
+    "confidence": "high",
+    "reasoning": "The image shows a large expanse of murky, brown standing water inundating the landscape next to a dry road and access structure.",
+    "model": "dots-studio/dots-3-note-preview:free"
+  },
+  "10167": {
+    "flood_damage_detected": true,
+    "confidence": "high",
+    "reasoning": "A large area of standing floodwater is clearly visible pooling in the field below the concrete drainage outlet.",
+    "model": "dots-studio/dots-3-note-preview:free"
+  },
+  "10174": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "The properties show dry green lawns, clear swimming pools, and clean driveways with no signs of standing water, debris, or structural water damage.",
+    "model": "dots-studio/dots-3-note-preview:free"
+  },
+  "10183": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "The image shows a dry green field, a clear path, and healthy trees with no visible standing water, debris, or submerged structures.",
+    "model": "dots-studio/dots-3-note-preview:free"
+  },
+  "10808": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "The aerial view shows dry streets, green lawns, and intact properties with no visible standing water, debris, or water damage.",
+    "model": "dots-studio/dots-3-note-preview:free"
+  },
+  "10812": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "The streets, lawns, and properties appear dry and clean with no visible standing water, debris piles, or structural flooding.",
+    "model": "dots-studio/dots-3-note-preview:free"
+  },
+  "10813": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "The streets, driveways, and lawns appear completely dry with no visible standing water, debris, or submerged structures.",
+    "model": "dots-studio/dots-3-note-preview:free"
+  },
+  "10814": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "The roads, yards, and driveways are dry and clear, showing no signs of standing water, debris, or water-damaged structures.",
+    "model": "dots-studio/dots-3-note-preview:free"
+  },
+  "10823": {
+    "flood_damage_detected": true,
+    "confidence": "high",
+    "reasoning": "Muddy standing water and scattered debris/materials are clearly visible along the flooded edge on the left side of the grassy bank.",
+    "model": "dots-studio/dots-3-note-preview:free"
+  },
+  "10829": {
+    "flood_damage_detected": true,
+    "confidence": "high",
+    "reasoning": "Muddy standing flood water is visible on the left alongside a fallen utility pole on the grassy field.",
+    "model": "dots-studio/dots-3-note-preview:free"
+  },
+  "10838": {
+    "flood_damage_detected": true,
+    "confidence": "high",
+    "reasoning": "The image shows extensive muddy brown standing water submerging pipes and construction equipment, indicating flood inundation.",
+    "model": "dots-studio/dots-3-note-preview:free"
+  },
+  "10839": {
+    "flood_damage_detected": true,
+    "confidence": "medium",
+    "reasoning": "Muddy brown floodwater is visible on the right side of the image, indicating standing water and potential inundation near construction materials.",
+    "model": "dots-studio/dots-3-note-preview:free"
+  },
+  "10843": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "The image shows dry roads and grass with construction equipment, with no visible standing water, flood debris, or submerged structures.",
+    "model": "dots-studio/dots-3-note-preview:free"
+  },
+  "11483": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "The residential neighborhood and roads appear dry with no visible standing water, debris, or submerged structures, while the canal remains within its banks.",
+    "model": "dots-studio/dots-3-note-preview:free"
+  },
+  "6336": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "The roads are dry and clear of debris, and no standing water or damaged structures are visible in the grassy fields or streets.",
+    "model": "dots-studio/dots-3-note-preview:free"
+  },
+  "6342": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "The road is dry and free of debris, and the nearby canal is a standard drainage basin with no signs of overflow or flood damage.",
+    "model": "dots-studio/dots-3-note-preview:free"
+  },
+  "6353": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "The water is contained within a drainage canal, and the adjacent roads and grassy areas appear dry and free of debris or flooding.",
+    "model": "dots-studio/dots-3-note-preview:free"
+  },
+  "6362": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "The roads and grassy areas are dry and clear of debris, with no visible standing water or inundation of infrastructure.",
+    "model": "dots-studio/dots-3-note-preview:free"
+  },
+  "6371": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "The concrete roads and grassy levee are completely dry and free of debris or standing water, showing no signs of flooding.",
+    "model": "dots-studio/dots-3-note-preview:free"
+  },
+  "6377": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "The road is dry and clear of debris, with water contained within the adjacent drainage canal.",
+    "model": "dots-studio/dots-3-note-preview:free"
+  },
+  "6383": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "The roads are dry and clear, with water contained within the canal and no visible debris or standing water on the surrounding grass.",
+    "model": "dots-studio/dots-3-note-preview:free"
+  },
+  "6389": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "The road and grassy areas are dry and clear of debris, showing no signs of flooding or water damage.",
+    "model": "dots-studio/dots-3-note-preview:free"
+  },
+  "6391": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "The roads are dry, the grass is green, and there is no visible standing water, flood debris, or submerged structures.",
+    "model": "dots-studio/dots-3-note-preview:free"
+  },
+  "6394": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "The image shows dry roads, green grass, and no visible standing water, flood debris, or submerged structures.",
+    "model": "dots-studio/dots-3-note-preview:free"
+  },
+  "6405": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "The image shows a standard water-filled drainage canal and dry roads with no visible flood debris, submerged structures, or inundated areas outside the channel.",
+    "model": "dots-studio/dots-3-note-preview:free"
+  },
+  "6412": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "The streets, driveways, and lawns appear completely dry with no visible standing water, flood debris, or water-damaged structures.",
+    "model": "dots-studio/dots-3-note-preview:free"
+  },
+  "6417": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "The residential streets and lawns are dry, with no visible standing water, flood debris, or submerged structures.",
+    "model": "dots-studio/dots-3-note-preview:free"
+  },
+  "6419": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "The streets, yards, and houses appear dry with no standing water, submerged structures, or significant flood debris visible.",
+    "model": "dots-studio/dots-3-note-preview:free"
+  },
+  "6420": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "The streets, driveways, and lawns appear completely dry with no visible standing water, flood debris, or submerged structures.",
+    "model": "dots-studio/dots-3-note-preview:free"
+  }
+}

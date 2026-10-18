@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HighWater — 48 Real Flood Detection Results</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0B1F33;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background: linear-gradient(135deg, #0B1F33 0%, #2B8CC4 100%);
+            color: #fff;
+            padding: 32px 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 32px;
+            margin-bottom: 6px;
+            letter-spacing: -0.5px;
+        }
+
+        .header p {
+            font-size: 15px;
+            opacity: 0.95;
+        }
+
+        .tabs {
+            display: flex;
+            border-bottom: 2px solid #e0e0e0;
+            background: #f9f9f9;
+        }
+
+        .tab {
+            flex: 1;
+            padding: 16px;
+            text-align: center;
+            cursor: pointer;
+            font-weight: 600;
+            color: #64748B;
+            border-bottom: 3px solid transparent;
+            transition: all 0.2s ease;
+            font-size: 15px;
+        }
+
+        .tab.active {
+            color: #2B8CC4;
+            border-bottom-color: #2B8CC4;
+            background: #fff;
+        }
+
+        .tab:hover {
+            background: #fff;
+        }
+
+        .demo {
+            padding: 32px 40px;
+            display: none;
+        }
+
+        .demo.active {
+            display: block;
+        }
+
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px;
+            margin-bottom: 28px;
+        }
+
+        .panel {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .panel-label {
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .panel-label.original {
+            color: #64748B;
+        }
+
+        .panel-label.detection {
+            color: #2B8CC4;
+        }
+
+        .panel-label::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: currentColor;
+        }
+
+        .image-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 75%;
+            background: #000;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .image-container img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .btn {
+            background: #2B8CC4;
+            color: #fff;
+            border: none;
+            width: 44px;
+            height: 44px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 6px rgba(43,140,196,0.3);
+        }
+
+        .btn:hover {
+            background: #1A6896;
+            transform: translateY(-1px);
+        }
+
+        .counter {
+            font-size: 16px;
+            font-weight: 600;
+            color: #64748B;
+            min-width: 90px;
+            text-align: center;
+        }
+
+        .metadata {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            background: #F4F6F8;
+            padding: 18px 24px;
+            border-radius: 8px;
+            border: 1px solid #D5DBE1;
+        }
+
+        .metadata-row {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .metadata-label {
+            color: #5B6B7B;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .metadata-value {
+            color: #0B1F33;
+            font-weight: 700;
+            font-size: 15px;
+            font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        }
+
+        @media (max-width: 900px) {
+            .comparison {
+                grid-template-columns: 1fr;
+            }
+            .header h1 {
+                font-size: 24px;
+            }
+            .demo {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>HighWater Model Validation</h1>
+            <p>48 Real Flood Detection Results &middot; SegFormer-B0 Offline</p>
+        </div>
+
+        <div class="tabs">
+            <div class="tab active" onclick="switchDataset('kerala')">Kerala 2018 &mdash; Sentinel-2 Satellite (15 Tiles, Sorted HIGH &rarr; LOW)</div>
+            <div class="tab" onclick="switchDataset('floodnet')">Hurricane Harvey 2017 &mdash; Drone (33 Images, Sorted HIGH &rarr; LOW)</div>
+        </div>
+
+        <!-- KERALA DATASET (Sentinel-2 satellite, verified post-flood imagery, Aug 22 2018) -->
+        <div class="demo active" id="demo-kerala">
+            <div style="background:#FFF4E5;border:1px solid #F0B868;color:#7A4A00;padding:10px 16px;border-radius:8px;font-size:13px;margin-bottom:18px;">
+                &#9888; These are Sentinel-2 satellite tiles (bands 11-8-3 false color; water renders dark blue/navy against green vegetation), cropped from a verified post-flood scene over the Kuttanad region, Aug 22 2018 &mdash; NOT drone photography like the Harvey tab.
+            </div>
+            <div class="controls">
+                <button class="btn" onclick="prevImage('kerala')">&larr;</button>
+                <div class="counter">
+                    <div id="counter-kerala">1 / 15</div>
+                </div>
+                <button class="btn" onclick="nextImage('kerala')">&rarr;</button>
+            </div>
+
+            <div class="comparison" id="comparison-kerala"></div>
+            <div id="metrics-kerala" class="metadata"></div>
+        </div>
+
+        <!-- FLOODNET DATASET -->
+        <div class="demo" id="demo-floodnet">
+            <div class="controls">
+                <button class="btn" onclick="prevImage('floodnet')">&larr;</button>
+                <div class="counter">
+                    <div id="counter-floodnet">1 / 33</div>
+                </div>
+                <button class="btn" onclick="nextImage('floodnet')">&rarr;</button>
+            </div>
+
+            <div class="comparison" id="comparison-floodnet"></div>
+            <div id="metrics-floodnet" class="metadata"></div>
+        </div>
+    </div>
+
+    <script>
+        const keralaImages = [{"name": "kerala_sat_07", "coverage": "98.45", "confidence": "0.903"}, {"name": "kerala_sat_05", "coverage": "95.9", "confidence": "0.883"}, {"name": "kerala_sat_03", "coverage": "94.86", "confidence": "0.912"}, {"name": "kerala_sat_04", "coverage": "93.86", "confidence": "0.891"}, {"name": "kerala_sat_01", "coverage": "91.68", "confidence": "0.976"}, {"name": "kerala_sat_02", "coverage": "91.11", "confidence": "0.954"}, {"name": "kerala_sat_06", "coverage": "85.32", "confidence": "0.885"}, {"name": "kerala_sat_12", "coverage": "79.56", "confidence": "0.872"}, {"name": "kerala_sat_11", "coverage": "72.1", "confidence": "0.81"}, {"name": "kerala_sat_08", "coverage": "64.13", "confidence": "0.921"}, {"name": "kerala_sat_10", "coverage": "57.95", "confidence": "0.848"}, {"name": "kerala_sat_09", "coverage": "49.8", "confidence": "0.948"}, {"name": "kerala_sat_14", "coverage": "32.48", "confidence": "0.87"}, {"name": "kerala_sat_13", "coverage": "31.52", "confidence": "0.824"}, {"name": "kerala_sat_15", "coverage": "18.76", "confidence": "0.795"}];
+        const floodnetImages = [{"name": "7279", "coverage": "99.36", "confidence": "0.937"}, {"name": "7268", "coverage": "72.9", "confidence": "0.957"}, {"name": "10167", "coverage": "64.81", "confidence": "0.884"}, {"name": "10164", "coverage": "60.55", "confidence": "0.944"}, {"name": "10174", "coverage": "54.32", "confidence": "0.821"}, {"name": "10163", "coverage": "50.08", "confidence": "0.925"}, {"name": "10838", "coverage": "41.1", "confidence": "0.939"}, {"name": "6744", "coverage": "37.79", "confidence": "0.919"}, {"name": "11483", "coverage": "32.45", "confidence": "0.879"}, {"name": "6336", "coverage": "29.75", "confidence": "0.787"}, {"name": "6342", "coverage": "25.82", "confidence": "0.844"}, {"name": "6405", "coverage": "17.49", "confidence": "0.84"}, {"name": "6394", "coverage": "16.81", "confidence": "0.731"}, {"name": "6391", "coverage": "16.55", "confidence": "0.794"}, {"name": "10823", "coverage": "15.87", "confidence": "0.905"}, {"name": "6389", "coverage": "15.39", "confidence": "0.82"}, {"name": "6377", "coverage": "14.88", "confidence": "0.827"}, {"name": "6362", "coverage": "14.59", "confidence": "0.861"}, {"name": "10839", "coverage": "13.51", "confidence": "0.863"}, {"name": "6383", "coverage": "13.36", "confidence": "0.811"}, {"name": "6353", "coverage": "13.16", "confidence": "0.903"}, {"name": "6371", "coverage": "11.96", "confidence": "0.856"}, {"name": "10829", "coverage": "11.35", "confidence": "0.883"}, {"name": "6417", "coverage": "9.66", "confidence": "0.804"}, {"name": "10183", "coverage": "8.29", "confidence": "0.668"}, {"name": "6419", "coverage": "7.19", "confidence": "0.726"}, {"name": "6420", "coverage": "6.71", "confidence": "0.655"}, {"name": "6412", "coverage": "0.07", "confidence": "0.591"}, {"name": "10812", "coverage": "0.0", "confidence": "0.962"}, {"name": "10808", "coverage": "0.0", "confidence": "0.958"}, {"name": "10813", "coverage": "0.0", "confidence": "0.948"}, {"name": "10814", "coverage": "0.0", "confidence": "0.936"}, {"name": "10843", "coverage": "0.0", "confidence": "0.74"}];
+        let currentIndex = { kerala: 0, floodnet: 0 };
+        let currentDataset = 'kerala';
+
+        function showImage(dataset, index) {
+            const images = dataset === 'kerala' ? keralaImages : floodnetImages;
+            if (!images || !images[index]) return;
+
+            const img = images[index];
+            const comparison = document.getElementById('comparison-' + dataset);
+            const metrics = document.getElementById('metrics-' + dataset);
+            const counter = document.getElementById('counter-' + dataset);
+
+            const isHttp = window.location.protocol.startsWith('http');
+            const prefix = isHttp ? '' : '/home/punith-bs/highwater/';
+
+            const imagePath = dataset === 'kerala'
+                ? prefix + 'validation/drone_images/tiles_kerala_satellite/' + img.name + '.png'
+                : prefix + 'modules/flood_analysis/data/raw_floodnet/test-org-img/' + img.name + '.jpg';
+
+            const overlayPath = dataset === 'kerala'
+                ? prefix + 'validation/drone_images/overlays_kerala_satellite/' + img.name + '_detection.png'
+                : prefix + 'validation/drone_images/overlays_floodnet/' + img.name + '_detection.png';
+
+            const originalLabel = dataset === 'kerala'
+                ? 'Original Sentinel-2 Tile (' + img.name + ')'
+                : 'Original Drone Image (' + img.name + ')';
+
+            comparison.innerHTML = `
+                <div class="panel">
+                    <div class="panel-label original">` + originalLabel + `</div>
+                    <div class="image-container">
+                        <img src="` + imagePath + `" alt="Original Drone Image">
+                    </div>
+                </div>
+                <div class="panel">
+                    <div class="panel-label detection">Model Detection (40% Blue Flood Overlay)</div>
+                    <div class="image-container">
+                        <img src="` + overlayPath + `" alt="Model Detection Overlay">
+                    </div>
+                </div>
+            `;
+
+            metrics.innerHTML = `
+                <div class="metadata-row">
+                    <span class="metadata-label">Coverage:</span>
+                    <span class="metadata-value">` + img.coverage + `%</span>
+                </div>
+                <div class="metadata-row">
+                    <span class="metadata-label">Model Confidence:</span>
+                    <span class="metadata-value">` + img.confidence + `</span>
+                </div>
+                <div class="metadata-row">
+                    <span class="metadata-label">Processing Time:</span>
+                    <span class="metadata-value">~0.5s (Offline)</span>
+                </div>
+            `;
+
+            counter.textContent = (index + 1) + ' / ' + images.length;
+        }
+
+        function switchDataset(dataset) {
+            currentDataset = dataset;
+            document.querySelectorAll('.tab').forEach((tab, idx) => {
+                tab.classList.toggle('active', (idx === 0 && dataset === 'kerala') || (idx === 1 && dataset === 'floodnet'));
+            });
+            document.querySelectorAll('.demo').forEach(demo => demo.classList.remove('active'));
+            document.getElementById('demo-' + dataset).classList.add('active');
+            showImage(dataset, currentIndex[dataset]);
+        }
+
+        function nextImage(dataset) {
+            const images = dataset === 'kerala' ? keralaImages : floodnetImages;
+            if (!images || images.length === 0) return;
+            currentIndex[dataset] = (currentIndex[dataset] + 1) % images.length;
+            showImage(dataset, currentIndex[dataset]);
+        }
+
+        function prevImage(dataset) {
+            const images = dataset === 'kerala' ? keralaImages : floodnetImages;
+            if (!images || images.length === 0) return;
+            currentIndex[dataset] = (currentIndex[dataset] - 1 + images.length) % images.length;
+            showImage(dataset, currentIndex[dataset]);
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') nextImage(currentDataset);
+            if (e.key === 'ArrowLeft') prevImage(currentDataset);
+            if (e.key === '1') switchDataset('kerala');
+            if (e.key === '2') switchDataset('floodnet');
+        });
+
+        // Initial render
+        window.addEventListener('DOMContentLoaded', () => {
+            showImage('kerala', 0);
+            showImage('floodnet', 0);
+        });
+    </script>
+</body>
+</html>

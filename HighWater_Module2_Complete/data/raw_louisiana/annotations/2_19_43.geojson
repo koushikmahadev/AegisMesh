@@ -1,0 +1,10 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "id": "way/847386758", "building": "yes", "flooded": null, "highway": null, "lanes": null, "surface": null, "oneway": null, "bridge": null, "layer": null, "tunnel": null, "type": null, "image_id": "10300100AF395C00", "location": "Louisiana-East_Training_Public" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -90.1049318, 29.7644686 ], [ -90.1049204, 29.7643248 ], [ -90.1049951, 29.7643203 ], [ -90.1050065, 29.7644641 ], [ -90.1049318, 29.7644686 ] ] ] } },
+{ "type": "Feature", "properties": { "id": "way/847386759", "building": "yes", "flooded": null, "highway": null, "lanes": null, "surface": null, "oneway": null, "bridge": null, "layer": null, "tunnel": null, "type": null, "image_id": "10300100AF395C00", "location": "Louisiana-East_Training_Public" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -90.1053118, 29.7644412 ], [ -90.1053051, 29.7643451 ], [ -90.1054001, 29.7643401 ], [ -90.1054068, 29.7644362 ], [ -90.1053118, 29.7644412 ] ] ] } },
+{ "type": "Feature", "properties": { "id": "way/847378234", "building": null, "flooded": null, "highway": "unclassified", "lanes": "2", "surface": "paved", "oneway": null, "bridge": null, "layer": null, "tunnel": null, "type": null, "image_id": "10300100AF395C00", "location": "Louisiana-East_Training_Public" }, "geometry": { "type": "LineString", "coordinates": [ [ -90.1050550806074, 29.763946956245753 ], [ -90.1045981, 29.7639979 ], [ -90.1040965, 29.7641119 ], [ -90.1035199, 29.7643378 ], [ -90.1025891, 29.7645637 ] ] } },
+{ "type": "Feature", "properties": { "id": "way/847406889", "building": null, "flooded": "yes", "highway": "unclassified", "lanes": "2", "surface": "paved", "oneway": null, "bridge": null, "layer": null, "tunnel": null, "type": null, "image_id": "10300100AF395C00", "location": "Louisiana-East_Training_Public" }, "geometry": { "type": "LineString", "coordinates": [ [ -90.1025891, 29.7645637 ], [ -90.102424998833385, 29.764597568545444 ] ] } }
+]
+}

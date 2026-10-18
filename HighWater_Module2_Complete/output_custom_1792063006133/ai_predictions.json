@@ -1,0 +1,46 @@
+{
+  "0_41_58": {
+    "flood_damage_detected": true,
+    "confidence": "low",
+    "reasoning": "Flooded area grew from 29.1% before to 1.2% after, with 0.1% of the scene newly inundated.",
+    "model": "segformer-b0-checkpoint-joint",
+    "metrics": {
+      "pre_flood_fraction": 0.2906,
+      "post_flood_fraction": 0.0125,
+      "new_flood_fraction": 0.0015
+    }
+  },
+  "0_41_59": {
+    "flood_damage_detected": true,
+    "confidence": "high",
+    "reasoning": "The river is visibly swollen with muddy brown water, overflowing its banks and covering the green garden plots with silt and debris.",
+    "model": "dots-studio/dots-3-note-preview:free",
+    "metrics": {
+      "pre_flood_fraction": 0.0,
+      "post_flood_fraction": 0.15,
+      "new_flood_fraction": 0.15
+    }
+  },
+  "0_40_58": {
+    "flood_damage_detected": false,
+    "confidence": "medium",
+    "reasoning": "Flooded area is 0.0% before and 0.0% after, only 0.0% newly inundated, below the 0.1% threshold.",
+    "model": "segformer-b0-checkpoint-joint",
+    "metrics": {
+      "pre_flood_fraction": 0.0,
+      "post_flood_fraction": 0.0,
+      "new_flood_fraction": 0.0
+    }
+  },
+  "0_40_59": {
+    "flood_damage_detected": false,
+    "confidence": "medium",
+    "reasoning": "The POST-event image shows green agricultural fields and residential areas with no visible standing water, inundation, or structural flood damage compared to the PRE-event image.",
+    "model": "dots-studio/dots-3-note-preview:free",
+    "metrics": {
+      "pre_flood_fraction": 0.0,
+      "post_flood_fraction": 0.0,
+      "new_flood_fraction": 0.0
+    }
+  }
+}

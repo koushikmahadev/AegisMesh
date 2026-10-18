@@ -1,0 +1,39 @@
+{
+  "0_36_60": {
+    "flood_damage_detected": false,
+    "confidence": "low",
+    "reasoning": "The POST-event image is almost entirely covered by thick clouds, obscuring the ground and preventing visual detection of any flood damage.",
+    "model": "dots-studio/dots-3-note-preview:free",
+    "metrics": {
+      "pre_flood_fraction": 0.0,
+      "post_flood_fraction": 0.0,
+      "new_flood_fraction": 0.0
+    }
+  },
+  "0_36_59": {
+    "flood_damage_detected": false,
+    "confidence": "low",
+    "reasoning": "The POST-event image is heavily obscured by clouds and blur, showing no clear evidence of flood damage or standing water compared to the PRE-event image.",
+    "model": "dots-studio/dots-3-note-preview:free",
+    "metrics": {
+      "pre_flood_fraction": 0.0,
+      "post_flood_fraction": 0.0,
+      "new_flood_fraction": 0.0
+    }
+  },
+  "0_35_59": {
+    "flood_damage_detected": false,
+    "confidence": "medium",
+    "reasoning": "Flooded area is 0.0% before and 0.0% after, only 0.0% newly inundated, below the 0.1% threshold.",
+    "model": "segformer-b0-checkpoint-joint",
+    "metrics": {
+      "pre_flood_fraction": 0.0,
+      "post_flood_fraction": 0.0,
+      "new_flood_fraction": 0.0
+    }
+  },
+  "0_35_60": {
+    "ERROR": "Missing imagery for tile 0_35_60",
+    "tile_id": "0_35_60"
+  }
+}

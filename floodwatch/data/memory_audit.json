@@ -1,0 +1,90 @@
+{
+  "rss_samples": [
+    {
+      "requests": 0,
+      "rss_mb": 1188.12,
+      "vram_mb": 688.62
+    },
+    {
+      "requests": 25,
+      "rss_mb": 1216.63,
+      "vram_mb": 688.62
+    },
+    {
+      "requests": 50,
+      "rss_mb": 1232.86,
+      "vram_mb": 688.62
+    },
+    {
+      "requests": 75,
+      "rss_mb": 1249.48,
+      "vram_mb": 688.62
+    },
+    {
+      "requests": 100,
+      "rss_mb": 1258.26,
+      "vram_mb": 688.62
+    },
+    {
+      "requests": 125,
+      "rss_mb": 1270.25,
+      "vram_mb": 688.62
+    },
+    {
+      "requests": 150,
+      "rss_mb": 1281.09,
+      "vram_mb": 688.62
+    },
+    {
+      "requests": 175,
+      "rss_mb": 1291.67,
+      "vram_mb": 688.62
+    },
+    {
+      "requests": 200,
+      "rss_mb": 1302.29,
+      "vram_mb": 688.62
+    },
+    {
+      "requests": 225,
+      "rss_mb": 1302.98,
+      "vram_mb": 688.62
+    },
+    {
+      "requests": 250,
+      "rss_mb": 1303.06,
+      "vram_mb": 688.62
+    },
+    {
+      "requests": 275,
+      "rss_mb": 1303.06,
+      "vram_mb": 688.62
+    },
+    {
+      "requests": 300,
+      "rss_mb": 1303.07,
+      "vram_mb": 688.62
+    }
+  ],
+  "rss_initial_mb": 1188.12,
+  "rss_final_300_mb": 1303.07,
+  "rss_growth_300_mb": 114.95000000000005,
+  "rss_last_100_growth_mb": 0.7799999999999727,
+  "cache_216": {
+    "entries_count": 216,
+    "cache_memory_mb": 109.8,
+    "cache_memory_bytes": 115136130,
+    "avg_kb_per_entry": 520.5445692274305,
+    "process_rss_mb": 1319.56,
+    "peak_vram_mb": 688.62
+  },
+  "lazy_mask_generation": {
+    "tile_tested": "0_24_62",
+    "first_toggle_before_ms": 4.57230000756681,
+    "first_toggle_after_ms": 3.390400030184537,
+    "total_first_toggle_ms": 7.962700037751347,
+    "cached_before_ms": 3.2176999957300723,
+    "cached_after_ms": 3.5862999502569437,
+    "hitch_detected": false
+  }
+}

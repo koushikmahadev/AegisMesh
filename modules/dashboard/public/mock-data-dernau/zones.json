@@ -1,0 +1,5208 @@
+{
+  "schema_version": "1.1",
+  "generated_at": "2026-10-15T20:59:47.392096+00:00",
+  "data_mode": "historical",
+  "study_area": "SpaceNet 8 Germany (Dernau)",
+  "source": "SpaceNet 8 Germany (Dernau)",
+  "crs": "EPSG:4326",
+  "score_scale": "0-100",
+  "priority_thresholds": {
+    "CRITICAL": 70,
+    "HIGH": 45,
+    "MEDIUM": 20,
+    "LOW": 0
+  },
+  "scoring_config": {
+    "config_version": "1.0",
+    "config_hash_sha256": "a30894dca52a06bb17cc9b63c7f5f34179e475ce4153f7c20325f2bf1d9bb768",
+    "weights_fingerprint": "468643b4253fe28d",
+    "weights": {
+      "flood_percent": 0.35,
+      "exposure": 0.4,
+      "isolation": 0.15,
+      "flood_area_density": 0.1,
+      "exposure_fraction": 0
+    },
+    "normalization_ceilings": {
+      "flood_percent_max": 30,
+      "exposed_buildings_max": 75,
+      "flood_area_m2_max": 15000
+    },
+    "priority_thresholds": {
+      "CRITICAL": 70,
+      "HIGH": 45,
+      "MEDIUM": 20,
+      "LOW": 0
+    }
+  },
+  "zones": [
+    {
+      "zone_id": "zone-036",
+      "name": "Zone 036 (grid cell)",
+      "risk_level": "HIGH",
+      "risk_score": 65.7,
+      "confidence": "HIGH",
+      "needs_verification": false,
+      "needs_survey": false,
+      "flooded_percent": 18.85,
+      "flooded_area_km2": 0.016969,
+      "exposed_buildings": 35,
+      "total_buildings": 35,
+      "accessibility": "BLOCKED",
+      "isolation": {
+        "status": "BLOCKED",
+        "score": 1,
+        "weight": 0.15,
+        "weighted_contribution": 0.15,
+        "points": 15,
+        "percentage_of_score": 22.8,
+        "road_length_m": 1145.5,
+        "flooded_road_length_m": 1145.5,
+        "flooded_road_share": 1,
+        "warnings": [],
+        "needs_verification": false
+      },
+      "reasons": [
+        "18.9% of zone area estimated as flooded (derived from labelled building/road extents)",
+        "35 of 35 buildings have a human-labelled 'flooded' tag",
+        "Zone roads are 100% flooded — reaching this zone is severely restricted (road isolation penalty applied)",
+        "Derived flood-extent area: 16969 m²",
+        "Primary score driver: Flood coverage is the primary score driver (22.0 pts, 34% of score)",
+        "Ranking factor: Blocked road access imposes maximum isolation penalty (+15.0 pts), elevating zone priority",
+        "Ranking factor: Substantial building exposure (35 exposed buildings, +18.7 pts) strongly elevates priority and serves as primary tiebreaker",
+        "Ranking factor: High flood extent (18.9% flooded, +22.0 pts) strongly elevates priority and serves as secondary tiebreaker"
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              7.039645637065847,
+              50.52772990483979
+            ],
+            [
+              7.043987467307057,
+              50.52772990483979
+            ],
+            [
+              7.043987467307057,
+              50.5304974624831
+            ],
+            [
+              7.039645637065847,
+              50.5304974624831
+            ],
+            [
+              7.039645637065847,
+              50.52772990483979
+            ]
+          ]
+        ]
+      },
+      "score_breakdown": {
+        "score": 65.7,
+        "raw_score": 0.656583,
+        "score_basis": "full",
+        "omitted_components": [],
+        "components": {
+          "flood_percent": {
+            "raw_input": 18.85,
+            "unit": "%",
+            "normalized_value": 0.6283,
+            "weight": 0.35,
+            "weighted_contribution": 0.219917,
+            "points": 21.99,
+            "percentage_of_score": 33.5,
+            "omitted": false
+          },
+          "exposure": {
+            "raw_input": 35,
+            "unit": "buildings",
+            "normalized_value": 0.4667,
+            "weight": 0.4,
+            "weighted_contribution": 0.186667,
+            "points": 18.67,
+            "percentage_of_score": 28.4,
+            "omitted": false
+          },
+          "isolation": {
+            "raw_input": "BLOCKED",
+            "unit": "status",
+            "normalized_value": 1,
+            "weight": 0.15,
+            "weighted_contribution": 0.15,
+            "points": 15,
+            "percentage_of_score": 22.8,
+            "omitted": false
+          },
+          "flood_area_density": {
+            "raw_input": 16969.1,
+            "unit": "m²",
+            "normalized_value": 1,
+            "weight": 0.1,
+            "weighted_contribution": 0.1,
+            "points": 10,
+            "percentage_of_score": 15.2,
+            "omitted": false
+          },
+          "exposure_fraction": {
+            "raw_input": 1,
+            "unit": "ratio",
+            "normalized_value": 1,
+            "weight": 0,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          }
+        },
+        "reconciliation": {
+          "sum_weighted_contributions": 0.656584,
+          "sum_points": 65.66,
+          "computed_score": 65.6583,
+          "final_score": 65.7,
+          "rounding_difference": 0.04,
+          "reconciled": true,
+          "tolerance": 0.08
+        },
+        "primary_driver": "flood_percent",
+        "primary_driver_summary": "Flood coverage is the primary score driver (22.0 pts, 34% of score)",
+        "influential_factors": [
+          "Flood coverage: 18.9% inundated area contributes 22.0 pts (34% of score)",
+          "Building exposure: 35 exposed buildings contribute 18.7 pts (28% of score)",
+          "Road isolation: BLOCKED accessibility contributes 15.0 pts (23% of score)",
+          "Flood extent area: 16,969 m² footprint contributes 10.0 pts (15% of score)"
+        ],
+        "ranking_factors": [
+          "Blocked road access imposes maximum isolation penalty (+15.0 pts), elevating zone priority",
+          "Substantial building exposure (35 exposed buildings, +18.7 pts) strongly elevates priority and serves as primary tiebreaker",
+          "High flood extent (18.9% flooded, +22.0 pts) strongly elevates priority and serves as secondary tiebreaker"
+        ]
+      }
+    },
+    {
+      "zone_id": "zone-002",
+      "name": "Zone 002 (grid cell)",
+      "risk_level": "HIGH",
+      "risk_score": 53.4,
+      "confidence": "HIGH",
+      "needs_verification": false,
+      "needs_survey": false,
+      "flooded_percent": 10.31,
+      "flooded_area_km2": 0.009275,
+      "exposed_buildings": 52,
+      "total_buildings": 104,
+      "accessibility": "LIMITED",
+      "isolation": {
+        "status": "PARTIAL",
+        "score": 0.5,
+        "weight": 0.15,
+        "weighted_contribution": 0.075,
+        "points": 7.5,
+        "percentage_of_score": 14,
+        "road_length_m": 744.6,
+        "flooded_road_length_m": 439.8,
+        "flooded_road_share": 0.5907,
+        "warnings": [],
+        "needs_verification": false
+      },
+      "reasons": [
+        "10.3% of zone area estimated as flooded (derived from labelled building/road extents)",
+        "52 of 104 buildings have a human-labelled 'flooded' tag",
+        "Zone roads are 59% flooded — partial road isolation penalty applied",
+        "Derived flood-extent area: 9275 m²",
+        "Primary score driver: Building exposure is the primary score driver (27.7 pts, 52% of score)",
+        "Ranking factor: Partial road access imposes intermediate isolation penalty (+7.5 pts), elevating zone priority",
+        "Ranking factor: Substantial building exposure (52 exposed buildings, +27.7 pts) strongly elevates priority and serves as primary tiebreaker"
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              7.036087143983389,
+              50.51148026870624
+            ],
+            [
+              7.04042765130077,
+              50.51148026870624
+            ],
+            [
+              7.04042765130077,
+              50.514247941021566
+            ],
+            [
+              7.036087143983389,
+              50.514247941021566
+            ],
+            [
+              7.036087143983389,
+              50.51148026870624
+            ]
+          ]
+        ]
+      },
+      "score_breakdown": {
+        "score": 53.4,
+        "raw_score": 0.534451,
+        "score_basis": "full",
+        "omitted_components": [],
+        "components": {
+          "flood_percent": {
+            "raw_input": 10.31,
+            "unit": "%",
+            "normalized_value": 0.3437,
+            "weight": 0.35,
+            "weighted_contribution": 0.120283,
+            "points": 12.03,
+            "percentage_of_score": 22.5,
+            "omitted": false
+          },
+          "exposure": {
+            "raw_input": 52,
+            "unit": "buildings",
+            "normalized_value": 0.6933,
+            "weight": 0.4,
+            "weighted_contribution": 0.277333,
+            "points": 27.73,
+            "percentage_of_score": 51.9,
+            "omitted": false
+          },
+          "isolation": {
+            "raw_input": "PARTIAL",
+            "unit": "status",
+            "normalized_value": 0.5,
+            "weight": 0.15,
+            "weighted_contribution": 0.075,
+            "points": 7.5,
+            "percentage_of_score": 14,
+            "omitted": false
+          },
+          "flood_area_density": {
+            "raw_input": 9275.1,
+            "unit": "m²",
+            "normalized_value": 0.6183,
+            "weight": 0.1,
+            "weighted_contribution": 0.061834,
+            "points": 6.18,
+            "percentage_of_score": 11.6,
+            "omitted": false
+          },
+          "exposure_fraction": {
+            "raw_input": 0.5,
+            "unit": "ratio",
+            "normalized_value": 0.5,
+            "weight": 0,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          }
+        },
+        "reconciliation": {
+          "sum_weighted_contributions": 0.53445,
+          "sum_points": 53.44,
+          "computed_score": 53.4451,
+          "final_score": 53.4,
+          "rounding_difference": -0.04,
+          "reconciled": true,
+          "tolerance": 0.08
+        },
+        "primary_driver": "exposure",
+        "primary_driver_summary": "Building exposure is the primary score driver (27.7 pts, 52% of score)",
+        "influential_factors": [
+          "Building exposure: 52 exposed buildings contribute 27.7 pts (52% of score)",
+          "Flood coverage: 10.3% inundated area contributes 12.0 pts (22% of score)",
+          "Road isolation: PARTIAL accessibility contributes 7.5 pts (14% of score)",
+          "Flood extent area: 9,275 m² footprint contributes 6.2 pts (12% of score)"
+        ],
+        "ranking_factors": [
+          "Partial road access imposes intermediate isolation penalty (+7.5 pts), elevating zone priority",
+          "Substantial building exposure (52 exposed buildings, +27.7 pts) strongly elevates priority and serves as primary tiebreaker"
+        ]
+      }
+    },
+    {
+      "zone_id": "zone-038",
+      "name": "Zone 038 (grid cell)",
+      "risk_level": "HIGH",
+      "risk_score": 52,
+      "confidence": "HIGH",
+      "needs_verification": false,
+      "needs_survey": false,
+      "flooded_percent": 16.87,
+      "flooded_area_km2": 0.006018,
+      "exposed_buildings": 25,
+      "total_buildings": 25,
+      "accessibility": "BLOCKED",
+      "isolation": {
+        "status": "BLOCKED",
+        "score": 1,
+        "weight": 0.15,
+        "weighted_contribution": 0.15,
+        "points": 15,
+        "percentage_of_score": 28.8,
+        "road_length_m": 215.4,
+        "flooded_road_length_m": 215.4,
+        "flooded_road_share": 1,
+        "warnings": [],
+        "needs_verification": false
+      },
+      "reasons": [
+        "16.9% of zone area estimated as flooded (derived from labelled building/road extents)",
+        "25 of 25 buildings have a human-labelled 'flooded' tag",
+        "Zone roads are 100% flooded — reaching this zone is severely restricted (road isolation penalty applied)",
+        "Derived flood-extent area: 6018 m²",
+        "Primary score driver: Flood coverage is the primary score driver (19.7 pts, 38% of score)",
+        "Ranking factor: Blocked road access imposes maximum isolation penalty (+15.0 pts), elevating zone priority",
+        "Ranking factor: Substantial building exposure (25 exposed buildings, +13.3 pts) strongly elevates priority and serves as primary tiebreaker",
+        "Ranking factor: High flood extent (16.9% flooded, +19.7 pts) strongly elevates priority and serves as secondary tiebreaker"
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              7.039601319105211,
+              50.5304262932973
+            ],
+            [
+              7.04387594060662,
+              50.5304262932973
+            ],
+            [
+              7.04387594060662,
+              50.53156652046202
+            ],
+            [
+              7.039601319105211,
+              50.53156652046202
+            ],
+            [
+              7.039601319105211,
+              50.5304262932973
+            ]
+          ]
+        ]
+      },
+      "score_breakdown": {
+        "score": 52,
+        "raw_score": 0.520271,
+        "score_basis": "full",
+        "omitted_components": [],
+        "components": {
+          "flood_percent": {
+            "raw_input": 16.87,
+            "unit": "%",
+            "normalized_value": 0.5623,
+            "weight": 0.35,
+            "weighted_contribution": 0.196817,
+            "points": 19.68,
+            "percentage_of_score": 37.8,
+            "omitted": false
+          },
+          "exposure": {
+            "raw_input": 25,
+            "unit": "buildings",
+            "normalized_value": 0.3333,
+            "weight": 0.4,
+            "weighted_contribution": 0.133333,
+            "points": 13.33,
+            "percentage_of_score": 25.6,
+            "omitted": false
+          },
+          "isolation": {
+            "raw_input": "BLOCKED",
+            "unit": "status",
+            "normalized_value": 1,
+            "weight": 0.15,
+            "weighted_contribution": 0.15,
+            "points": 15,
+            "percentage_of_score": 28.8,
+            "omitted": false
+          },
+          "flood_area_density": {
+            "raw_input": 6018.1,
+            "unit": "m²",
+            "normalized_value": 0.4012,
+            "weight": 0.1,
+            "weighted_contribution": 0.040121,
+            "points": 4.01,
+            "percentage_of_score": 7.7,
+            "omitted": false
+          },
+          "exposure_fraction": {
+            "raw_input": 1,
+            "unit": "ratio",
+            "normalized_value": 1,
+            "weight": 0,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          }
+        },
+        "reconciliation": {
+          "sum_weighted_contributions": 0.520271,
+          "sum_points": 52.02,
+          "computed_score": 52.0271,
+          "final_score": 52,
+          "rounding_difference": -0.02,
+          "reconciled": true,
+          "tolerance": 0.08
+        },
+        "primary_driver": "flood_percent",
+        "primary_driver_summary": "Flood coverage is the primary score driver (19.7 pts, 38% of score)",
+        "influential_factors": [
+          "Flood coverage: 16.9% inundated area contributes 19.7 pts (38% of score)",
+          "Road isolation: BLOCKED accessibility contributes 15.0 pts (29% of score)",
+          "Building exposure: 25 exposed buildings contribute 13.3 pts (26% of score)",
+          "Flood extent area: 6,018 m² footprint contributes 4.0 pts (8% of score)"
+        ],
+        "ranking_factors": [
+          "Blocked road access imposes maximum isolation penalty (+15.0 pts), elevating zone priority",
+          "Substantial building exposure (25 exposed buildings, +13.3 pts) strongly elevates priority and serves as primary tiebreaker",
+          "High flood extent (16.9% flooded, +19.7 pts) strongly elevates priority and serves as secondary tiebreaker"
+        ]
+      }
+    },
+    {
+      "zone_id": "zone-031",
+      "name": "Zone 031 (grid cell)",
+      "risk_level": "MEDIUM",
+      "risk_score": 40.6,
+      "confidence": "HIGH",
+      "needs_verification": false,
+      "needs_survey": false,
+      "flooded_percent": 10.54,
+      "flooded_area_km2": 0.009484,
+      "exposed_buildings": 13,
+      "total_buildings": 17,
+      "accessibility": "BLOCKED",
+      "isolation": {
+        "status": "BLOCKED",
+        "score": 1,
+        "weight": 0.15,
+        "weighted_contribution": 0.15,
+        "points": 15,
+        "percentage_of_score": 37,
+        "road_length_m": 820.8,
+        "flooded_road_length_m": 742,
+        "flooded_road_share": 0.904,
+        "warnings": [],
+        "needs_verification": false
+      },
+      "reasons": [
+        "10.5% of zone area estimated as flooded (derived from labelled building/road extents)",
+        "13 of 17 buildings have a human-labelled 'flooded' tag",
+        "Zone roads are 90% flooded — reaching this zone is severely restricted (road isolation penalty applied)",
+        "Derived flood-extent area: 9484 m²",
+        "Primary score driver: Road isolation is the primary score driver (15.0 pts, 37% of score)",
+        "Ranking factor: Blocked road access imposes maximum isolation penalty (+15.0 pts), elevating zone priority"
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              7.039757404577202,
+              50.52503351494688
+            ],
+            [
+              7.044098976974503,
+              50.52503351494688
+            ],
+            [
+              7.044098976974503,
+              50.527801067244795
+            ],
+            [
+              7.039757404577202,
+              50.527801067244795
+            ],
+            [
+              7.039757404577202,
+              50.52503351494688
+            ]
+          ]
+        ]
+      },
+      "score_breakdown": {
+        "score": 40.6,
+        "raw_score": 0.405524,
+        "score_basis": "full",
+        "omitted_components": [],
+        "components": {
+          "flood_percent": {
+            "raw_input": 10.54,
+            "unit": "%",
+            "normalized_value": 0.3513,
+            "weight": 0.35,
+            "weighted_contribution": 0.122967,
+            "points": 12.3,
+            "percentage_of_score": 30.3,
+            "omitted": false
+          },
+          "exposure": {
+            "raw_input": 13,
+            "unit": "buildings",
+            "normalized_value": 0.1733,
+            "weight": 0.4,
+            "weighted_contribution": 0.069333,
+            "points": 6.93,
+            "percentage_of_score": 17.1,
+            "omitted": false
+          },
+          "isolation": {
+            "raw_input": "BLOCKED",
+            "unit": "status",
+            "normalized_value": 1,
+            "weight": 0.15,
+            "weighted_contribution": 0.15,
+            "points": 15,
+            "percentage_of_score": 37,
+            "omitted": false
+          },
+          "flood_area_density": {
+            "raw_input": 9483.6,
+            "unit": "m²",
+            "normalized_value": 0.6322,
+            "weight": 0.1,
+            "weighted_contribution": 0.063224,
+            "points": 6.32,
+            "percentage_of_score": 15.6,
+            "omitted": false
+          },
+          "exposure_fraction": {
+            "raw_input": 0.7647,
+            "unit": "ratio",
+            "normalized_value": 0.7647,
+            "weight": 0,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          }
+        },
+        "reconciliation": {
+          "sum_weighted_contributions": 0.405524,
+          "sum_points": 40.55,
+          "computed_score": 40.5524,
+          "final_score": 40.6,
+          "rounding_difference": 0.05,
+          "reconciled": true,
+          "tolerance": 0.08
+        },
+        "primary_driver": "isolation",
+        "primary_driver_summary": "Road isolation is the primary score driver (15.0 pts, 37% of score)",
+        "influential_factors": [
+          "Road isolation: BLOCKED accessibility contributes 15.0 pts (37% of score)",
+          "Flood coverage: 10.5% inundated area contributes 12.3 pts (30% of score)",
+          "Building exposure: 13 exposed buildings contribute 6.9 pts (17% of score)",
+          "Flood extent area: 9,484 m² footprint contributes 6.3 pts (16% of score)"
+        ],
+        "ranking_factors": [
+          "Blocked road access imposes maximum isolation penalty (+15.0 pts), elevating zone priority"
+        ]
+      }
+    },
+    {
+      "zone_id": "zone-008",
+      "name": "Zone 008 (grid cell)",
+      "risk_level": "MEDIUM",
+      "risk_score": 36.5,
+      "confidence": "HIGH",
+      "needs_verification": false,
+      "needs_survey": false,
+      "flooded_percent": 9.5,
+      "flooded_area_km2": 0.008547,
+      "exposed_buildings": 23,
+      "total_buildings": 46,
+      "accessibility": "LIMITED",
+      "isolation": {
+        "status": "PARTIAL",
+        "score": 0.5,
+        "weight": 0.15,
+        "weighted_contribution": 0.075,
+        "points": 7.5,
+        "percentage_of_score": 20.5,
+        "road_length_m": 666,
+        "flooded_road_length_m": 338.1,
+        "flooded_road_share": 0.5077,
+        "warnings": [],
+        "needs_verification": false
+      },
+      "reasons": [
+        "9.5% of zone area estimated as flooded (derived from labelled building/road extents)",
+        "23 of 46 buildings have a human-labelled 'flooded' tag",
+        "Zone roads are 51% flooded — partial road isolation penalty applied",
+        "Derived flood-extent area: 8547 m²",
+        "Primary score driver: Building exposure is the primary score driver (12.3 pts, 34% of score)",
+        "Ranking factor: Partial road access imposes intermediate isolation penalty (+7.5 pts), elevating zone priority",
+        "Ranking factor: Substantial building exposure (23 exposed buildings, +12.3 pts) strongly elevates priority and serves as primary tiebreaker"
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              7.035975221162471,
+              50.51417665898513
+            ],
+            [
+              7.0403159861565445,
+              50.51417665898513
+            ],
+            [
+              7.0403159861565445,
+              50.51694433665592
+            ],
+            [
+              7.035975221162471,
+              50.51694433665592
+            ],
+            [
+              7.035975221162471,
+              50.51417665898513
+            ]
+          ]
+        ]
+      },
+      "score_breakdown": {
+        "score": 36.5,
+        "raw_score": 0.365483,
+        "score_basis": "full",
+        "omitted_components": [],
+        "components": {
+          "flood_percent": {
+            "raw_input": 9.5,
+            "unit": "%",
+            "normalized_value": 0.3167,
+            "weight": 0.35,
+            "weighted_contribution": 0.110833,
+            "points": 11.08,
+            "percentage_of_score": 30.3,
+            "omitted": false
+          },
+          "exposure": {
+            "raw_input": 23,
+            "unit": "buildings",
+            "normalized_value": 0.3067,
+            "weight": 0.4,
+            "weighted_contribution": 0.122667,
+            "points": 12.27,
+            "percentage_of_score": 33.6,
+            "omitted": false
+          },
+          "isolation": {
+            "raw_input": "PARTIAL",
+            "unit": "status",
+            "normalized_value": 0.5,
+            "weight": 0.15,
+            "weighted_contribution": 0.075,
+            "points": 7.5,
+            "percentage_of_score": 20.5,
+            "omitted": false
+          },
+          "flood_area_density": {
+            "raw_input": 8547.4,
+            "unit": "m²",
+            "normalized_value": 0.5698,
+            "weight": 0.1,
+            "weighted_contribution": 0.056983,
+            "points": 5.7,
+            "percentage_of_score": 15.6,
+            "omitted": false
+          },
+          "exposure_fraction": {
+            "raw_input": 0.5,
+            "unit": "ratio",
+            "normalized_value": 0.5,
+            "weight": 0,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          }
+        },
+        "reconciliation": {
+          "sum_weighted_contributions": 0.365483,
+          "sum_points": 36.55,
+          "computed_score": 36.5483,
+          "final_score": 36.5,
+          "rounding_difference": -0.05,
+          "reconciled": true,
+          "tolerance": 0.08
+        },
+        "primary_driver": "exposure",
+        "primary_driver_summary": "Building exposure is the primary score driver (12.3 pts, 34% of score)",
+        "influential_factors": [
+          "Building exposure: 23 exposed buildings contribute 12.3 pts (34% of score)",
+          "Flood coverage: 9.5% inundated area contributes 11.1 pts (30% of score)",
+          "Road isolation: PARTIAL accessibility contributes 7.5 pts (20% of score)",
+          "Flood extent area: 8,547 m² footprint contributes 5.7 pts (16% of score)"
+        ],
+        "ranking_factors": [
+          "Partial road access imposes intermediate isolation penalty (+7.5 pts), elevating zone priority",
+          "Substantial building exposure (23 exposed buildings, +12.3 pts) strongly elevates priority and serves as primary tiebreaker"
+        ]
+      }
+    },
+    {
+      "zone_id": "zone-010",
+      "name": "Zone 010 (grid cell)",
+      "risk_level": "MEDIUM",
+      "risk_score": 31.4,
+      "confidence": "HIGH",
+      "needs_verification": false,
+      "needs_survey": false,
+      "flooded_percent": 7.5,
+      "flooded_area_km2": 0.006752,
+      "exposed_buildings": 20,
+      "total_buildings": 21,
+      "accessibility": "LIMITED",
+      "isolation": {
+        "status": "PARTIAL",
+        "score": 0.5,
+        "weight": 0.15,
+        "weighted_contribution": 0.075,
+        "points": 7.5,
+        "percentage_of_score": 23.9,
+        "road_length_m": 280.5,
+        "flooded_road_length_m": 133.1,
+        "flooded_road_share": 0.4745,
+        "warnings": [],
+        "needs_verification": false
+      },
+      "reasons": [
+        "7.5% of zone area estimated as flooded (derived from labelled building/road extents)",
+        "20 of 21 buildings have a human-labelled 'flooded' tag",
+        "Zone roads are 47% flooded — partial road isolation penalty applied",
+        "Derived flood-extent area: 6752 m²",
+        "Primary score driver: Building exposure is the primary score driver (10.7 pts, 34% of score)",
+        "Ranking factor: Partial road access imposes intermediate isolation penalty (+7.5 pts), elevating zone priority",
+        "Ranking factor: Substantial building exposure (20 exposed buildings, +10.7 pts) strongly elevates priority and serves as primary tiebreaker"
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              7.018946158745936,
+              50.51658635716067
+            ],
+            [
+              7.023288075474256,
+              50.51658635716067
+            ],
+            [
+              7.023288075474256,
+              50.519354627069866
+            ],
+            [
+              7.018946158745936,
+              50.519354627069866
+            ],
+            [
+              7.018946158745936,
+              50.51658635716067
+            ]
+          ]
+        ]
+      },
+      "score_breakdown": {
+        "score": 31.4,
+        "raw_score": 0.314177,
+        "score_basis": "full",
+        "omitted_components": [],
+        "components": {
+          "flood_percent": {
+            "raw_input": 7.5,
+            "unit": "%",
+            "normalized_value": 0.25,
+            "weight": 0.35,
+            "weighted_contribution": 0.0875,
+            "points": 8.75,
+            "percentage_of_score": 27.9,
+            "omitted": false
+          },
+          "exposure": {
+            "raw_input": 20,
+            "unit": "buildings",
+            "normalized_value": 0.2667,
+            "weight": 0.4,
+            "weighted_contribution": 0.106667,
+            "points": 10.67,
+            "percentage_of_score": 34,
+            "omitted": false
+          },
+          "isolation": {
+            "raw_input": "PARTIAL",
+            "unit": "status",
+            "normalized_value": 0.5,
+            "weight": 0.15,
+            "weighted_contribution": 0.075,
+            "points": 7.5,
+            "percentage_of_score": 23.9,
+            "omitted": false
+          },
+          "flood_area_density": {
+            "raw_input": 6751.6,
+            "unit": "m²",
+            "normalized_value": 0.4501,
+            "weight": 0.1,
+            "weighted_contribution": 0.045011,
+            "points": 4.5,
+            "percentage_of_score": 14.3,
+            "omitted": false
+          },
+          "exposure_fraction": {
+            "raw_input": 0.9524,
+            "unit": "ratio",
+            "normalized_value": 0.9524,
+            "weight": 0,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          }
+        },
+        "reconciliation": {
+          "sum_weighted_contributions": 0.314178,
+          "sum_points": 31.42,
+          "computed_score": 31.4177,
+          "final_score": 31.4,
+          "rounding_difference": -0.02,
+          "reconciled": true,
+          "tolerance": 0.08
+        },
+        "primary_driver": "exposure",
+        "primary_driver_summary": "Building exposure is the primary score driver (10.7 pts, 34% of score)",
+        "influential_factors": [
+          "Building exposure: 20 exposed buildings contribute 10.7 pts (34% of score)",
+          "Flood coverage: 7.5% inundated area contributes 8.8 pts (28% of score)",
+          "Road isolation: PARTIAL accessibility contributes 7.5 pts (24% of score)",
+          "Flood extent area: 6,752 m² footprint contributes 4.5 pts (14% of score)"
+        ],
+        "ranking_factors": [
+          "Partial road access imposes intermediate isolation penalty (+7.5 pts), elevating zone priority",
+          "Substantial building exposure (20 exposed buildings, +10.7 pts) strongly elevates priority and serves as primary tiebreaker"
+        ]
+      }
+    },
+    {
+      "zone_id": "zone-017",
+      "name": "Zone 017 (grid cell)",
+      "risk_level": "MEDIUM",
+      "risk_score": 28.6,
+      "confidence": "HIGH",
+      "needs_verification": false,
+      "needs_survey": false,
+      "flooded_percent": 5.59,
+      "flooded_area_km2": 0.005034,
+      "exposed_buildings": 21,
+      "total_buildings": 59,
+      "accessibility": "LIMITED",
+      "isolation": {
+        "status": "PARTIAL",
+        "score": 0.5,
+        "weight": 0.15,
+        "weighted_contribution": 0.075,
+        "points": 7.5,
+        "percentage_of_score": 26.2,
+        "road_length_m": 381.1,
+        "flooded_road_length_m": 153,
+        "flooded_road_share": 0.4015,
+        "warnings": [],
+        "needs_verification": false
+      },
+      "reasons": [
+        "5.6% of zone area estimated as flooded (derived from labelled building/road extents)",
+        "21 of 59 buildings have a human-labelled 'flooded' tag",
+        "Zone roads are 40% flooded — partial road isolation penalty applied",
+        "Derived flood-extent area: 5034 m²",
+        "Primary score driver: Building exposure is the primary score driver (11.2 pts, 39% of score)",
+        "Ranking factor: Partial road access imposes intermediate isolation penalty (+7.5 pts), elevating zone priority",
+        "Ranking factor: Substantial building exposure (21 exposed buildings, +11.2 pts) strongly elevates priority and serves as primary tiebreaker"
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              7.0188332389807195,
+              50.519282717251976
+            ],
+            [
+              7.023175413598976,
+              50.519282717251976
+            ],
+            [
+              7.023175413598976,
+              50.52205099257349
+            ],
+            [
+              7.0188332389807195,
+              50.52205099257349
+            ],
+            [
+              7.0188332389807195,
+              50.519282717251976
+            ]
+          ]
+        ]
+      },
+      "score_breakdown": {
+        "score": 28.6,
+        "raw_score": 0.28578,
+        "score_basis": "full",
+        "omitted_components": [],
+        "components": {
+          "flood_percent": {
+            "raw_input": 5.59,
+            "unit": "%",
+            "normalized_value": 0.1863,
+            "weight": 0.35,
+            "weighted_contribution": 0.065217,
+            "points": 6.52,
+            "percentage_of_score": 22.8,
+            "omitted": false
+          },
+          "exposure": {
+            "raw_input": 21,
+            "unit": "buildings",
+            "normalized_value": 0.28,
+            "weight": 0.4,
+            "weighted_contribution": 0.112,
+            "points": 11.2,
+            "percentage_of_score": 39.2,
+            "omitted": false
+          },
+          "isolation": {
+            "raw_input": "PARTIAL",
+            "unit": "status",
+            "normalized_value": 0.5,
+            "weight": 0.15,
+            "weighted_contribution": 0.075,
+            "points": 7.5,
+            "percentage_of_score": 26.2,
+            "omitted": false
+          },
+          "flood_area_density": {
+            "raw_input": 5034.5,
+            "unit": "m²",
+            "normalized_value": 0.3356,
+            "weight": 0.1,
+            "weighted_contribution": 0.033563,
+            "points": 3.36,
+            "percentage_of_score": 11.7,
+            "omitted": false
+          },
+          "exposure_fraction": {
+            "raw_input": 0.3559,
+            "unit": "ratio",
+            "normalized_value": 0.3559,
+            "weight": 0,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          }
+        },
+        "reconciliation": {
+          "sum_weighted_contributions": 0.28578,
+          "sum_points": 28.58,
+          "computed_score": 28.578,
+          "final_score": 28.6,
+          "rounding_difference": 0.02,
+          "reconciled": true,
+          "tolerance": 0.08
+        },
+        "primary_driver": "exposure",
+        "primary_driver_summary": "Building exposure is the primary score driver (11.2 pts, 39% of score)",
+        "influential_factors": [
+          "Building exposure: 21 exposed buildings contribute 11.2 pts (39% of score)",
+          "Road isolation: PARTIAL accessibility contributes 7.5 pts (26% of score)",
+          "Flood coverage: 5.6% inundated area contributes 6.5 pts (23% of score)",
+          "Flood extent area: 5,034 m² footprint contributes 3.4 pts (12% of score)"
+        ],
+        "ranking_factors": [
+          "Partial road access imposes intermediate isolation penalty (+7.5 pts), elevating zone priority",
+          "Substantial building exposure (21 exposed buildings, +11.2 pts) strongly elevates priority and serves as primary tiebreaker"
+        ]
+      }
+    },
+    {
+      "zone_id": "zone-035",
+      "name": "Zone 035 (grid cell)",
+      "risk_level": "MEDIUM",
+      "risk_score": 22.8,
+      "confidence": "HIGH",
+      "needs_verification": false,
+      "needs_survey": false,
+      "flooded_percent": 4.42,
+      "flooded_area_km2": 0.003976,
+      "exposed_buildings": 14,
+      "total_buildings": 44,
+      "accessibility": "LIMITED",
+      "isolation": {
+        "status": "PARTIAL",
+        "score": 0.5,
+        "weight": 0.15,
+        "weighted_contribution": 0.075,
+        "points": 7.5,
+        "percentage_of_score": 32.9,
+        "road_length_m": 1389.9,
+        "flooded_road_length_m": 225,
+        "flooded_road_share": 0.1619,
+        "warnings": [],
+        "needs_verification": false
+      },
+      "reasons": [
+        "4.4% of zone area estimated as flooded (derived from labelled building/road extents)",
+        "14 of 44 buildings have a human-labelled 'flooded' tag",
+        "Zone roads are 16% flooded — partial road isolation penalty applied",
+        "Derived flood-extent area: 3976 m²",
+        "Primary score driver: Road isolation is the primary score driver (7.5 pts, 33% of score)",
+        "Ranking factor: Partial road access imposes intermediate isolation penalty (+7.5 pts), elevating zone priority"
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              7.035415350598187,
+              50.527658588837866
+            ],
+            [
+              7.039757404577202,
+              50.527658588837866
+            ],
+            [
+              7.039757404577202,
+              50.5304262932973
+            ],
+            [
+              7.035415350598187,
+              50.5304262932973
+            ],
+            [
+              7.035415350598187,
+              50.527658588837866
+            ]
+          ]
+        ]
+      },
+      "score_breakdown": {
+        "score": 22.8,
+        "raw_score": 0.227743,
+        "score_basis": "full",
+        "omitted_components": [],
+        "components": {
+          "flood_percent": {
+            "raw_input": 4.42,
+            "unit": "%",
+            "normalized_value": 0.1473,
+            "weight": 0.35,
+            "weighted_contribution": 0.051567,
+            "points": 5.16,
+            "percentage_of_score": 22.6,
+            "omitted": false
+          },
+          "exposure": {
+            "raw_input": 14,
+            "unit": "buildings",
+            "normalized_value": 0.1867,
+            "weight": 0.4,
+            "weighted_contribution": 0.074667,
+            "points": 7.47,
+            "percentage_of_score": 32.8,
+            "omitted": false
+          },
+          "isolation": {
+            "raw_input": "PARTIAL",
+            "unit": "status",
+            "normalized_value": 0.5,
+            "weight": 0.15,
+            "weighted_contribution": 0.075,
+            "points": 7.5,
+            "percentage_of_score": 32.9,
+            "omitted": false
+          },
+          "flood_area_density": {
+            "raw_input": 3976.4,
+            "unit": "m²",
+            "normalized_value": 0.2651,
+            "weight": 0.1,
+            "weighted_contribution": 0.026509,
+            "points": 2.65,
+            "percentage_of_score": 11.6,
+            "omitted": false
+          },
+          "exposure_fraction": {
+            "raw_input": 0.3182,
+            "unit": "ratio",
+            "normalized_value": 0.3182,
+            "weight": 0,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          }
+        },
+        "reconciliation": {
+          "sum_weighted_contributions": 0.227743,
+          "sum_points": 22.78,
+          "computed_score": 22.7743,
+          "final_score": 22.8,
+          "rounding_difference": 0.02,
+          "reconciled": true,
+          "tolerance": 0.08
+        },
+        "primary_driver": "isolation",
+        "primary_driver_summary": "Road isolation is the primary score driver (7.5 pts, 33% of score)",
+        "influential_factors": [
+          "Road isolation: PARTIAL accessibility contributes 7.5 pts (33% of score)",
+          "Building exposure: 14 exposed buildings contribute 7.5 pts (33% of score)",
+          "Flood coverage: 4.4% inundated area contributes 5.2 pts (23% of score)",
+          "Flood extent area: 3,976 m² footprint contributes 2.6 pts (12% of score)"
+        ],
+        "ranking_factors": [
+          "Partial road access imposes intermediate isolation penalty (+7.5 pts), elevating zone priority"
+        ]
+      }
+    },
+    {
+      "zone_id": "zone-014",
+      "name": "Zone 014 (grid cell)",
+      "risk_level": "LOW",
+      "risk_score": 18.7,
+      "confidence": "HIGH",
+      "needs_verification": false,
+      "needs_survey": false,
+      "flooded_percent": 4.54,
+      "flooded_area_km2": 0.004089,
+      "exposed_buildings": 6,
+      "total_buildings": 32,
+      "accessibility": "LIMITED",
+      "isolation": {
+        "status": "PARTIAL",
+        "score": 0.5,
+        "weight": 0.15,
+        "weighted_contribution": 0.075,
+        "points": 7.5,
+        "percentage_of_score": 40.1,
+        "road_length_m": 973.4,
+        "flooded_road_length_m": 337.8,
+        "flooded_road_share": 0.347,
+        "warnings": [],
+        "needs_verification": false
+      },
+      "reasons": [
+        "4.5% of zone area estimated as flooded (derived from labelled building/road extents)",
+        "6 of 32 buildings have a human-labelled 'flooded' tag",
+        "Zone roads are 35% flooded — partial road isolation penalty applied",
+        "Derived flood-extent area: 4089 m²",
+        "Primary score driver: Road isolation is the primary score driver (7.5 pts, 40% of score)",
+        "Ranking factor: Partial road access imposes intermediate isolation penalty (+7.5 pts), elevating zone priority"
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              7.035863281248791,
+              50.516873047827914
+            ],
+            [
+              7.040204303959645,
+              50.516873047827914
+            ],
+            [
+              7.040204303959645,
+              50.519640730854924
+            ],
+            [
+              7.035863281248791,
+              50.519640730854924
+            ],
+            [
+              7.035863281248791,
+              50.516873047827914
+            ]
+          ]
+        ]
+      },
+      "score_breakdown": {
+        "score": 18.7,
+        "raw_score": 0.187228,
+        "score_basis": "full",
+        "omitted_components": [],
+        "components": {
+          "flood_percent": {
+            "raw_input": 4.54,
+            "unit": "%",
+            "normalized_value": 0.1513,
+            "weight": 0.35,
+            "weighted_contribution": 0.052967,
+            "points": 5.3,
+            "percentage_of_score": 28.3,
+            "omitted": false
+          },
+          "exposure": {
+            "raw_input": 6,
+            "unit": "buildings",
+            "normalized_value": 0.08,
+            "weight": 0.4,
+            "weighted_contribution": 0.032,
+            "points": 3.2,
+            "percentage_of_score": 17.1,
+            "omitted": false
+          },
+          "isolation": {
+            "raw_input": "PARTIAL",
+            "unit": "status",
+            "normalized_value": 0.5,
+            "weight": 0.15,
+            "weighted_contribution": 0.075,
+            "points": 7.5,
+            "percentage_of_score": 40.1,
+            "omitted": false
+          },
+          "flood_area_density": {
+            "raw_input": 4089.2,
+            "unit": "m²",
+            "normalized_value": 0.2726,
+            "weight": 0.1,
+            "weighted_contribution": 0.027261,
+            "points": 2.73,
+            "percentage_of_score": 14.6,
+            "omitted": false
+          },
+          "exposure_fraction": {
+            "raw_input": 0.1875,
+            "unit": "ratio",
+            "normalized_value": 0.1875,
+            "weight": 0,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          }
+        },
+        "reconciliation": {
+          "sum_weighted_contributions": 0.187228,
+          "sum_points": 18.73,
+          "computed_score": 18.7228,
+          "final_score": 18.7,
+          "rounding_difference": -0.03,
+          "reconciled": true,
+          "tolerance": 0.08
+        },
+        "primary_driver": "isolation",
+        "primary_driver_summary": "Road isolation is the primary score driver (7.5 pts, 40% of score)",
+        "influential_factors": [
+          "Road isolation: PARTIAL accessibility contributes 7.5 pts (40% of score)",
+          "Flood coverage: 4.5% inundated area contributes 5.3 pts (28% of score)",
+          "Building exposure: 6 exposed buildings contribute 3.2 pts (17% of score)",
+          "Flood extent area: 4,089 m² footprint contributes 2.7 pts (15% of score)"
+        ],
+        "ranking_factors": [
+          "Partial road access imposes intermediate isolation penalty (+7.5 pts), elevating zone priority"
+        ]
+      }
+    },
+    {
+      "zone_id": "zone-012",
+      "name": "Zone 012 (grid cell)",
+      "risk_level": "LOW",
+      "risk_score": 18.5,
+      "confidence": "HIGH",
+      "needs_verification": false,
+      "needs_survey": false,
+      "flooded_percent": 2,
+      "flooded_area_km2": 0.001797,
+      "exposed_buildings": 0,
+      "total_buildings": 0,
+      "accessibility": "BLOCKED",
+      "isolation": {
+        "status": "BLOCKED",
+        "score": 1,
+        "weight": 0.15,
+        "weighted_contribution": 0.15,
+        "points": 15,
+        "percentage_of_score": 80.9,
+        "road_length_m": 180.1,
+        "flooded_road_length_m": 180.1,
+        "flooded_road_share": 1,
+        "warnings": [],
+        "needs_verification": false
+      },
+      "reasons": [
+        "2.0% of zone area estimated as flooded (derived from labelled building/road extents)",
+        "No buildings recorded in this zone",
+        "Zone roads are 100% flooded — reaching this zone is severely restricted (road isolation penalty applied)",
+        "Derived flood-extent area: 1797 m²",
+        "Primary score driver: Road isolation is the primary score driver (15.0 pts, 81% of score)",
+        "Ranking factor: Blocked road access imposes maximum isolation penalty (+15.0 pts), elevating zone priority"
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              7.027404685658257,
+              50.51673000956239
+            ],
+            [
+              7.031746155458061,
+              50.51673000956239
+            ],
+            [
+              7.031746155458061,
+              50.51949798606265
+            ],
+            [
+              7.027404685658257,
+              50.51949798606265
+            ],
+            [
+              7.027404685658257,
+              50.51673000956239
+            ]
+          ]
+        ]
+      },
+      "score_breakdown": {
+        "score": 18.5,
+        "raw_score": 0.185314,
+        "score_basis": "full",
+        "omitted_components": [],
+        "components": {
+          "flood_percent": {
+            "raw_input": 2,
+            "unit": "%",
+            "normalized_value": 0.0667,
+            "weight": 0.35,
+            "weighted_contribution": 0.023333,
+            "points": 2.33,
+            "percentage_of_score": 12.6,
+            "omitted": false
+          },
+          "exposure": {
+            "raw_input": 0,
+            "unit": "buildings",
+            "normalized_value": 0,
+            "weight": 0.4,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          },
+          "isolation": {
+            "raw_input": "BLOCKED",
+            "unit": "status",
+            "normalized_value": 1,
+            "weight": 0.15,
+            "weighted_contribution": 0.15,
+            "points": 15,
+            "percentage_of_score": 80.9,
+            "omitted": false
+          },
+          "flood_area_density": {
+            "raw_input": 1797.1,
+            "unit": "m²",
+            "normalized_value": 0.1198,
+            "weight": 0.1,
+            "weighted_contribution": 0.011981,
+            "points": 1.2,
+            "percentage_of_score": 6.5,
+            "omitted": false
+          },
+          "exposure_fraction": {
+            "raw_input": 0,
+            "unit": "ratio",
+            "normalized_value": 0,
+            "weight": 0,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          }
+        },
+        "reconciliation": {
+          "sum_weighted_contributions": 0.185314,
+          "sum_points": 18.53,
+          "computed_score": 18.5314,
+          "final_score": 18.5,
+          "rounding_difference": -0.03,
+          "reconciled": true,
+          "tolerance": 0.08
+        },
+        "primary_driver": "isolation",
+        "primary_driver_summary": "Road isolation is the primary score driver (15.0 pts, 81% of score)",
+        "influential_factors": [
+          "Road isolation: BLOCKED accessibility contributes 15.0 pts (81% of score)",
+          "Flood coverage: 2.0% inundated area contributes 2.3 pts (13% of score)",
+          "Flood extent area: 1,797 m² footprint contributes 1.2 pts (6% of score)"
+        ],
+        "ranking_factors": [
+          "Blocked road access imposes maximum isolation penalty (+15.0 pts), elevating zone priority"
+        ]
+      }
+    },
+    {
+      "zone_id": "zone-027",
+      "name": "Zone 027 (grid cell)",
+      "risk_level": "LOW",
+      "risk_score": 17.5,
+      "confidence": "HIGH",
+      "needs_verification": false,
+      "needs_survey": false,
+      "flooded_percent": 1.42,
+      "flooded_area_km2": 0.001278,
+      "exposed_buildings": 0,
+      "total_buildings": 2,
+      "accessibility": "BLOCKED",
+      "isolation": {
+        "status": "BLOCKED",
+        "score": 1,
+        "weight": 0.15,
+        "weighted_contribution": 0.15,
+        "points": 15,
+        "percentage_of_score": 85.7,
+        "road_length_m": 128.1,
+        "flooded_road_length_m": 128.1,
+        "flooded_road_share": 1,
+        "warnings": [],
+        "needs_verification": false
+      },
+      "reasons": [
+        "1.4% of zone area estimated as flooded (derived from labelled building/road extents)",
+        "0 of 2 buildings have a human-labelled 'flooded' tag",
+        "Zone roads are 100% flooded — reaching this zone is severely restricted (road isolation penalty applied)",
+        "Derived flood-extent area: 1278 m²",
+        "Primary score driver: Road isolation is the primary score driver (15.0 pts, 86% of score)",
+        "Ranking factor: Blocked road access imposes maximum isolation penalty (+15.0 pts), elevating zone priority"
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              7.03986915501885,
+              50.52233712361859
+            ],
+            [
+              7.0442104696123575,
+              50.52233712361859
+            ],
+            [
+              7.0442104696123575,
+              50.525104670571864
+            ],
+            [
+              7.03986915501885,
+              50.525104670571864
+            ],
+            [
+              7.03986915501885,
+              50.52233712361859
+            ]
+          ]
+        ]
+      },
+      "score_breakdown": {
+        "score": 17.5,
+        "raw_score": 0.175089,
+        "score_basis": "full",
+        "omitted_components": [],
+        "components": {
+          "flood_percent": {
+            "raw_input": 1.42,
+            "unit": "%",
+            "normalized_value": 0.0473,
+            "weight": 0.35,
+            "weighted_contribution": 0.016567,
+            "points": 1.66,
+            "percentage_of_score": 9.5,
+            "omitted": false
+          },
+          "exposure": {
+            "raw_input": 0,
+            "unit": "buildings",
+            "normalized_value": 0,
+            "weight": 0.4,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          },
+          "isolation": {
+            "raw_input": "BLOCKED",
+            "unit": "status",
+            "normalized_value": 1,
+            "weight": 0.15,
+            "weighted_contribution": 0.15,
+            "points": 15,
+            "percentage_of_score": 85.7,
+            "omitted": false
+          },
+          "flood_area_density": {
+            "raw_input": 1278.4,
+            "unit": "m²",
+            "normalized_value": 0.0852,
+            "weight": 0.1,
+            "weighted_contribution": 0.008523,
+            "points": 0.85,
+            "percentage_of_score": 4.9,
+            "omitted": false
+          },
+          "exposure_fraction": {
+            "raw_input": 0,
+            "unit": "ratio",
+            "normalized_value": 0,
+            "weight": 0,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          }
+        },
+        "reconciliation": {
+          "sum_weighted_contributions": 0.17509,
+          "sum_points": 17.51,
+          "computed_score": 17.5089,
+          "final_score": 17.5,
+          "rounding_difference": -0.01,
+          "reconciled": true,
+          "tolerance": 0.08
+        },
+        "primary_driver": "isolation",
+        "primary_driver_summary": "Road isolation is the primary score driver (15.0 pts, 86% of score)",
+        "influential_factors": [
+          "Road isolation: BLOCKED accessibility contributes 15.0 pts (86% of score)",
+          "Flood coverage: 1.4% inundated area contributes 1.7 pts (10% of score)",
+          "Flood extent area: 1,278 m² footprint contributes 0.8 pts (5% of score)"
+        ],
+        "ranking_factors": [
+          "Blocked road access imposes maximum isolation penalty (+15.0 pts), elevating zone priority"
+        ]
+      }
+    },
+    {
+      "zone_id": "zone-021",
+      "name": "Zone 021 (grid cell)",
+      "risk_level": "LOW",
+      "risk_score": 17.3,
+      "confidence": "HIGH",
+      "needs_verification": false,
+      "needs_survey": false,
+      "flooded_percent": 1.29,
+      "flooded_area_km2": 0.001157,
+      "exposed_buildings": 0,
+      "total_buildings": 0,
+      "accessibility": "BLOCKED",
+      "isolation": {
+        "status": "BLOCKED",
+        "score": 1,
+        "weight": 0.15,
+        "weighted_contribution": 0.15,
+        "points": 15,
+        "percentage_of_score": 86.8,
+        "road_length_m": 112.4,
+        "flooded_road_length_m": 112.4,
+        "flooded_road_share": 1,
+        "warnings": [],
+        "needs_verification": false
+      },
+      "reasons": [
+        "1.3% of zone area estimated as flooded (derived from labelled building/road extents)",
+        "No buildings recorded in this zone",
+        "Zone roads are 100% flooded — reaching this zone is severely restricted (road isolation penalty applied)",
+        "Derived flood-extent area: 1157 m²",
+        "Primary score driver: Road isolation is the primary score driver (15.0 pts, 87% of score)",
+        "Ranking factor: Blocked road access imposes maximum isolation penalty (+15.0 pts), elevating zone priority"
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              7.0399808883942026,
+              50.519640730854924
+            ],
+            [
+              7.044321945224024,
+              50.519640730854924
+            ],
+            [
+              7.044321945224024,
+              50.52240827246432
+            ],
+            [
+              7.0399808883942026,
+              50.52240827246432
+            ],
+            [
+              7.0399808883942026,
+              50.519640730854924
+            ]
+          ]
+        ]
+      },
+      "score_breakdown": {
+        "score": 17.3,
+        "raw_score": 0.172763,
+        "score_basis": "full",
+        "omitted_components": [],
+        "components": {
+          "flood_percent": {
+            "raw_input": 1.29,
+            "unit": "%",
+            "normalized_value": 0.043,
+            "weight": 0.35,
+            "weighted_contribution": 0.01505,
+            "points": 1.51,
+            "percentage_of_score": 8.7,
+            "omitted": false
+          },
+          "exposure": {
+            "raw_input": 0,
+            "unit": "buildings",
+            "normalized_value": 0,
+            "weight": 0.4,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          },
+          "isolation": {
+            "raw_input": "BLOCKED",
+            "unit": "status",
+            "normalized_value": 1,
+            "weight": 0.15,
+            "weighted_contribution": 0.15,
+            "points": 15,
+            "percentage_of_score": 86.8,
+            "omitted": false
+          },
+          "flood_area_density": {
+            "raw_input": 1157,
+            "unit": "m²",
+            "normalized_value": 0.0771,
+            "weight": 0.1,
+            "weighted_contribution": 0.007713,
+            "points": 0.77,
+            "percentage_of_score": 4.5,
+            "omitted": false
+          },
+          "exposure_fraction": {
+            "raw_input": 0,
+            "unit": "ratio",
+            "normalized_value": 0,
+            "weight": 0,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          }
+        },
+        "reconciliation": {
+          "sum_weighted_contributions": 0.172763,
+          "sum_points": 17.28,
+          "computed_score": 17.2763,
+          "final_score": 17.3,
+          "rounding_difference": 0.02,
+          "reconciled": true,
+          "tolerance": 0.08
+        },
+        "primary_driver": "isolation",
+        "primary_driver_summary": "Road isolation is the primary score driver (15.0 pts, 87% of score)",
+        "influential_factors": [
+          "Road isolation: BLOCKED accessibility contributes 15.0 pts (87% of score)",
+          "Flood coverage: 1.3% inundated area contributes 1.5 pts (9% of score)",
+          "Flood extent area: 1,157 m² footprint contributes 0.8 pts (4% of score)"
+        ],
+        "ranking_factors": [
+          "Blocked road access imposes maximum isolation penalty (+15.0 pts), elevating zone priority"
+        ]
+      }
+    },
+    {
+      "zone_id": "zone-011",
+      "name": "Zone 011 (grid cell)",
+      "risk_level": "LOW",
+      "risk_score": 16,
+      "confidence": "HIGH",
+      "needs_verification": false,
+      "needs_survey": false,
+      "flooded_percent": 0.59,
+      "flooded_area_km2": 0.000528,
+      "exposed_buildings": 0,
+      "total_buildings": 1,
+      "accessibility": "BLOCKED",
+      "isolation": {
+        "status": "BLOCKED",
+        "score": 1,
+        "weight": 0.15,
+        "weighted_contribution": 0.15,
+        "points": 15,
+        "percentage_of_score": 93.5,
+        "road_length_m": 49.5,
+        "flooded_road_length_m": 49.5,
+        "flooded_road_share": 1,
+        "warnings": [],
+        "needs_verification": false
+      },
+      "reasons": [
+        "0.6% of zone area estimated as flooded (derived from labelled building/road extents)",
+        "0 of 1 buildings have a human-labelled 'flooded' tag",
+        "Zone roads are 100% flooded — reaching this zone is severely restricted (road isolation penalty applied)",
+        "Derived flood-extent area: 528 m²",
+        "Primary score driver: Road isolation is the primary score driver (15.0 pts, 94% of score)",
+        "Ranking factor: Blocked road access imposes maximum isolation penalty (+15.0 pts), elevating zone priority"
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              7.023175413598976,
+              50.516658260127805
+            ],
+            [
+              7.027517106883096,
+              50.516658260127805
+            ],
+            [
+              7.027517106883096,
+              50.51942638334059
+            ],
+            [
+              7.023175413598976,
+              50.51942638334059
+            ],
+            [
+              7.023175413598976,
+              50.516658260127805
+            ]
+          ]
+        ]
+      },
+      "score_breakdown": {
+        "score": 16,
+        "raw_score": 0.160405,
+        "score_basis": "full",
+        "omitted_components": [],
+        "components": {
+          "flood_percent": {
+            "raw_input": 0.59,
+            "unit": "%",
+            "normalized_value": 0.0197,
+            "weight": 0.35,
+            "weighted_contribution": 0.006883,
+            "points": 0.69,
+            "percentage_of_score": 4.3,
+            "omitted": false
+          },
+          "exposure": {
+            "raw_input": 0,
+            "unit": "buildings",
+            "normalized_value": 0,
+            "weight": 0.4,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          },
+          "isolation": {
+            "raw_input": "BLOCKED",
+            "unit": "status",
+            "normalized_value": 1,
+            "weight": 0.15,
+            "weighted_contribution": 0.15,
+            "points": 15,
+            "percentage_of_score": 93.5,
+            "omitted": false
+          },
+          "flood_area_density": {
+            "raw_input": 528.2,
+            "unit": "m²",
+            "normalized_value": 0.0352,
+            "weight": 0.1,
+            "weighted_contribution": 0.003521,
+            "points": 0.35,
+            "percentage_of_score": 2.2,
+            "omitted": false
+          },
+          "exposure_fraction": {
+            "raw_input": 0,
+            "unit": "ratio",
+            "normalized_value": 0,
+            "weight": 0,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          }
+        },
+        "reconciliation": {
+          "sum_weighted_contributions": 0.160404,
+          "sum_points": 16.04,
+          "computed_score": 16.0405,
+          "final_score": 16,
+          "rounding_difference": -0.04,
+          "reconciled": true,
+          "tolerance": 0.08
+        },
+        "primary_driver": "isolation",
+        "primary_driver_summary": "Road isolation is the primary score driver (15.0 pts, 94% of score)",
+        "influential_factors": [
+          "Road isolation: BLOCKED accessibility contributes 15.0 pts (94% of score)",
+          "Flood coverage: 0.6% inundated area contributes 0.7 pts (4% of score)",
+          "Flood extent area: 528 m² footprint contributes 0.3 pts (2% of score)"
+        ],
+        "ranking_factors": [
+          "Blocked road access imposes maximum isolation penalty (+15.0 pts), elevating zone priority"
+        ]
+      }
+    },
+    {
+      "zone_id": "zone-030",
+      "name": "Zone 030 (grid cell)",
+      "risk_level": "LOW",
+      "risk_score": 10.9,
+      "confidence": "HIGH",
+      "needs_verification": false,
+      "needs_survey": false,
+      "flooded_percent": 1.9,
+      "flooded_area_km2": 0.001711,
+      "exposed_buildings": 0,
+      "total_buildings": 18,
+      "accessibility": "LIMITED",
+      "isolation": {
+        "status": "PARTIAL",
+        "score": 0.5,
+        "weight": 0.15,
+        "weighted_contribution": 0.075,
+        "points": 7.5,
+        "percentage_of_score": 69.1,
+        "road_length_m": 749.1,
+        "flooded_road_length_m": 168.1,
+        "flooded_road_share": 0.2244,
+        "warnings": [],
+        "needs_verification": false
+      },
+      "reasons": [
+        "1.9% of zone area estimated as flooded (derived from labelled building/road extents)",
+        "0 of 18 buildings have a human-labelled 'flooded' tag",
+        "Zone roads are 22% flooded — partial road isolation penalty applied",
+        "Derived flood-extent area: 1711 m²",
+        "Primary score driver: Road isolation is the primary score driver (7.5 pts, 69% of score)",
+        "Ranking factor: Partial road access imposes intermediate isolation penalty (+7.5 pts), elevating zone priority"
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              7.035527358917049,
+              50.52496220573959
+            ],
+            [
+              7.03986915501885,
+              50.52496220573959
+            ],
+            [
+              7.03986915501885,
+              50.52772990483979
+            ],
+            [
+              7.035527358917049,
+              50.52772990483979
+            ],
+            [
+              7.035527358917049,
+              50.52496220573959
+            ]
+          ]
+        ]
+      },
+      "score_breakdown": {
+        "score": 10.9,
+        "raw_score": 0.108573,
+        "score_basis": "full",
+        "omitted_components": [],
+        "components": {
+          "flood_percent": {
+            "raw_input": 1.9,
+            "unit": "%",
+            "normalized_value": 0.0633,
+            "weight": 0.35,
+            "weighted_contribution": 0.022167,
+            "points": 2.22,
+            "percentage_of_score": 20.4,
+            "omitted": false
+          },
+          "exposure": {
+            "raw_input": 0,
+            "unit": "buildings",
+            "normalized_value": 0,
+            "weight": 0.4,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          },
+          "isolation": {
+            "raw_input": "PARTIAL",
+            "unit": "status",
+            "normalized_value": 0.5,
+            "weight": 0.15,
+            "weighted_contribution": 0.075,
+            "points": 7.5,
+            "percentage_of_score": 69.1,
+            "omitted": false
+          },
+          "flood_area_density": {
+            "raw_input": 1710.9,
+            "unit": "m²",
+            "normalized_value": 0.1141,
+            "weight": 0.1,
+            "weighted_contribution": 0.011406,
+            "points": 1.14,
+            "percentage_of_score": 10.5,
+            "omitted": false
+          },
+          "exposure_fraction": {
+            "raw_input": 0,
+            "unit": "ratio",
+            "normalized_value": 0,
+            "weight": 0,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          }
+        },
+        "reconciliation": {
+          "sum_weighted_contributions": 0.108573,
+          "sum_points": 10.86,
+          "computed_score": 10.8573,
+          "final_score": 10.9,
+          "rounding_difference": 0.04,
+          "reconciled": true,
+          "tolerance": 0.08
+        },
+        "primary_driver": "isolation",
+        "primary_driver_summary": "Road isolation is the primary score driver (7.5 pts, 69% of score)",
+        "influential_factors": [
+          "Road isolation: PARTIAL accessibility contributes 7.5 pts (69% of score)",
+          "Flood coverage: 1.9% inundated area contributes 2.2 pts (20% of score)",
+          "Flood extent area: 1,711 m² footprint contributes 1.1 pts (10% of score)"
+        ],
+        "ranking_factors": [
+          "Partial road access imposes intermediate isolation penalty (+7.5 pts), elevating zone priority"
+        ]
+      }
+    },
+    {
+      "zone_id": "zone-001",
+      "name": "Zone 001 (grid cell)",
+      "risk_level": "LOW",
+      "risk_score": 10.2,
+      "confidence": "HIGH",
+      "needs_verification": false,
+      "needs_survey": false,
+      "flooded_percent": 1.24,
+      "flooded_area_km2": 0.001114,
+      "exposed_buildings": 1,
+      "total_buildings": 12,
+      "accessibility": "LIMITED",
+      "isolation": {
+        "status": "PARTIAL",
+        "score": 0.5,
+        "weight": 0.15,
+        "weighted_contribution": 0.075,
+        "points": 7.5,
+        "percentage_of_score": 73.4,
+        "road_length_m": 371.7,
+        "flooded_road_length_m": 103.5,
+        "flooded_road_share": 0.2785,
+        "warnings": [],
+        "needs_verification": false
+      },
+      "reasons": [
+        "1.2% of zone area estimated as flooded (derived from labelled building/road extents)",
+        "1 of 12 buildings have a human-labelled 'flooded' tag",
+        "Zone roads are 28% flooded — partial road isolation penalty applied",
+        "Derived flood-extent area: 1114 m²",
+        "Primary score driver: Road isolation is the primary score driver (7.5 pts, 73% of score)",
+        "Ranking factor: Partial road access imposes intermediate isolation penalty (+7.5 pts), elevating zone priority"
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              7.031858318899586,
+              50.51140883995279
+            ],
+            [
+              7.036199049714956,
+              50.51140883995279
+            ],
+            [
+              7.036199049714956,
+              50.51417665898513
+            ],
+            [
+              7.031858318899586,
+              50.51417665898513
+            ],
+            [
+              7.031858318899586,
+              50.51140883995279
+            ]
+          ]
+        ]
+      },
+      "score_breakdown": {
+        "score": 10.2,
+        "raw_score": 0.102229,
+        "score_basis": "full",
+        "omitted_components": [],
+        "components": {
+          "flood_percent": {
+            "raw_input": 1.24,
+            "unit": "%",
+            "normalized_value": 0.0413,
+            "weight": 0.35,
+            "weighted_contribution": 0.014467,
+            "points": 1.45,
+            "percentage_of_score": 14.2,
+            "omitted": false
+          },
+          "exposure": {
+            "raw_input": 1,
+            "unit": "buildings",
+            "normalized_value": 0.0133,
+            "weight": 0.4,
+            "weighted_contribution": 0.005333,
+            "points": 0.53,
+            "percentage_of_score": 5.2,
+            "omitted": false
+          },
+          "isolation": {
+            "raw_input": "PARTIAL",
+            "unit": "status",
+            "normalized_value": 0.5,
+            "weight": 0.15,
+            "weighted_contribution": 0.075,
+            "points": 7.5,
+            "percentage_of_score": 73.4,
+            "omitted": false
+          },
+          "flood_area_density": {
+            "raw_input": 1114.4,
+            "unit": "m²",
+            "normalized_value": 0.0743,
+            "weight": 0.1,
+            "weighted_contribution": 0.007429,
+            "points": 0.74,
+            "percentage_of_score": 7.3,
+            "omitted": false
+          },
+          "exposure_fraction": {
+            "raw_input": 0.0833,
+            "unit": "ratio",
+            "normalized_value": 0.0833,
+            "weight": 0,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          }
+        },
+        "reconciliation": {
+          "sum_weighted_contributions": 0.102229,
+          "sum_points": 10.22,
+          "computed_score": 10.2229,
+          "final_score": 10.2,
+          "rounding_difference": -0.02,
+          "reconciled": true,
+          "tolerance": 0.08
+        },
+        "primary_driver": "isolation",
+        "primary_driver_summary": "Road isolation is the primary score driver (7.5 pts, 73% of score)",
+        "influential_factors": [
+          "Road isolation: PARTIAL accessibility contributes 7.5 pts (73% of score)",
+          "Flood coverage: 1.2% inundated area contributes 1.4 pts (14% of score)",
+          "Flood extent area: 1,114 m² footprint contributes 0.7 pts (7% of score)",
+          "Building exposure: 1 exposed buildings contribute 0.5 pts (5% of score)"
+        ],
+        "ranking_factors": [
+          "Partial road access imposes intermediate isolation penalty (+7.5 pts), elevating zone priority"
+        ]
+      }
+    },
+    {
+      "zone_id": "zone-006",
+      "name": "Zone 006 (grid cell)",
+      "risk_level": "LOW",
+      "risk_score": 8.8,
+      "confidence": "HIGH",
+      "needs_verification": false,
+      "needs_survey": false,
+      "flooded_percent": 0.76,
+      "flooded_area_km2": 0.00068,
+      "exposed_buildings": 0,
+      "total_buildings": 0,
+      "accessibility": "LIMITED",
+      "isolation": {
+        "status": "PARTIAL",
+        "score": 0.5,
+        "weight": 0.15,
+        "weighted_contribution": 0.075,
+        "points": 7.5,
+        "percentage_of_score": 84.8,
+        "road_length_m": 104.9,
+        "flooded_road_length_m": 61.2,
+        "flooded_road_share": 0.5834,
+        "warnings": [],
+        "needs_verification": false
+      },
+      "reasons": [
+        "0.8% of zone area estimated as flooded (derived from labelled building/road extents)",
+        "No buildings recorded in this zone",
+        "Zone roads are 58% flooded — partial road isolation penalty applied",
+        "Derived flood-extent area: 680 m²",
+        "Primary score driver: Road isolation is the primary score driver (7.5 pts, 85% of score)",
+        "Ranking factor: Partial road access imposes intermediate isolation penalty (+7.5 pts), elevating zone priority"
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              7.027517106883096,
+              50.514033634346525
+            ],
+            [
+              7.031858318899586,
+              50.514033634346525
+            ],
+            [
+              7.031858318899586,
+              50.51680160546291
+            ],
+            [
+              7.027517106883096,
+              50.51680160546291
+            ],
+            [
+              7.027517106883096,
+              50.514033634346525
+            ]
+          ]
+        ]
+      },
+      "score_breakdown": {
+        "score": 8.8,
+        "raw_score": 0.088399,
+        "score_basis": "full",
+        "omitted_components": [],
+        "components": {
+          "flood_percent": {
+            "raw_input": 0.76,
+            "unit": "%",
+            "normalized_value": 0.0253,
+            "weight": 0.35,
+            "weighted_contribution": 0.008867,
+            "points": 0.89,
+            "percentage_of_score": 10,
+            "omitted": false
+          },
+          "exposure": {
+            "raw_input": 0,
+            "unit": "buildings",
+            "normalized_value": 0,
+            "weight": 0.4,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          },
+          "isolation": {
+            "raw_input": "PARTIAL",
+            "unit": "status",
+            "normalized_value": 0.5,
+            "weight": 0.15,
+            "weighted_contribution": 0.075,
+            "points": 7.5,
+            "percentage_of_score": 84.8,
+            "omitted": false
+          },
+          "flood_area_density": {
+            "raw_input": 679.9,
+            "unit": "m²",
+            "normalized_value": 0.0453,
+            "weight": 0.1,
+            "weighted_contribution": 0.004533,
+            "points": 0.45,
+            "percentage_of_score": 5.1,
+            "omitted": false
+          },
+          "exposure_fraction": {
+            "raw_input": 0,
+            "unit": "ratio",
+            "normalized_value": 0,
+            "weight": 0,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          }
+        },
+        "reconciliation": {
+          "sum_weighted_contributions": 0.0884,
+          "sum_points": 8.84,
+          "computed_score": 8.8399,
+          "final_score": 8.8,
+          "rounding_difference": -0.04,
+          "reconciled": true,
+          "tolerance": 0.08
+        },
+        "primary_driver": "isolation",
+        "primary_driver_summary": "Road isolation is the primary score driver (7.5 pts, 85% of score)",
+        "influential_factors": [
+          "Road isolation: PARTIAL accessibility contributes 7.5 pts (85% of score)",
+          "Flood coverage: 0.8% inundated area contributes 0.9 pts (10% of score)",
+          "Flood extent area: 680 m² footprint contributes 0.5 pts (5% of score)"
+        ],
+        "ranking_factors": [
+          "Partial road access imposes intermediate isolation penalty (+7.5 pts), elevating zone priority"
+        ]
+      }
+    },
+    {
+      "zone_id": "zone-018",
+      "name": "Zone 018 (grid cell)",
+      "risk_level": "LOW",
+      "risk_score": 7.5,
+      "confidence": "MEDIUM",
+      "needs_verification": true,
+      "needs_survey": true,
+      "flooded_percent": 0,
+      "flooded_area_km2": 0,
+      "exposed_buildings": 0,
+      "total_buildings": 1,
+      "accessibility": "UNKNOWN",
+      "isolation": {
+        "status": "UNKNOWN",
+        "score": 0.5,
+        "weight": 0.15,
+        "weighted_contribution": 0.075,
+        "points": 7.5,
+        "percentage_of_score": 100,
+        "road_length_m": 0,
+        "flooded_road_length_m": 0,
+        "flooded_road_share": null,
+        "warnings": [
+          "accessibility=UNKNOWN: no road data; isolation status cannot be determined"
+        ],
+        "needs_verification": true
+      },
+      "reasons": [
+        "No derived flood coverage in this zone",
+        "0 of 1 buildings have a human-labelled 'flooded' tag",
+        "No road data for this zone — isolation status unknown (intermediate penalty applied)",
+        "Primary score driver: Road isolation is the primary score driver (7.5 pts, 100% of score)",
+        "Ranking factor: Unknown road accessibility applies provisional intermediate isolation penalty (+7.5 pts) pending field verification",
+        "VERIFICATION REQUIRED: Zone priority is LOW (7.5) but input data is incomplete (confidence: MEDIUM) — insufficient data must be verified rather than assumed safe"
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              7.023062734517453,
+              50.519354627069866
+            ],
+            [
+              7.027404685658257,
+              50.519354627069866
+            ],
+            [
+              7.027404685658257,
+              50.52212275568114
+            ],
+            [
+              7.023062734517453,
+              50.52212275568114
+            ],
+            [
+              7.023062734517453,
+              50.519354627069866
+            ]
+          ]
+        ]
+      },
+      "score_breakdown": {
+        "score": 7.5,
+        "raw_score": 0.075,
+        "score_basis": "full",
+        "omitted_components": [],
+        "components": {
+          "flood_percent": {
+            "raw_input": 0,
+            "unit": "%",
+            "normalized_value": 0,
+            "weight": 0.35,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          },
+          "exposure": {
+            "raw_input": 0,
+            "unit": "buildings",
+            "normalized_value": 0,
+            "weight": 0.4,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          },
+          "isolation": {
+            "raw_input": "UNKNOWN",
+            "unit": "status",
+            "normalized_value": 0.5,
+            "weight": 0.15,
+            "weighted_contribution": 0.075,
+            "points": 7.5,
+            "percentage_of_score": 100,
+            "omitted": false
+          },
+          "flood_area_density": {
+            "raw_input": 0,
+            "unit": "m²",
+            "normalized_value": 0,
+            "weight": 0.1,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          },
+          "exposure_fraction": {
+            "raw_input": 0,
+            "unit": "ratio",
+            "normalized_value": 0,
+            "weight": 0,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          }
+        },
+        "reconciliation": {
+          "sum_weighted_contributions": 0.075,
+          "sum_points": 7.5,
+          "computed_score": 7.5,
+          "final_score": 7.5,
+          "rounding_difference": 0,
+          "reconciled": true,
+          "tolerance": 0.08
+        },
+        "primary_driver": "isolation",
+        "primary_driver_summary": "Road isolation is the primary score driver (7.5 pts, 100% of score)",
+        "influential_factors": [
+          "Road isolation: UNKNOWN accessibility contributes 7.5 pts (100% of score)"
+        ],
+        "ranking_factors": [
+          "Unknown road accessibility applies provisional intermediate isolation penalty (+7.5 pts) pending field verification"
+        ]
+      }
+    },
+    {
+      "zone_id": "zone-033",
+      "name": "Zone 033 (grid cell)",
+      "risk_level": "LOW",
+      "risk_score": 7.5,
+      "confidence": "MEDIUM",
+      "needs_verification": true,
+      "needs_survey": true,
+      "flooded_percent": 0,
+      "flooded_area_km2": 0,
+      "exposed_buildings": 0,
+      "total_buildings": 2,
+      "accessibility": "UNKNOWN",
+      "isolation": {
+        "status": "UNKNOWN",
+        "score": 0.5,
+        "weight": 0.15,
+        "weighted_contribution": 0.075,
+        "points": 7.5,
+        "percentage_of_score": 100,
+        "road_length_m": 0,
+        "flooded_road_length_m": 0,
+        "flooded_road_share": null,
+        "warnings": [
+          "accessibility=UNKNOWN: no road data; isolation status cannot be determined"
+        ],
+        "needs_verification": true
+      },
+      "reasons": [
+        "No derived flood coverage in this zone",
+        "0 of 2 buildings have a human-labelled 'flooded' tag",
+        "No road data for this zone — isolation status unknown (intermediate penalty applied)",
+        "Primary score driver: Road isolation is the primary score driver (7.5 pts, 100% of score)",
+        "Ranking factor: Unknown road accessibility applies provisional intermediate isolation penalty (+7.5 pts) pending field verification",
+        "VERIFICATION REQUIRED: Zone priority is LOW (7.5) but input data is incomplete (confidence: MEDIUM) — insufficient data must be verified rather than assumed safe"
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              7.014264175641754,
+              50.52729970492616
+            ],
+            [
+              7.018607347707729,
+              50.52729970492616
+            ],
+            [
+              7.018607347707729,
+              50.53006814322484
+            ],
+            [
+              7.014264175641754,
+              50.53006814322484
+            ],
+            [
+              7.014264175641754,
+              50.52729970492616
+            ]
+          ]
+        ]
+      },
+      "score_breakdown": {
+        "score": 7.5,
+        "raw_score": 0.075,
+        "score_basis": "full",
+        "omitted_components": [],
+        "components": {
+          "flood_percent": {
+            "raw_input": 0,
+            "unit": "%",
+            "normalized_value": 0,
+            "weight": 0.35,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          },
+          "exposure": {
+            "raw_input": 0,
+            "unit": "buildings",
+            "normalized_value": 0,
+            "weight": 0.4,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          },
+          "isolation": {
+            "raw_input": "UNKNOWN",
+            "unit": "status",
+            "normalized_value": 0.5,
+            "weight": 0.15,
+            "weighted_contribution": 0.075,
+            "points": 7.5,
+            "percentage_of_score": 100,
+            "omitted": false
+          },
+          "flood_area_density": {
+            "raw_input": 0,
+            "unit": "m²",
+            "normalized_value": 0,
+            "weight": 0.1,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          },
+          "exposure_fraction": {
+            "raw_input": 0,
+            "unit": "ratio",
+            "normalized_value": 0,
+            "weight": 0,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          }
+        },
+        "reconciliation": {
+          "sum_weighted_contributions": 0.075,
+          "sum_points": 7.5,
+          "computed_score": 7.5,
+          "final_score": 7.5,
+          "rounding_difference": 0,
+          "reconciled": true,
+          "tolerance": 0.08
+        },
+        "primary_driver": "isolation",
+        "primary_driver_summary": "Road isolation is the primary score driver (7.5 pts, 100% of score)",
+        "influential_factors": [
+          "Road isolation: UNKNOWN accessibility contributes 7.5 pts (100% of score)"
+        ],
+        "ranking_factors": [
+          "Unknown road accessibility applies provisional intermediate isolation penalty (+7.5 pts) pending field verification"
+        ]
+      }
+    },
+    {
+      "zone_id": "zone-023",
+      "name": "Zone 023 (grid cell)",
+      "risk_level": "LOW",
+      "risk_score": 6.6,
+      "confidence": "HIGH",
+      "needs_verification": false,
+      "needs_survey": false,
+      "flooded_percent": 1.92,
+      "flooded_area_km2": 0.001728,
+      "exposed_buildings": 6,
+      "total_buildings": 111,
+      "accessibility": "OPEN",
+      "isolation": {
+        "status": "ACCESSIBLE",
+        "score": 0,
+        "weight": 0.15,
+        "weighted_contribution": 0,
+        "points": 0,
+        "percentage_of_score": 0,
+        "road_length_m": 859.2,
+        "flooded_road_length_m": 64.6,
+        "flooded_road_share": 0.0752,
+        "warnings": [],
+        "needs_verification": false
+      },
+      "reasons": [
+        "1.9% of zone area estimated as flooded (derived from labelled building/road extents)",
+        "6 of 111 buildings have a human-labelled 'flooded' tag",
+        "Roads in this zone are not significantly flooded",
+        "Derived flood-extent area: 1728 m²",
+        "Primary score driver: Building exposure is the primary score driver (3.2 pts, 48% of score)"
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              7.018720301969131,
+              50.52197907590405
+            ],
+            [
+              7.023062734517453,
+              50.52197907590405
+            ],
+            [
+              7.023062734517453,
+              50.52474735663864
+            ],
+            [
+              7.018720301969131,
+              50.52474735663864
+            ],
+            [
+              7.018720301969131,
+              50.52197907590405
+            ]
+          ]
+        ]
+      },
+      "score_breakdown": {
+        "score": 6.6,
+        "raw_score": 0.065921,
+        "score_basis": "full",
+        "omitted_components": [],
+        "components": {
+          "flood_percent": {
+            "raw_input": 1.92,
+            "unit": "%",
+            "normalized_value": 0.064,
+            "weight": 0.35,
+            "weighted_contribution": 0.0224,
+            "points": 2.24,
+            "percentage_of_score": 34,
+            "omitted": false
+          },
+          "exposure": {
+            "raw_input": 6,
+            "unit": "buildings",
+            "normalized_value": 0.08,
+            "weight": 0.4,
+            "weighted_contribution": 0.032,
+            "points": 3.2,
+            "percentage_of_score": 48.5,
+            "omitted": false
+          },
+          "isolation": {
+            "raw_input": "ACCESSIBLE",
+            "unit": "status",
+            "normalized_value": 0,
+            "weight": 0.15,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          },
+          "flood_area_density": {
+            "raw_input": 1728.1,
+            "unit": "m²",
+            "normalized_value": 0.1152,
+            "weight": 0.1,
+            "weighted_contribution": 0.011521,
+            "points": 1.15,
+            "percentage_of_score": 17.5,
+            "omitted": false
+          },
+          "exposure_fraction": {
+            "raw_input": 0.0541,
+            "unit": "ratio",
+            "normalized_value": 0.0541,
+            "weight": 0,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          }
+        },
+        "reconciliation": {
+          "sum_weighted_contributions": 0.065921,
+          "sum_points": 6.59,
+          "computed_score": 6.5921,
+          "final_score": 6.6,
+          "rounding_difference": 0.01,
+          "reconciled": true,
+          "tolerance": 0.08
+        },
+        "primary_driver": "exposure",
+        "primary_driver_summary": "Building exposure is the primary score driver (3.2 pts, 48% of score)",
+        "influential_factors": [
+          "Building exposure: 6 exposed buildings contribute 3.2 pts (48% of score)",
+          "Flood coverage: 1.9% inundated area contributes 2.2 pts (34% of score)",
+          "Flood extent area: 1,728 m² footprint contributes 1.1 pts (18% of score)"
+        ],
+        "ranking_factors": []
+      }
+    },
+    {
+      "zone_id": "zone-009",
+      "name": "Zone 009 (grid cell)",
+      "risk_level": "LOW",
+      "risk_score": 2.6,
+      "confidence": "HIGH",
+      "needs_verification": false,
+      "needs_survey": false,
+      "flooded_percent": 0.57,
+      "flooded_area_km2": 0.00051,
+      "exposed_buildings": 3,
+      "total_buildings": 36,
+      "accessibility": "OPEN",
+      "isolation": {
+        "status": "ACCESSIBLE",
+        "score": 0,
+        "weight": 0.15,
+        "weighted_contribution": 0,
+        "points": 0,
+        "percentage_of_score": 0,
+        "road_length_m": 912.4,
+        "flooded_road_length_m": 0,
+        "flooded_road_share": 0,
+        "warnings": [],
+        "needs_verification": false
+      },
+      "reasons": [
+        "0.6% of zone area estimated as flooded (derived from labelled building/road extents)",
+        "3 of 36 buildings have a human-labelled 'flooded' tag",
+        "Roads in this zone are not significantly flooded",
+        "Derived flood-extent area: 510 m²",
+        "Primary score driver: Building exposure is the primary score driver (1.6 pts, 61% of score)"
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              7.0147169211358245,
+              50.516514300662465
+            ],
+            [
+              7.019059061268224,
+              50.516514300662465
+            ],
+            [
+              7.019059061268224,
+              50.519282717251976
+            ],
+            [
+              7.0147169211358245,
+              50.519282717251976
+            ],
+            [
+              7.0147169211358245,
+              50.516514300662465
+            ]
+          ]
+        ]
+      },
+      "score_breakdown": {
+        "score": 2.6,
+        "raw_score": 0.026053,
+        "score_basis": "full",
+        "omitted_components": [],
+        "components": {
+          "flood_percent": {
+            "raw_input": 0.57,
+            "unit": "%",
+            "normalized_value": 0.019,
+            "weight": 0.35,
+            "weighted_contribution": 0.00665,
+            "points": 0.66,
+            "percentage_of_score": 25.5,
+            "omitted": false
+          },
+          "exposure": {
+            "raw_input": 3,
+            "unit": "buildings",
+            "normalized_value": 0.04,
+            "weight": 0.4,
+            "weighted_contribution": 0.016,
+            "points": 1.6,
+            "percentage_of_score": 61.4,
+            "omitted": false
+          },
+          "isolation": {
+            "raw_input": "ACCESSIBLE",
+            "unit": "status",
+            "normalized_value": 0,
+            "weight": 0.15,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          },
+          "flood_area_density": {
+            "raw_input": 510.5,
+            "unit": "m²",
+            "normalized_value": 0.034,
+            "weight": 0.1,
+            "weighted_contribution": 0.003403,
+            "points": 0.34,
+            "percentage_of_score": 13.1,
+            "omitted": false
+          },
+          "exposure_fraction": {
+            "raw_input": 0.0833,
+            "unit": "ratio",
+            "normalized_value": 0.0833,
+            "weight": 0,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          }
+        },
+        "reconciliation": {
+          "sum_weighted_contributions": 0.026053,
+          "sum_points": 2.6,
+          "computed_score": 2.6053,
+          "final_score": 2.6,
+          "rounding_difference": 0,
+          "reconciled": true,
+          "tolerance": 0.08
+        },
+        "primary_driver": "exposure",
+        "primary_driver_summary": "Building exposure is the primary score driver (1.6 pts, 61% of score)",
+        "influential_factors": [
+          "Building exposure: 3 exposed buildings contribute 1.6 pts (61% of score)",
+          "Flood coverage: 0.6% inundated area contributes 0.7 pts (26% of score)",
+          "Flood extent area: 510 m² footprint contributes 0.3 pts (13% of score)"
+        ],
+        "ranking_factors": []
+      }
+    },
+    {
+      "zone_id": "zone-020",
+      "name": "Zone 020 (grid cell)",
+      "risk_level": "LOW",
+      "risk_score": 1.9,
+      "confidence": "HIGH",
+      "needs_verification": false,
+      "needs_survey": false,
+      "flooded_percent": 1.05,
+      "flooded_area_km2": 0.00095,
+      "exposed_buildings": 0,
+      "total_buildings": 1,
+      "accessibility": "OPEN",
+      "isolation": {
+        "status": "ACCESSIBLE",
+        "score": 0,
+        "weight": 0.15,
+        "weighted_contribution": 0,
+        "points": 0,
+        "percentage_of_score": 0,
+        "road_length_m": 806.3,
+        "flooded_road_length_m": 80.2,
+        "flooded_road_share": 0.0995,
+        "warnings": [],
+        "needs_verification": false
+      },
+      "reasons": [
+        "1.1% of zone area estimated as flooded (derived from labelled building/road extents)",
+        "0 of 1 buildings have a human-labelled 'flooded' tag",
+        "Roads in this zone are not significantly flooded",
+        "Derived flood-extent area: 950 m²",
+        "Primary score driver: Flood coverage is the primary score driver (1.2 pts, 66% of score)"
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              7.0357513242389365,
+              50.519569435234594
+            ],
+            [
+              7.040092604706666,
+              50.519569435234594
+            ],
+            [
+              7.040092604706666,
+              50.52233712361859
+            ],
+            [
+              7.0357513242389365,
+              50.52233712361859
+            ],
+            [
+              7.0357513242389365,
+              50.519569435234594
+            ]
+          ]
+        ]
+      },
+      "score_breakdown": {
+        "score": 1.9,
+        "raw_score": 0.01858,
+        "score_basis": "full",
+        "omitted_components": [],
+        "components": {
+          "flood_percent": {
+            "raw_input": 1.05,
+            "unit": "%",
+            "normalized_value": 0.035,
+            "weight": 0.35,
+            "weighted_contribution": 0.01225,
+            "points": 1.23,
+            "percentage_of_score": 65.9,
+            "omitted": false
+          },
+          "exposure": {
+            "raw_input": 0,
+            "unit": "buildings",
+            "normalized_value": 0,
+            "weight": 0.4,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          },
+          "isolation": {
+            "raw_input": "ACCESSIBLE",
+            "unit": "status",
+            "normalized_value": 0,
+            "weight": 0.15,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          },
+          "flood_area_density": {
+            "raw_input": 949.5,
+            "unit": "m²",
+            "normalized_value": 0.0633,
+            "weight": 0.1,
+            "weighted_contribution": 0.00633,
+            "points": 0.63,
+            "percentage_of_score": 34.1,
+            "omitted": false
+          },
+          "exposure_fraction": {
+            "raw_input": 0,
+            "unit": "ratio",
+            "normalized_value": 0,
+            "weight": 0,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          }
+        },
+        "reconciliation": {
+          "sum_weighted_contributions": 0.01858,
+          "sum_points": 1.86,
+          "computed_score": 1.858,
+          "final_score": 1.9,
+          "rounding_difference": 0.04,
+          "reconciled": true,
+          "tolerance": 0.08
+        },
+        "primary_driver": "flood_percent",
+        "primary_driver_summary": "Flood coverage is the primary score driver (1.2 pts, 66% of score)",
+        "influential_factors": [
+          "Flood coverage: 1.1% inundated area contributes 1.2 pts (66% of score)",
+          "Flood extent area: 950 m² footprint contributes 0.6 pts (34% of score)"
+        ],
+        "ranking_factors": []
+      }
+    },
+    {
+      "zone_id": "zone-037",
+      "name": "Zone 037 (grid cell)",
+      "risk_level": "LOW",
+      "risk_score": 1.5,
+      "confidence": "HIGH",
+      "needs_verification": false,
+      "needs_survey": false,
+      "flooded_percent": 0.33,
+      "flooded_area_km2": 0.000118,
+      "exposed_buildings": 2,
+      "total_buildings": 25,
+      "accessibility": "OPEN",
+      "isolation": {
+        "status": "ACCESSIBLE",
+        "score": 0,
+        "weight": 0.15,
+        "weighted_contribution": 0,
+        "points": 0,
+        "percentage_of_score": 0,
+        "road_length_m": 381.6,
+        "flooded_road_length_m": 0,
+        "flooded_road_share": 0,
+        "warnings": [],
+        "needs_verification": false
+      },
+      "reasons": [
+        "0.3% of zone area estimated as flooded (derived from labelled building/road extents)",
+        "2 of 25 buildings have a human-labelled 'flooded' tag",
+        "Roads in this zone are not significantly flooded",
+        "Derived flood-extent area: 118 m²",
+        "Primary score driver: Building exposure is the primary score driver (1.1 pts, 70% of score)"
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              7.035370937152776,
+              50.53035497049997
+            ],
+            [
+              7.039645637065847,
+              50.53035497049997
+            ],
+            [
+              7.039645637065847,
+              50.53149534858758
+            ],
+            [
+              7.035370937152776,
+              50.53149534858758
+            ],
+            [
+              7.035370937152776,
+              50.53035497049997
+            ]
+          ]
+        ]
+      },
+      "score_breakdown": {
+        "score": 1.5,
+        "raw_score": 0.015302,
+        "score_basis": "full",
+        "omitted_components": [],
+        "components": {
+          "flood_percent": {
+            "raw_input": 0.33,
+            "unit": "%",
+            "normalized_value": 0.011,
+            "weight": 0.35,
+            "weighted_contribution": 0.00385,
+            "points": 0.39,
+            "percentage_of_score": 25.2,
+            "omitted": false
+          },
+          "exposure": {
+            "raw_input": 2,
+            "unit": "buildings",
+            "normalized_value": 0.0267,
+            "weight": 0.4,
+            "weighted_contribution": 0.010667,
+            "points": 1.07,
+            "percentage_of_score": 69.7,
+            "omitted": false
+          },
+          "isolation": {
+            "raw_input": "ACCESSIBLE",
+            "unit": "status",
+            "normalized_value": 0,
+            "weight": 0.15,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          },
+          "flood_area_density": {
+            "raw_input": 117.8,
+            "unit": "m²",
+            "normalized_value": 0.0079,
+            "weight": 0.1,
+            "weighted_contribution": 0.000785,
+            "points": 0.08,
+            "percentage_of_score": 5.1,
+            "omitted": false
+          },
+          "exposure_fraction": {
+            "raw_input": 0.08,
+            "unit": "ratio",
+            "normalized_value": 0.08,
+            "weight": 0,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          }
+        },
+        "reconciliation": {
+          "sum_weighted_contributions": 0.015302,
+          "sum_points": 1.54,
+          "computed_score": 1.5302,
+          "final_score": 1.5,
+          "rounding_difference": -0.04,
+          "reconciled": true,
+          "tolerance": 0.08
+        },
+        "primary_driver": "exposure",
+        "primary_driver_summary": "Building exposure is the primary score driver (1.1 pts, 70% of score)",
+        "influential_factors": [
+          "Building exposure: 2 exposed buildings contribute 1.1 pts (70% of score)",
+          "Flood coverage: 0.3% inundated area contributes 0.4 pts (25% of score)",
+          "Flood extent area: 118 m² footprint contributes 0.1 pts (5% of score)"
+        ],
+        "ranking_factors": []
+      }
+    },
+    {
+      "zone_id": "zone-024",
+      "name": "Zone 024 (grid cell)",
+      "risk_level": "LOW",
+      "risk_score": 1.5,
+      "confidence": "HIGH",
+      "needs_verification": false,
+      "needs_survey": false,
+      "flooded_percent": 0.24,
+      "flooded_area_km2": 0.000212,
+      "exposed_buildings": 2,
+      "total_buildings": 2,
+      "accessibility": "OPEN",
+      "isolation": {
+        "status": "ACCESSIBLE",
+        "score": 0,
+        "weight": 0.15,
+        "weighted_contribution": 0,
+        "points": 0,
+        "percentage_of_score": 0,
+        "road_length_m": 130.6,
+        "flooded_road_length_m": 10.8,
+        "flooded_road_share": 0.0827,
+        "warnings": [],
+        "needs_verification": false
+      },
+      "reasons": [
+        "0.2% of zone area estimated as flooded (derived from labelled building/road extents)",
+        "2 of 2 buildings have a human-labelled 'flooded' tag",
+        "Roads in this zone are not significantly flooded",
+        "Derived flood-extent area: 212 m²",
+        "Primary score driver: Building exposure is the primary score driver (1.1 pts, 72% of score)"
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              7.022950038226255,
+              50.52205099257349
+            ],
+            [
+              7.0272922472638655,
+              50.52205099257349
+            ],
+            [
+              7.0272922472638655,
+              50.524819126584
+            ],
+            [
+              7.022950038226255,
+              50.524819126584
+            ],
+            [
+              7.022950038226255,
+              50.52205099257349
+            ]
+          ]
+        ]
+      },
+      "score_breakdown": {
+        "score": 1.5,
+        "raw_score": 0.014879,
+        "score_basis": "full",
+        "omitted_components": [],
+        "components": {
+          "flood_percent": {
+            "raw_input": 0.24,
+            "unit": "%",
+            "normalized_value": 0.008,
+            "weight": 0.35,
+            "weighted_contribution": 0.0028,
+            "points": 0.28,
+            "percentage_of_score": 18.8,
+            "omitted": false
+          },
+          "exposure": {
+            "raw_input": 2,
+            "unit": "buildings",
+            "normalized_value": 0.0267,
+            "weight": 0.4,
+            "weighted_contribution": 0.010667,
+            "points": 1.07,
+            "percentage_of_score": 71.7,
+            "omitted": false
+          },
+          "isolation": {
+            "raw_input": "ACCESSIBLE",
+            "unit": "status",
+            "normalized_value": 0,
+            "weight": 0.15,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          },
+          "flood_area_density": {
+            "raw_input": 211.9,
+            "unit": "m²",
+            "normalized_value": 0.0141,
+            "weight": 0.1,
+            "weighted_contribution": 0.001413,
+            "points": 0.14,
+            "percentage_of_score": 9.5,
+            "omitted": false
+          },
+          "exposure_fraction": {
+            "raw_input": 1,
+            "unit": "ratio",
+            "normalized_value": 1,
+            "weight": 0,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          }
+        },
+        "reconciliation": {
+          "sum_weighted_contributions": 0.01488,
+          "sum_points": 1.49,
+          "computed_score": 1.4879,
+          "final_score": 1.5,
+          "rounding_difference": 0.01,
+          "reconciled": true,
+          "tolerance": 0.08
+        },
+        "primary_driver": "exposure",
+        "primary_driver_summary": "Building exposure is the primary score driver (1.1 pts, 72% of score)",
+        "influential_factors": [
+          "Building exposure: 2 exposed buildings contribute 1.1 pts (72% of score)",
+          "Flood coverage: 0.2% inundated area contributes 0.3 pts (19% of score)",
+          "Flood extent area: 212 m² footprint contributes 0.1 pts (10% of score)"
+        ],
+        "ranking_factors": []
+      }
+    },
+    {
+      "zone_id": "zone-004",
+      "name": "Zone 004 (grid cell)",
+      "risk_level": "LOW",
+      "risk_score": 0.5,
+      "confidence": "LOW",
+      "needs_verification": true,
+      "needs_survey": true,
+      "flooded_percent": 0,
+      "flooded_area_km2": 0.000001,
+      "exposed_buildings": 1,
+      "total_buildings": 3,
+      "accessibility": "OPEN",
+      "isolation": {
+        "status": "ACCESSIBLE",
+        "score": 0,
+        "weight": 0.15,
+        "weighted_contribution": 0,
+        "points": 0,
+        "percentage_of_score": 0,
+        "road_length_m": 356.8,
+        "flooded_road_length_m": 0,
+        "flooded_road_share": 0,
+        "warnings": [],
+        "needs_verification": false
+      },
+      "reasons": [
+        "No derived flood coverage in this zone",
+        "1 of 3 buildings have a human-labelled 'flooded' tag",
+        "Roads in this zone are not significantly flooded",
+        "Derived flood-extent area: 1 m²",
+        "Primary score driver: Building exposure is the primary score driver (0.5 pts, 100% of score)",
+        "VERIFICATION REQUIRED: Zone priority is LOW (0.5) but input data is contradictory (confidence: LOW) — insufficient data must be verified rather than assumed safe"
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              7.014830064301679,
+              50.51381794599654
+            ],
+            [
+              7.019171946551024,
+              50.51381794599654
+            ],
+            [
+              7.019171946551024,
+              50.51658635716067
+            ],
+            [
+              7.014830064301679,
+              50.51658635716067
+            ],
+            [
+              7.014830064301679,
+              50.51381794599654
+            ]
+          ]
+        ]
+      },
+      "score_breakdown": {
+        "score": 0.5,
+        "raw_score": 0.005339,
+        "score_basis": "full",
+        "omitted_components": [],
+        "components": {
+          "flood_percent": {
+            "raw_input": 0,
+            "unit": "%",
+            "normalized_value": 0,
+            "weight": 0.35,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          },
+          "exposure": {
+            "raw_input": 1,
+            "unit": "buildings",
+            "normalized_value": 0.0133,
+            "weight": 0.4,
+            "weighted_contribution": 0.005333,
+            "points": 0.53,
+            "percentage_of_score": 99.9,
+            "omitted": false
+          },
+          "isolation": {
+            "raw_input": "ACCESSIBLE",
+            "unit": "status",
+            "normalized_value": 0,
+            "weight": 0.15,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          },
+          "flood_area_density": {
+            "raw_input": 0.8,
+            "unit": "m²",
+            "normalized_value": 0.0001,
+            "weight": 0.1,
+            "weighted_contribution": 0.000005,
+            "points": 0,
+            "percentage_of_score": 0.1,
+            "omitted": false
+          },
+          "exposure_fraction": {
+            "raw_input": 0.3333,
+            "unit": "ratio",
+            "normalized_value": 0.3333,
+            "weight": 0,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          }
+        },
+        "reconciliation": {
+          "sum_weighted_contributions": 0.005338,
+          "sum_points": 0.53,
+          "computed_score": 0.5339,
+          "final_score": 0.5,
+          "rounding_difference": -0.03,
+          "reconciled": true,
+          "tolerance": 0.08
+        },
+        "primary_driver": "exposure",
+        "primary_driver_summary": "Building exposure is the primary score driver (0.5 pts, 100% of score)",
+        "influential_factors": [
+          "Building exposure: 1 exposed buildings contribute 0.5 pts (100% of score)",
+          "Flood extent area: 1 m² footprint contributes 0.0 pts (0% of score)"
+        ],
+        "ranking_factors": []
+      }
+    },
+    {
+      "zone_id": "zone-026",
+      "name": "Zone 026 (grid cell)",
+      "risk_level": "LOW",
+      "risk_score": 0.1,
+      "confidence": "HIGH",
+      "needs_verification": false,
+      "needs_survey": false,
+      "flooded_percent": 0.08,
+      "flooded_area_km2": 0.00007,
+      "exposed_buildings": 0,
+      "total_buildings": 17,
+      "accessibility": "OPEN",
+      "isolation": {
+        "status": "ACCESSIBLE",
+        "score": 0,
+        "weight": 0.15,
+        "weighted_contribution": 0,
+        "points": 0,
+        "percentage_of_score": 0,
+        "road_length_m": 422.7,
+        "flooded_road_length_m": 4.1,
+        "flooded_road_share": 0.0097,
+        "warnings": [],
+        "needs_verification": false
+      },
+      "reasons": [
+        "0.1% of zone area estimated as flooded (derived from labelled building/road extents)",
+        "0 of 17 buildings have a human-labelled 'flooded' tag",
+        "Roads in this zone are not significantly flooded",
+        "Derived flood-extent area: 70 m²",
+        "Primary score driver: Flood coverage is the primary score driver (0.1 pts, 67% of score)"
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              7.035639350129495,
+              50.52226582120516
+            ],
+            [
+              7.0399808883942026,
+              50.52226582120516
+            ],
+            [
+              7.0399808883942026,
+              50.52503351494688
+            ],
+            [
+              7.035639350129495,
+              50.52503351494688
+            ],
+            [
+              7.035639350129495,
+              50.52226582120516
+            ]
+          ]
+        ]
+      },
+      "score_breakdown": {
+        "score": 0.1,
+        "raw_score": 0.001398,
+        "score_basis": "full",
+        "omitted_components": [],
+        "components": {
+          "flood_percent": {
+            "raw_input": 0.08,
+            "unit": "%",
+            "normalized_value": 0.0027,
+            "weight": 0.35,
+            "weighted_contribution": 0.000933,
+            "points": 0.09,
+            "percentage_of_score": 66.8,
+            "omitted": false
+          },
+          "exposure": {
+            "raw_input": 0,
+            "unit": "buildings",
+            "normalized_value": 0,
+            "weight": 0.4,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          },
+          "isolation": {
+            "raw_input": "ACCESSIBLE",
+            "unit": "status",
+            "normalized_value": 0,
+            "weight": 0.15,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          },
+          "flood_area_density": {
+            "raw_input": 69.7,
+            "unit": "m²",
+            "normalized_value": 0.0046,
+            "weight": 0.1,
+            "weighted_contribution": 0.000465,
+            "points": 0.05,
+            "percentage_of_score": 33.2,
+            "omitted": false
+          },
+          "exposure_fraction": {
+            "raw_input": 0,
+            "unit": "ratio",
+            "normalized_value": 0,
+            "weight": 0,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          }
+        },
+        "reconciliation": {
+          "sum_weighted_contributions": 0.001398,
+          "sum_points": 0.14,
+          "computed_score": 0.1398,
+          "final_score": 0.1,
+          "rounding_difference": -0.04,
+          "reconciled": true,
+          "tolerance": 0.08
+        },
+        "primary_driver": "flood_percent",
+        "primary_driver_summary": "Flood coverage is the primary score driver (0.1 pts, 67% of score)",
+        "influential_factors": [
+          "Flood coverage: 0.1% inundated area contributes 0.1 pts (67% of score)",
+          "Flood extent area: 70 m² footprint contributes 0.1 pts (33% of score)"
+        ],
+        "ranking_factors": []
+      }
+    },
+    {
+      "zone_id": "zone-003",
+      "name": "Zone 003 (grid cell)",
+      "risk_level": "LOW",
+      "risk_score": 0,
+      "confidence": "HIGH",
+      "needs_verification": false,
+      "needs_survey": false,
+      "flooded_percent": 0,
+      "flooded_area_km2": 0,
+      "exposed_buildings": 0,
+      "total_buildings": 3,
+      "accessibility": "OPEN",
+      "isolation": {
+        "status": "ACCESSIBLE",
+        "score": 0,
+        "weight": 0.15,
+        "weighted_contribution": 0,
+        "points": 0,
+        "percentage_of_score": 0,
+        "road_length_m": 32.4,
+        "flooded_road_length_m": 0,
+        "flooded_road_share": 0,
+        "warnings": [],
+        "needs_verification": false
+      },
+      "reasons": [
+        "No derived flood coverage in this zone",
+        "0 of 3 buildings have a human-labelled 'flooded' tag",
+        "Roads in this zone are not significantly flooded"
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              7.0403159861565445,
+              50.511551543951896
+            ],
+            [
+              7.044656269935855,
+              50.511551543951896
+            ],
+            [
+              7.044656269935855,
+              50.514319069534146
+            ],
+            [
+              7.0403159861565445,
+              50.514319069534146
+            ],
+            [
+              7.0403159861565445,
+              50.511551543951896
+            ]
+          ]
+        ]
+      },
+      "score_breakdown": {
+        "score": 0,
+        "raw_score": 0,
+        "score_basis": "full",
+        "omitted_components": [],
+        "components": {
+          "flood_percent": {
+            "raw_input": 0,
+            "unit": "%",
+            "normalized_value": 0,
+            "weight": 0.35,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          },
+          "exposure": {
+            "raw_input": 0,
+            "unit": "buildings",
+            "normalized_value": 0,
+            "weight": 0.4,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          },
+          "isolation": {
+            "raw_input": "ACCESSIBLE",
+            "unit": "status",
+            "normalized_value": 0,
+            "weight": 0.15,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          },
+          "flood_area_density": {
+            "raw_input": 0,
+            "unit": "m²",
+            "normalized_value": 0,
+            "weight": 0.1,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          },
+          "exposure_fraction": {
+            "raw_input": 0,
+            "unit": "ratio",
+            "normalized_value": 0,
+            "weight": 0,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          }
+        },
+        "reconciliation": {
+          "sum_weighted_contributions": 0,
+          "sum_points": 0,
+          "computed_score": 0,
+          "final_score": 0,
+          "rounding_difference": 0,
+          "reconciled": true,
+          "tolerance": 0.08
+        },
+        "primary_driver": null,
+        "primary_driver_summary": "No flood impact or isolation factors contributing to risk score",
+        "influential_factors": [],
+        "ranking_factors": []
+      }
+    },
+    {
+      "zone_id": "zone-005",
+      "name": "Zone 005 (grid cell)",
+      "risk_level": "LOW",
+      "risk_score": 0,
+      "confidence": "HIGH",
+      "needs_verification": false,
+      "needs_survey": false,
+      "flooded_percent": 0,
+      "flooded_area_km2": 0,
+      "exposed_buildings": 0,
+      "total_buildings": 0,
+      "accessibility": "OPEN",
+      "isolation": {
+        "status": "ACCESSIBLE",
+        "score": 0,
+        "weight": 0.15,
+        "weighted_contribution": 0,
+        "points": 0,
+        "percentage_of_score": 0,
+        "road_length_m": 67.9,
+        "flooded_road_length_m": 0,
+        "flooded_road_share": 0,
+        "warnings": [],
+        "needs_verification": false
+      },
+      "reasons": [
+        "No derived flood coverage in this zone",
+        "No buildings recorded in this zone",
+        "Roads in this zone are not significantly flooded"
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              7.019059061268224,
+              50.513889995630166
+            ],
+            [
+              7.023400720146729,
+              50.513889995630166
+            ],
+            [
+              7.023400720146729,
+              50.516658260127805
+            ],
+            [
+              7.019059061268224,
+              50.516658260127805
+            ],
+            [
+              7.019059061268224,
+              50.513889995630166
+            ]
+          ]
+        ]
+      },
+      "score_breakdown": {
+        "score": 0,
+        "raw_score": 0,
+        "score_basis": "full",
+        "omitted_components": [],
+        "components": {
+          "flood_percent": {
+            "raw_input": 0,
+            "unit": "%",
+            "normalized_value": 0,
+            "weight": 0.35,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          },
+          "exposure": {
+            "raw_input": 0,
+            "unit": "buildings",
+            "normalized_value": 0,
+            "weight": 0.4,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          },
+          "isolation": {
+            "raw_input": "ACCESSIBLE",
+            "unit": "status",
+            "normalized_value": 0,
+            "weight": 0.15,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          },
+          "flood_area_density": {
+            "raw_input": 0,
+            "unit": "m²",
+            "normalized_value": 0,
+            "weight": 0.1,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          },
+          "exposure_fraction": {
+            "raw_input": 0,
+            "unit": "ratio",
+            "normalized_value": 0,
+            "weight": 0,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          }
+        },
+        "reconciliation": {
+          "sum_weighted_contributions": 0,
+          "sum_points": 0,
+          "computed_score": 0,
+          "final_score": 0,
+          "rounding_difference": 0,
+          "reconciled": true,
+          "tolerance": 0.08
+        },
+        "primary_driver": null,
+        "primary_driver_summary": "No flood impact or isolation factors contributing to risk score",
+        "influential_factors": [],
+        "ranking_factors": []
+      }
+    },
+    {
+      "zone_id": "zone-007",
+      "name": "Zone 007 (grid cell)",
+      "risk_level": "LOW",
+      "risk_score": 0,
+      "confidence": "HIGH",
+      "needs_verification": false,
+      "needs_survey": false,
+      "flooded_percent": 0,
+      "flooded_area_km2": 0,
+      "exposed_buildings": 0,
+      "total_buildings": 5,
+      "accessibility": "OPEN",
+      "isolation": {
+        "status": "ACCESSIBLE",
+        "score": 0,
+        "weight": 0.15,
+        "weighted_contribution": 0,
+        "points": 0,
+        "percentage_of_score": 0,
+        "road_length_m": 249,
+        "flooded_road_length_m": 0,
+        "flooded_road_share": 0,
+        "warnings": [],
+        "needs_verification": false
+      },
+      "reasons": [
+        "No derived flood coverage in this zone",
+        "0 of 5 buildings have a human-labelled 'flooded' tag",
+        "Roads in this zone are not significantly flooded"
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              7.031746155458061,
+              50.51410522342628
+            ],
+            [
+              7.036087143983389,
+              50.51410522342628
+            ],
+            [
+              7.036087143983389,
+              50.516873047827914
+            ],
+            [
+              7.031746155458061,
+              50.516873047827914
+            ],
+            [
+              7.031746155458061,
+              50.51410522342628
+            ]
+          ]
+        ]
+      },
+      "score_breakdown": {
+        "score": 0,
+        "raw_score": 0,
+        "score_basis": "full",
+        "omitted_components": [],
+        "components": {
+          "flood_percent": {
+            "raw_input": 0,
+            "unit": "%",
+            "normalized_value": 0,
+            "weight": 0.35,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          },
+          "exposure": {
+            "raw_input": 0,
+            "unit": "buildings",
+            "normalized_value": 0,
+            "weight": 0.4,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          },
+          "isolation": {
+            "raw_input": "ACCESSIBLE",
+            "unit": "status",
+            "normalized_value": 0,
+            "weight": 0.15,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          },
+          "flood_area_density": {
+            "raw_input": 0,
+            "unit": "m²",
+            "normalized_value": 0,
+            "weight": 0.1,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          },
+          "exposure_fraction": {
+            "raw_input": 0,
+            "unit": "ratio",
+            "normalized_value": 0,
+            "weight": 0,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          }
+        },
+        "reconciliation": {
+          "sum_weighted_contributions": 0,
+          "sum_points": 0,
+          "computed_score": 0,
+          "final_score": 0,
+          "rounding_difference": 0,
+          "reconciled": true,
+          "tolerance": 0.08
+        },
+        "primary_driver": null,
+        "primary_driver_summary": "No flood impact or isolation factors contributing to risk score",
+        "influential_factors": [],
+        "ranking_factors": []
+      }
+    },
+    {
+      "zone_id": "zone-013",
+      "name": "Zone 013 (grid cell)",
+      "risk_level": "LOW",
+      "risk_score": 0,
+      "confidence": "HIGH",
+      "needs_verification": false,
+      "needs_survey": false,
+      "flooded_percent": 0,
+      "flooded_area_km2": 0,
+      "exposed_buildings": 0,
+      "total_buildings": 0,
+      "accessibility": "OPEN",
+      "isolation": {
+        "status": "ACCESSIBLE",
+        "score": 0,
+        "weight": 0.15,
+        "weighted_contribution": 0,
+        "points": 0,
+        "percentage_of_score": 0,
+        "road_length_m": 521.5,
+        "flooded_road_length_m": 0,
+        "flooded_road_share": 0,
+        "warnings": [],
+        "needs_verification": false
+      },
+      "reasons": [
+        "No derived flood coverage in this zone",
+        "No buildings recorded in this zone",
+        "Roads in this zone are not significantly flooded"
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              7.031633974887092,
+              50.51680160546291
+            ],
+            [
+              7.035975221162471,
+              50.51680160546291
+            ],
+            [
+              7.035975221162471,
+              50.519569435234594
+            ],
+            [
+              7.031633974887092,
+              50.519569435234594
+            ],
+            [
+              7.031633974887092,
+              50.51680160546291
+            ]
+          ]
+        ]
+      },
+      "score_breakdown": {
+        "score": 0,
+        "raw_score": 0,
+        "score_basis": "full",
+        "omitted_components": [],
+        "components": {
+          "flood_percent": {
+            "raw_input": 0,
+            "unit": "%",
+            "normalized_value": 0,
+            "weight": 0.35,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          },
+          "exposure": {
+            "raw_input": 0,
+            "unit": "buildings",
+            "normalized_value": 0,
+            "weight": 0.4,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          },
+          "isolation": {
+            "raw_input": "ACCESSIBLE",
+            "unit": "status",
+            "normalized_value": 0,
+            "weight": 0.15,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          },
+          "flood_area_density": {
+            "raw_input": 0,
+            "unit": "m²",
+            "normalized_value": 0,
+            "weight": 0.1,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          },
+          "exposure_fraction": {
+            "raw_input": 0,
+            "unit": "ratio",
+            "normalized_value": 0,
+            "weight": 0,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          }
+        },
+        "reconciliation": {
+          "sum_weighted_contributions": 0,
+          "sum_points": 0,
+          "computed_score": 0,
+          "final_score": 0,
+          "rounding_difference": 0,
+          "reconciled": true,
+          "tolerance": 0.08
+        },
+        "primary_driver": null,
+        "primary_driver_summary": "No flood impact or isolation factors contributing to risk score",
+        "influential_factors": [],
+        "ranking_factors": []
+      }
+    },
+    {
+      "zone_id": "zone-015",
+      "name": "Zone 015 (grid cell)",
+      "risk_level": "LOW",
+      "risk_score": 0,
+      "confidence": "HIGH",
+      "needs_verification": false,
+      "needs_survey": false,
+      "flooded_percent": 0,
+      "flooded_area_km2": 0,
+      "exposed_buildings": 0,
+      "total_buildings": 0,
+      "accessibility": "OPEN",
+      "isolation": {
+        "status": "ACCESSIBLE",
+        "score": 0,
+        "weight": 0.15,
+        "weighted_contribution": 0,
+        "points": 0,
+        "percentage_of_score": 0,
+        "road_length_m": 135.8,
+        "flooded_road_length_m": 0,
+        "flooded_road_share": 0,
+        "warnings": [],
+        "needs_verification": false
+      },
+      "reasons": [
+        "No derived flood coverage in this zone",
+        "No buildings recorded in this zone",
+        "Roads in this zone are not significantly flooded"
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              7.040092604706666,
+              50.51694433665592
+            ],
+            [
+              7.044433403812896,
+              50.51694433665592
+            ],
+            [
+              7.044433403812896,
+              50.519711872922166
+            ],
+            [
+              7.040092604706666,
+              50.519711872922166
+            ],
+            [
+              7.040092604706666,
+              50.51694433665592
+            ]
+          ]
+        ]
+      },
+      "score_breakdown": {
+        "score": 0,
+        "raw_score": 0,
+        "score_basis": "full",
+        "omitted_components": [],
+        "components": {
+          "flood_percent": {
+            "raw_input": 0,
+            "unit": "%",
+            "normalized_value": 0,
+            "weight": 0.35,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          },
+          "exposure": {
+            "raw_input": 0,
+            "unit": "buildings",
+            "normalized_value": 0,
+            "weight": 0.4,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          },
+          "isolation": {
+            "raw_input": "ACCESSIBLE",
+            "unit": "status",
+            "normalized_value": 0,
+            "weight": 0.15,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          },
+          "flood_area_density": {
+            "raw_input": 0,
+            "unit": "m²",
+            "normalized_value": 0,
+            "weight": 0.1,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          },
+          "exposure_fraction": {
+            "raw_input": 0,
+            "unit": "ratio",
+            "normalized_value": 0,
+            "weight": 0,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          }
+        },
+        "reconciliation": {
+          "sum_weighted_contributions": 0,
+          "sum_points": 0,
+          "computed_score": 0,
+          "final_score": 0,
+          "rounding_difference": 0,
+          "reconciled": true,
+          "tolerance": 0.08
+        },
+        "primary_driver": null,
+        "primary_driver_summary": "No flood impact or isolation factors contributing to risk score",
+        "influential_factors": [],
+        "ranking_factors": []
+      }
+    },
+    {
+      "zone_id": "zone-016",
+      "name": "Zone 016 (grid cell)",
+      "risk_level": "LOW",
+      "risk_score": 0,
+      "confidence": "HIGH",
+      "needs_verification": false,
+      "needs_survey": false,
+      "flooded_percent": 0,
+      "flooded_area_km2": 0,
+      "exposed_buildings": 0,
+      "total_buildings": 75,
+      "accessibility": "OPEN",
+      "isolation": {
+        "status": "ACCESSIBLE",
+        "score": 0,
+        "weight": 0.15,
+        "weighted_contribution": 0,
+        "points": 0,
+        "percentage_of_score": 0,
+        "road_length_m": 579.3,
+        "flooded_road_length_m": 0,
+        "flooded_road_share": 0,
+        "warnings": [],
+        "needs_verification": false
+      },
+      "reasons": [
+        "No derived flood coverage in this zone",
+        "0 of 75 buildings have a human-labelled 'flooded' tag",
+        "Roads in this zone are not significantly flooded"
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              7.014603760690354,
+              50.5192106538884
+            ],
+            [
+              7.018946158745936,
+              50.5192106538884
+            ],
+            [
+              7.018946158745936,
+              50.52197907590405
+            ],
+            [
+              7.014603760690354,
+              50.52197907590405
+            ],
+            [
+              7.014603760690354,
+              50.5192106538884
+            ]
+          ]
+        ]
+      },
+      "score_breakdown": {
+        "score": 0,
+        "raw_score": 0,
+        "score_basis": "full",
+        "omitted_components": [],
+        "components": {
+          "flood_percent": {
+            "raw_input": 0,
+            "unit": "%",
+            "normalized_value": 0,
+            "weight": 0.35,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          },
+          "exposure": {
+            "raw_input": 0,
+            "unit": "buildings",
+            "normalized_value": 0,
+            "weight": 0.4,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          },
+          "isolation": {
+            "raw_input": "ACCESSIBLE",
+            "unit": "status",
+            "normalized_value": 0,
+            "weight": 0.15,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          },
+          "flood_area_density": {
+            "raw_input": 0,
+            "unit": "m²",
+            "normalized_value": 0,
+            "weight": 0.1,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          },
+          "exposure_fraction": {
+            "raw_input": 0,
+            "unit": "ratio",
+            "normalized_value": 0,
+            "weight": 0,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          }
+        },
+        "reconciliation": {
+          "sum_weighted_contributions": 0,
+          "sum_points": 0,
+          "computed_score": 0,
+          "final_score": 0,
+          "rounding_difference": 0,
+          "reconciled": true,
+          "tolerance": 0.08
+        },
+        "primary_driver": null,
+        "primary_driver_summary": "No flood impact or isolation factors contributing to risk score",
+        "influential_factors": [],
+        "ranking_factors": []
+      }
+    },
+    {
+      "zone_id": "zone-019",
+      "name": "Zone 019 (grid cell)",
+      "risk_level": "LOW",
+      "risk_score": 0,
+      "confidence": "HIGH",
+      "needs_verification": false,
+      "needs_survey": false,
+      "flooded_percent": 0,
+      "flooded_area_km2": 0,
+      "exposed_buildings": 0,
+      "total_buildings": 0,
+      "accessibility": "OPEN",
+      "isolation": {
+        "status": "ACCESSIBLE",
+        "score": 0,
+        "weight": 0.15,
+        "weighted_contribution": 0,
+        "points": 0,
+        "percentage_of_score": 0,
+        "road_length_m": 396.2,
+        "flooded_road_length_m": 0,
+        "flooded_road_share": 0,
+        "warnings": [],
+        "needs_verification": false
+      },
+      "reasons": [
+        "No derived flood coverage in this zone",
+        "No buildings recorded in this zone",
+        "Roads in this zone are not significantly flooded"
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              7.031521777183259,
+              50.51949798606265
+            ],
+            [
+              7.035863281248791,
+              50.51949798606265
+            ],
+            [
+              7.035863281248791,
+              50.52226582120516
+            ],
+            [
+              7.031521777183259,
+              50.52226582120516
+            ],
+            [
+              7.031521777183259,
+              50.51949798606265
+            ]
+          ]
+        ]
+      },
+      "score_breakdown": {
+        "score": 0,
+        "raw_score": 0,
+        "score_basis": "full",
+        "omitted_components": [],
+        "components": {
+          "flood_percent": {
+            "raw_input": 0,
+            "unit": "%",
+            "normalized_value": 0,
+            "weight": 0.35,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          },
+          "exposure": {
+            "raw_input": 0,
+            "unit": "buildings",
+            "normalized_value": 0,
+            "weight": 0.4,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          },
+          "isolation": {
+            "raw_input": "ACCESSIBLE",
+            "unit": "status",
+            "normalized_value": 0,
+            "weight": 0.15,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          },
+          "flood_area_density": {
+            "raw_input": 0,
+            "unit": "m²",
+            "normalized_value": 0,
+            "weight": 0.1,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          },
+          "exposure_fraction": {
+            "raw_input": 0,
+            "unit": "ratio",
+            "normalized_value": 0,
+            "weight": 0,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          }
+        },
+        "reconciliation": {
+          "sum_weighted_contributions": 0,
+          "sum_points": 0,
+          "computed_score": 0,
+          "final_score": 0,
+          "rounding_difference": 0,
+          "reconciled": true,
+          "tolerance": 0.08
+        },
+        "primary_driver": null,
+        "primary_driver_summary": "No flood impact or isolation factors contributing to risk score",
+        "influential_factors": [],
+        "ranking_factors": []
+      }
+    },
+    {
+      "zone_id": "zone-022",
+      "name": "Zone 022 (grid cell)",
+      "risk_level": "LOW",
+      "risk_score": 0,
+      "confidence": "HIGH",
+      "needs_verification": false,
+      "needs_survey": false,
+      "flooded_percent": 0,
+      "flooded_area_km2": 0,
+      "exposed_buildings": 0,
+      "total_buildings": 59,
+      "accessibility": "OPEN",
+      "isolation": {
+        "status": "ACCESSIBLE",
+        "score": 0,
+        "weight": 0.15,
+        "weighted_contribution": 0,
+        "points": 0,
+        "percentage_of_score": 0,
+        "road_length_m": 818.3,
+        "flooded_road_length_m": 0,
+        "flooded_road_share": 0,
+        "warnings": [],
+        "needs_verification": false
+      },
+      "reasons": [
+        "No derived flood coverage in this zone",
+        "0 of 59 buildings have a human-labelled 'flooded' tag",
+        "Roads in this zone are not significantly flooded"
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              7.014490582961821,
+              50.521907005674336
+            ],
+            [
+              7.0188332389807195,
+              50.521907005674336
+            ],
+            [
+              7.0188332389807195,
+              50.5246754331169
+            ],
+            [
+              7.014490582961821,
+              50.5246754331169
+            ],
+            [
+              7.014490582961821,
+              50.521907005674336
+            ]
+          ]
+        ]
+      },
+      "score_breakdown": {
+        "score": 0,
+        "raw_score": 0,
+        "score_basis": "full",
+        "omitted_components": [],
+        "components": {
+          "flood_percent": {
+            "raw_input": 0,
+            "unit": "%",
+            "normalized_value": 0,
+            "weight": 0.35,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          },
+          "exposure": {
+            "raw_input": 0,
+            "unit": "buildings",
+            "normalized_value": 0,
+            "weight": 0.4,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          },
+          "isolation": {
+            "raw_input": "ACCESSIBLE",
+            "unit": "status",
+            "normalized_value": 0,
+            "weight": 0.15,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          },
+          "flood_area_density": {
+            "raw_input": 0,
+            "unit": "m²",
+            "normalized_value": 0,
+            "weight": 0.1,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          },
+          "exposure_fraction": {
+            "raw_input": 0,
+            "unit": "ratio",
+            "normalized_value": 0,
+            "weight": 0,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          }
+        },
+        "reconciliation": {
+          "sum_weighted_contributions": 0,
+          "sum_points": 0,
+          "computed_score": 0,
+          "final_score": 0,
+          "rounding_difference": 0,
+          "reconciled": true,
+          "tolerance": 0.08
+        },
+        "primary_driver": null,
+        "primary_driver_summary": "No flood impact or isolation factors contributing to risk score",
+        "influential_factors": [],
+        "ranking_factors": []
+      }
+    },
+    {
+      "zone_id": "zone-025",
+      "name": "Zone 025 (grid cell)",
+      "risk_level": "LOW",
+      "risk_score": 0,
+      "confidence": "HIGH",
+      "needs_verification": false,
+      "needs_survey": false,
+      "flooded_percent": 0,
+      "flooded_area_km2": 0,
+      "exposed_buildings": 0,
+      "total_buildings": 0,
+      "accessibility": "OPEN",
+      "isolation": {
+        "status": "ACCESSIBLE",
+        "score": 0,
+        "weight": 0.15,
+        "weighted_contribution": 0,
+        "points": 0,
+        "percentage_of_score": 0,
+        "road_length_m": 166.8,
+        "flooded_road_length_m": 0,
+        "flooded_road_share": 0,
+        "warnings": [],
+        "needs_verification": false
+      },
+      "reasons": [
+        "No derived flood coverage in this zone",
+        "No buildings recorded in this zone",
+        "Roads in this zone are not significantly flooded"
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              7.031409562343139,
+              50.52219436522552
+            ],
+            [
+              7.0357513242389365,
+              50.52219436522552
+            ],
+            [
+              7.0357513242389365,
+              50.52496220573959
+            ],
+            [
+              7.031409562343139,
+              50.52496220573959
+            ],
+            [
+              7.031409562343139,
+              50.52219436522552
+            ]
+          ]
+        ]
+      },
+      "score_breakdown": {
+        "score": 0,
+        "raw_score": 0,
+        "score_basis": "full",
+        "omitted_components": [],
+        "components": {
+          "flood_percent": {
+            "raw_input": 0,
+            "unit": "%",
+            "normalized_value": 0,
+            "weight": 0.35,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          },
+          "exposure": {
+            "raw_input": 0,
+            "unit": "buildings",
+            "normalized_value": 0,
+            "weight": 0.4,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          },
+          "isolation": {
+            "raw_input": "ACCESSIBLE",
+            "unit": "status",
+            "normalized_value": 0,
+            "weight": 0.15,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          },
+          "flood_area_density": {
+            "raw_input": 0,
+            "unit": "m²",
+            "normalized_value": 0,
+            "weight": 0.1,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          },
+          "exposure_fraction": {
+            "raw_input": 0,
+            "unit": "ratio",
+            "normalized_value": 0,
+            "weight": 0,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          }
+        },
+        "reconciliation": {
+          "sum_weighted_contributions": 0,
+          "sum_points": 0,
+          "computed_score": 0,
+          "final_score": 0,
+          "rounding_difference": 0,
+          "reconciled": true,
+          "tolerance": 0.08
+        },
+        "primary_driver": null,
+        "primary_driver_summary": "No flood impact or isolation factors contributing to risk score",
+        "influential_factors": [],
+        "ranking_factors": []
+      }
+    },
+    {
+      "zone_id": "zone-028",
+      "name": "Zone 028 (grid cell)",
+      "risk_level": "LOW",
+      "risk_score": 0,
+      "confidence": "HIGH",
+      "needs_verification": false,
+      "needs_survey": false,
+      "flooded_percent": 0,
+      "flooded_area_km2": 0,
+      "exposed_buildings": 0,
+      "total_buildings": 35,
+      "accessibility": "OPEN",
+      "isolation": {
+        "status": "ACCESSIBLE",
+        "score": 0,
+        "weight": 0.15,
+        "weighted_contribution": 0,
+        "points": 0,
+        "percentage_of_score": 0,
+        "road_length_m": 627.3,
+        "flooded_road_length_m": 0,
+        "flooded_road_share": 0,
+        "warnings": [],
+        "needs_verification": false
+      },
+      "reasons": [
+        "No derived flood coverage in this zone",
+        "0 of 35 buildings have a human-labelled 'flooded' tag",
+        "Roads in this zone are not significantly flooded"
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              7.014377387946771,
+              50.524603356020265
+            ],
+            [
+              7.018720301969131,
+              50.524603356020265
+            ],
+            [
+              7.018720301969131,
+              50.5273717888905
+            ],
+            [
+              7.014377387946771,
+              50.5273717888905
+            ],
+            [
+              7.014377387946771,
+              50.524603356020265
+            ]
+          ]
+        ]
+      },
+      "score_breakdown": {
+        "score": 0,
+        "raw_score": 0,
+        "score_basis": "full",
+        "omitted_components": [],
+        "components": {
+          "flood_percent": {
+            "raw_input": 0,
+            "unit": "%",
+            "normalized_value": 0,
+            "weight": 0.35,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          },
+          "exposure": {
+            "raw_input": 0,
+            "unit": "buildings",
+            "normalized_value": 0,
+            "weight": 0.4,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          },
+          "isolation": {
+            "raw_input": "ACCESSIBLE",
+            "unit": "status",
+            "normalized_value": 0,
+            "weight": 0.15,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          },
+          "flood_area_density": {
+            "raw_input": 0,
+            "unit": "m²",
+            "normalized_value": 0,
+            "weight": 0.1,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          },
+          "exposure_fraction": {
+            "raw_input": 0,
+            "unit": "ratio",
+            "normalized_value": 0,
+            "weight": 0,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          }
+        },
+        "reconciliation": {
+          "sum_weighted_contributions": 0,
+          "sum_points": 0,
+          "computed_score": 0,
+          "final_score": 0,
+          "rounding_difference": 0,
+          "reconciled": true,
+          "tolerance": 0.08
+        },
+        "primary_driver": null,
+        "primary_driver_summary": "No flood impact or isolation factors contributing to risk score",
+        "influential_factors": [],
+        "ranking_factors": []
+      }
+    },
+    {
+      "zone_id": "zone-029",
+      "name": "Zone 029 (grid cell)",
+      "risk_level": "LOW",
+      "risk_score": 0,
+      "confidence": "HIGH",
+      "needs_verification": false,
+      "needs_survey": false,
+      "flooded_percent": 0,
+      "flooded_area_km2": 0,
+      "exposed_buildings": 0,
+      "total_buildings": 33,
+      "accessibility": "OPEN",
+      "isolation": {
+        "status": "ACCESSIBLE",
+        "score": 0,
+        "weight": 0.15,
+        "weighted_contribution": 0,
+        "points": 0,
+        "percentage_of_score": 0,
+        "road_length_m": 127,
+        "flooded_road_length_m": 0,
+        "flooded_road_share": 0,
+        "warnings": [],
+        "needs_verification": false
+      },
+      "reasons": [
+        "No derived flood coverage in this zone",
+        "0 of 33 buildings have a human-labelled 'flooded' tag",
+        "Roads in this zone are not significantly flooded"
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              7.018607347707729,
+              50.5246754331169
+            ],
+            [
+              7.022950038226255,
+              50.5246754331169
+            ],
+            [
+              7.022950038226255,
+              50.52744371926532
+            ],
+            [
+              7.018607347707729,
+              50.52744371926532
+            ],
+            [
+              7.018607347707729,
+              50.5246754331169
+            ]
+          ]
+        ]
+      },
+      "score_breakdown": {
+        "score": 0,
+        "raw_score": 0,
+        "score_basis": "full",
+        "omitted_components": [],
+        "components": {
+          "flood_percent": {
+            "raw_input": 0,
+            "unit": "%",
+            "normalized_value": 0,
+            "weight": 0.35,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          },
+          "exposure": {
+            "raw_input": 0,
+            "unit": "buildings",
+            "normalized_value": 0,
+            "weight": 0.4,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          },
+          "isolation": {
+            "raw_input": "ACCESSIBLE",
+            "unit": "status",
+            "normalized_value": 0,
+            "weight": 0.15,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          },
+          "flood_area_density": {
+            "raw_input": 0,
+            "unit": "m²",
+            "normalized_value": 0,
+            "weight": 0.1,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          },
+          "exposure_fraction": {
+            "raw_input": 0,
+            "unit": "ratio",
+            "normalized_value": 0,
+            "weight": 0,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          }
+        },
+        "reconciliation": {
+          "sum_weighted_contributions": 0,
+          "sum_points": 0,
+          "computed_score": 0,
+          "final_score": 0,
+          "rounding_difference": 0,
+          "reconciled": true,
+          "tolerance": 0.08
+        },
+        "primary_driver": null,
+        "primary_driver_summary": "No flood impact or isolation factors contributing to risk score",
+        "influential_factors": [],
+        "ranking_factors": []
+      }
+    },
+    {
+      "zone_id": "zone-032",
+      "name": "Zone 032 (grid cell)",
+      "risk_level": "LOW",
+      "risk_score": 0,
+      "confidence": "HIGH",
+      "needs_verification": false,
+      "needs_survey": false,
+      "flooded_percent": 0,
+      "flooded_area_km2": 0,
+      "exposed_buildings": 0,
+      "total_buildings": 0,
+      "accessibility": "OPEN",
+      "isolation": {
+        "status": "ACCESSIBLE",
+        "score": 0,
+        "weight": 0.15,
+        "weighted_contribution": 0,
+        "points": 0,
+        "percentage_of_score": 0,
+        "road_length_m": 16.7,
+        "flooded_road_length_m": 0,
+        "flooded_road_share": 0,
+        "warnings": [],
+        "needs_verification": false
+      },
+      "reasons": [
+        "No derived flood coverage in this zone",
+        "No buildings recorded in this zone",
+        "Roads in this zone are not significantly flooded"
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              7.043987467307057,
+              50.525104670571864
+            ],
+            [
+              7.044477608740789,
+              50.525104670571864
+            ],
+            [
+              7.044477608740789,
+              50.52780742983093
+            ],
+            [
+              7.043987467307057,
+              50.52780742983093
+            ],
+            [
+              7.043987467307057,
+              50.525104670571864
+            ]
+          ]
+        ]
+      },
+      "score_breakdown": {
+        "score": 0,
+        "raw_score": 0,
+        "score_basis": "full",
+        "omitted_components": [],
+        "components": {
+          "flood_percent": {
+            "raw_input": 0,
+            "unit": "%",
+            "normalized_value": 0,
+            "weight": 0.35,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          },
+          "exposure": {
+            "raw_input": 0,
+            "unit": "buildings",
+            "normalized_value": 0,
+            "weight": 0.4,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          },
+          "isolation": {
+            "raw_input": "ACCESSIBLE",
+            "unit": "status",
+            "normalized_value": 0,
+            "weight": 0.15,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          },
+          "flood_area_density": {
+            "raw_input": 0,
+            "unit": "m²",
+            "normalized_value": 0,
+            "weight": 0.1,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          },
+          "exposure_fraction": {
+            "raw_input": 0,
+            "unit": "ratio",
+            "normalized_value": 0,
+            "weight": 0,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          }
+        },
+        "reconciliation": {
+          "sum_weighted_contributions": 0,
+          "sum_points": 0,
+          "computed_score": 0,
+          "final_score": 0,
+          "rounding_difference": 0,
+          "reconciled": true,
+          "tolerance": 0.08
+        },
+        "primary_driver": null,
+        "primary_driver_summary": "No flood impact or isolation factors contributing to risk score",
+        "influential_factors": [],
+        "ranking_factors": []
+      }
+    },
+    {
+      "zone_id": "zone-034",
+      "name": "Zone 034 (grid cell)",
+      "risk_level": "LOW",
+      "risk_score": 0,
+      "confidence": "HIGH",
+      "needs_verification": false,
+      "needs_survey": false,
+      "flooded_percent": 0,
+      "flooded_area_km2": 0,
+      "exposed_buildings": 0,
+      "total_buildings": 3,
+      "accessibility": "OPEN",
+      "isolation": {
+        "status": "ACCESSIBLE",
+        "score": 0,
+        "weight": 0.15,
+        "weighted_contribution": 0,
+        "points": 0,
+        "percentage_of_score": 0,
+        "road_length_m": 175.5,
+        "flooded_road_length_m": 0,
+        "flooded_road_share": 0,
+        "warnings": [],
+        "needs_verification": false
+      },
+      "reasons": [
+        "No derived flood coverage in this zone",
+        "0 of 3 buildings have a human-labelled 'flooded' tag",
+        "Roads in this zone are not significantly flooded"
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              7.022724594001081,
+              50.52744371926532
+            ],
+            [
+              7.02706731895271,
+              50.52744371926532
+            ],
+            [
+              7.02706731895271,
+              50.530211864076605
+            ],
+            [
+              7.022724594001081,
+              50.530211864076605
+            ],
+            [
+              7.022724594001081,
+              50.52744371926532
+            ]
+          ]
+        ]
+      },
+      "score_breakdown": {
+        "score": 0,
+        "raw_score": 0,
+        "score_basis": "full",
+        "omitted_components": [],
+        "components": {
+          "flood_percent": {
+            "raw_input": 0,
+            "unit": "%",
+            "normalized_value": 0,
+            "weight": 0.35,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          },
+          "exposure": {
+            "raw_input": 0,
+            "unit": "buildings",
+            "normalized_value": 0,
+            "weight": 0.4,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          },
+          "isolation": {
+            "raw_input": "ACCESSIBLE",
+            "unit": "status",
+            "normalized_value": 0,
+            "weight": 0.15,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          },
+          "flood_area_density": {
+            "raw_input": 0,
+            "unit": "m²",
+            "normalized_value": 0,
+            "weight": 0.1,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          },
+          "exposure_fraction": {
+            "raw_input": 0,
+            "unit": "ratio",
+            "normalized_value": 0,
+            "weight": 0,
+            "weighted_contribution": 0,
+            "points": 0,
+            "percentage_of_score": 0,
+            "omitted": false
+          }
+        },
+        "reconciliation": {
+          "sum_weighted_contributions": 0,
+          "sum_points": 0,
+          "computed_score": 0,
+          "final_score": 0,
+          "rounding_difference": 0,
+          "reconciled": true,
+          "tolerance": 0.08
+        },
+        "primary_driver": null,
+        "primary_driver_summary": "No flood impact or isolation factors contributing to risk score",
+        "influential_factors": [],
+        "ranking_factors": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "method": "Ground truth per tile = any labelled building/road feature in that tile has flooded == 'yes' (from {input}/annotations/{tile}.geojson, same source as the main processor pipeline). Tiles with no building/road features are excluded. Confidence-aware scoring: tiles where the AI reported confidence == 'low' are excluded from accuracy/TP/TN/FP/FN as an honest 'uncertain', scored separately.",
+  "tiles_total_in_aoi": 1,
+  "tiles_compared": 1,
+  "tiles_skipped_no_ground_truth_features": [],
+  "tiles_skipped_no_prediction": [],
+  "tiles_skipped_prediction_error": [],
+  "accuracy": 1.0,
+  "confusion": {
+    "true_positive_flooded_correctly_caught": 0,
+    "true_negative_dry_correctly_identified": 1,
+    "false_positive_false_alarm": 0,
+    "false_negative_flooded_missed": 0
+  },
+  "flat_accuracy": 1.0,
+  "flat_confusion": {
+    "true_positive_flooded_correctly_caught": 0,
+    "true_negative_dry_correctly_identified": 1,
+    "false_positive_false_alarm": 0,
+    "false_negative_flooded_missed": 0
+  },
+  "confident_tiles_scored": 1,
+  "confident_accuracy": 1.0,
+  "confident_confusion": {
+    "true_positive_flooded_correctly_caught": 0,
+    "true_negative_dry_correctly_identified": 1,
+    "false_positive_false_alarm": 0,
+    "false_negative_flooded_missed": 0
+  },
+  "uncertain_tile_count": 0,
+  "uncertain_tile_ids": [],
+  "per_tile": {
+    "2_23_42": {
+      "ground_truth_flooded": false,
+      "ai_predicted_flooded": false,
+      "confidence": "high",
+      "reasoning": "The POST-event image is completely obscured by thick clouds, making it impossible to visually observe the ground or detect any flood damage.",
+      "category": "CONFIDENT",
+      "bbox": [
+        -90.08553068272339,
+        29.769578394949086,
+        -90.07989924402005,
+        29.774004289165283
+      ]
+    }
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "2_15_44": {
+    "flood_damage_detected": false,
+    "confidence": "medium",
+    "reasoning": "Flooded area is 0.0% before and 0.0% after, only 0.0% newly inundated, below the 0.1% threshold.",
+    "model": "segformer-b0-checkpoint-joint",
+    "metrics": {
+      "pre_flood_fraction": 0.0,
+      "post_flood_fraction": 0.0,
+      "new_flood_fraction": 0.0
+    }
+  },
+  "2_15_46": {
+    "flood_damage_detected": true,
+    "confidence": "high",
+    "reasoning": "A large, highly reflective flooded field and waterlogged muddy areas are visible in the POST-event image, replacing the dry green fields and vegetation seen in the PRE-event image.",
+    "model": "dots-studio/dots-3-note-preview:free",
+    "metrics": {
+      "pre_flood_fraction": 0.0,
+      "post_flood_fraction": 0.15,
+      "new_flood_fraction": 0.15
+    }
+  },
+  "2_16_45": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "The POST-event image is completely obscured by thick clouds, making it impossible to observe any ground-level flood damage or water intrusion.",
+    "model": "dots-studio/dots-3-note-preview:free",
+    "metrics": {
+      "pre_flood_fraction": 0.0,
+      "post_flood_fraction": 0.0,
+      "new_flood_fraction": 0.0
+    }
+  },
+  "2_16_44": {
+    "flood_damage_detected": false,
+    "confidence": "medium",
+    "reasoning": "Flooded area is 0.0% before and 0.0% after, only 0.0% newly inundated, below the 0.1% threshold.",
+    "model": "segformer-b0-checkpoint-joint",
+    "metrics": {
+      "pre_flood_fraction": 0.0,
+      "post_flood_fraction": 0.0,
+      "new_flood_fraction": 0.0
+    }
+  },
+  "2_15_45": {
+    "flood_damage_detected": false,
+    "confidence": "low",
+    "reasoning": "The POST-event image is heavily obscured by thick cloud cover, making it impossible to clearly observe any specific flood damage or water intrusion on the ground.",
+    "model": "dots-studio/dots-3-note-preview:free",
+    "metrics": {
+      "pre_flood_fraction": 0.0,
+      "post_flood_fraction": 0.0,
+      "new_flood_fraction": 0.0
+    }
+  }
+}

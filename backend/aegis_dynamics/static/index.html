@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AegisDynamics | Self-Supervised Cyber Defense SOC Command Center</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.ico">
+  
+  <!-- Fonts: Inter for UI hierarchy & IBM Plex Mono for telemetry -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Chart.js & Lucide Icons -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <link rel="stylesheet" href="/static/style.css?v=3.2.1">
+</head>
+<body class="theme-dark">
+  <!-- Top Global Header -->
+  <header class="top-nav">
+    <div class="nav-left">
+      <div class="logo-mark">
+        <span class="logo-symbol">🛡️</span>
+        <span class="logo-text">AEGIS<strong>DYNAMICS</strong></span>
+      </div>
+      <span class="version-tag">SIH26153 v3.0</span>
+      <div class="sys-status-badge status-operational">
+        <span class="pulse-dot"></span>
+        <span>PRODUCTION ACTIVE</span>
+      </div>
+    </div>
+
+    <div class="nav-center">
+      <div class="nav-telemetry-meta">
+        <div class="nav-pill">
+          <span>Subnet:</span>
+          <span class="val mono">192.168.10.0/24</span>
+        </div>
+        <div class="nav-pill">
+          <span>Crown Jewels:</span>
+          <span class="val mono">.50 / .51</span>
+        </div>
+        <div class="nav-pill">
+          <span>Threshold e₉₅:</span>
+          <span class="val mono" id="headerE95">1.27547</span>
+        </div>
+        <div class="nav-pill">
+          <span>Calibrated γ:</span>
+          <span class="val mono" id="headerGamma">0.08261</span>
+        </div>
+        <div class="nav-pill">
+          <span>Conformal q₉₉:</span>
+          <span class="val mono text-sky" id="headerQ99">2.1400</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav-right">
+      <div class="dataset-picker-wrap">
+        <label for="datasetSelect" class="lbl">Scenario Replay:</label>
+        <select id="datasetSelect" class="dataset-select">
+          <option value="dos_slowloris">Feb 15: DoS GoldenEye / Slowloris</option>
+          <option value="ssh_brute_force">Feb 14: SSH / FTP Brute Force</option>
+          <option value="infiltration">Mar 01: Infiltration & Lateral Movement</option>
+          <option value="botnet_c2">Mar 02: Botnet C2 Beaconing</option>
+        </select>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Grid Layout -->
+  <main class="soc-layout">
+    
+    <!-- Row 1: Playback Controller & Global Timeline Scrubber -->
+    <section class="playback-bar">
+      <div class="playback-controls">
+        <button id="btnPrev" class="ctrl-btn" title="Previous Window"><i data-lucide="skip-back"></i></button>
+        <button id="btnPlay" class="ctrl-btn btn-primary" title="Play / Pause (Space)"><i data-lucide="play"></i></button>
+        <button id="btnNext" class="ctrl-btn" title="Next Window"><i data-lucide="skip-forward"></i></button>
+        <div class="speed-toggle">
+          <button class="speed-btn active" data-speed="1">1x</button>
+          <button class="speed-btn" data-speed="2">2x</button>
+          <button class="speed-btn" data-speed="5">5x</button>
+        </div>
+      </div>
+
+      <div class="scrubber-container">
+        <div class="scrubber-meta">
+          <span>Window <strong id="currentWindowIdx" class="mono">0</strong> of <span id="totalWindowsCount" class="mono">758</span> (60s sliding / 15s step)</span>
+          <span class="mono" id="currentTimestamp">T = 15/02/2018 10:15:30 UTC</span>
+        </div>
+        <input type="range" id="timelineScrubber" min="0" max="100" value="0" class="slider-timeline">
+      </div>
+
+      <div class="playback-stats">
+        <div class="stat-mini">
+          <span class="lbl">Ground Truth</span>
+          <span class="val mono text-emerald" id="groundTruthLabel">NORMAL</span>
+        </div>
+        <div class="stat-mini">
+          <span class="lbl">Rollout Horizon</span>
+          <span class="val mono">+75s Forward</span>
+        </div>
+      </div>
+
+      <div class="export-btn-group">
+        <button id="btnExportJson" class="ctrl-btn" title="Download Machine-Readable Incident JSON"><i data-lucide="download"></i> JSON</button>
+        <button id="btnExportStix" class="ctrl-btn" title="Download OASIS STIX 2.1 Threat Intel Bundle"><i data-lucide="shield"></i> STIX 2.1</button>
+        <button id="btnExportSigma" class="ctrl-btn" title="Download SIEM Sigma Detection Rule YAML"><i data-lucide="code"></i> Sigma</button>
+        <button id="btnPrintDossier" class="ctrl-btn btn-primary" title="Printable Incident Forensic Dossier"><i data-lucide="file-text"></i> PDF Dossier</button>
+      </div>
+    </section>
+
+    <!-- Row 2: Tactical State Cards -->
+    <div class="tactical-grid">
+      <!-- Card 1: Spatiotemporal Cross-Momentum & Threat Probability -->
+      <div class="soc-card risk-card" id="riskCard">
+        <div class="card-header">
+          <div class="header-title">
+            <i data-lucide="activity" class="card-icon"></i>
+            <span>Spatiotemporal Cross-Momentum (M_ST)</span>
+          </div>
+          <span class="badge-threat badge-nominal" id="threatBadge">NOMINAL</span>
+        </div>
+        
+        <div class="risk-meter-container">
+          <div class="risk-readout-main">
+            <div class="risk-val-giant" id="riskPercent">0.8%</div>
+            <div class="risk-subtext mono" id="riskSubtext">Calibrated Risk_ST [0.0 - 1.0]</div>
+          </div>
+          <div class="risk-bar-track">
+            <div class="risk-bar-fill" id="riskBarFill" style="width: 1%;"></div>
+          </div>
+          <div class="risk-threshold-markers">
+            <span>0% Nominal</span>
+            <span class="text-amber">e₉₅ Alert (10.0%)</span>
+            <span class="text-crimson">Critical (45.0%)</span>
+          </div>
+        </div>
+
+        <div class="threat-context-box">
+          <div class="t-meta-row">
+            <span class="t-lbl">Cross-Momentum M_ST</span>
+            <strong class="mono" id="currentMst">0.1775</strong>
+          </div>
+          <div class="t-meta-row">
+            <span class="t-lbl">Residual Error e(t+1)</span>
+            <strong class="mono" id="currentResidual">0.1775</strong>
+          </div>
+          <div class="t-meta-row">
+            <span class="t-lbl">Decision State</span>
+            <strong class="mono text-emerald" id="decisionState">BASELINE (≤ e₉₅)</strong>
+          </div>
+          <div class="t-meta-row">
+            <span class="t-lbl">Conformal Epistemic</span>
+            <strong class="mono text-sky" id="conformalStatus">NOMINAL (≤ q₉₀)</strong>
+          </div>
+          <div class="t-meta-row">
+            <span class="t-lbl">Flagged Attacker</span>
+            <strong class="mono" id="targetAttackerIp">192.168.10.110</strong>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: MITRE ATT&CK Matrix Trajectory -->
+      <div class="soc-card">
+        <div class="card-header">
+          <div class="header-title">
+            <i data-lucide="shield-alert" class="card-icon"></i>
+            <span>MITRE ATT&CK Stage Progression</span>
+          </div>
+          <span class="badge-threat badge-nominal mono" id="predictedStageTag">Normal</span>
+        </div>
+        <div class="mitre-body">
+          <div class="mitre-stage-pills">
+            <div class="mitre-pill active" id="stageNormal">
+              <span>Normal Baseline</span>
+              <span class="mitre-order">T0000</span>
+            </div>
+            <div class="mitre-pill" id="stageRecon">
+              <span>Reconnaissance</span>
+              <span class="mitre-order">T1046</span>
+            </div>
+            <div class="mitre-pill" id="stageAccess">
+              <span>Initial Access / Brute Force</span>
+              <span class="mitre-order">T1110</span>
+            </div>
+            <div class="mitre-pill" id="stageLateral">
+              <span>Lateral Movement & Infiltration</span>
+              <span class="mitre-order">T1068</span>
+            </div>
+            <div class="mitre-pill" id="stageImpact">
+              <span>Impact & Service Disruption</span>
+              <span class="mitre-order">T1498</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3: Enterprise Policy & Compliance -->
+      <div class="soc-card">
+        <div class="card-header">
+          <div class="header-title">
+            <i data-lucide="lock" class="card-icon"></i>
+            <span>Enterprise Policy & Topology</span>
+          </div>
+          <span class="badge-threat badge-nominal mono" id="policyStatus">COMPLIANT</span>
+        </div>
+        <div class="policy-body">
+          <div class="policy-metric-row">
+            <div>
+              <div class="p-lbl">Unallowed Port Ratio</div>
+              <div class="text-dim" style="font-size: 10px;">Allowed: 80, 443, 53, 445, 3389</div>
+            </div>
+            <div class="p-val mono text-emerald" id="unallowedPortVal">0.0%</div>
+          </div>
+          <div class="policy-metric-row">
+            <div>
+              <div class="p-lbl">Destination Port Entropy (H)</div>
+              <div class="text-dim" style="font-size: 10px;">Shannon Index [0 - 4.5]</div>
+            </div>
+            <div class="p-val mono text-main" id="portEntropyVal">0.000</div>
+          </div>
+          <div class="policy-metric-row">
+            <div>
+              <div class="p-lbl">Protected Subnet Scope</div>
+              <div class="text-dim" style="font-size: 10px;">Enforced Gateway Boundary</div>
+            </div>
+            <div class="p-val mono text-secondary">192.168.10.0/24</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Row 3: Autoregressive K-Step Forward Rollout & Network Graph -->
+    <div class="mid-grid">
+      <!-- Panel 1: Autoregressive K-Step Forward Rollout Simulation -->
+      <div class="soc-card">
+        <div class="card-header">
+          <div class="header-title">
+            <i data-lucide="fast-forward" class="card-icon"></i>
+            <span>Autoregressive K-Step Forward Rollout (+15s to +75s Future Projection)</span>
+          </div>
+          <div style="display: flex; gap: 8px; align-items: center;">
+            <button id="btnSimulateMitigation" class="ctrl-btn" style="padding: 2px 8px; font-size: 11px; height: 24px; border: 1px solid #0284c7; color: #38bdf8;" title="Toggle Counterfactual SOAR Quarantine Mitigation">
+              <i data-lucide="shield-check"></i> <span id="mitigationBtnText">Simulate SOAR Mitigation</span>
+            </button>
+            <span class="version-tag mono" id="rolloutModeTag">Status Quo</span>
+          </div>
+        </div>
+        <div class="rollout-steps-grid" id="rolloutStepsGrid">
+          <!-- Rollout cards injected via JS -->
+        </div>
+      </div>
+
+      <!-- Panel 2: Tier 2 Dynamic Network Topology & Graph Laplacian -->
+      <div class="soc-card" id="networkGraphPanel">
+        <div class="card-header">
+          <div class="header-title">
+            <i data-lucide="share-2" class="card-icon"></i>
+            <span>Dynamic Network Topology & Spectral Graph</span>
+          </div>
+          <span class="version-tag mono" id="graphNodesCount">12 Nodes Active</span>
+        </div>
+        <div class="graph-container">
+          <div class="graph-canvas-wrap">
+            <canvas id="networkCanvas"></canvas>
+          </div>
+          <div class="graph-stats-row">
+            <span>Algebraic Connectivity λ₂: <strong class="mono" id="graphLambda2">0.7150</strong></span>
+            <span>Topological Velocity (dλ/dt): <strong class="mono text-amber" id="graphTopoVelocity">0.0000</strong></span>
+            <span>Spectral Gap (λₙ - λ₂): <strong class="mono" id="graphSpectralGap">43.56</strong></span>
+            <span>Von Neumann Entropy S_VN: <strong class="mono text-sky" id="graphVnEntropy">0.0000</strong></span>
+            <span>Curvature: <strong class="mono text-emerald" id="graphCurvature">0.0000</strong></span>
+            <span>Anomalous Edges: <strong class="mono text-emerald" id="graphAnomEdges">0</strong></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Row 4: Diagnostic Time-Series & Feature Attributions -->
+    <div class="bottom-grid">
+      <div class="soc-card">
+        <div class="card-header">
+          <div class="header-title">
+            <i data-lucide="trending-up" class="card-icon"></i>
+            <span>Temporal Residual Error Stream e(t+1)</span>
+          </div>
+          <span class="version-tag mono">Out-of-Time Windowing</span>
+        </div>
+        <div class="chart-wrapper">
+          <canvas id="residualChart"></canvas>
+        </div>
+      </div>
+
+      <div class="soc-card">
+        <div class="card-header">
+          <div class="header-title">
+            <i data-lucide="bar-chart-2" class="card-icon"></i>
+            <span>Feature Attributions (True SHAP KernelExplainer)</span>
+          </div>
+          <span class="version-tag mono" id="topShapDriver">Top: flow_duration_mean</span>
+        </div>
+        <div class="chart-wrapper">
+          <canvas id="shapChart"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <!-- Row 5: 14-D Telemetry State Vector vs World Model Predictions -->
+    <div class="soc-card">
+      <div class="card-header">
+        <div class="header-title">
+          <i data-lucide="table" class="card-icon"></i>
+          <span>14-Dimensional Telemetry State Vector vs Predicted Next State S_{t+1}</span>
+        </div>
+        <span class="version-tag mono">State Deviation Δ(S_{t+1}, Ŝ_{t+1})</span>
+      </div>
+      <div class="table-wrapper">
+        <table class="telemetry-table">
+          <thead>
+            <tr>
+              <th>Feature Parameter</th>
+              <th>Observed Next State S_{t+1}</th>
+              <th>Forecasted Next State Ŝ_{t+1}</th>
+              <th>Absolute Deviation |Δ|</th>
+              <th>Physical Status</th>
+            </tr>
+          </thead>
+          <tbody id="telemetryTableBody">
+            <!-- Telemetry rows rendered via JS -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Row 6: Automated SOAR Firewall Remediation Policy Generator -->
+    <div class="soc-card soar-card">
+      <div class="card-header">
+        <div class="header-title">
+          <i data-lucide="terminal" class="card-icon"></i>
+          <span>Automated SOAR Firewall Remediation Policy Generator</span>
+        </div>
+        <div class="soar-tabs">
+          <button class="soar-tab active" data-target="soarIptables">Linux iptables</button>
+          <button class="soar-tab" data-target="soarAws">AWS WAF / SG</button>
+          <button class="soar-tab" data-target="soarCisco">Cisco / Palo Alto ACL</button>
+        </div>
+      </div>
+      <pre class="soar-code-block" id="soarCodeBlock"># Initializing SOAR Engine...</pre>
+    </div>
+
+    <!-- Row 7: Reconciled Out-of-Time Multi-Scenario Benchmarks -->
+    <div class="soc-card">
+      <div class="card-header">
+        <div class="header-title">
+          <i data-lucide="check-circle-2" class="card-icon"></i>
+          <span>Reconciled Out-of-Time Multi-Scenario Benchmarks (CSE-CIC-IDS2018)</span>
+        </div>
+        <span class="version-tag mono">World Model vs Static Baseline</span>
+      </div>
+      <div class="benchmark-row-grid" id="benchmarkGrid">
+        <!-- Benchmark cards populated via JS -->
+      </div>
+    </div>
+
+    <!-- Row 8: Local SOC Alert Audit Logs -->
+    <div class="soc-card">
+      <div class="card-header">
+        <div class="header-title">
+          <i data-lucide="list" class="card-icon"></i>
+          <span>Local SOC Incident Table (Flagged e ≥ e₉₅ & Escalated Incidents)</span>
+        </div>
+        <span class="version-tag mono" id="alertCountTag">0 Alerts Recorded</span>
+      </div>
+      <div class="table-wrapper">
+        <table class="telemetry-table">
+          <thead>
+            <tr>
+              <th>Timestamp</th>
+              <th>Predicted Stage</th>
+              <th>Residual e(t+1)</th>
+              <th>Infiltration Risk</th>
+              <th>Severity</th>
+              <th>Mitigation Playbook</th>
+            </tr>
+          </thead>
+          <tbody id="auditTableBody">
+            <!-- Alert rows populated dynamically -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Application Engine Script -->
+  <script src="/static/app.js?v=3.2.1"></script>
+</body>
+</html>

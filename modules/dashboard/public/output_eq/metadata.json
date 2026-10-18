@@ -1,0 +1,8 @@
+{
+  "dataset": "earthquake",
+  "event": "Pazarc\u0131k, Kahramanmara\u015f Earthquake (M7.8, us6000jllz)",
+  "label": "Kahramanmara\u015f, Turkey (Earthquake M7.8)",
+  "date": "2023-02-06",
+  "hazard": "earthquake_shakemap",
+  "metric": "Modified Mercalli Intensity (MMI)"
+}

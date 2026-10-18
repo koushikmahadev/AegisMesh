@@ -1,0 +1,91 @@
+{
+  "method": "SegFormer-B0 offline validation vs SpaceNet 8 ground truth annotations",
+  "tiles_total_in_aoi": 4,
+  "tiles_compared": 4,
+  "tiles_skipped_no_ground_truth_features": [],
+  "tiles_skipped_no_prediction": [],
+  "tiles_skipped_prediction_error": [],
+  "accuracy": 1.0,
+  "confusion": {
+    "true_positive_flooded_correctly_caught": 0,
+    "true_negative_dry_correctly_identified": 4,
+    "false_positive_false_alarm": 0,
+    "false_negative_flooded_missed": 0
+  },
+  "flat_accuracy": 1.0,
+  "flat_confusion": {
+    "true_positive_flooded_correctly_caught": 0,
+    "true_negative_dry_correctly_identified": 4,
+    "false_positive_false_alarm": 0,
+    "false_negative_flooded_missed": 0
+  },
+  "confident_tiles_scored": 0,
+  "confident_accuracy": 0.0,
+  "confident_confusion": {
+    "true_positive_flooded_correctly_caught": 0,
+    "true_negative_dry_correctly_identified": 0,
+    "false_positive_false_alarm": 0,
+    "false_negative_flooded_missed": 0
+  },
+  "uncertain_tile_count": 4,
+  "uncertain_tile_ids": [
+    "2_20_41",
+    "2_20_42",
+    "2_21_41",
+    "2_19_41"
+  ],
+  "per_tile": {
+    "2_20_41": {
+      "ground_truth_flooded": false,
+      "ai_predicted_flooded": false,
+      "confidence": "low",
+      "reasoning": "The POST image is mostly cloud or haze, so the ground cannot be read reliably (newly flooded area measured at 0.0%).",
+      "category": "UNCERTAIN",
+      "bbox": [
+        -90.10242499883338,
+        29.77520983365242,
+        -90.09679356013005,
+        29.78084127235575
+      ]
+    },
+    "2_20_42": {
+      "ground_truth_flooded": false,
+      "ai_predicted_flooded": false,
+      "confidence": "low",
+      "reasoning": "The POST image is mostly cloud or haze, so the ground cannot be read reliably (newly flooded area measured at 0.0%).",
+      "category": "UNCERTAIN",
+      "bbox": [
+        -90.102042,
+        29.769578394949086,
+        -90.10003576980891,
+        29.77520983365242
+      ]
+    },
+    "2_21_41": {
+      "ground_truth_flooded": false,
+      "ai_predicted_flooded": false,
+      "confidence": "low",
+      "reasoning": "The POST image is mostly cloud or haze, so the ground cannot be read reliably (newly flooded area measured at 0.0%).",
+      "category": "UNCERTAIN",
+      "bbox": [
+        -90.09679356013005,
+        29.77520983365242,
+        -90.09116212142672,
+        29.77760582054786
+      ]
+    },
+    "2_19_41": {
+      "ground_truth_flooded": false,
+      "ai_predicted_flooded": false,
+      "confidence": "low",
+      "reasoning": "The POST image is mostly cloud or haze, so the ground cannot be read reliably (newly flooded area measured at 0.0%).",
+      "category": "UNCERTAIN",
+      "bbox": [
+        -90.10805643753672,
+        29.777392,
+        -90.10242499883338,
+        29.78059823319806
+      ]
+    }
+  }
+}

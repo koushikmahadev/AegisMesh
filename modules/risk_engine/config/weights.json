@@ -1,0 +1,47 @@
+{
+  "config_version": "1.0",
+  "_comment": "Provisional heuristic weights and thresholds for the HighWater Risk & Prioritization Engine (Module 3). All values are editable without modifying source code. These are DECISION-SUPPORT HEURISTICS, not validated flood-risk predictions.",
+
+  "scoring": {
+    "_comment_formula": "raw_score = (w_flood_pct * flood_component) + (w_exposure * exposure_component) + (w_isolation * isolation_component) + (w_flood_area * flood_area_component) + (w_exp_frac * exposure_fraction_component). Each component is independently normalised to [0,1]. raw_score in [0,1] is then scaled to [0,100].",
+
+    "weights": {
+      "flood_percent":     0.35,
+      "exposure":          0.40,
+      "isolation":         0.15,
+      "flood_area_density": 0.10,
+      "exposure_fraction": 0.0
+    },
+
+    "normalization": {
+      "_comment": "Values used to normalize each component to [0,1]. Exceeding the cap is clamped to 1.0.",
+      "flood_percent_max":     30.0,
+      "exposed_buildings_max": 75.0,
+      "flood_area_m2_max":     15000.0
+    },
+
+    "isolation_score": {
+      "_comment": "Additive isolation penalty per accessibility category.",
+      "ACCESSIBLE": 0.0,
+      "PARTIAL":    0.5,
+      "BLOCKED":    1.0,
+      "UNKNOWN":    0.5
+    }
+  },
+
+  "priority_thresholds": {
+    "_comment": "Score boundaries (inclusive lower bound). score >= CRITICAL_THRESHOLD -> CRITICAL, etc.",
+    "CRITICAL": 70,
+    "HIGH":     45,
+    "MEDIUM":   20,
+    "LOW":       0
+  },
+
+  "data_quality": {
+    "_comment": "Flags that trigger a data-quality warning instead of silent zero-risk assignment.",
+    "on_negative_exposure": "error",
+    "warn_on_unknown_accessibility": true,
+    "warn_on_null_flooded_area_m2":  true,
+    "warn_on_zero_exposure_with_high_flood_percent_threshold": 5.0
+  }
+}

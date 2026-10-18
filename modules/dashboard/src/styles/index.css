@@ -1,0 +1,67 @@
+@import 'leaflet/dist/leaflet.css';
+@import '@fontsource/source-serif-4/400.css';
+@import '@fontsource/source-serif-4/600.css';
+@import '@fontsource/source-serif-4/700.css';
+@import '@fontsource/public-sans/400.css';
+@import '@fontsource/public-sans/500.css';
+@import '@fontsource/public-sans/600.css';
+@import '@fontsource/public-sans/700.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    margin: 0;
+    font-family: 'Public Sans', sans-serif;
+    background-color: theme('colors.paper');
+    color: theme('colors.ink');
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-variant-numeric: tabular-nums;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    letter-spacing: -0.01em;
+  }
+}
+
+/* Cartographic scrollbar matching survey paper aesthetic */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #F6F3ED;
+}
+::-webkit-scrollbar-thumb {
+  background: #DCD6CA;
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #78716C;
+}
+
+/* Print styling for survey situation report */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 8mm 10mm;
+  }
+
+  body {
+    background-color: #FFFFFF !important;
+    color: #000000 !important;
+    font-size: 11px;
+  }
+
+  .no-print, header, main, aside, section, nav {
+    display: none !important;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+}

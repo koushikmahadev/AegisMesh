@@ -1,0 +1,44 @@
+{
+  "initial": {
+    "ram_mb": 1320.03,
+    "peak_vram_mb": 721.12
+  },
+  "stage1_fast_50": {
+    "count": 50,
+    "min_ms": 439.1462000203319,
+    "median_ms": 498.1229000259191,
+    "p95_ms": 645.6424999632873,
+    "max_ms": 756.4529000082985,
+    "ram_mb": 1246.53,
+    "peak_vram_mb": 721.12,
+    "cache_size": 50
+  },
+  "stage2_concurrent_20": {
+    "count": 20,
+    "min_ms": 467.52020000712946,
+    "median_ms": 2003.0004000291228,
+    "p95_ms": 2266.5797999943607,
+    "max_ms": 2266.5797999943607,
+    "ram_mb": 1244.81,
+    "peak_vram_mb": 721.12,
+    "cache_size": 20
+  },
+  "stage3_accurate_10": {
+    "count": 10,
+    "min_ms": 784.6540000173263,
+    "median_ms": 884.6985999844037,
+    "p95_ms": 1103.4398999763653,
+    "max_ms": 1103.4398999763653,
+    "ram_mb": 1244.84,
+    "peak_vram_mb": 721.12,
+    "cache_size": 10
+  },
+  "final": {
+    "ram_mb": 1244.84,
+    "peak_vram_mb": 721.12,
+    "cache_size": 10,
+    "cache_mb": 5.48,
+    "ram_growth_mb": -75.19000000000005,
+    "errors": 0
+  }
+}

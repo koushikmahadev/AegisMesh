@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FloodWatch - Offline Flood Intrusion Analysis</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <!-- Header Bar -->
+  <header class="app-header">
+    <div class="brand-section">
+      <span class="logo-icon">🌊</span>
+      <div>
+        <h1 class="brand-title">FloodWatch</h1>
+        <div class="brand-subtitle">Offline Flood-Intrusion Analysis</div>
+      </div>
+    </div>
+
+    <div class="header-controls">
+      <div id="deviceBadge" class="badge badge-device">
+        <span>GPU:</span> <strong id="deviceName">CUDA</strong>
+      </div>
+      <div class="badge badge-offline">
+        <span class="status-dot"></span> Offline
+      </div>
+      <div id="cacheBadge" class="badge" title="In-memory LRU cache status">
+        ⚡ Cache: <span id="cacheCount">0</span> tiles (<span id="cacheMem">0 MB</span>)
+      </div>
+
+      <div class="mode-toggle-container" style="display: flex; flex-direction: column; align-items: flex-start;">
+        <div class="mode-toggle" title="Select SegFormer inference mode">
+          <button id="btnModeFast" class="mode-btn active" data-mode="fast">Fast (768px)</button>
+          <button id="btnModeAccurate" class="mode-btn" data-mode="accurate" title="Accurate Mode: raises building recall from 21.3% to 35.6%">Accurate (512 Win)</button>
+        </div>
+        <div id="modeToggleNote" class="mode-toggle-note" style="font-size: 0.68rem; color: var(--text-muted); margin-top: 3px; max-width: 280px; line-height: 1.2;">
+          Accurate: higher recall, more false alarms (8 of 136 unflooded tiles above 0.1% post-event in our check; fast: 0 of 136)
+        </div>
+      </div>
+
+      <button id="btnToggleHeatmap" class="btn-secondary active" title="Toggle grid cell flood severity coloring">
+        <span>🎨</span> Heatmap
+      </button>
+    </div>
+  </header>
+
+  <!-- Curated Demo Tiles Quick-pick Bar -->
+  <nav class="demo-bar" aria-label="Demo tiles quick pick">
+    <span class="demo-bar-title">Demo Cases:</span>
+    <div id="demoChipsContainer" class="demo-group">
+      <!-- Populated dynamically via /api/demo_tiles -->
+      <span style="font-size: 0.75rem; color: #64748b;">Loading demo tiles...</span>
+    </div>
+  </nav>
+
+  <!-- Main Grid & Analysis Workspace -->
+  <main class="main-content">
+    <!-- Left Column: Spatial Swath Grid -->
+    <section class="grid-section" aria-label="Tile spatial map">
+      <div class="grid-toolbar">
+        <div class="grid-heading">
+          <span>Satellite Swath Grid</span>
+          <span style="font-size: 0.75rem; color: var(--text-muted); font-weight: normal;">(202 active tiles · Germany Swath 0)</span>
+        </div>
+        <div class="grid-legend" id="gridLegend">
+          <!-- Populated from /api/scan_stats severity_bands -->
+        </div>
+      </div>
+
+      <div class="grid-scroll-container" id="gridScrollContainer">
+        <div class="tile-grid heatmap-on" id="tileGrid" tabindex="0" role="grid" aria-label="SpaceNet-8 Tile Grid">
+          <!-- Populated via /api/tiles/meta -->
+        </div>
+        <div class="tile-tooltip" id="tileTooltip"></div>
+      </div>
+      <div style="font-size: 0.7rem; color: var(--text-muted); display: flex; justify-content: space-between;">
+        <span>Tip: Click any cell or use <kbd>↑</kbd><kbd>↓</kbd><kbd>←</kbd><kbd>→</kbd> arrow keys to navigate.</span>
+        <span id="gridStatsSummary">Loading stats...</span>
+      </div>
+      <div style="font-size: 0.7rem; color: var(--text-muted); margin-top: 4px;">
+        Note: Swath grid heatmap and severity bands reflect Fast-mode dataset scan.
+      </div>
+    </section>
+
+    <!-- Right Column: Result Inspector & Before/After Slider -->
+    <aside class="inspector-panel" aria-label="Analysis inspector">
+      <!-- 1. Idle State (No tile selected yet) -->
+      <div id="idleState" class="card idle-state">
+        <div class="idle-icon">🛰️</div>
+        <h2 style="font-size: 1.1rem; color: var(--text-primary);">Select a Tile to Analyze</h2>
+        <p style="font-size: 0.8rem; max-width: 300px;">
+          Click any active cell on the swath grid or pick a curated case from the demo bar above.
+        </p>
+      </div>
+
+      <!-- 2. Loading Skeleton State -->
+      <div id="loadingState" class="card" style="display: none;">
+        <div class="card-header">
+          <div class="skeleton" style="width: 140px; height: 24px;"></div>
+          <div class="skeleton" style="width: 80px; height: 20px;"></div>
+        </div>
+        <div class="skeleton" style="width: 100%; height: 110px; margin-bottom: 1rem;"></div>
+        <div class="metrics-row">
+          <div class="skeleton" style="height: 50px;"></div>
+          <div class="skeleton" style="height: 50px;"></div>
+          <div class="skeleton" style="height: 50px;"></div>
+        </div>
+        <div class="skeleton" style="width: 100%; aspect-ratio: 1 / 1;"></div>
+      </div>
+
+      <!-- 3. Active Result Card -->
+      <div id="resultCard" class="card" style="display: none;">
+        <div class="card-header">
+          <div class="tile-title">
+            <span id="resTileId">Tile 0_41_58</span>
+          </div>
+          <div class="card-badges">
+            <span id="resTrainingBadge" class="badge-tag badge-heldout">Held-Out Test Tile</span>
+            <span id="resCachedBadge" class="badge-tag badge-cached">⚡ Cached</span>
+            <span id="resLatencyBadge" class="badge-tag" style="background: rgba(255,255,255,0.08); color: #cbd5e1;">-- ms</span>
+            <button id="btnRerunLive" class="btn-secondary" style="padding: 2px 8px; font-size: 0.75rem; cursor: pointer;" title="Re-run live GPU inference bypassing cache">⚡ Re-run live</button>
+          </div>
+        </div>
+
+        <!-- Headline Net Intrusion Metric -->
+        <div class="metric-headline sev-severe" id="resHeadlineBox">
+          <div class="net-value" id="resNetValue">+39.0%</div>
+          <div class="net-label">Net Change in Flooded Area (Model Class 1)</div>
+          <div class="severity-pill" id="resSeverityPill">Severe Surge</div>
+        </div>
+
+        <!-- Sub-metrics Row -->
+        <div class="metrics-row">
+          <div class="metric-box">
+            <div class="metric-box-title">Pre-Event Water</div>
+            <div class="metric-box-val" id="resPreWater">0.54%</div>
+          </div>
+          <div class="metric-box">
+            <div class="metric-box-title">Post-Event Water</div>
+            <div class="metric-box-val" id="resPostWater">39.54%</div>
+          </div>
+          <div class="metric-box">
+            <div class="metric-box-title">Client Roundtrip</div>
+            <div class="metric-box-val" id="resClientLatency">12 ms</div>
+          </div>
+        </div>
+
+        <!-- Ground Truth Validation Notice -->
+        <div class="validation-card" id="resGtCard">
+          <strong>Ground Truth:</strong> <span id="resGtDetails">181 flooded features annotated (169 buildings, 12 roads).</span>
+        </div>
+
+        <!-- Negative Net Explanatory Banner (visible if net < 0) -->
+        <div class="validation-card" id="resNegativeCard" style="display: none; border-color: var(--sev-negative); background-color: rgba(168, 85, 247, 0.1);">
+          <strong style="color: #c084fc;">No net increase:</strong>
+          <span style="color: #e9d5ff;">less flooded area detected post-event than pre-event.</span>
+        </div>
+
+        <!-- Swipe Comparison Viewer -->
+        <div class="comparison-container">
+          <div class="comparison-controls">
+            <span style="font-weight: 600; color: var(--text-secondary);">Imagery Comparison</span>
+            <label class="toggle-label">
+              <input type="checkbox" id="chkMaskOverlay" checked>
+              <span>Show Flood Mask (Cyan)</span>
+            </label>
+          </div>
+
+          <div class="comparison-viewer" id="comparisonViewer">
+            <!-- Background: Post-Event Image & Mask -->
+            <img id="imgPost" class="image-layer" alt="Post-event satellite imagery">
+            <img id="maskPost" class="mask-layer" alt="Post-event flood mask overlay">
+
+            <!-- Foreground: Pre-Event Image & Mask (Clipped by slider position) -->
+            <div class="clip-layer" id="clipLayer">
+              <img id="imgPre" class="image-layer" alt="Pre-event satellite imagery">
+              <img id="maskPre" class="mask-layer" alt="Pre-event flood mask overlay">
+            </div>
+
+            <!-- Labels -->
+            <div class="img-badge badge-pre">PRE-EVENT</div>
+            <div class="img-badge badge-post">POST-EVENT</div>
+
+            <!-- Draggable Divider Line & Thumb -->
+            <div class="slider-divider" id="sliderDivider" style="left: 50%;">
+              <div class="slider-thumb">⬌</div>
+            </div>
+          </div>
+
+          <!-- Accessible Range Input synced with viewer -->
+          <input type="range" id="compareRange" class="range-slider" min="0" max="100" value="50" aria-label="Pre/Post slider comparison">
+        </div>
+
+        <!-- Collapsible Architecture & Validation Info -->
+        <div class="accordion" id="aboutAccordion" style="margin-top: 1rem;">
+          <div class="accordion-header" id="accordionToggle">
+            <span>ℹ️ Model & Ground-Truth Calibration</span>
+            <span id="accordionChevron">▼</span>
+          </div>
+          <div class="accordion-content">
+            <p><strong>Architecture:</strong> SegFormer-B0 (jointly pre-trained on drone FloodNet + fine-tuned on SpaceNet-8). Uses Mix Transformer (MiT) encoder without positional encodings.</p>
+            <ul>
+              <li><strong>Fast Mode:</strong> Whole-tile 768px resize (Warm end-to-end median: 498.1229000259191 ms, F1: 20.5%, IoU: 11.42%).</li>
+              <li><strong>Accurate Mode:</strong> 512px sliding window (stride 256, chunked &le; 8 to fit 4 GB VRAM; F1: 28.4%, IoU: 16.55%).</li>
+              <li><strong>GT Composition & Recall:</strong> Roads comprise 45.37% of GT pixels and buildings 54.85%. Road recall is 4.69% (Fast) and 8.88% (Accurate); building recall is 21.27% (Fast) and 35.57% (Accurate).</li>
+              <li><strong>Dataset & Evaluation Context:</strong> All 66 flooded Germany tiles were in the training pool, the training script held out no satellite tiles, and checkpoint selection used drone validation mIoU only. So pixel F1, recall, and AUC figures are computed on training tiles and are not a held-out estimate. Across 136 not-in-pool tiles evaluated to check for false alarms on unflooded terrain: In Fast Mode, 0 had post-event flooded area (class 1) &gt; 0.1% (max: 0.02% on 0_29_68), 1 had pre-event false positive flooded area &gt; 0.1% (3.32% on 0_20_66; cause not determined), and 134 had net exactly 0.00%. In Accurate Mode, false alarms on dry tiles increase to 8 tiles with post-event flooded area &gt; 0.1% (max: 1.33% on 0_38_69).</li>
+              <li><strong>GT Heuristic:</strong> Road vectors rasterized using a 2m metric buffer assumption (9.55 px average corridor width at 50.53&deg;N).</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>

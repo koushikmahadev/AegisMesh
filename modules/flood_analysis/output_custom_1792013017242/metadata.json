@@ -1,0 +1,48 @@
+{
+  "dataset": "SpaceNet 8 Flood Detection Challenge, Custom area (10/15/2026, 2:53:37 AM) training set",
+  "license": "CC BY-SA 4.0 (annotations); Maxar imagery stated as CC BY-NC 4.0 in the SN8 paper \u2014 imagery itself is not redistributed here, only small derived vector outputs",
+  "attribution": "SpaceNet 8 (SpaceNet on Amazon Web Services), Maxar Technologies",
+  "aoi_tiles": [
+    "0_41_58",
+    "0_41_59",
+    "0_40_58",
+    "0_40_59"
+  ],
+  "aoi_selection_method": "User-drawn custom selection (explicit tile list).",
+  "aoi_bbox_lonlat": [
+    7.035340061527277,
+    50.52621314043255,
+    7.044230827238966,
+    50.53594488934385
+  ],
+  "input_crs": "OGC:CRS84 (lon/lat, equivalent to EPSG:4326) \u2014 annotation geojson files",
+  "input_resolution": "vector annotations (no fixed raster resolution); PRE/POST tif imagery in the raw data is ~0.3-0.4m/pixel RGB, not used in this derivation",
+  "output_crs": "EPSG:4326 for GeoJSON outputs; EPSG 32632 used internally for area/length calculations",
+  "label_semantics": "Each annotation feature has 'building' or 'highway' tag (not both); 'flooded' == 'yes' means flooded, missing/None means not flooded. These are human-labelled ground truth, not model predictions.",
+  "flooded_attribute_definition": "flooded = (properties.flooded == 'yes'), read directly from SN8 annotation geojson",
+  "flood_extent_method": "No flood-extent raster exists in this dataset (PRE/POST tifs are plain RGB imagery). flood_extent.geojson is DERIVED from labelled flooded buildings (polygons) and labelled flooded roads (lines buffered by 5.0m), unioned and simplified. It is not a measured water boundary.",
+  "exposed_buildings_definition": "Count of buildings in a zone with labelled flooded == 'yes' (ground truth label, not a flood-extent intersection, to avoid circularity with the derived flood extent)",
+  "grid_config": {
+    "cell_size_m": 300.0,
+    "crs_used_for_grid": "EPSG:32632"
+  },
+  "accessibility_thresholds": {
+    "ACCESSIBLE": "flooded_road_length / road_length < 0.1",
+    "PARTIAL": "< 0.6",
+    "BLOCKED": ">= 0.6",
+    "UNKNOWN": "no road data in zone"
+  },
+  "area_length_method": "Computed in UTM zone EPSG:32632 (local projected CRS), not in degrees",
+  "counts": {
+    "total_buildings": 413,
+    "flooded_buildings": 244,
+    "total_roads": 48,
+    "flooded_roads": 24,
+    "zone_count": 12
+  },
+  "limitations": [
+    "flood_extent.geojson is derived from labelled flooded buildings/roads, not a measured water boundary (no flood raster in this dataset).",
+    "AOI is a dynamically-selected 6x4 tile block chosen for a mix of flooded/non-flooded features, not the full dataset extent.",
+    "Dataset covers a single flood event; not generalizable without re-running the AOI selection per dataset."
+  ]
+}

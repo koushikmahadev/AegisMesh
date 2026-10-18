@@ -1,0 +1,12 @@
+id,lat,lon,elevation_m,osm_link,verified,notes
+HOSPITAL_BASE,41.6347,-0.8988,220.0,https://www.openstreetmap.org/?mlat=41.6347&mlon=-0.8988#map=17/41.6347/-0.8988,False,
+JUNCTION_PARAISO,41.6468,-0.8872,212.0,https://www.openstreetmap.org/?mlat=41.6468&mlon=-0.8872#map=17/41.6468/-0.8872,False,
+JUNCTION_CENTRO,41.653,-0.882,205.0,https://www.openstreetmap.org/?mlat=41.653&mlon=-0.882#map=17/41.653/-0.882,False,
+PUENTE_PIEDRA_SOUTH,41.6562,-0.8757,198.0,https://www.openstreetmap.org/?mlat=41.6562&mlon=-0.8757#map=17/41.6562/-0.8757,False,
+PUENTE_PIEDRA_NORTH,41.658,-0.8751,198.0,https://www.openstreetmap.org/?mlat=41.658&mlon=-0.8751#map=17/41.658/-0.8751,False,
+PUENTE_SANTIAGO_SOUTH,41.6575,-0.8821,208.0,https://www.openstreetmap.org/?mlat=41.6575&mlon=-0.8821#map=17/41.6575/-0.8821,False,
+PUENTE_SANTIAGO_NORTH,41.6602,-0.8812,208.0,https://www.openstreetmap.org/?mlat=41.6602&mlon=-0.8812#map=17/41.6602/-0.8812,False,
+ZONE_NORTH_RESIDENTIAL,41.6635,-0.874,201.0,https://www.openstreetmap.org/?mlat=41.6635&mlon=-0.874#map=17/41.6635/-0.874,False,
+ZONE_ISLAND_COMMUNITY,41.658,-0.869,195.0,https://www.openstreetmap.org/?mlat=41.658&mlon=-0.869#map=17/41.658/-0.869,False,
+BOAT_RAMP_SOUTH,41.6565,-0.8768,194.0,https://www.openstreetmap.org/?mlat=41.6565&mlon=-0.8768#map=17/41.6565/-0.8768,False,
+RIVER_CHANNEL_MID,41.66075,-0.8715,194.0,https://www.openstreetmap.org/?mlat=41.66075&mlon=-0.8715#map=17/41.66075/-0.8715,False,

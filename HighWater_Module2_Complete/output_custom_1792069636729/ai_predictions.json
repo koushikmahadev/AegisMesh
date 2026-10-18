@@ -1,0 +1,43 @@
+{
+  "0_31_60": {
+    "flood_damage_detected": false,
+    "confidence": "medium",
+    "reasoning": "Flooded area is 0.0% before and 0.0% after, only 0.0% newly inundated, below the 0.1% threshold.",
+    "model": "segformer-b0-checkpoint-joint",
+    "metrics": {
+      "pre_flood_fraction": 0.0,
+      "post_flood_fraction": 0.0,
+      "new_flood_fraction": 0.0
+    }
+  },
+  "0_30_60": {
+    "ERROR": "Missing imagery for tile 0_30_60",
+    "tile_id": "0_30_60"
+  },
+  "0_30_59": {
+    "flood_damage_detected": false,
+    "confidence": "medium",
+    "reasoning": "Flooded area is 0.0% before and 0.0% after, only 0.0% newly inundated, below the 0.1% threshold.",
+    "model": "segformer-b0-checkpoint-joint",
+    "metrics": {
+      "pre_flood_fraction": 0.0,
+      "post_flood_fraction": 0.0,
+      "new_flood_fraction": 0.0
+    }
+  },
+  "0_31_59": {
+    "flood_damage_detected": false,
+    "confidence": "medium",
+    "reasoning": "Flooded area is 0.0% before and 0.0% after, only 0.0% newly inundated, below the 0.1% threshold.",
+    "model": "segformer-b0-checkpoint-joint",
+    "metrics": {
+      "pre_flood_fraction": 0.0,
+      "post_flood_fraction": 0.0,
+      "new_flood_fraction": 0.0
+    }
+  },
+  "0_28_60": {
+    "ERROR": "Missing imagery for tile 0_28_60",
+    "tile_id": "0_28_60"
+  }
+}

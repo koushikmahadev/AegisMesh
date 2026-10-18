@@ -1,0 +1,44 @@
+{
+  "accurate_cold_10": {
+    "min": 1429.199999988079,
+    "med": 1696.300000011921,
+    "p95": 2816.699999988079,
+    "max": 2816.699999988079
+  },
+  "mask_toggle": {
+    "tile_0_41_58": {
+      "dtOff": 6.800000011920929,
+      "dtOn": 32.5
+    },
+    "tile_0_27_68": {
+      "dtOff": 7.800000011920929,
+      "dtOn": 34
+    }
+  },
+  "rapid_keys": {
+    "with_latest_wins": {
+      "label": "With Latest-Wins & Trailing Debounce",
+      "totalDt": 1856.466800000002,
+      "latencyFromLast": 835.1254000000044,
+      "sentCount": 2,
+      "respCount": 2,
+      "failCount": 0,
+      "finalTile": "0_17_63"
+    },
+    "without_latest_wins": {
+      "label": "Without Latest-Wins (?disable_latest_wins=1)",
+      "totalDt": 1877.737000000001,
+      "latencyFromLast": 739.0376000000033,
+      "sentCount": 10,
+      "respCount": 1,
+      "failCount": 9,
+      "finalTile": "0_27_63"
+    }
+  },
+  "prewarmed_30": {
+    "min": 13.299999952316284,
+    "med": 61.30000001192093,
+    "p95": 90.19999998807907,
+    "max": 106.80000001192093
+  }
+}

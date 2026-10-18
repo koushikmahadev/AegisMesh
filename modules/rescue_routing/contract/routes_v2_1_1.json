@@ -1,0 +1,4237 @@
+{
+  "schema_version": "2.1",
+  "provenance": {
+    "generated_by": "HighWater Rescue Routing Engine Person 4",
+    "code_version": "2.1.1",
+    "network": "curated_osm_derived_approximate",
+    "coordinates_verified": false,
+    "risk_model": "heuristic_uncalibrated",
+    "geometry_quality": "schematic_straight_lines",
+    "benchmark": "synthetic",
+    "population": "synthetic_demo",
+    "input_files": {
+      "data/zaragoza_network.json": "f224641c00ccd5a42c6e998331e7fb68d85a199d9167a6eeacc1b06ae1c2b931",
+      "data/synthetic_depth_map.json": "b7dbe3427aaa8312ab811af50738b7735753c4397be4c46465a1a530666d3983",
+      "data/population_zones.json": "a9447951203f58d0de3e2dac83d9c6ccfd8110c410b7ec95cbb9d2c64695bcd0"
+    },
+    "deterministic_seed": 42
+  },
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -0.8988,
+            41.6347
+          ],
+          [
+            -0.8872,
+            41.6468
+          ],
+          [
+            -0.882,
+            41.653
+          ],
+          [
+            -0.8757,
+            41.6562
+          ],
+          [
+            -0.8751,
+            41.658
+          ],
+          [
+            -0.874,
+            41.6635
+          ]
+        ]
+      },
+      "properties": {
+        "status": "OK",
+        "vehicle_type": "AMBULANCE",
+        "origin": "HOSPITAL_BASE",
+        "destination": "ZONE_NORTH_RESIDENTIAL",
+        "eta_minutes": 5.89,
+        "distance_km": 3.926,
+        "path_nodes": [
+          "HOSPITAL_BASE",
+          "JUNCTION_PARAISO",
+          "JUNCTION_CENTRO",
+          "PUENTE_PIEDRA_SOUTH",
+          "PUENTE_PIEDRA_NORTH",
+          "ZONE_NORTH_RESIDENTIAL"
+        ],
+        "geometry_quality": "schematic_straight_lines",
+        "avoided_hazards": [],
+        "is_predictive_detour": false,
+        "route_reliability": 0.9999,
+        "outbound_reliability": 1.0,
+        "edge_risks": [
+          0.0,
+          0.0,
+          0.0,
+          0.0001,
+          0.0
+        ],
+        "planning_edge_risks": [
+          0.0,
+          0.0,
+          0.0,
+          0.0006,
+          0.0001
+        ],
+        "max_planning_risk": 0.0006,
+        "risk_warning": false,
+        "advisory": "NONE",
+        "risk_horizon_note": "edge_risks reflects round-trip exposure horizon; planning_edge_risks reflects 30-minute planning horizon",
+        "round_trip": true,
+        "eta_delta_min": 0.0,
+        "counterfactual": {
+          "reactive_path_nodes": [
+            "HOSPITAL_BASE",
+            "JUNCTION_PARAISO",
+            "JUNCTION_CENTRO",
+            "PUENTE_PIEDRA_SOUTH",
+            "PUENTE_PIEDRA_NORTH",
+            "ZONE_NORTH_RESIDENTIAL"
+          ],
+          "reactive_eta_min": 5.89,
+          "reactive_reliability": 0.9999,
+          "eta_delta_min": 0.0,
+          "reliability_gain": 0.0
+        },
+        "departure_window_min": 35,
+        "window_capped": false,
+        "rainfall_mmh": 15.0,
+        "blocked_edges": [],
+        "depth_source": "scenario",
+        "data_freshness": "UNKNOWN",
+        "scenario_id": "scenario_1_baseline"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -0.8988,
+            41.6347
+          ],
+          [
+            -0.8872,
+            41.6468
+          ],
+          [
+            -0.8821,
+            41.6575
+          ],
+          [
+            -0.8812,
+            41.6602
+          ],
+          [
+            -0.874,
+            41.6635
+          ]
+        ]
+      },
+      "properties": {
+        "status": "OK",
+        "vehicle_type": "AMBULANCE",
+        "origin": "HOSPITAL_BASE",
+        "destination": "ZONE_NORTH_RESIDENTIAL",
+        "eta_minutes": 6.58,
+        "distance_km": 4.385,
+        "path_nodes": [
+          "HOSPITAL_BASE",
+          "JUNCTION_PARAISO",
+          "PUENTE_SANTIAGO_SOUTH",
+          "PUENTE_SANTIAGO_NORTH",
+          "ZONE_NORTH_RESIDENTIAL"
+        ],
+        "geometry_quality": "schematic_straight_lines",
+        "avoided_hazards": [
+          {
+            "edge": [
+              "JUNCTION_CENTRO",
+              "PUENTE_PIEDRA_SOUTH"
+            ],
+            "name": "Centro - Puente de Piedra South",
+            "reason": "PREDICTED_SUBMERSION",
+            "depth_m": 0.0,
+            "planning_risk": 0.6682,
+            "risk": 0.6682
+          },
+          {
+            "edge": [
+              "PUENTE_PIEDRA_SOUTH",
+              "PUENTE_PIEDRA_NORTH"
+            ],
+            "name": "Puente de Piedra",
+            "reason": "PREDICTED_SUBMERSION",
+            "depth_m": 0.0,
+            "planning_risk": 0.9802,
+            "risk": 0.9802
+          },
+          {
+            "edge": [
+              "PUENTE_PIEDRA_NORTH",
+              "ZONE_NORTH_RESIDENTIAL"
+            ],
+            "name": "Puente de Piedra North - North Residential",
+            "reason": "PREDICTED_SUBMERSION",
+            "depth_m": 0.0,
+            "planning_risk": 0.832,
+            "risk": 0.832
+          }
+        ],
+        "is_predictive_detour": true,
+        "route_reliability": 0.9983,
+        "outbound_reliability": 1.0,
+        "edge_risks": [
+          0.0,
+          0.0,
+          0.001,
+          0.0007
+        ],
+        "planning_edge_risks": [
+          0.0,
+          0.0006,
+          0.0431,
+          0.0411
+        ],
+        "max_planning_risk": 0.0431,
+        "risk_warning": false,
+        "advisory": "NONE",
+        "risk_horizon_note": "edge_risks reflects round-trip exposure horizon; planning_edge_risks reflects 30-minute planning horizon",
+        "round_trip": true,
+        "eta_delta_min": 0.69,
+        "counterfactual": {
+          "reactive_path_nodes": [
+            "HOSPITAL_BASE",
+            "JUNCTION_PARAISO",
+            "JUNCTION_CENTRO",
+            "PUENTE_PIEDRA_SOUTH",
+            "PUENTE_PIEDRA_NORTH",
+            "ZONE_NORTH_RESIDENTIAL"
+          ],
+          "reactive_eta_min": 5.89,
+          "reactive_reliability": 0.5913,
+          "eta_delta_min": 0.69,
+          "reliability_gain": 0.407
+        },
+        "departure_window_min": 5,
+        "window_capped": false,
+        "rainfall_mmh": 45.0,
+        "blocked_edges": [],
+        "depth_source": "scenario",
+        "data_freshness": "UNKNOWN",
+        "scenario_id": "scenario_2a_predictive_detour"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -0.8988,
+            41.6347
+          ],
+          [
+            -0.8872,
+            41.6468
+          ],
+          [
+            -0.8821,
+            41.6575
+          ],
+          [
+            -0.8812,
+            41.6602
+          ],
+          [
+            -0.874,
+            41.6635
+          ]
+        ]
+      },
+      "properties": {
+        "status": "OK",
+        "vehicle_type": "AMBULANCE",
+        "origin": "HOSPITAL_BASE",
+        "destination": "ZONE_NORTH_RESIDENTIAL",
+        "eta_minutes": 6.58,
+        "distance_km": 4.385,
+        "path_nodes": [
+          "HOSPITAL_BASE",
+          "JUNCTION_PARAISO",
+          "PUENTE_SANTIAGO_SOUTH",
+          "PUENTE_SANTIAGO_NORTH",
+          "ZONE_NORTH_RESIDENTIAL"
+        ],
+        "geometry_quality": "schematic_straight_lines",
+        "avoided_hazards": [
+          {
+            "edge": [
+              "PUENTE_PIEDRA_SOUTH",
+              "PUENTE_PIEDRA_NORTH"
+            ],
+            "name": "Puente de Piedra",
+            "reason": "SUBMERGED",
+            "depth_m": 0.8,
+            "planning_risk": 0.0006,
+            "risk": 0.0006
+          }
+        ],
+        "is_predictive_detour": false,
+        "route_reliability": 1.0,
+        "outbound_reliability": 1.0,
+        "edge_risks": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "planning_edge_risks": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_planning_risk": 0.0,
+        "risk_warning": false,
+        "advisory": "NONE",
+        "risk_horizon_note": "edge_risks reflects round-trip exposure horizon; planning_edge_risks reflects 30-minute planning horizon",
+        "round_trip": true,
+        "eta_delta_min": 0.0,
+        "counterfactual": {
+          "reactive_path_nodes": [
+            "HOSPITAL_BASE",
+            "JUNCTION_PARAISO",
+            "PUENTE_SANTIAGO_SOUTH",
+            "PUENTE_SANTIAGO_NORTH",
+            "ZONE_NORTH_RESIDENTIAL"
+          ],
+          "reactive_eta_min": 6.58,
+          "reactive_reliability": 1.0,
+          "eta_delta_min": 0.0,
+          "reliability_gain": 0.0
+        },
+        "departure_window_min": 65,
+        "window_capped": false,
+        "rainfall_mmh": 15.0,
+        "blocked_edges": [],
+        "depth_source": "depth_map",
+        "data_freshness": "UNKNOWN",
+        "scenario_id": "scenario_2b_flooded_bridge"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "status": "UNREACHABLE",
+        "vehicle_type": "AMBULANCE",
+        "origin": "HOSPITAL_BASE",
+        "destination": "ZONE_ISLAND_COMMUNITY",
+        "reason": "No passable route available for AMBULANCE.",
+        "isolated_nodes": [
+          "ZONE_ISLAND_COMMUNITY"
+        ],
+        "cut_edges": [
+          [
+            "BOAT_RAMP_SOUTH",
+            "ZONE_ISLAND_COMMUNITY"
+          ],
+          [
+            "RIVER_CHANNEL_MID",
+            "ZONE_ISLAND_COMMUNITY"
+          ],
+          [
+            "ZONE_ISLAND_COMMUNITY",
+            "ZONE_NORTH_RESIDENTIAL"
+          ]
+        ],
+        "component_scope": "vehicle_passable_subgraph",
+        "route_reliability": null,
+        "outbound_reliability": null,
+        "max_planning_risk": 0.0,
+        "risk_warning": false,
+        "rainfall_mmh": 15.0,
+        "blocked_edges": [],
+        "depth_source": "depth_map",
+        "data_freshness": "UNKNOWN",
+        "standing_water_note": "Scenario-imposed depth, not derived from rainfall.",
+        "scenario_id": "scenario_3a_island_cutoff_boat_success"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "status": "UNREACHABLE",
+        "vehicle_type": "TRUCK_4X4",
+        "origin": "HOSPITAL_BASE",
+        "destination": "ZONE_ISLAND_COMMUNITY",
+        "reason": "No passable route available for TRUCK_4X4.",
+        "isolated_nodes": [
+          "ZONE_ISLAND_COMMUNITY"
+        ],
+        "cut_edges": [
+          [
+            "BOAT_RAMP_SOUTH",
+            "ZONE_ISLAND_COMMUNITY"
+          ],
+          [
+            "RIVER_CHANNEL_MID",
+            "ZONE_ISLAND_COMMUNITY"
+          ],
+          [
+            "ZONE_ISLAND_COMMUNITY",
+            "ZONE_NORTH_RESIDENTIAL"
+          ]
+        ],
+        "component_scope": "vehicle_passable_subgraph",
+        "route_reliability": null,
+        "outbound_reliability": null,
+        "max_planning_risk": 0.0,
+        "risk_warning": false,
+        "rainfall_mmh": 15.0,
+        "blocked_edges": [],
+        "depth_source": "depth_map",
+        "data_freshness": "UNKNOWN",
+        "standing_water_note": "Scenario-imposed depth, not derived from rainfall.",
+        "scenario_id": "scenario_3a_island_cutoff_boat_success"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -0.8768,
+            41.6565
+          ],
+          [
+            -0.869,
+            41.658
+          ]
+        ]
+      },
+      "properties": {
+        "status": "OK",
+        "vehicle_type": "RESCUE_BOAT",
+        "origin": "BOAT_RAMP_SOUTH",
+        "destination": "ZONE_ISLAND_COMMUNITY",
+        "eta_minutes": 5.35,
+        "distance_km": 0.669,
+        "path_nodes": [
+          "BOAT_RAMP_SOUTH",
+          "ZONE_ISLAND_COMMUNITY"
+        ],
+        "geometry_quality": "schematic_straight_lines",
+        "avoided_hazards": [],
+        "is_predictive_detour": false,
+        "route_reliability": 0.9922,
+        "outbound_reliability": 0.9969,
+        "edge_risks": [
+          0.0078
+        ],
+        "planning_edge_risks": [
+          0.0095
+        ],
+        "max_planning_risk": 0.0095,
+        "risk_warning": false,
+        "advisory": "NONE",
+        "risk_horizon_note": "edge_risks reflects round-trip exposure horizon; planning_edge_risks reflects 30-minute planning horizon",
+        "round_trip": true,
+        "eta_delta_min": 0.0,
+        "counterfactual": {
+          "reactive_path_nodes": [
+            "BOAT_RAMP_SOUTH",
+            "ZONE_ISLAND_COMMUNITY"
+          ],
+          "reactive_eta_min": 5.35,
+          "reactive_reliability": 0.9922,
+          "eta_delta_min": 0.0,
+          "reliability_gain": 0.0
+        },
+        "departure_window_min": 55,
+        "window_capped": false,
+        "rainfall_mmh": 15.0,
+        "blocked_edges": [],
+        "depth_source": "depth_map",
+        "data_freshness": "UNKNOWN",
+        "standing_water_note": "Scenario-imposed depth, not derived from rainfall.",
+        "scenario_id": "scenario_3a_island_cutoff_boat_success"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "status": "UNREACHABLE",
+        "vehicle_type": "RESCUE_BOAT",
+        "origin": "BOAT_RAMP_SOUTH",
+        "destination": "ZONE_ISLAND_COMMUNITY",
+        "reason": "No passable route available for RESCUE_BOAT.",
+        "isolated_nodes": [
+          "RIVER_CHANNEL_MID",
+          "ZONE_ISLAND_COMMUNITY",
+          "ZONE_NORTH_RESIDENTIAL"
+        ],
+        "cut_edges": [
+          [
+            "BOAT_RAMP_SOUTH",
+            "ZONE_ISLAND_COMMUNITY"
+          ],
+          [
+            "PUENTE_PIEDRA_NORTH",
+            "ZONE_NORTH_RESIDENTIAL"
+          ],
+          [
+            "PUENTE_SANTIAGO_NORTH",
+            "ZONE_NORTH_RESIDENTIAL"
+          ]
+        ],
+        "component_scope": "vehicle_passable_subgraph",
+        "route_reliability": null,
+        "outbound_reliability": null,
+        "max_planning_risk": 0.0,
+        "risk_warning": false,
+        "rainfall_mmh": 15.0,
+        "blocked_edges": [
+          [
+            "BOAT_RAMP_SOUTH",
+            "ZONE_ISLAND_COMMUNITY"
+          ]
+        ],
+        "depth_source": "depth_map",
+        "data_freshness": "UNKNOWN",
+        "standing_water_note": "Scenario-imposed depth, not derived from rainfall.",
+        "scenario_id": "scenario_3b_total_isolation_airdrop"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -0.8988,
+            41.6347
+          ],
+          [
+            -0.869,
+            41.658
+          ]
+        ]
+      },
+      "properties": {
+        "status": "OK",
+        "vehicle_type": "HELICOPTER",
+        "origin": "HOSPITAL_BASE",
+        "destination": "ZONE_ISLAND_COMMUNITY",
+        "eta_minutes": 1.19,
+        "distance_km": 3.584,
+        "path_nodes": [
+          "HOSPITAL_BASE",
+          "ZONE_ISLAND_COMMUNITY"
+        ],
+        "geometry_quality": "great_circle",
+        "avoided_hazards": [],
+        "is_predictive_detour": false,
+        "route_reliability": null,
+        "outbound_reliability": null,
+        "edge_risks": [],
+        "planning_edge_risks": [],
+        "max_planning_risk": 0.0,
+        "risk_warning": false,
+        "advisory": "NONE",
+        "risk_horizon_note": "edge_risks reflects round-trip exposure horizon; planning_edge_risks reflects 30-minute planning horizon",
+        "round_trip": true,
+        "eta_delta_min": 0.0,
+        "counterfactual": {
+          "reactive_path_nodes": [
+            "HOSPITAL_BASE",
+            "ZONE_ISLAND_COMMUNITY"
+          ],
+          "reactive_eta_min": 1.19,
+          "reactive_reliability": null,
+          "eta_delta_min": 0.0,
+          "reliability_gain": 0.0
+        },
+        "departure_window_min": 120,
+        "window_capped": true,
+        "assumption": "Launch point assumed to be HOSPITAL_BASE",
+        "rainfall_mmh": 15.0,
+        "blocked_edges": [],
+        "depth_source": "scenario",
+        "data_freshness": "UNKNOWN",
+        "surface_access_severed": true,
+        "standing_water_note": "Scenario-imposed depth, not derived from rainfall.",
+        "scenario_id": "scenario_3b_total_isolation_airdrop"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -0.8988,
+            41.6347
+          ],
+          [
+            -0.8872,
+            41.6468
+          ],
+          [
+            -0.8821,
+            41.6575
+          ],
+          [
+            -0.8812,
+            41.6602
+          ],
+          [
+            -0.874,
+            41.6635
+          ]
+        ]
+      },
+      "properties": {
+        "status": "OK",
+        "vehicle_type": "AMBULANCE",
+        "origin": "HOSPITAL_BASE",
+        "destination": "ZONE_NORTH_RESIDENTIAL",
+        "eta_minutes": 6.58,
+        "distance_km": 4.385,
+        "path_nodes": [
+          "HOSPITAL_BASE",
+          "JUNCTION_PARAISO",
+          "PUENTE_SANTIAGO_SOUTH",
+          "PUENTE_SANTIAGO_NORTH",
+          "ZONE_NORTH_RESIDENTIAL"
+        ],
+        "geometry_quality": "schematic_straight_lines",
+        "avoided_hazards": [
+          {
+            "edge": [
+              "PUENTE_PIEDRA_SOUTH",
+              "PUENTE_PIEDRA_NORTH"
+            ],
+            "name": "Puente de Piedra",
+            "reason": "SUBMERGED",
+            "depth_m": 0.85,
+            "planning_risk": 0.0006,
+            "risk": 0.0006
+          }
+        ],
+        "is_predictive_detour": false,
+        "route_reliability": 1.0,
+        "outbound_reliability": 1.0,
+        "edge_risks": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "planning_edge_risks": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_planning_risk": 0.0,
+        "risk_warning": false,
+        "advisory": "NONE",
+        "risk_horizon_note": "edge_risks reflects round-trip exposure horizon; planning_edge_risks reflects 30-minute planning horizon",
+        "round_trip": true,
+        "eta_delta_min": 0.0,
+        "counterfactual": {
+          "reactive_path_nodes": [
+            "HOSPITAL_BASE",
+            "JUNCTION_PARAISO",
+            "PUENTE_SANTIAGO_SOUTH",
+            "PUENTE_SANTIAGO_NORTH",
+            "ZONE_NORTH_RESIDENTIAL"
+          ],
+          "reactive_eta_min": 6.58,
+          "reactive_reliability": 1.0,
+          "eta_delta_min": 0.0,
+          "reliability_gain": 0.0
+        },
+        "departure_window_min": 65,
+        "window_capped": false,
+        "rainfall_mmh": 15.0,
+        "blocked_edges": [],
+        "depth_source": "depth_map",
+        "data_freshness": "FRESH",
+        "depth_age_min": 45,
+        "scenario_id": "scenario_4_synthetic_depth_map"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -0.8988,
+            41.6347
+          ],
+          [
+            -0.8872,
+            41.6468
+          ],
+          [
+            -0.882,
+            41.653
+          ],
+          [
+            -0.8768,
+            41.6565
+          ],
+          [
+            -0.869,
+            41.658
+          ]
+        ]
+      },
+      "properties": {
+        "status": "OK",
+        "vehicle_type": "RESCUE_BOAT",
+        "origin": "HOSPITAL_BASE",
+        "destination": "ZONE_ISLAND_COMMUNITY",
+        "eta_minutes": 21.3,
+        "distance_km": 3.719,
+        "path_nodes": [
+          "HOSPITAL_BASE",
+          "JUNCTION_PARAISO",
+          "JUNCTION_CENTRO",
+          "BOAT_RAMP_SOUTH",
+          "ZONE_ISLAND_COMMUNITY"
+        ],
+        "geometry_quality": "schematic_straight_lines",
+        "avoided_hazards": [],
+        "is_predictive_detour": false,
+        "route_reliability": 0.5319,
+        "outbound_reliability": 0.9579,
+        "edge_risks": [
+          0.0,
+          0.0,
+          0.1031,
+          0.407
+        ],
+        "planning_edge_risks": [
+          0.0,
+          0.0006,
+          0.9129,
+          0.1246
+        ],
+        "max_planning_risk": 0.9129,
+        "risk_warning": true,
+        "advisory": "LOW_RELIABILITY",
+        "risk_horizon_note": "edge_risks reflects round-trip exposure horizon; planning_edge_risks reflects 30-minute planning horizon",
+        "round_trip": true,
+        "eta_delta_min": 0.0,
+        "legs": [
+          {
+            "mode": "TRUCK_4X4",
+            "path_nodes": [
+              "HOSPITAL_BASE",
+              "JUNCTION_PARAISO",
+              "JUNCTION_CENTRO",
+              "BOAT_RAMP_SOUTH"
+            ],
+            "eta_minutes": 5.95,
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [
+                  -0.8988,
+                  41.6347
+                ],
+                [
+                  -0.8872,
+                  41.6468
+                ],
+                [
+                  -0.882,
+                  41.653
+                ],
+                [
+                  -0.8768,
+                  41.6565
+                ]
+              ]
+            }
+          },
+          {
+            "mode": "RESCUE_BOAT",
+            "path_nodes": [
+              "BOAT_RAMP_SOUTH",
+              "ZONE_ISLAND_COMMUNITY"
+            ],
+            "eta_minutes": 5.35,
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [
+                  -0.8768,
+                  41.6565
+                ],
+                [
+                  -0.869,
+                  41.658
+                ]
+              ]
+            }
+          }
+        ],
+        "launch_minutes": 10.0,
+        "counterfactual": {
+          "reactive_path_nodes": [
+            "HOSPITAL_BASE",
+            "JUNCTION_PARAISO",
+            "JUNCTION_CENTRO",
+            "BOAT_RAMP_SOUTH",
+            "ZONE_ISLAND_COMMUNITY"
+          ],
+          "reactive_eta_min": 21.3,
+          "reactive_reliability": 0.5319,
+          "eta_delta_min": 0.0,
+          "reliability_gain": 0.0
+        },
+        "departure_window_min": null,
+        "window_capped": false,
+        "rainfall_mmh": 45.0,
+        "blocked_edges": [],
+        "depth_source": "depth_map",
+        "data_freshness": "UNKNOWN",
+        "scenario_id": "scenario_5_full_cascade"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -0.8988,
+            41.6347
+          ],
+          [
+            -0.869,
+            41.658
+          ]
+        ]
+      },
+      "properties": {
+        "status": "OK",
+        "vehicle_type": "HELICOPTER",
+        "origin": "HOSPITAL_BASE",
+        "destination": "ZONE_ISLAND_COMMUNITY",
+        "eta_minutes": 1.19,
+        "distance_km": 3.584,
+        "path_nodes": [
+          "HOSPITAL_BASE",
+          "ZONE_ISLAND_COMMUNITY"
+        ],
+        "geometry_quality": "great_circle",
+        "avoided_hazards": [],
+        "is_predictive_detour": false,
+        "route_reliability": null,
+        "outbound_reliability": null,
+        "edge_risks": [],
+        "planning_edge_risks": [],
+        "max_planning_risk": 0.0,
+        "risk_warning": false,
+        "advisory": "NONE",
+        "risk_horizon_note": "edge_risks reflects round-trip exposure horizon; planning_edge_risks reflects 30-minute planning horizon",
+        "round_trip": true,
+        "eta_delta_min": 0.0,
+        "counterfactual": {
+          "reactive_path_nodes": [
+            "HOSPITAL_BASE",
+            "ZONE_ISLAND_COMMUNITY"
+          ],
+          "reactive_eta_min": 1.19,
+          "reactive_reliability": null,
+          "eta_delta_min": 0.0,
+          "reliability_gain": 0.0
+        },
+        "departure_window_min": 120,
+        "window_capped": true,
+        "assumption": "Launch point assumed to be HOSPITAL_BASE",
+        "rainfall_mmh": 45.0,
+        "blocked_edges": [],
+        "depth_source": "scenario",
+        "data_freshness": "UNKNOWN",
+        "surface_access_severed": true,
+        "scenario_id": "scenario_5_full_cascade"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "status": "UNREACHABLE",
+        "vehicle_type": "AMBULANCE",
+        "origin": "HOSPITAL_BASE",
+        "destination": "ZONE_ISLAND_COMMUNITY",
+        "reason": "No passable route available for AMBULANCE.",
+        "isolated_nodes": [
+          "ZONE_ISLAND_COMMUNITY"
+        ],
+        "cut_edges": [
+          [
+            "BOAT_RAMP_SOUTH",
+            "ZONE_ISLAND_COMMUNITY"
+          ],
+          [
+            "RIVER_CHANNEL_MID",
+            "ZONE_ISLAND_COMMUNITY"
+          ],
+          [
+            "ZONE_ISLAND_COMMUNITY",
+            "ZONE_NORTH_RESIDENTIAL"
+          ]
+        ],
+        "component_scope": "vehicle_passable_subgraph",
+        "route_reliability": null,
+        "outbound_reliability": null,
+        "max_planning_risk": 0.0,
+        "risk_warning": false,
+        "rainfall_mmh": 45.0,
+        "blocked_edges": [],
+        "depth_source": "depth_map",
+        "data_freshness": "UNKNOWN",
+        "scenario_id": "scenario_5_full_cascade"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "status": "UNREACHABLE",
+        "vehicle_type": "TRUCK_4X4",
+        "origin": "HOSPITAL_BASE",
+        "destination": "ZONE_ISLAND_COMMUNITY",
+        "reason": "No passable route available for TRUCK_4X4.",
+        "isolated_nodes": [
+          "ZONE_ISLAND_COMMUNITY"
+        ],
+        "cut_edges": [
+          [
+            "BOAT_RAMP_SOUTH",
+            "ZONE_ISLAND_COMMUNITY"
+          ],
+          [
+            "RIVER_CHANNEL_MID",
+            "ZONE_ISLAND_COMMUNITY"
+          ],
+          [
+            "ZONE_ISLAND_COMMUNITY",
+            "ZONE_NORTH_RESIDENTIAL"
+          ]
+        ],
+        "component_scope": "vehicle_passable_subgraph",
+        "route_reliability": null,
+        "outbound_reliability": null,
+        "max_planning_risk": 0.0,
+        "risk_warning": false,
+        "rainfall_mmh": 45.0,
+        "blocked_edges": [],
+        "depth_source": "depth_map",
+        "data_freshness": "UNKNOWN",
+        "scenario_id": "scenario_5_full_cascade"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -0.8988,
+            41.6347
+          ],
+          [
+            -0.8872,
+            41.6468
+          ],
+          [
+            -0.882,
+            41.653
+          ],
+          [
+            -0.8768,
+            41.6565
+          ],
+          [
+            -0.869,
+            41.658
+          ]
+        ]
+      },
+      "properties": {
+        "status": "OK",
+        "vehicle_type": "RESCUE_BOAT",
+        "origin": "HOSPITAL_BASE",
+        "destination": "ZONE_ISLAND_COMMUNITY",
+        "eta_minutes": 21.3,
+        "distance_km": 3.719,
+        "path_nodes": [
+          "HOSPITAL_BASE",
+          "JUNCTION_PARAISO",
+          "JUNCTION_CENTRO",
+          "BOAT_RAMP_SOUTH",
+          "ZONE_ISLAND_COMMUNITY"
+        ],
+        "geometry_quality": "schematic_straight_lines",
+        "avoided_hazards": [],
+        "is_predictive_detour": false,
+        "route_reliability": 0.5319,
+        "outbound_reliability": 0.9579,
+        "edge_risks": [
+          0.0,
+          0.0,
+          0.1031,
+          0.407
+        ],
+        "planning_edge_risks": [
+          0.0,
+          0.0006,
+          0.9129,
+          0.1246
+        ],
+        "max_planning_risk": 0.9129,
+        "risk_warning": true,
+        "advisory": "LOW_RELIABILITY",
+        "risk_horizon_note": "edge_risks reflects round-trip exposure horizon; planning_edge_risks reflects 30-minute planning horizon",
+        "round_trip": true,
+        "eta_delta_min": 0.0,
+        "legs": [
+          {
+            "mode": "TRUCK_4X4",
+            "path_nodes": [
+              "HOSPITAL_BASE",
+              "JUNCTION_PARAISO",
+              "JUNCTION_CENTRO",
+              "BOAT_RAMP_SOUTH"
+            ],
+            "eta_minutes": 5.95,
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [
+                  -0.8988,
+                  41.6347
+                ],
+                [
+                  -0.8872,
+                  41.6468
+                ],
+                [
+                  -0.882,
+                  41.653
+                ],
+                [
+                  -0.8768,
+                  41.6565
+                ]
+              ]
+            }
+          },
+          {
+            "mode": "RESCUE_BOAT",
+            "path_nodes": [
+              "BOAT_RAMP_SOUTH",
+              "ZONE_ISLAND_COMMUNITY"
+            ],
+            "eta_minutes": 5.35,
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [
+                  -0.8768,
+                  41.6565
+                ],
+                [
+                  -0.869,
+                  41.658
+                ]
+              ]
+            }
+          }
+        ],
+        "launch_minutes": 10.0,
+        "counterfactual": {
+          "reactive_path_nodes": [
+            "HOSPITAL_BASE",
+            "JUNCTION_PARAISO",
+            "JUNCTION_CENTRO",
+            "BOAT_RAMP_SOUTH",
+            "ZONE_ISLAND_COMMUNITY"
+          ],
+          "reactive_eta_min": 21.3,
+          "reactive_reliability": 0.5319,
+          "eta_delta_min": 0.0,
+          "reliability_gain": 0.0
+        },
+        "departure_window_min": null,
+        "window_capped": false,
+        "rainfall_mmh": 45.0,
+        "blocked_edges": [],
+        "depth_source": "depth_map",
+        "data_freshness": "UNKNOWN",
+        "scenario_id": "scenario_5_full_cascade"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "status": "UNREACHABLE",
+        "vehicle_type": "RESCUE_BOAT",
+        "origin": "HOSPITAL_BASE",
+        "destination": "ZONE_ISLAND_COMMUNITY",
+        "reason": "No passable multimodal route available via boat ramps.",
+        "isolated_nodes": [
+          "ZONE_ISLAND_COMMUNITY"
+        ],
+        "cut_edges": [],
+        "component_scope": "vehicle_passable_subgraph",
+        "route_reliability": null,
+        "outbound_reliability": null,
+        "max_planning_risk": 0.0,
+        "risk_warning": false,
+        "rainfall_mmh": 45.0,
+        "blocked_edges": [
+          [
+            "BOAT_RAMP_SOUTH",
+            "ZONE_ISLAND_COMMUNITY"
+          ]
+        ],
+        "depth_source": "depth_map",
+        "data_freshness": "UNKNOWN",
+        "scenario_id": "scenario_5_full_cascade"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -0.8988,
+            41.6347
+          ],
+          [
+            -0.869,
+            41.658
+          ]
+        ]
+      },
+      "properties": {
+        "status": "OK",
+        "vehicle_type": "HELICOPTER",
+        "origin": "HOSPITAL_BASE",
+        "destination": "ZONE_ISLAND_COMMUNITY",
+        "eta_minutes": 1.19,
+        "distance_km": 3.584,
+        "path_nodes": [
+          "HOSPITAL_BASE",
+          "ZONE_ISLAND_COMMUNITY"
+        ],
+        "geometry_quality": "great_circle",
+        "avoided_hazards": [],
+        "is_predictive_detour": false,
+        "route_reliability": null,
+        "outbound_reliability": null,
+        "edge_risks": [],
+        "planning_edge_risks": [],
+        "max_planning_risk": 0.0,
+        "risk_warning": false,
+        "advisory": "NONE",
+        "risk_horizon_note": "edge_risks reflects round-trip exposure horizon; planning_edge_risks reflects 30-minute planning horizon",
+        "round_trip": true,
+        "eta_delta_min": 0.0,
+        "counterfactual": {
+          "reactive_path_nodes": [
+            "HOSPITAL_BASE",
+            "ZONE_ISLAND_COMMUNITY"
+          ],
+          "reactive_eta_min": 1.19,
+          "reactive_reliability": null,
+          "eta_delta_min": 0.0,
+          "reliability_gain": 0.0
+        },
+        "departure_window_min": 120,
+        "window_capped": true,
+        "assumption": "Launch point assumed to be HOSPITAL_BASE",
+        "rainfall_mmh": 45.0,
+        "blocked_edges": [
+          [
+            "BOAT_RAMP_SOUTH",
+            "ZONE_ISLAND_COMMUNITY"
+          ]
+        ],
+        "depth_source": "scenario",
+        "data_freshness": "UNKNOWN",
+        "surface_access_severed": true,
+        "scenario_id": "scenario_5_full_cascade"
+      }
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "scenario_1_baseline",
+      "title": "Baseline Ambulance Route via Puente de Piedra",
+      "feature_indices": [
+        0
+      ],
+      "briefing": "Route cleared for AMBULANCE to ZONE_NORTH_RESIDENTIAL with ETA of 5.9 minutes covering 3.93 km with 100.0% route reliability. All assigned road segments and bridgeheads report nominal surface conditions without active flood threats.",
+      "briefing_source": "offline"
+    },
+    {
+      "id": "scenario_2a_predictive_detour",
+      "title": "Heavy Rain (45 mm/h) Predictive Detour via Puente de Santiago",
+      "feature_indices": [
+        1
+      ],
+      "briefing": "Route cleared for AMBULANCE to ZONE_NORTH_RESIDENTIAL with ETA of 6.6 minutes covering 4.38 km with 99.8% route reliability. Predictive flood routing active with +0.7 min detour to bypass high risk bridgehead crossings.",
+      "briefing_source": "offline"
+    },
+    {
+      "id": "scenario_2b_flooded_bridge",
+      "title": "Physical Submersion Detour via Puente de Santiago",
+      "feature_indices": [
+        2
+      ],
+      "briefing": "Route cleared for AMBULANCE to ZONE_NORTH_RESIDENTIAL with ETA of 6.6 minutes covering 4.38 km with 100.0% route reliability. Transit diverted to avoid submerged or blocked infrastructure along the primary corridor.",
+      "briefing_source": "offline"
+    },
+    {
+      "id": "scenario_3a_island_cutoff_boat_success",
+      "title": "Island Cutoff - Land Vehicles Impassable, Boat Dispatch",
+      "feature_indices": [
+        3,
+        4,
+        5
+      ],
+      "briefing": "Route cleared for RESCUE_BOAT to ZONE_ISLAND_COMMUNITY along river corridor with ETA of 5.3 minutes covering 0.67 km with 99.2% route reliability. All assigned river corridors report nominal navigable flow conditions without active debris hazards.",
+      "briefing_source": "offline",
+      "standing_water_note": "Scenario-imposed depth, not derived from rainfall."
+    },
+    {
+      "id": "scenario_3b_total_isolation_airdrop",
+      "title": "Total Island Isolation - Critical Airdrop Alert",
+      "feature_indices": [
+        6,
+        7
+      ],
+      "briefing": "Air corridor cleared for HELICOPTER to ZONE_ISLAND_COMMUNITY with ETA of 1.2 minutes covering 3.58 km. Surface access corridors are completely severed by floodwaters, requiring priority aerial insertion.",
+      "briefing_source": "offline",
+      "standing_water_note": "Scenario-imposed depth, not derived from rainfall."
+    },
+    {
+      "id": "scenario_4_synthetic_depth_map",
+      "title": "Satellite Observation Detour via Santiago (Synthetic Depth Map)",
+      "feature_indices": [
+        8
+      ],
+      "briefing": "Route cleared for AMBULANCE to ZONE_NORTH_RESIDENTIAL with ETA of 6.6 minutes covering 4.38 km with 100.0% route reliability. Transit diverted to avoid submerged or blocked infrastructure along the primary corridor.",
+      "briefing_source": "offline"
+    },
+    {
+      "id": "scenario_5_full_cascade",
+      "title": "Severe Rain (45 mm/h) Full Cascade Escalation to Aerial Insertion",
+      "feature_indices": [
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "selected_feature_index": 15,
+      "attempts": [
+        {
+          "vehicle_type": "AMBULANCE",
+          "status": "UNREACHABLE",
+          "reason": "No passable route available for AMBULANCE."
+        },
+        {
+          "vehicle_type": "TRUCK_4X4",
+          "status": "UNREACHABLE",
+          "reason": "No passable route available for TRUCK_4X4."
+        },
+        {
+          "vehicle_type": "RESCUE_BOAT",
+          "status": "OK",
+          "eta_minutes": 21.3,
+          "legs": 2
+        },
+        {
+          "vehicle_type": "RESCUE_BOAT",
+          "status": "UNREACHABLE",
+          "reason": "No passable multimodal route available via boat ramps."
+        },
+        {
+          "vehicle_type": "HELICOPTER",
+          "status": "OK",
+          "eta_minutes": 1.19
+        }
+      ],
+      "briefing": "Air corridor cleared for HELICOPTER to ZONE_ISLAND_COMMUNITY with ETA of 1.2 minutes covering 3.58 km. Surface access corridors are completely severed by floodwaters, requiring priority aerial insertion.",
+      "briefing_source": "offline"
+    }
+  ],
+  "network": {
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              -0.8988,
+              41.6347
+            ],
+            [
+              -0.8872,
+              41.6468
+            ]
+          ]
+        },
+        "properties": {
+          "name": "Hospital - Plaza Paraiso",
+          "kind": "road",
+          "depth": 0.0,
+          "elevation": 216.0,
+          "distance_to_river_m": 1500.0,
+          "geometry_quality": "schematic_straight_lines"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              -0.8872,
+              41.6468
+            ],
+            [
+              -0.882,
+              41.653
+            ]
+          ]
+        },
+        "properties": {
+          "name": "Plaza Paraiso - Centro",
+          "kind": "road",
+          "depth": 0.0,
+          "elevation": 208.5,
+          "distance_to_river_m": 800.0,
+          "geometry_quality": "schematic_straight_lines"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              -0.8872,
+              41.6468
+            ],
+            [
+              -0.8821,
+              41.6575
+            ]
+          ]
+        },
+        "properties": {
+          "name": "Plaza Paraiso - Puente de Santiago South",
+          "kind": "road",
+          "depth": 0.0,
+          "elevation": 210.0,
+          "distance_to_river_m": 600.0,
+          "geometry_quality": "schematic_straight_lines"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              -0.882,
+              41.653
+            ],
+            [
+              -0.8757,
+              41.6562
+            ]
+          ]
+        },
+        "properties": {
+          "name": "Centro - Puente de Piedra South",
+          "kind": "road",
+          "depth": 0.0,
+          "elevation": 201.5,
+          "distance_to_river_m": 150.0,
+          "geometry_quality": "schematic_straight_lines"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              -0.882,
+              41.653
+            ],
+            [
+              -0.8768,
+              41.6565
+            ]
+          ]
+        },
+        "properties": {
+          "name": "Centro - Boat Ramp South",
+          "kind": "road",
+          "depth": 0.0,
+          "elevation": 199.5,
+          "distance_to_river_m": 100.0,
+          "geometry_quality": "schematic_straight_lines"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              -0.8757,
+              41.6562
+            ],
+            [
+              -0.8751,
+              41.658
+            ]
+          ]
+        },
+        "properties": {
+          "name": "Puente de Piedra",
+          "kind": "bridge",
+          "depth": 0.0,
+          "elevation": 198.0,
+          "distance_to_river_m": 0.0,
+          "geometry_quality": "schematic_straight_lines"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              -0.8751,
+              41.658
+            ],
+            [
+              -0.874,
+              41.6635
+            ]
+          ]
+        },
+        "properties": {
+          "name": "Puente de Piedra North - North Residential",
+          "kind": "road",
+          "depth": 0.0,
+          "elevation": 199.5,
+          "distance_to_river_m": 250.0,
+          "geometry_quality": "schematic_straight_lines"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              -0.8821,
+              41.6575
+            ],
+            [
+              -0.8812,
+              41.6602
+            ]
+          ]
+        },
+        "properties": {
+          "name": "Puente de Santiago",
+          "kind": "bridge",
+          "depth": 0.0,
+          "elevation": 208.0,
+          "distance_to_river_m": 0.0,
+          "geometry_quality": "schematic_straight_lines"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              -0.8812,
+              41.6602
+            ],
+            [
+              -0.874,
+              41.6635
+            ]
+          ]
+        },
+        "properties": {
+          "name": "Puente de Santiago North - North Residential",
+          "kind": "road",
+          "depth": 0.0,
+          "elevation": 204.5,
+          "distance_to_river_m": 500.0,
+          "geometry_quality": "schematic_straight_lines"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              -0.874,
+              41.6635
+            ],
+            [
+              -0.869,
+              41.658
+            ]
+          ]
+        },
+        "properties": {
+          "name": "North Residential - Island Causeway",
+          "kind": "causeway",
+          "depth": 0.0,
+          "elevation": 195.0,
+          "distance_to_river_m": 20.0,
+          "geometry_quality": "schematic_straight_lines"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              -0.874,
+              41.6635
+            ],
+            [
+              -0.8715,
+              41.66075
+            ]
+          ]
+        },
+        "properties": {
+          "name": "River Channel Mid - North Residential (River)",
+          "kind": "river",
+          "depth": 2.0,
+          "elevation": 194.0,
+          "distance_to_river_m": 0.0,
+          "geometry_quality": "schematic_straight_lines"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              -0.869,
+              41.658
+            ],
+            [
+              -0.8768,
+              41.6565
+            ]
+          ]
+        },
+        "properties": {
+          "name": "Boat Ramp - Island Community (River)",
+          "kind": "river",
+          "depth": 2.0,
+          "elevation": 194.0,
+          "distance_to_river_m": 0.0,
+          "geometry_quality": "schematic_straight_lines"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              -0.869,
+              41.658
+            ],
+            [
+              -0.8715,
+              41.66075
+            ]
+          ]
+        },
+        "properties": {
+          "name": "Island Community - River Channel Mid (River)",
+          "kind": "river",
+          "depth": 2.0,
+          "elevation": 194.0,
+          "distance_to_river_m": 0.0,
+          "geometry_quality": "schematic_straight_lines"
+        }
+      }
+    ]
+  },
+  "slider": {
+    "rainfall_steps_mm_h": [
+      0,
+      15,
+      30,
+      45,
+      60
+    ],
+    "planning_risk_horizon_min": 30,
+    "queries": [
+      {
+        "id": "ambulance_hospital_to_north",
+        "vehicle_type": "AMBULANCE",
+        "origin": "HOSPITAL_BASE",
+        "destination": "ZONE_NORTH_RESIDENTIAL",
+        "multimodal": false
+      },
+      {
+        "id": "truck_hospital_to_island",
+        "vehicle_type": "TRUCK_4X4",
+        "origin": "HOSPITAL_BASE",
+        "destination": "ZONE_ISLAND_COMMUNITY",
+        "multimodal": false
+      },
+      {
+        "id": "boat_multimodal_hospital_to_island",
+        "vehicle_type": "RESCUE_BOAT",
+        "origin": "HOSPITAL_BASE",
+        "destination": "ZONE_ISLAND_COMMUNITY",
+        "multimodal": true
+      }
+    ],
+    "steps": [
+      {
+        "rainfall_mm_h": 0,
+        "planning_risk_horizon_min": 30,
+        "edge_risks": {
+          "HOSPITAL_BASE|JUNCTION_PARAISO": 0.0,
+          "JUNCTION_CENTRO|BOAT_RAMP_SOUTH": 0.0,
+          "JUNCTION_CENTRO|PUENTE_PIEDRA_SOUTH": 0.0,
+          "JUNCTION_PARAISO|JUNCTION_CENTRO": 0.0,
+          "JUNCTION_PARAISO|PUENTE_SANTIAGO_SOUTH": 0.0,
+          "PUENTE_PIEDRA_NORTH|ZONE_NORTH_RESIDENTIAL": 0.0,
+          "PUENTE_PIEDRA_SOUTH|PUENTE_PIEDRA_NORTH": 0.0,
+          "PUENTE_SANTIAGO_NORTH|ZONE_NORTH_RESIDENTIAL": 0.0,
+          "PUENTE_SANTIAGO_SOUTH|PUENTE_SANTIAGO_NORTH": 0.0,
+          "ZONE_ISLAND_COMMUNITY|BOAT_RAMP_SOUTH": 0.0025,
+          "ZONE_ISLAND_COMMUNITY|RIVER_CHANNEL_MID": 0.0025,
+          "ZONE_NORTH_RESIDENTIAL|RIVER_CHANNEL_MID": 0.0025,
+          "ZONE_NORTH_RESIDENTIAL|ZONE_ISLAND_COMMUNITY": 0.0
+        },
+        "results": [
+          {
+            "status": "OK",
+            "vehicle_type": "AMBULANCE",
+            "origin": "HOSPITAL_BASE",
+            "destination": "ZONE_NORTH_RESIDENTIAL",
+            "eta_minutes": 5.89,
+            "distance_km": 3.926,
+            "path_nodes": [
+              "HOSPITAL_BASE",
+              "JUNCTION_PARAISO",
+              "JUNCTION_CENTRO",
+              "PUENTE_PIEDRA_SOUTH",
+              "PUENTE_PIEDRA_NORTH",
+              "ZONE_NORTH_RESIDENTIAL"
+            ],
+            "geojson_geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [
+                  -0.8988,
+                  41.6347
+                ],
+                [
+                  -0.8872,
+                  41.6468
+                ],
+                [
+                  -0.882,
+                  41.653
+                ],
+                [
+                  -0.8757,
+                  41.6562
+                ],
+                [
+                  -0.8751,
+                  41.658
+                ],
+                [
+                  -0.874,
+                  41.6635
+                ]
+              ]
+            },
+            "geometry_quality": "schematic_straight_lines",
+            "avoided_hazards": [],
+            "is_predictive_detour": false,
+            "route_reliability": 1.0,
+            "outbound_reliability": 1.0,
+            "edge_risks": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "planning_edge_risks": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "max_planning_risk": 0.0,
+            "risk_warning": false,
+            "advisory": "NONE",
+            "risk_horizon_note": "edge_risks reflects round-trip exposure horizon; planning_edge_risks reflects 30-minute planning horizon",
+            "round_trip": true,
+            "eta_delta_min": 0.0,
+            "counterfactual": {
+              "reactive_path_nodes": [
+                "HOSPITAL_BASE",
+                "JUNCTION_PARAISO",
+                "JUNCTION_CENTRO",
+                "PUENTE_PIEDRA_SOUTH",
+                "PUENTE_PIEDRA_NORTH",
+                "ZONE_NORTH_RESIDENTIAL"
+              ],
+              "reactive_eta_min": 5.89,
+              "reactive_reliability": 1.0,
+              "eta_delta_min": 0.0,
+              "reliability_gain": 0.0
+            },
+            "departure_window_min": 120,
+            "window_capped": true,
+            "rainfall_mmh": 0.0,
+            "blocked_edges": [],
+            "depth_source": "scenario",
+            "data_freshness": "UNKNOWN"
+          },
+          {
+            "status": "OK",
+            "vehicle_type": "TRUCK_4X4",
+            "origin": "HOSPITAL_BASE",
+            "destination": "ZONE_ISLAND_COMMUNITY",
+            "eta_minutes": 9.1,
+            "distance_km": 4.666,
+            "path_nodes": [
+              "HOSPITAL_BASE",
+              "JUNCTION_PARAISO",
+              "JUNCTION_CENTRO",
+              "PUENTE_PIEDRA_SOUTH",
+              "PUENTE_PIEDRA_NORTH",
+              "ZONE_NORTH_RESIDENTIAL",
+              "ZONE_ISLAND_COMMUNITY"
+            ],
+            "geojson_geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [
+                  -0.8988,
+                  41.6347
+                ],
+                [
+                  -0.8872,
+                  41.6468
+                ],
+                [
+                  -0.882,
+                  41.653
+                ],
+                [
+                  -0.8757,
+                  41.6562
+                ],
+                [
+                  -0.8751,
+                  41.658
+                ],
+                [
+                  -0.874,
+                  41.6635
+                ],
+                [
+                  -0.869,
+                  41.658
+                ]
+              ]
+            },
+            "geometry_quality": "schematic_straight_lines",
+            "avoided_hazards": [
+              {
+                "edge": [
+                  "BOAT_RAMP_SOUTH",
+                  "ZONE_ISLAND_COMMUNITY"
+                ],
+                "name": "Boat Ramp - Island Community (River)",
+                "reason": "RIVER_HAZARD",
+                "depth_m": 2.0,
+                "planning_risk": 0.0025,
+                "risk": 0.0025
+              }
+            ],
+            "is_predictive_detour": false,
+            "route_reliability": 1.0,
+            "outbound_reliability": 1.0,
+            "edge_risks": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "planning_edge_risks": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "max_planning_risk": 0.0,
+            "risk_warning": false,
+            "advisory": "NONE",
+            "risk_horizon_note": "edge_risks reflects round-trip exposure horizon; planning_edge_risks reflects 30-minute planning horizon",
+            "round_trip": true,
+            "eta_delta_min": 0.0,
+            "counterfactual": {
+              "reactive_path_nodes": [
+                "HOSPITAL_BASE",
+                "JUNCTION_PARAISO",
+                "JUNCTION_CENTRO",
+                "PUENTE_PIEDRA_SOUTH",
+                "PUENTE_PIEDRA_NORTH",
+                "ZONE_NORTH_RESIDENTIAL",
+                "ZONE_ISLAND_COMMUNITY"
+              ],
+              "reactive_eta_min": 9.1,
+              "reactive_reliability": 1.0,
+              "eta_delta_min": 0.0,
+              "reliability_gain": 0.0
+            },
+            "departure_window_min": 120,
+            "window_capped": true,
+            "rainfall_mmh": 0.0,
+            "blocked_edges": [],
+            "depth_source": "scenario",
+            "data_freshness": "UNKNOWN"
+          },
+          {
+            "status": "OK",
+            "vehicle_type": "RESCUE_BOAT",
+            "origin": "HOSPITAL_BASE",
+            "destination": "ZONE_ISLAND_COMMUNITY",
+            "eta_minutes": 21.3,
+            "distance_km": 3.719,
+            "path_nodes": [
+              "HOSPITAL_BASE",
+              "JUNCTION_PARAISO",
+              "JUNCTION_CENTRO",
+              "BOAT_RAMP_SOUTH",
+              "ZONE_ISLAND_COMMUNITY"
+            ],
+            "geojson_geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [
+                  -0.8988,
+                  41.6347
+                ],
+                [
+                  -0.8872,
+                  41.6468
+                ],
+                [
+                  -0.882,
+                  41.653
+                ],
+                [
+                  -0.8768,
+                  41.6565
+                ],
+                [
+                  -0.869,
+                  41.658
+                ]
+              ]
+            },
+            "geometry_quality": "schematic_straight_lines",
+            "avoided_hazards": [],
+            "is_predictive_detour": false,
+            "route_reliability": 0.9975,
+            "outbound_reliability": 0.9975,
+            "edge_risks": [
+              0.0,
+              0.0,
+              0.0,
+              0.0025
+            ],
+            "planning_edge_risks": [
+              0.0,
+              0.0,
+              0.0,
+              0.0025
+            ],
+            "max_planning_risk": 0.0025,
+            "risk_warning": false,
+            "advisory": "NONE",
+            "risk_horizon_note": "edge_risks reflects round-trip exposure horizon; planning_edge_risks reflects 30-minute planning horizon",
+            "round_trip": true,
+            "eta_delta_min": 0.0,
+            "legs": [
+              {
+                "mode": "TRUCK_4X4",
+                "path_nodes": [
+                  "HOSPITAL_BASE",
+                  "JUNCTION_PARAISO",
+                  "JUNCTION_CENTRO",
+                  "BOAT_RAMP_SOUTH"
+                ],
+                "eta_minutes": 5.95,
+                "geometry": {
+                  "type": "LineString",
+                  "coordinates": [
+                    [
+                      -0.8988,
+                      41.6347
+                    ],
+                    [
+                      -0.8872,
+                      41.6468
+                    ],
+                    [
+                      -0.882,
+                      41.653
+                    ],
+                    [
+                      -0.8768,
+                      41.6565
+                    ]
+                  ]
+                }
+              },
+              {
+                "mode": "RESCUE_BOAT",
+                "path_nodes": [
+                  "BOAT_RAMP_SOUTH",
+                  "ZONE_ISLAND_COMMUNITY"
+                ],
+                "eta_minutes": 5.35,
+                "geometry": {
+                  "type": "LineString",
+                  "coordinates": [
+                    [
+                      -0.8768,
+                      41.6565
+                    ],
+                    [
+                      -0.869,
+                      41.658
+                    ]
+                  ]
+                }
+              }
+            ],
+            "launch_minutes": 10.0,
+            "counterfactual": {
+              "reactive_path_nodes": [
+                "HOSPITAL_BASE",
+                "JUNCTION_PARAISO",
+                "JUNCTION_CENTRO",
+                "BOAT_RAMP_SOUTH",
+                "ZONE_ISLAND_COMMUNITY"
+              ],
+              "reactive_eta_min": 21.3,
+              "reactive_reliability": 0.9975,
+              "eta_delta_min": 0.0,
+              "reliability_gain": 0.0
+            },
+            "departure_window_min": 120,
+            "window_capped": true,
+            "rainfall_mmh": 0.0,
+            "blocked_edges": [],
+            "depth_source": "scenario",
+            "data_freshness": "UNKNOWN"
+          }
+        ],
+        "advisory": "NONE"
+      },
+      {
+        "rainfall_mm_h": 15,
+        "planning_risk_horizon_min": 30,
+        "edge_risks": {
+          "HOSPITAL_BASE|JUNCTION_PARAISO": 0.0,
+          "JUNCTION_CENTRO|BOAT_RAMP_SOUTH": 0.0001,
+          "JUNCTION_CENTRO|PUENTE_PIEDRA_SOUTH": 0.0,
+          "JUNCTION_PARAISO|JUNCTION_CENTRO": 0.0,
+          "JUNCTION_PARAISO|PUENTE_SANTIAGO_SOUTH": 0.0,
+          "PUENTE_PIEDRA_NORTH|ZONE_NORTH_RESIDENTIAL": 0.0001,
+          "PUENTE_PIEDRA_SOUTH|PUENTE_PIEDRA_NORTH": 0.0006,
+          "PUENTE_SANTIAGO_NORTH|ZONE_NORTH_RESIDENTIAL": 0.0,
+          "PUENTE_SANTIAGO_SOUTH|PUENTE_SANTIAGO_NORTH": 0.0,
+          "ZONE_ISLAND_COMMUNITY|BOAT_RAMP_SOUTH": 0.0095,
+          "ZONE_ISLAND_COMMUNITY|RIVER_CHANNEL_MID": 0.0095,
+          "ZONE_NORTH_RESIDENTIAL|RIVER_CHANNEL_MID": 0.0095,
+          "ZONE_NORTH_RESIDENTIAL|ZONE_ISLAND_COMMUNITY": 0.0041
+        },
+        "results": [
+          {
+            "status": "OK",
+            "vehicle_type": "AMBULANCE",
+            "origin": "HOSPITAL_BASE",
+            "destination": "ZONE_NORTH_RESIDENTIAL",
+            "eta_minutes": 5.89,
+            "distance_km": 3.926,
+            "path_nodes": [
+              "HOSPITAL_BASE",
+              "JUNCTION_PARAISO",
+              "JUNCTION_CENTRO",
+              "PUENTE_PIEDRA_SOUTH",
+              "PUENTE_PIEDRA_NORTH",
+              "ZONE_NORTH_RESIDENTIAL"
+            ],
+            "geojson_geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [
+                  -0.8988,
+                  41.6347
+                ],
+                [
+                  -0.8872,
+                  41.6468
+                ],
+                [
+                  -0.882,
+                  41.653
+                ],
+                [
+                  -0.8757,
+                  41.6562
+                ],
+                [
+                  -0.8751,
+                  41.658
+                ],
+                [
+                  -0.874,
+                  41.6635
+                ]
+              ]
+            },
+            "geometry_quality": "schematic_straight_lines",
+            "avoided_hazards": [],
+            "is_predictive_detour": false,
+            "route_reliability": 0.9999,
+            "outbound_reliability": 1.0,
+            "edge_risks": [
+              0.0,
+              0.0,
+              0.0,
+              0.0001,
+              0.0
+            ],
+            "planning_edge_risks": [
+              0.0,
+              0.0,
+              0.0,
+              0.0006,
+              0.0001
+            ],
+            "max_planning_risk": 0.0006,
+            "risk_warning": false,
+            "advisory": "NONE",
+            "risk_horizon_note": "edge_risks reflects round-trip exposure horizon; planning_edge_risks reflects 30-minute planning horizon",
+            "round_trip": true,
+            "eta_delta_min": 0.0,
+            "counterfactual": {
+              "reactive_path_nodes": [
+                "HOSPITAL_BASE",
+                "JUNCTION_PARAISO",
+                "JUNCTION_CENTRO",
+                "PUENTE_PIEDRA_SOUTH",
+                "PUENTE_PIEDRA_NORTH",
+                "ZONE_NORTH_RESIDENTIAL"
+              ],
+              "reactive_eta_min": 5.89,
+              "reactive_reliability": 0.9999,
+              "eta_delta_min": 0.0,
+              "reliability_gain": 0.0
+            },
+            "departure_window_min": 35,
+            "window_capped": false,
+            "rainfall_mmh": 15.0,
+            "blocked_edges": [],
+            "depth_source": "scenario",
+            "data_freshness": "UNKNOWN"
+          },
+          {
+            "status": "OK",
+            "vehicle_type": "TRUCK_4X4",
+            "origin": "HOSPITAL_BASE",
+            "destination": "ZONE_ISLAND_COMMUNITY",
+            "eta_minutes": 9.1,
+            "distance_km": 4.666,
+            "path_nodes": [
+              "HOSPITAL_BASE",
+              "JUNCTION_PARAISO",
+              "JUNCTION_CENTRO",
+              "PUENTE_PIEDRA_SOUTH",
+              "PUENTE_PIEDRA_NORTH",
+              "ZONE_NORTH_RESIDENTIAL",
+              "ZONE_ISLAND_COMMUNITY"
+            ],
+            "geojson_geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [
+                  -0.8988,
+                  41.6347
+                ],
+                [
+                  -0.8872,
+                  41.6468
+                ],
+                [
+                  -0.882,
+                  41.653
+                ],
+                [
+                  -0.8757,
+                  41.6562
+                ],
+                [
+                  -0.8751,
+                  41.658
+                ],
+                [
+                  -0.874,
+                  41.6635
+                ],
+                [
+                  -0.869,
+                  41.658
+                ]
+              ]
+            },
+            "geometry_quality": "schematic_straight_lines",
+            "avoided_hazards": [
+              {
+                "edge": [
+                  "BOAT_RAMP_SOUTH",
+                  "ZONE_ISLAND_COMMUNITY"
+                ],
+                "name": "Boat Ramp - Island Community (River)",
+                "reason": "RIVER_HAZARD",
+                "depth_m": 2.0,
+                "planning_risk": 0.0095,
+                "risk": 0.0095
+              }
+            ],
+            "is_predictive_detour": false,
+            "route_reliability": 0.998,
+            "outbound_reliability": 0.9999,
+            "edge_risks": [
+              0.0,
+              0.0,
+              0.0,
+              0.0003,
+              0.0,
+              0.0017
+            ],
+            "planning_edge_risks": [
+              0.0,
+              0.0,
+              0.0,
+              0.0006,
+              0.0001,
+              0.0041
+            ],
+            "max_planning_risk": 0.0041,
+            "risk_warning": false,
+            "advisory": "NONE",
+            "risk_horizon_note": "edge_risks reflects round-trip exposure horizon; planning_edge_risks reflects 30-minute planning horizon",
+            "round_trip": true,
+            "eta_delta_min": 0.0,
+            "counterfactual": {
+              "reactive_path_nodes": [
+                "HOSPITAL_BASE",
+                "JUNCTION_PARAISO",
+                "JUNCTION_CENTRO",
+                "PUENTE_PIEDRA_SOUTH",
+                "PUENTE_PIEDRA_NORTH",
+                "ZONE_NORTH_RESIDENTIAL",
+                "ZONE_ISLAND_COMMUNITY"
+              ],
+              "reactive_eta_min": 9.1,
+              "reactive_reliability": 0.998,
+              "eta_delta_min": 0.0,
+              "reliability_gain": 0.0
+            },
+            "departure_window_min": 20,
+            "window_capped": false,
+            "rainfall_mmh": 15.0,
+            "blocked_edges": [],
+            "depth_source": "scenario",
+            "data_freshness": "UNKNOWN"
+          },
+          {
+            "status": "OK",
+            "vehicle_type": "RESCUE_BOAT",
+            "origin": "HOSPITAL_BASE",
+            "destination": "ZONE_ISLAND_COMMUNITY",
+            "eta_minutes": 21.3,
+            "distance_km": 3.719,
+            "path_nodes": [
+              "HOSPITAL_BASE",
+              "JUNCTION_PARAISO",
+              "JUNCTION_CENTRO",
+              "BOAT_RAMP_SOUTH",
+              "ZONE_ISLAND_COMMUNITY"
+            ],
+            "geojson_geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [
+                  -0.8988,
+                  41.6347
+                ],
+                [
+                  -0.8872,
+                  41.6468
+                ],
+                [
+                  -0.882,
+                  41.653
+                ],
+                [
+                  -0.8768,
+                  41.6565
+                ],
+                [
+                  -0.869,
+                  41.658
+                ]
+              ]
+            },
+            "geometry_quality": "schematic_straight_lines",
+            "avoided_hazards": [],
+            "is_predictive_detour": false,
+            "route_reliability": 0.9841,
+            "outbound_reliability": 0.9936,
+            "edge_risks": [
+              0.0,
+              0.0,
+              0.0,
+              0.0159
+            ],
+            "planning_edge_risks": [
+              0.0,
+              0.0,
+              0.0001,
+              0.0095
+            ],
+            "max_planning_risk": 0.0095,
+            "risk_warning": false,
+            "advisory": "NONE",
+            "risk_horizon_note": "edge_risks reflects round-trip exposure horizon; planning_edge_risks reflects 30-minute planning horizon",
+            "round_trip": true,
+            "eta_delta_min": 0.0,
+            "legs": [
+              {
+                "mode": "TRUCK_4X4",
+                "path_nodes": [
+                  "HOSPITAL_BASE",
+                  "JUNCTION_PARAISO",
+                  "JUNCTION_CENTRO",
+                  "BOAT_RAMP_SOUTH"
+                ],
+                "eta_minutes": 5.95,
+                "geometry": {
+                  "type": "LineString",
+                  "coordinates": [
+                    [
+                      -0.8988,
+                      41.6347
+                    ],
+                    [
+                      -0.8872,
+                      41.6468
+                    ],
+                    [
+                      -0.882,
+                      41.653
+                    ],
+                    [
+                      -0.8768,
+                      41.6565
+                    ]
+                  ]
+                }
+              },
+              {
+                "mode": "RESCUE_BOAT",
+                "path_nodes": [
+                  "BOAT_RAMP_SOUTH",
+                  "ZONE_ISLAND_COMMUNITY"
+                ],
+                "eta_minutes": 5.35,
+                "geometry": {
+                  "type": "LineString",
+                  "coordinates": [
+                    [
+                      -0.8768,
+                      41.6565
+                    ],
+                    [
+                      -0.869,
+                      41.658
+                    ]
+                  ]
+                }
+              }
+            ],
+            "launch_minutes": 10.0,
+            "counterfactual": {
+              "reactive_path_nodes": [
+                "HOSPITAL_BASE",
+                "JUNCTION_PARAISO",
+                "JUNCTION_CENTRO",
+                "BOAT_RAMP_SOUTH",
+                "ZONE_ISLAND_COMMUNITY"
+              ],
+              "reactive_eta_min": 21.3,
+              "reactive_reliability": 0.9841,
+              "eta_delta_min": 0.0,
+              "reliability_gain": 0.0
+            },
+            "departure_window_min": 40,
+            "window_capped": false,
+            "rainfall_mmh": 15.0,
+            "blocked_edges": [],
+            "depth_source": "scenario",
+            "data_freshness": "UNKNOWN"
+          }
+        ],
+        "advisory": "NONE"
+      },
+      {
+        "rainfall_mm_h": 30,
+        "planning_risk_horizon_min": 30,
+        "edge_risks": {
+          "HOSPITAL_BASE|JUNCTION_PARAISO": 0.0,
+          "JUNCTION_CENTRO|BOAT_RAMP_SOUTH": 0.0339,
+          "JUNCTION_CENTRO|PUENTE_PIEDRA_SOUTH": 0.0067,
+          "JUNCTION_PARAISO|JUNCTION_CENTRO": 0.0,
+          "JUNCTION_PARAISO|PUENTE_SANTIAGO_SOUTH": 0.0,
+          "PUENTE_PIEDRA_NORTH|ZONE_NORTH_RESIDENTIAL": 0.0163,
+          "PUENTE_PIEDRA_SOUTH|PUENTE_PIEDRA_NORTH": 0.1419,
+          "PUENTE_SANTIAGO_NORTH|ZONE_NORTH_RESIDENTIAL": 0.0001,
+          "PUENTE_SANTIAGO_SOUTH|PUENTE_SANTIAGO_NORTH": 0.0002,
+          "ZONE_ISLAND_COMMUNITY|BOAT_RAMP_SOUTH": 0.0356,
+          "ZONE_ISLAND_COMMUNITY|RIVER_CHANNEL_MID": 0.0356,
+          "ZONE_NORTH_RESIDENTIAL|RIVER_CHANNEL_MID": 0.0356,
+          "ZONE_NORTH_RESIDENTIAL|ZONE_ISLAND_COMMUNITY": 0.5498
+        },
+        "results": [
+          {
+            "status": "OK",
+            "vehicle_type": "AMBULANCE",
+            "origin": "HOSPITAL_BASE",
+            "destination": "ZONE_NORTH_RESIDENTIAL",
+            "eta_minutes": 6.58,
+            "distance_km": 4.385,
+            "path_nodes": [
+              "HOSPITAL_BASE",
+              "JUNCTION_PARAISO",
+              "PUENTE_SANTIAGO_SOUTH",
+              "PUENTE_SANTIAGO_NORTH",
+              "ZONE_NORTH_RESIDENTIAL"
+            ],
+            "geojson_geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [
+                  -0.8988,
+                  41.6347
+                ],
+                [
+                  -0.8872,
+                  41.6468
+                ],
+                [
+                  -0.8821,
+                  41.6575
+                ],
+                [
+                  -0.8812,
+                  41.6602
+                ],
+                [
+                  -0.874,
+                  41.6635
+                ]
+              ]
+            },
+            "geometry_quality": "schematic_straight_lines",
+            "avoided_hazards": [],
+            "is_predictive_detour": true,
+            "route_reliability": 1.0,
+            "outbound_reliability": 1.0,
+            "edge_risks": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "planning_edge_risks": [
+              0.0,
+              0.0,
+              0.0002,
+              0.0001
+            ],
+            "max_planning_risk": 0.0002,
+            "risk_warning": false,
+            "advisory": "NONE",
+            "risk_horizon_note": "edge_risks reflects round-trip exposure horizon; planning_edge_risks reflects 30-minute planning horizon",
+            "round_trip": true,
+            "eta_delta_min": 0.69,
+            "counterfactual": {
+              "reactive_path_nodes": [
+                "HOSPITAL_BASE",
+                "JUNCTION_PARAISO",
+                "JUNCTION_CENTRO",
+                "PUENTE_PIEDRA_SOUTH",
+                "PUENTE_PIEDRA_NORTH",
+                "ZONE_NORTH_RESIDENTIAL"
+              ],
+              "reactive_eta_min": 5.89,
+              "reactive_reliability": 0.9906,
+              "eta_delta_min": 0.69,
+              "reliability_gain": 0.0094
+            },
+            "departure_window_min": 20,
+            "window_capped": false,
+            "rainfall_mmh": 30.0,
+            "blocked_edges": [],
+            "depth_source": "scenario",
+            "data_freshness": "UNKNOWN"
+          },
+          {
+            "status": "OK",
+            "vehicle_type": "TRUCK_4X4",
+            "origin": "HOSPITAL_BASE",
+            "destination": "ZONE_ISLAND_COMMUNITY",
+            "eta_minutes": 9.1,
+            "distance_km": 4.666,
+            "path_nodes": [
+              "HOSPITAL_BASE",
+              "JUNCTION_PARAISO",
+              "JUNCTION_CENTRO",
+              "PUENTE_PIEDRA_SOUTH",
+              "PUENTE_PIEDRA_NORTH",
+              "ZONE_NORTH_RESIDENTIAL",
+              "ZONE_ISLAND_COMMUNITY"
+            ],
+            "geojson_geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [
+                  -0.8988,
+                  41.6347
+                ],
+                [
+                  -0.8872,
+                  41.6468
+                ],
+                [
+                  -0.882,
+                  41.653
+                ],
+                [
+                  -0.8757,
+                  41.6562
+                ],
+                [
+                  -0.8751,
+                  41.658
+                ],
+                [
+                  -0.874,
+                  41.6635
+                ],
+                [
+                  -0.869,
+                  41.658
+                ]
+              ]
+            },
+            "geometry_quality": "schematic_straight_lines",
+            "avoided_hazards": [
+              {
+                "edge": [
+                  "BOAT_RAMP_SOUTH",
+                  "ZONE_ISLAND_COMMUNITY"
+                ],
+                "name": "Boat Ramp - Island Community (River)",
+                "reason": "RIVER_HAZARD",
+                "depth_m": 2.0,
+                "planning_risk": 0.0356,
+                "risk": 0.0356
+              }
+            ],
+            "is_predictive_detour": false,
+            "route_reliability": 0.767,
+            "outbound_reliability": 0.9995,
+            "edge_risks": [
+              0.0,
+              0.0,
+              0.0036,
+              0.053,
+              0.0048,
+              0.1832
+            ],
+            "planning_edge_risks": [
+              0.0,
+              0.0,
+              0.0067,
+              0.1419,
+              0.0163,
+              0.5498
+            ],
+            "max_planning_risk": 0.5498,
+            "risk_warning": false,
+            "advisory": "LOW_RELIABILITY",
+            "risk_horizon_note": "edge_risks reflects round-trip exposure horizon; planning_edge_risks reflects 30-minute planning horizon",
+            "round_trip": true,
+            "eta_delta_min": 0.0,
+            "counterfactual": {
+              "reactive_path_nodes": [
+                "HOSPITAL_BASE",
+                "JUNCTION_PARAISO",
+                "JUNCTION_CENTRO",
+                "PUENTE_PIEDRA_SOUTH",
+                "PUENTE_PIEDRA_NORTH",
+                "ZONE_NORTH_RESIDENTIAL",
+                "ZONE_ISLAND_COMMUNITY"
+              ],
+              "reactive_eta_min": 9.1,
+              "reactive_reliability": 0.767,
+              "eta_delta_min": 0.0,
+              "reliability_gain": 0.0
+            },
+            "departure_window_min": null,
+            "window_capped": false,
+            "rainfall_mmh": 30.0,
+            "blocked_edges": [],
+            "depth_source": "scenario",
+            "data_freshness": "UNKNOWN"
+          },
+          {
+            "status": "OK",
+            "vehicle_type": "RESCUE_BOAT",
+            "origin": "HOSPITAL_BASE",
+            "destination": "ZONE_ISLAND_COMMUNITY",
+            "eta_minutes": 21.3,
+            "distance_km": 3.719,
+            "path_nodes": [
+              "HOSPITAL_BASE",
+              "JUNCTION_PARAISO",
+              "JUNCTION_CENTRO",
+              "BOAT_RAMP_SOUTH",
+              "ZONE_ISLAND_COMMUNITY"
+            ],
+            "geojson_geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [
+                  -0.8988,
+                  41.6347
+                ],
+                [
+                  -0.8872,
+                  41.6468
+                ],
+                [
+                  -0.882,
+                  41.653
+                ],
+                [
+                  -0.8768,
+                  41.6565
+                ],
+                [
+                  -0.869,
+                  41.658
+                ]
+              ]
+            },
+            "geometry_quality": "schematic_straight_lines",
+            "avoided_hazards": [],
+            "is_predictive_detour": false,
+            "route_reliability": 0.9032,
+            "outbound_reliability": 0.9834,
+            "edge_risks": [
+              0.0,
+              0.0,
+              0.0017,
+              0.0953
+            ],
+            "planning_edge_risks": [
+              0.0,
+              0.0,
+              0.0339,
+              0.0356
+            ],
+            "max_planning_risk": 0.0356,
+            "risk_warning": false,
+            "advisory": "NONE",
+            "risk_horizon_note": "edge_risks reflects round-trip exposure horizon; planning_edge_risks reflects 30-minute planning horizon",
+            "round_trip": true,
+            "eta_delta_min": 0.0,
+            "legs": [
+              {
+                "mode": "TRUCK_4X4",
+                "path_nodes": [
+                  "HOSPITAL_BASE",
+                  "JUNCTION_PARAISO",
+                  "JUNCTION_CENTRO",
+                  "BOAT_RAMP_SOUTH"
+                ],
+                "eta_minutes": 5.95,
+                "geometry": {
+                  "type": "LineString",
+                  "coordinates": [
+                    [
+                      -0.8988,
+                      41.6347
+                    ],
+                    [
+                      -0.8872,
+                      41.6468
+                    ],
+                    [
+                      -0.882,
+                      41.653
+                    ],
+                    [
+                      -0.8768,
+                      41.6565
+                    ]
+                  ]
+                }
+              },
+              {
+                "mode": "RESCUE_BOAT",
+                "path_nodes": [
+                  "BOAT_RAMP_SOUTH",
+                  "ZONE_ISLAND_COMMUNITY"
+                ],
+                "eta_minutes": 5.35,
+                "geometry": {
+                  "type": "LineString",
+                  "coordinates": [
+                    [
+                      -0.8768,
+                      41.6565
+                    ],
+                    [
+                      -0.869,
+                      41.658
+                    ]
+                  ]
+                }
+              }
+            ],
+            "launch_minutes": 10.0,
+            "counterfactual": {
+              "reactive_path_nodes": [
+                "HOSPITAL_BASE",
+                "JUNCTION_PARAISO",
+                "JUNCTION_CENTRO",
+                "BOAT_RAMP_SOUTH",
+                "ZONE_ISLAND_COMMUNITY"
+              ],
+              "reactive_eta_min": 21.3,
+              "reactive_reliability": 0.9032,
+              "eta_delta_min": 0.0,
+              "reliability_gain": 0.0
+            },
+            "departure_window_min": 10,
+            "window_capped": false,
+            "rainfall_mmh": 30.0,
+            "blocked_edges": [],
+            "depth_source": "scenario",
+            "data_freshness": "UNKNOWN"
+          }
+        ],
+        "advisory": "LOW_RELIABILITY"
+      },
+      {
+        "rainfall_mm_h": 45,
+        "planning_risk_horizon_min": 30,
+        "edge_risks": {
+          "HOSPITAL_BASE|JUNCTION_PARAISO": 0.0,
+          "JUNCTION_CENTRO|BOAT_RAMP_SOUTH": 0.9129,
+          "JUNCTION_CENTRO|PUENTE_PIEDRA_SOUTH": 0.6682,
+          "JUNCTION_PARAISO|JUNCTION_CENTRO": 0.0006,
+          "JUNCTION_PARAISO|PUENTE_SANTIAGO_SOUTH": 0.0006,
+          "PUENTE_PIEDRA_NORTH|ZONE_NORTH_RESIDENTIAL": 0.832,
+          "PUENTE_PIEDRA_SOUTH|PUENTE_PIEDRA_NORTH": 0.9802,
+          "PUENTE_SANTIAGO_NORTH|ZONE_NORTH_RESIDENTIAL": 0.0411,
+          "PUENTE_SANTIAGO_SOUTH|PUENTE_SANTIAGO_NORTH": 0.0431,
+          "ZONE_ISLAND_COMMUNITY|BOAT_RAMP_SOUTH": 0.1246,
+          "ZONE_ISLAND_COMMUNITY|RIVER_CHANNEL_MID": 0.1246,
+          "ZONE_NORTH_RESIDENTIAL|RIVER_CHANNEL_MID": 0.1246,
+          "ZONE_NORTH_RESIDENTIAL|ZONE_ISLAND_COMMUNITY": 0.9973
+        },
+        "results": [
+          {
+            "status": "OK",
+            "vehicle_type": "AMBULANCE",
+            "origin": "HOSPITAL_BASE",
+            "destination": "ZONE_NORTH_RESIDENTIAL",
+            "eta_minutes": 6.58,
+            "distance_km": 4.385,
+            "path_nodes": [
+              "HOSPITAL_BASE",
+              "JUNCTION_PARAISO",
+              "PUENTE_SANTIAGO_SOUTH",
+              "PUENTE_SANTIAGO_NORTH",
+              "ZONE_NORTH_RESIDENTIAL"
+            ],
+            "geojson_geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [
+                  -0.8988,
+                  41.6347
+                ],
+                [
+                  -0.8872,
+                  41.6468
+                ],
+                [
+                  -0.8821,
+                  41.6575
+                ],
+                [
+                  -0.8812,
+                  41.6602
+                ],
+                [
+                  -0.874,
+                  41.6635
+                ]
+              ]
+            },
+            "geometry_quality": "schematic_straight_lines",
+            "avoided_hazards": [
+              {
+                "edge": [
+                  "JUNCTION_CENTRO",
+                  "PUENTE_PIEDRA_SOUTH"
+                ],
+                "name": "Centro - Puente de Piedra South",
+                "reason": "PREDICTED_SUBMERSION",
+                "depth_m": 0.0,
+                "planning_risk": 0.6682,
+                "risk": 0.6682
+              },
+              {
+                "edge": [
+                  "PUENTE_PIEDRA_SOUTH",
+                  "PUENTE_PIEDRA_NORTH"
+                ],
+                "name": "Puente de Piedra",
+                "reason": "PREDICTED_SUBMERSION",
+                "depth_m": 0.0,
+                "planning_risk": 0.9802,
+                "risk": 0.9802
+              },
+              {
+                "edge": [
+                  "PUENTE_PIEDRA_NORTH",
+                  "ZONE_NORTH_RESIDENTIAL"
+                ],
+                "name": "Puente de Piedra North - North Residential",
+                "reason": "PREDICTED_SUBMERSION",
+                "depth_m": 0.0,
+                "planning_risk": 0.832,
+                "risk": 0.832
+              }
+            ],
+            "is_predictive_detour": true,
+            "route_reliability": 0.9983,
+            "outbound_reliability": 1.0,
+            "edge_risks": [
+              0.0,
+              0.0,
+              0.001,
+              0.0007
+            ],
+            "planning_edge_risks": [
+              0.0,
+              0.0006,
+              0.0431,
+              0.0411
+            ],
+            "max_planning_risk": 0.0431,
+            "risk_warning": false,
+            "advisory": "NONE",
+            "risk_horizon_note": "edge_risks reflects round-trip exposure horizon; planning_edge_risks reflects 30-minute planning horizon",
+            "round_trip": true,
+            "eta_delta_min": 0.69,
+            "counterfactual": {
+              "reactive_path_nodes": [
+                "HOSPITAL_BASE",
+                "JUNCTION_PARAISO",
+                "JUNCTION_CENTRO",
+                "PUENTE_PIEDRA_SOUTH",
+                "PUENTE_PIEDRA_NORTH",
+                "ZONE_NORTH_RESIDENTIAL"
+              ],
+              "reactive_eta_min": 5.89,
+              "reactive_reliability": 0.5913,
+              "eta_delta_min": 0.69,
+              "reliability_gain": 0.407
+            },
+            "departure_window_min": 5,
+            "window_capped": false,
+            "rainfall_mmh": 45.0,
+            "blocked_edges": [],
+            "depth_source": "scenario",
+            "data_freshness": "UNKNOWN"
+          },
+          {
+            "status": "OK",
+            "vehicle_type": "TRUCK_4X4",
+            "origin": "HOSPITAL_BASE",
+            "destination": "ZONE_ISLAND_COMMUNITY",
+            "eta_minutes": 9.99,
+            "distance_km": 5.125,
+            "path_nodes": [
+              "HOSPITAL_BASE",
+              "JUNCTION_PARAISO",
+              "PUENTE_SANTIAGO_SOUTH",
+              "PUENTE_SANTIAGO_NORTH",
+              "ZONE_NORTH_RESIDENTIAL",
+              "ZONE_ISLAND_COMMUNITY"
+            ],
+            "geojson_geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [
+                  -0.8988,
+                  41.6347
+                ],
+                [
+                  -0.8872,
+                  41.6468
+                ],
+                [
+                  -0.8821,
+                  41.6575
+                ],
+                [
+                  -0.8812,
+                  41.6602
+                ],
+                [
+                  -0.874,
+                  41.6635
+                ],
+                [
+                  -0.869,
+                  41.658
+                ]
+              ]
+            },
+            "geometry_quality": "schematic_straight_lines",
+            "avoided_hazards": [
+              {
+                "edge": [
+                  "JUNCTION_CENTRO",
+                  "BOAT_RAMP_SOUTH"
+                ],
+                "name": "Centro - Boat Ramp South",
+                "reason": "PREDICTED_SUBMERSION",
+                "depth_m": 0.0,
+                "planning_risk": 0.9129,
+                "risk": 0.9129
+              },
+              {
+                "edge": [
+                  "BOAT_RAMP_SOUTH",
+                  "ZONE_ISLAND_COMMUNITY"
+                ],
+                "name": "Boat Ramp - Island Community (River)",
+                "reason": "RIVER_HAZARD",
+                "depth_m": 2.0,
+                "planning_risk": 0.1246,
+                "risk": 0.1246
+              }
+            ],
+            "is_predictive_detour": true,
+            "route_reliability": 0.0198,
+            "outbound_reliability": 0.9959,
+            "edge_risks": [
+              0.0,
+              0.0015,
+              0.0208,
+              0.0141,
+              0.9795
+            ],
+            "planning_edge_risks": [
+              0.0,
+              0.0006,
+              0.0431,
+              0.0411,
+              0.9973
+            ],
+            "max_planning_risk": 0.9973,
+            "risk_warning": false,
+            "advisory": "LOW_RELIABILITY",
+            "risk_horizon_note": "edge_risks reflects round-trip exposure horizon; planning_edge_risks reflects 30-minute planning horizon",
+            "round_trip": true,
+            "eta_delta_min": 0.89,
+            "counterfactual": {
+              "reactive_path_nodes": [
+                "HOSPITAL_BASE",
+                "JUNCTION_PARAISO",
+                "JUNCTION_CENTRO",
+                "PUENTE_PIEDRA_SOUTH",
+                "PUENTE_PIEDRA_NORTH",
+                "ZONE_NORTH_RESIDENTIAL",
+                "ZONE_ISLAND_COMMUNITY"
+              ],
+              "reactive_eta_min": 9.1,
+              "reactive_reliability": 0.001,
+              "eta_delta_min": 0.89,
+              "reliability_gain": 0.0188
+            },
+            "departure_window_min": null,
+            "window_capped": false,
+            "rainfall_mmh": 45.0,
+            "blocked_edges": [],
+            "depth_source": "scenario",
+            "data_freshness": "UNKNOWN"
+          },
+          {
+            "status": "OK",
+            "vehicle_type": "RESCUE_BOAT",
+            "origin": "HOSPITAL_BASE",
+            "destination": "ZONE_ISLAND_COMMUNITY",
+            "eta_minutes": 21.3,
+            "distance_km": 3.719,
+            "path_nodes": [
+              "HOSPITAL_BASE",
+              "JUNCTION_PARAISO",
+              "JUNCTION_CENTRO",
+              "BOAT_RAMP_SOUTH",
+              "ZONE_ISLAND_COMMUNITY"
+            ],
+            "geojson_geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [
+                  -0.8988,
+                  41.6347
+                ],
+                [
+                  -0.8872,
+                  41.6468
+                ],
+                [
+                  -0.882,
+                  41.653
+                ],
+                [
+                  -0.8768,
+                  41.6565
+                ],
+                [
+                  -0.869,
+                  41.658
+                ]
+              ]
+            },
+            "geometry_quality": "schematic_straight_lines",
+            "avoided_hazards": [],
+            "is_predictive_detour": false,
+            "route_reliability": 0.5319,
+            "outbound_reliability": 0.9579,
+            "edge_risks": [
+              0.0,
+              0.0,
+              0.1031,
+              0.407
+            ],
+            "planning_edge_risks": [
+              0.0,
+              0.0006,
+              0.9129,
+              0.1246
+            ],
+            "max_planning_risk": 0.9129,
+            "risk_warning": true,
+            "advisory": "LOW_RELIABILITY",
+            "risk_horizon_note": "edge_risks reflects round-trip exposure horizon; planning_edge_risks reflects 30-minute planning horizon",
+            "round_trip": true,
+            "eta_delta_min": 0.0,
+            "legs": [
+              {
+                "mode": "TRUCK_4X4",
+                "path_nodes": [
+                  "HOSPITAL_BASE",
+                  "JUNCTION_PARAISO",
+                  "JUNCTION_CENTRO",
+                  "BOAT_RAMP_SOUTH"
+                ],
+                "eta_minutes": 5.95,
+                "geometry": {
+                  "type": "LineString",
+                  "coordinates": [
+                    [
+                      -0.8988,
+                      41.6347
+                    ],
+                    [
+                      -0.8872,
+                      41.6468
+                    ],
+                    [
+                      -0.882,
+                      41.653
+                    ],
+                    [
+                      -0.8768,
+                      41.6565
+                    ]
+                  ]
+                }
+              },
+              {
+                "mode": "RESCUE_BOAT",
+                "path_nodes": [
+                  "BOAT_RAMP_SOUTH",
+                  "ZONE_ISLAND_COMMUNITY"
+                ],
+                "eta_minutes": 5.35,
+                "geometry": {
+                  "type": "LineString",
+                  "coordinates": [
+                    [
+                      -0.8768,
+                      41.6565
+                    ],
+                    [
+                      -0.869,
+                      41.658
+                    ]
+                  ]
+                }
+              }
+            ],
+            "launch_minutes": 10.0,
+            "counterfactual": {
+              "reactive_path_nodes": [
+                "HOSPITAL_BASE",
+                "JUNCTION_PARAISO",
+                "JUNCTION_CENTRO",
+                "BOAT_RAMP_SOUTH",
+                "ZONE_ISLAND_COMMUNITY"
+              ],
+              "reactive_eta_min": 21.3,
+              "reactive_reliability": 0.5319,
+              "eta_delta_min": 0.0,
+              "reliability_gain": 0.0
+            },
+            "departure_window_min": null,
+            "window_capped": false,
+            "rainfall_mmh": 45.0,
+            "blocked_edges": [],
+            "depth_source": "scenario",
+            "data_freshness": "UNKNOWN"
+          }
+        ],
+        "advisory": "LOW_RELIABILITY"
+      },
+      {
+        "rainfall_mm_h": 60,
+        "planning_risk_horizon_min": 30,
+        "edge_risks": {
+          "HOSPITAL_BASE|JUNCTION_PARAISO": 0.0,
+          "JUNCTION_CENTRO|BOAT_RAMP_SOUTH": 0.9997,
+          "JUNCTION_CENTRO|PUENTE_PIEDRA_SOUTH": 0.9983,
+          "JUNCTION_PARAISO|JUNCTION_CENTRO": 0.148,
+          "JUNCTION_PARAISO|PUENTE_SANTIAGO_SOUTH": 0.1419,
+          "PUENTE_PIEDRA_NORTH|ZONE_NORTH_RESIDENTIAL": 0.9993,
+          "PUENTE_PIEDRA_SOUTH|PUENTE_PIEDRA_NORTH": 0.9999,
+          "PUENTE_SANTIAGO_NORTH|ZONE_NORTH_RESIDENTIAL": 0.9276,
+          "PUENTE_SANTIAGO_SOUTH|PUENTE_SANTIAGO_NORTH": 0.9309,
+          "ZONE_ISLAND_COMMUNITY|BOAT_RAMP_SOUTH": 0.3543,
+          "ZONE_ISLAND_COMMUNITY|RIVER_CHANNEL_MID": 0.3543,
+          "ZONE_NORTH_RESIDENTIAL|RIVER_CHANNEL_MID": 0.3543,
+          "ZONE_NORTH_RESIDENTIAL|ZONE_ISLAND_COMMUNITY": 1.0
+        },
+        "results": [
+          {
+            "status": "OK",
+            "vehicle_type": "AMBULANCE",
+            "origin": "HOSPITAL_BASE",
+            "destination": "ZONE_NORTH_RESIDENTIAL",
+            "eta_minutes": 6.58,
+            "distance_km": 4.385,
+            "path_nodes": [
+              "HOSPITAL_BASE",
+              "JUNCTION_PARAISO",
+              "PUENTE_SANTIAGO_SOUTH",
+              "PUENTE_SANTIAGO_NORTH",
+              "ZONE_NORTH_RESIDENTIAL"
+            ],
+            "geojson_geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [
+                  -0.8988,
+                  41.6347
+                ],
+                [
+                  -0.8872,
+                  41.6468
+                ],
+                [
+                  -0.8821,
+                  41.6575
+                ],
+                [
+                  -0.8812,
+                  41.6602
+                ],
+                [
+                  -0.874,
+                  41.6635
+                ]
+              ]
+            },
+            "geometry_quality": "schematic_straight_lines",
+            "avoided_hazards": [
+              {
+                "edge": [
+                  "JUNCTION_CENTRO",
+                  "PUENTE_PIEDRA_SOUTH"
+                ],
+                "name": "Centro - Puente de Piedra South",
+                "reason": "PREDICTED_SUBMERSION",
+                "depth_m": 0.0,
+                "planning_risk": 0.9983,
+                "risk": 0.9983
+              },
+              {
+                "edge": [
+                  "PUENTE_PIEDRA_SOUTH",
+                  "PUENTE_PIEDRA_NORTH"
+                ],
+                "name": "Puente de Piedra",
+                "reason": "PREDICTED_SUBMERSION",
+                "depth_m": 0.0,
+                "planning_risk": 0.9999,
+                "risk": 0.9999
+              },
+              {
+                "edge": [
+                  "PUENTE_PIEDRA_NORTH",
+                  "ZONE_NORTH_RESIDENTIAL"
+                ],
+                "name": "Puente de Piedra North - North Residential",
+                "reason": "PREDICTED_SUBMERSION",
+                "depth_m": 0.0,
+                "planning_risk": 0.9993,
+                "risk": 0.9993
+              }
+            ],
+            "is_predictive_detour": true,
+            "route_reliability": 0.8694,
+            "outbound_reliability": 1.0,
+            "edge_risks": [
+              0.0,
+              0.0061,
+              0.0767,
+              0.0526
+            ],
+            "planning_edge_risks": [
+              0.0,
+              0.1419,
+              0.9309,
+              0.9276
+            ],
+            "max_planning_risk": 0.9309,
+            "risk_warning": true,
+            "advisory": "LOW_RELIABILITY",
+            "risk_horizon_note": "edge_risks reflects round-trip exposure horizon; planning_edge_risks reflects 30-minute planning horizon",
+            "round_trip": true,
+            "eta_delta_min": 0.69,
+            "counterfactual": {
+              "reactive_path_nodes": [
+                "HOSPITAL_BASE",
+                "JUNCTION_PARAISO",
+                "JUNCTION_CENTRO",
+                "PUENTE_PIEDRA_SOUTH",
+                "PUENTE_PIEDRA_NORTH",
+                "ZONE_NORTH_RESIDENTIAL"
+              ],
+              "reactive_eta_min": 5.89,
+              "reactive_reliability": 0.0016,
+              "eta_delta_min": 0.69,
+              "reliability_gain": 0.8678
+            },
+            "departure_window_min": null,
+            "window_capped": false,
+            "rainfall_mmh": 60.0,
+            "blocked_edges": [],
+            "depth_source": "scenario",
+            "data_freshness": "UNKNOWN"
+          },
+          {
+            "status": "OK",
+            "vehicle_type": "TRUCK_4X4",
+            "origin": "HOSPITAL_BASE",
+            "destination": "ZONE_ISLAND_COMMUNITY",
+            "eta_minutes": 9.99,
+            "distance_km": 5.125,
+            "path_nodes": [
+              "HOSPITAL_BASE",
+              "JUNCTION_PARAISO",
+              "PUENTE_SANTIAGO_SOUTH",
+              "PUENTE_SANTIAGO_NORTH",
+              "ZONE_NORTH_RESIDENTIAL",
+              "ZONE_ISLAND_COMMUNITY"
+            ],
+            "geojson_geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [
+                  -0.8988,
+                  41.6347
+                ],
+                [
+                  -0.8872,
+                  41.6468
+                ],
+                [
+                  -0.8821,
+                  41.6575
+                ],
+                [
+                  -0.8812,
+                  41.6602
+                ],
+                [
+                  -0.874,
+                  41.6635
+                ],
+                [
+                  -0.869,
+                  41.658
+                ]
+              ]
+            },
+            "geometry_quality": "schematic_straight_lines",
+            "avoided_hazards": [
+              {
+                "edge": [
+                  "JUNCTION_CENTRO",
+                  "BOAT_RAMP_SOUTH"
+                ],
+                "name": "Centro - Boat Ramp South",
+                "reason": "PREDICTED_SUBMERSION",
+                "depth_m": 0.0,
+                "planning_risk": 0.9997,
+                "risk": 0.9997
+              },
+              {
+                "edge": [
+                  "BOAT_RAMP_SOUTH",
+                  "ZONE_ISLAND_COMMUNITY"
+                ],
+                "name": "Boat Ramp - Island Community (River)",
+                "reason": "RIVER_HAZARD",
+                "depth_m": 2.0,
+                "planning_risk": 0.3543,
+                "risk": 0.3543
+              }
+            ],
+            "is_predictive_detour": true,
+            "route_reliability": 0.0,
+            "outbound_reliability": 0.9735,
+            "edge_risks": [
+              0.0012,
+              0.3861,
+              0.8316,
+              0.748,
+              0.9999
+            ],
+            "planning_edge_risks": [
+              0.0,
+              0.1419,
+              0.9309,
+              0.9276,
+              1.0
+            ],
+            "max_planning_risk": 1.0,
+            "risk_warning": false,
+            "advisory": "LOW_RELIABILITY",
+            "risk_horizon_note": "edge_risks reflects round-trip exposure horizon; planning_edge_risks reflects 30-minute planning horizon",
+            "round_trip": true,
+            "eta_delta_min": 0.89,
+            "counterfactual": {
+              "reactive_path_nodes": [
+                "HOSPITAL_BASE",
+                "JUNCTION_PARAISO",
+                "JUNCTION_CENTRO",
+                "PUENTE_PIEDRA_SOUTH",
+                "PUENTE_PIEDRA_NORTH",
+                "ZONE_NORTH_RESIDENTIAL",
+                "ZONE_ISLAND_COMMUNITY"
+              ],
+              "reactive_eta_min": 9.1,
+              "reactive_reliability": 0.0,
+              "eta_delta_min": 0.89,
+              "reliability_gain": 0.0
+            },
+            "departure_window_min": null,
+            "window_capped": false,
+            "rainfall_mmh": 60.0,
+            "blocked_edges": [],
+            "depth_source": "scenario",
+            "data_freshness": "UNKNOWN"
+          },
+          {
+            "status": "OK",
+            "vehicle_type": "RESCUE_BOAT",
+            "origin": "HOSPITAL_BASE",
+            "destination": "ZONE_ISLAND_COMMUNITY",
+            "eta_minutes": 21.3,
+            "distance_km": 3.719,
+            "path_nodes": [
+              "HOSPITAL_BASE",
+              "JUNCTION_PARAISO",
+              "JUNCTION_CENTRO",
+              "BOAT_RAMP_SOUTH",
+              "ZONE_ISLAND_COMMUNITY"
+            ],
+            "geojson_geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [
+                  -0.8988,
+                  41.6347
+                ],
+                [
+                  -0.8872,
+                  41.6468
+                ],
+                [
+                  -0.882,
+                  41.653
+                ],
+                [
+                  -0.8768,
+                  41.6565
+                ],
+                [
+                  -0.869,
+                  41.658
+                ]
+              ]
+            },
+            "geometry_quality": "schematic_straight_lines",
+            "avoided_hazards": [],
+            "is_predictive_detour": false,
+            "route_reliability": 0.0211,
+            "outbound_reliability": 0.8971,
+            "edge_risks": [
+              0.0,
+              0.0014,
+              0.8841,
+              0.8173
+            ],
+            "planning_edge_risks": [
+              0.0,
+              0.148,
+              0.9997,
+              0.3543
+            ],
+            "max_planning_risk": 0.9997,
+            "risk_warning": false,
+            "advisory": "LOW_RELIABILITY",
+            "risk_horizon_note": "edge_risks reflects round-trip exposure horizon; planning_edge_risks reflects 30-minute planning horizon",
+            "round_trip": true,
+            "eta_delta_min": 0.0,
+            "legs": [
+              {
+                "mode": "TRUCK_4X4",
+                "path_nodes": [
+                  "HOSPITAL_BASE",
+                  "JUNCTION_PARAISO",
+                  "JUNCTION_CENTRO",
+                  "BOAT_RAMP_SOUTH"
+                ],
+                "eta_minutes": 5.95,
+                "geometry": {
+                  "type": "LineString",
+                  "coordinates": [
+                    [
+                      -0.8988,
+                      41.6347
+                    ],
+                    [
+                      -0.8872,
+                      41.6468
+                    ],
+                    [
+                      -0.882,
+                      41.653
+                    ],
+                    [
+                      -0.8768,
+                      41.6565
+                    ]
+                  ]
+                }
+              },
+              {
+                "mode": "RESCUE_BOAT",
+                "path_nodes": [
+                  "BOAT_RAMP_SOUTH",
+                  "ZONE_ISLAND_COMMUNITY"
+                ],
+                "eta_minutes": 5.35,
+                "geometry": {
+                  "type": "LineString",
+                  "coordinates": [
+                    [
+                      -0.8768,
+                      41.6565
+                    ],
+                    [
+                      -0.869,
+                      41.658
+                    ]
+                  ]
+                }
+              }
+            ],
+            "launch_minutes": 10.0,
+            "counterfactual": {
+              "reactive_path_nodes": [
+                "HOSPITAL_BASE",
+                "JUNCTION_PARAISO",
+                "JUNCTION_CENTRO",
+                "BOAT_RAMP_SOUTH",
+                "ZONE_ISLAND_COMMUNITY"
+              ],
+              "reactive_eta_min": 21.3,
+              "reactive_reliability": 0.0211,
+              "eta_delta_min": 0.0,
+              "reliability_gain": 0.0
+            },
+            "departure_window_min": null,
+            "window_capped": false,
+            "rainfall_mmh": 60.0,
+            "blocked_edges": [],
+            "depth_source": "scenario",
+            "data_freshness": "UNKNOWN"
+          },
+          {
+            "id": "no_safe_option",
+            "status": "UNREACHABLE",
+            "advisory": "NO_SAFE_OPTION",
+            "vehicle_type": "ALL",
+            "origin": "HOSPITAL_BASE",
+            "destination": "ALL",
+            "route_reliability": 0.0,
+            "max_planning_risk": 1.0,
+            "risk_warning": false,
+            "reason": "Helicopter grounded by weather and all surface options below reliability threshold"
+          }
+        ],
+        "advisory": "NO_SAFE_OPTION"
+      }
+    ],
+    "route_flip_points": {
+      "ambulance_hospital_to_north": [
+        23
+      ],
+      "truck_hospital_to_island": [
+        35
+      ],
+      "boat_multimodal_hospital_to_island": []
+    }
+  },
+  "dispatch": {
+    "policy": "One sortie per asset",
+    "assignments": [
+      {
+        "asset": "BOAT_1",
+        "incident": "ZONE_ISLAND_COMMUNITY",
+        "eta_minutes": 5.35,
+        "reliability": 0.9262,
+        "value": 0.18,
+        "payload_capacity_kg": 800.0,
+        "demanded_kg": 20970.0,
+        "delivered_kg": 800.0,
+        "unmet_kg": 20170.0,
+        "sorties_needed": 27
+      },
+      {
+        "asset": "TRUCK_1",
+        "incident": "ZONE_NORTH_RESIDENTIAL",
+        "eta_minutes": 8.55,
+        "reliability": 0.9928,
+        "value": 0.27,
+        "payload_capacity_kg": 1500.0,
+        "demanded_kg": 22370.0,
+        "delivered_kg": 1500.0,
+        "unmet_kg": 20870.0,
+        "sorties_needed": 15
+      },
+      {
+        "asset": "HELI_1",
+        "incident": "PUENTE_SANTIAGO_NORTH",
+        "eta_minutes": 1.06,
+        "reliability": 1.0,
+        "value": 3.0,
+        "payload_capacity_kg": 1200.0,
+        "demanded_kg": 842.0,
+        "delivered_kg": 842.0,
+        "unmet_kg": 0.0,
+        "sorties_needed": 1
+      }
+    ],
+    "unserved": [],
+    "total_value": 3.44,
+    "total_eta_minutes": 14.96
+  },
+  "benchmark": {
+    "disclaimer": "Synthetic benchmark on a 2-route network; demonstrates mechanism, not real-world performance.",
+    "scenarios_count": 300,
+    "seed": 42,
+    "predictive_reduces_stranding": true,
+    "metrics": {
+      "AMBULANCE": {
+        "scenarios_evaluated": 281,
+        "predictive_stranded_rate": {
+          "mean": 0.0783,
+          "ci_95": [
+            0.0498,
+            0.1103
+          ]
+        },
+        "reactive_stranded_rate": {
+          "mean": 0.2527,
+          "ci_95": [
+            0.2064,
+            0.306
+          ]
+        },
+        "mean_eta_penalty_minutes": {
+          "mean": 0.3483,
+          "ci_95": [
+            0.3015,
+            0.3952
+          ]
+        },
+        "bands": {
+          "15-30": {
+            "scenarios_evaluated": 88,
+            "predictive_stranded_rate": {
+              "mean": 0.0,
+              "ci_95": [
+                0.0,
+                0.0
+              ]
+            },
+            "reactive_stranded_rate": {
+              "mean": 0.0,
+              "ci_95": [
+                0.0,
+                0.0
+              ]
+            },
+            "mean_eta_penalty_minutes": {
+              "mean": 0.196,
+              "ci_95": [
+                0.1333,
+                0.2587
+              ]
+            }
+          },
+          "30-45": {
+            "scenarios_evaluated": 84,
+            "predictive_stranded_rate": {
+              "mean": 0.0119,
+              "ci_95": [
+                0.0,
+                0.0357
+              ]
+            },
+            "reactive_stranded_rate": {
+              "mean": 0.1667,
+              "ci_95": [
+                0.0833,
+                0.25
+              ]
+            },
+            "mean_eta_penalty_minutes": {
+              "mean": 0.51,
+              "ci_95": [
+                0.44,
+                0.58
+              ]
+            }
+          },
+          "45-60": {
+            "scenarios_evaluated": 109,
+            "predictive_stranded_rate": {
+              "mean": 0.1927,
+              "ci_95": [
+                0.1193,
+                0.2661
+              ]
+            },
+            "reactive_stranded_rate": {
+              "mean": 0.5229,
+              "ci_95": [
+                0.422,
+                0.6239
+              ]
+            },
+            "mean_eta_penalty_minutes": {
+              "mean": 0.3943,
+              "ci_95": [
+                0.2957,
+                0.4929
+              ]
+            }
+          }
+        },
+        "predictive_reduces_stranding": true
+      },
+      "TRUCK_4X4": {
+        "scenarios_evaluated": 291,
+        "predictive_stranded_rate": {
+          "mean": 0.1271,
+          "ci_95": [
+            0.0928,
+            0.1649
+          ]
+        },
+        "reactive_stranded_rate": {
+          "mean": 0.3643,
+          "ci_95": [
+            0.3058,
+            0.4192
+          ]
+        },
+        "mean_eta_penalty_minutes": {
+          "mean": 0.558,
+          "ci_95": [
+            0.4881,
+            0.6284
+          ]
+        },
+        "bands": {
+          "15-30": {
+            "scenarios_evaluated": 93,
+            "predictive_stranded_rate": {
+              "mean": 0.0,
+              "ci_95": [
+                0.0,
+                0.0
+              ]
+            },
+            "reactive_stranded_rate": {
+              "mean": 0.0215,
+              "ci_95": [
+                0.0,
+                0.0538
+              ]
+            },
+            "mean_eta_penalty_minutes": {
+              "mean": 0.4312,
+              "ci_95": [
+                0.3271,
+                0.5399
+              ]
+            }
+          },
+          "30-45": {
+            "scenarios_evaluated": 88,
+            "predictive_stranded_rate": {
+              "mean": 0.0114,
+              "ci_95": [
+                0.0,
+                0.0341
+              ]
+            },
+            "reactive_stranded_rate": {
+              "mean": 0.2955,
+              "ci_95": [
+                0.2045,
+                0.3977
+              ]
+            },
+            "mean_eta_penalty_minutes": {
+              "mean": 0.7207,
+              "ci_95": [
+                0.6206,
+                0.8084
+              ]
+            }
+          },
+          "45-60": {
+            "scenarios_evaluated": 110,
+            "predictive_stranded_rate": {
+              "mean": 0.3273,
+              "ci_95": [
+                0.2364,
+                0.4182
+              ]
+            },
+            "reactive_stranded_rate": {
+              "mean": 0.7091,
+              "ci_95": [
+                0.6273,
+                0.7909
+              ]
+            },
+            "mean_eta_penalty_minutes": {
+              "mean": 0.6138,
+              "ci_95": [
+                0.4434,
+                0.7607
+              ]
+            }
+          }
+        },
+        "predictive_reduces_stranding": true
+      }
+    },
+    "sensitivity": {
+      "overall_pct_unchanged": 89.7,
+      "constants": {
+        "RAINFALL_COEFFICIENT": {
+          "-20%": {
+            "unchanged_count": 36,
+            "total_queries": 39,
+            "pct_unchanged": 92.3
+          },
+          "+20%": {
+            "unchanged_count": 35,
+            "total_queries": 39,
+            "pct_unchanged": 89.7
+          }
+        },
+        "ELEVATION_COEFFICIENT": {
+          "-20%": {
+            "unchanged_count": 38,
+            "total_queries": 39,
+            "pct_unchanged": 97.4
+          },
+          "+20%": {
+            "unchanged_count": 38,
+            "total_queries": 39,
+            "pct_unchanged": 97.4
+          }
+        },
+        "RIVER_DISTANCE_COEFFICIENT": {
+          "-20%": {
+            "unchanged_count": 38,
+            "total_queries": 39,
+            "pct_unchanged": 97.4
+          },
+          "+20%": {
+            "unchanged_count": 39,
+            "total_queries": 39,
+            "pct_unchanged": 100.0
+          }
+        },
+        "BASE_RIVER_ELEVATION_M": {
+          "-20%": {
+            "unchanged_count": 25,
+            "total_queries": 39,
+            "pct_unchanged": 64.1
+          },
+          "+20%": {
+            "unchanged_count": 25,
+            "total_queries": 39,
+            "pct_unchanged": 64.1
+          }
+        },
+        "RISK_THRESHOLD_BIAS": {
+          "-20%": {
+            "unchanged_count": 36,
+            "total_queries": 39,
+            "pct_unchanged": 92.3
+          },
+          "+20%": {
+            "unchanged_count": 36,
+            "total_queries": 39,
+            "pct_unchanged": 92.3
+          }
+        },
+        "ON_SCENE_DWELL_MIN": {
+          "-20%": {
+            "unchanged_count": 37,
+            "total_queries": 39,
+            "pct_unchanged": 94.9
+          },
+          "+20%": {
+            "unchanged_count": 37,
+            "total_queries": 39,
+            "pct_unchanged": 94.9
+          }
+        }
+      }
+    }
+  },
+  "needs": {
+    "ZONE_NORTH_RESIDENTIAL": {
+      "zone_id": "ZONE_NORTH_RESIDENTIAL",
+      "catchment_note": "North residential sector (Arrabal) between Ebro riverbank and Av. San Juan de la Pena",
+      "demographics": {
+        "residents": 2400,
+        "exposed": 1200,
+        "exposure_fraction": 0.5,
+        "share_elderly": 0.22,
+        "share_infants": 0.08
+      },
+      "funnel": {
+        "residents": 2400,
+        "exposed": 1200,
+        "scenarios": {
+          "low": {
+            "stranded": 360,
+            "in_need": 288
+          },
+          "central": {
+            "stranded": 600,
+            "in_need": 480
+          },
+          "high": {
+            "stranded": 960,
+            "in_need": 768
+          }
+        }
+      },
+      "planning_duration_days": 3.0,
+      "ground_reachable": true,
+      "sphere_standards": {
+        "water_l_per_person_day": 15.0,
+        "kcal_per_person_day": 2100.0,
+        "food_kg_per_person_day": 0.5
+      },
+      "vulnerability_multipliers": {
+        "elderly": 1.2,
+        "infants": 1.3
+      },
+      "scenarios": {
+        "low": {
+          "stranded_share": 0.3,
+          "stranded": 360,
+          "in_need": 288,
+          "relief_water_kg": 12960.0,
+          "relief_food_kg": 432.0,
+          "medical_kits": 6,
+          "medical_kits_kg": 30.0,
+          "total_payload_kg": 13422.0,
+          "sorties_needed": {
+            "AMBULANCE": 34,
+            "TRUCK_4X4": 9,
+            "RESCUE_BOAT": 17,
+            "HELICOPTER": 12
+          }
+        },
+        "central": {
+          "stranded_share": 0.5,
+          "stranded": 600,
+          "in_need": 480,
+          "relief_water_kg": 21600.0,
+          "relief_food_kg": 720.0,
+          "medical_kits": 10,
+          "medical_kits_kg": 50.0,
+          "total_payload_kg": 22370.0,
+          "sorties_needed": {
+            "AMBULANCE": 56,
+            "TRUCK_4X4": 15,
+            "RESCUE_BOAT": 28,
+            "HELICOPTER": 19
+          }
+        },
+        "high": {
+          "stranded_share": 0.8,
+          "stranded": 960,
+          "in_need": 768,
+          "relief_water_kg": 34560.0,
+          "relief_food_kg": 1152.0,
+          "medical_kits": 16,
+          "medical_kits_kg": 80.0,
+          "total_payload_kg": 35792.0,
+          "sorties_needed": {
+            "AMBULANCE": 90,
+            "TRUCK_4X4": 24,
+            "RESCUE_BOAT": 45,
+            "HELICOPTER": 30
+          }
+        }
+      },
+      "priority_loading_plan": [
+        {
+          "priority": 1,
+          "category": "MEDICAL",
+          "item": "Trauma & First Aid Kits",
+          "quantity": 10,
+          "unit": "kits",
+          "weight_kg": 50.0,
+          "rationale": "Immediate lifesaving stabilization and triage"
+        },
+        {
+          "priority": 2,
+          "category": "SURVIVAL_WATER",
+          "item": "Purified Drinking Water",
+          "quantity": 1440.0,
+          "unit": "liters",
+          "weight_kg": 1440.0,
+          "rationale": "Initial 3L/person critical rehydration"
+        },
+        {
+          "priority": 3,
+          "category": "SUSTENANCE_WATER",
+          "item": "Sanitation & Cooking Water",
+          "quantity": 20160.0,
+          "unit": "liters",
+          "weight_kg": 20160.0,
+          "rationale": "Sphere 12L/person/day bulk hydration and sanitation"
+        },
+        {
+          "priority": 4,
+          "category": "FOOD_RATIONS",
+          "item": "High-Energy Nutritional Biscuits",
+          "quantity": 720.0,
+          "unit": "kg",
+          "weight_kg": 720.0,
+          "rationale": "Sphere 2100 kcal / 0.5 kg/person/day survival food rations"
+        }
+      ],
+      "synthetic": true
+    },
+    "ZONE_ISLAND_COMMUNITY": {
+      "zone_id": "ZONE_ISLAND_COMMUNITY",
+      "catchment_note": "Isolated Ebro mid-channel sandbar settlement with single causeway access",
+      "demographics": {
+        "residents": 450,
+        "exposed": 450,
+        "exposure_fraction": 1.0,
+        "share_elderly": 0.18,
+        "share_infants": 0.12
+      },
+      "funnel": {
+        "residents": 450,
+        "exposed": 450,
+        "scenarios": {
+          "low": {
+            "stranded": 450,
+            "in_need": 450
+          },
+          "central": {
+            "stranded": 450,
+            "in_need": 450
+          },
+          "high": {
+            "stranded": 450,
+            "in_need": 450
+          }
+        }
+      },
+      "planning_duration_days": 3.0,
+      "ground_reachable": false,
+      "sphere_standards": {
+        "water_l_per_person_day": 15.0,
+        "kcal_per_person_day": 2100.0,
+        "food_kg_per_person_day": 0.5
+      },
+      "vulnerability_multipliers": {
+        "elderly": 1.2,
+        "infants": 1.3
+      },
+      "scenarios": {
+        "low": {
+          "stranded_share": 1.0,
+          "stranded": 450,
+          "in_need": 450,
+          "relief_water_kg": 20250.0,
+          "relief_food_kg": 675.0,
+          "medical_kits": 9,
+          "medical_kits_kg": 45.0,
+          "total_payload_kg": 20970.0,
+          "sorties_needed": {
+            "AMBULANCE": 53,
+            "TRUCK_4X4": 14,
+            "RESCUE_BOAT": 27,
+            "HELICOPTER": 18
+          }
+        },
+        "central": {
+          "stranded_share": 1.0,
+          "stranded": 450,
+          "in_need": 450,
+          "relief_water_kg": 20250.0,
+          "relief_food_kg": 675.0,
+          "medical_kits": 9,
+          "medical_kits_kg": 45.0,
+          "total_payload_kg": 20970.0,
+          "sorties_needed": {
+            "AMBULANCE": 53,
+            "TRUCK_4X4": 14,
+            "RESCUE_BOAT": 27,
+            "HELICOPTER": 18
+          }
+        },
+        "high": {
+          "stranded_share": 1.0,
+          "stranded": 450,
+          "in_need": 450,
+          "relief_water_kg": 20250.0,
+          "relief_food_kg": 675.0,
+          "medical_kits": 9,
+          "medical_kits_kg": 45.0,
+          "total_payload_kg": 20970.0,
+          "sorties_needed": {
+            "AMBULANCE": 53,
+            "TRUCK_4X4": 14,
+            "RESCUE_BOAT": 27,
+            "HELICOPTER": 18
+          }
+        }
+      },
+      "priority_loading_plan": [
+        {
+          "priority": 1,
+          "category": "MEDICAL",
+          "item": "Trauma & First Aid Kits",
+          "quantity": 9,
+          "unit": "kits",
+          "weight_kg": 45.0,
+          "rationale": "Immediate lifesaving stabilization and triage"
+        },
+        {
+          "priority": 2,
+          "category": "SURVIVAL_WATER",
+          "item": "Purified Drinking Water",
+          "quantity": 1350.0,
+          "unit": "liters",
+          "weight_kg": 1350.0,
+          "rationale": "Initial 3L/person critical rehydration"
+        },
+        {
+          "priority": 3,
+          "category": "SUSTENANCE_WATER",
+          "item": "Sanitation & Cooking Water",
+          "quantity": 18900.0,
+          "unit": "liters",
+          "weight_kg": 18900.0,
+          "rationale": "Sphere 12L/person/day bulk hydration and sanitation"
+        },
+        {
+          "priority": 4,
+          "category": "FOOD_RATIONS",
+          "item": "High-Energy Nutritional Biscuits",
+          "quantity": 675.0,
+          "unit": "kg",
+          "weight_kg": 675.0,
+          "rationale": "Sphere 2100 kcal / 0.5 kg/person/day survival food rations"
+        }
+      ],
+      "synthetic": true
+    },
+    "PUENTE_SANTIAGO_NORTH": {
+      "zone_id": "PUENTE_SANTIAGO_NORTH",
+      "catchment_note": "North bridgehead staging area and commercial refuge enclave",
+      "demographics": {
+        "residents": 150,
+        "exposed": 45,
+        "exposure_fraction": 0.3,
+        "share_elderly": 0.15,
+        "share_infants": 0.05
+      },
+      "funnel": {
+        "residents": 150,
+        "exposed": 45,
+        "scenarios": {
+          "low": {
+            "stranded": 14,
+            "in_need": 11
+          },
+          "central": {
+            "stranded": 22,
+            "in_need": 18
+          },
+          "high": {
+            "stranded": 36,
+            "in_need": 29
+          }
+        }
+      },
+      "planning_duration_days": 3.0,
+      "ground_reachable": true,
+      "sphere_standards": {
+        "water_l_per_person_day": 15.0,
+        "kcal_per_person_day": 2100.0,
+        "food_kg_per_person_day": 0.5
+      },
+      "vulnerability_multipliers": {
+        "elderly": 1.2,
+        "infants": 1.3
+      },
+      "scenarios": {
+        "low": {
+          "stranded_share": 0.3,
+          "stranded": 14,
+          "in_need": 11,
+          "relief_water_kg": 495.0,
+          "relief_food_kg": 16.5,
+          "medical_kits": 1,
+          "medical_kits_kg": 5.0,
+          "total_payload_kg": 516.5,
+          "sorties_needed": {
+            "AMBULANCE": 2,
+            "TRUCK_4X4": 1,
+            "RESCUE_BOAT": 1,
+            "HELICOPTER": 1
+          }
+        },
+        "central": {
+          "stranded_share": 0.5,
+          "stranded": 22,
+          "in_need": 18,
+          "relief_water_kg": 810.0,
+          "relief_food_kg": 27.0,
+          "medical_kits": 1,
+          "medical_kits_kg": 5.0,
+          "total_payload_kg": 842.0,
+          "sorties_needed": {
+            "AMBULANCE": 3,
+            "TRUCK_4X4": 1,
+            "RESCUE_BOAT": 2,
+            "HELICOPTER": 1
+          }
+        },
+        "high": {
+          "stranded_share": 0.8,
+          "stranded": 36,
+          "in_need": 29,
+          "relief_water_kg": 1305.0,
+          "relief_food_kg": 43.5,
+          "medical_kits": 1,
+          "medical_kits_kg": 5.0,
+          "total_payload_kg": 1353.5,
+          "sorties_needed": {
+            "AMBULANCE": 4,
+            "TRUCK_4X4": 1,
+            "RESCUE_BOAT": 2,
+            "HELICOPTER": 2
+          }
+        }
+      },
+      "priority_loading_plan": [
+        {
+          "priority": 1,
+          "category": "MEDICAL",
+          "item": "Trauma & First Aid Kits",
+          "quantity": 1,
+          "unit": "kits",
+          "weight_kg": 5.0,
+          "rationale": "Immediate lifesaving stabilization and triage"
+        },
+        {
+          "priority": 2,
+          "category": "SURVIVAL_WATER",
+          "item": "Purified Drinking Water",
+          "quantity": 54.0,
+          "unit": "liters",
+          "weight_kg": 54.0,
+          "rationale": "Initial 3L/person critical rehydration"
+        },
+        {
+          "priority": 3,
+          "category": "SUSTENANCE_WATER",
+          "item": "Sanitation & Cooking Water",
+          "quantity": 756.0,
+          "unit": "liters",
+          "weight_kg": 756.0,
+          "rationale": "Sphere 12L/person/day bulk hydration and sanitation"
+        },
+        {
+          "priority": 4,
+          "category": "FOOD_RATIONS",
+          "item": "High-Energy Nutritional Biscuits",
+          "quantity": 27.0,
+          "unit": "kg",
+          "weight_kg": 27.0,
+          "rationale": "Sphere 2100 kcal / 0.5 kg/person/day survival food rations"
+        }
+      ],
+      "synthetic": true
+    }
+  }
+}

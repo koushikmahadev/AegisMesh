@@ -1,0 +1,394 @@
+{
+  "10163": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "No significant inundation detected (0.00% flooded pixels, 40.70% natural water).",
+    "flooded_percent": 0.0,
+    "natural_water_percent": 40.7,
+    "model": "segformer-b0-floodnet-local"
+  },
+  "10164": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "No significant inundation detected (0.00% flooded pixels, 50.45% natural water).",
+    "flooded_percent": 0.0,
+    "natural_water_percent": 50.45,
+    "model": "segformer-b0-floodnet-local"
+  },
+  "10167": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "No significant inundation detected (0.00% flooded pixels, 31.39% natural water).",
+    "flooded_percent": 0.0,
+    "natural_water_percent": 31.39,
+    "model": "segformer-b0-floodnet-local"
+  },
+  "10174": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "No significant inundation detected (0.00% flooded pixels, 0.00% natural water).",
+    "flooded_percent": 0.0,
+    "natural_water_percent": 0.0,
+    "model": "segformer-b0-floodnet-local"
+  },
+  "10183": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "No significant inundation detected (0.00% flooded pixels, 0.00% natural water).",
+    "flooded_percent": 0.0,
+    "natural_water_percent": 0.0,
+    "model": "segformer-b0-floodnet-local"
+  },
+  "10808": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "No significant inundation detected (0.00% flooded pixels, 0.00% natural water).",
+    "flooded_percent": 0.0,
+    "natural_water_percent": 0.0,
+    "model": "segformer-b0-floodnet-local"
+  },
+  "10812": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "No significant inundation detected (0.00% flooded pixels, 0.00% natural water).",
+    "flooded_percent": 0.0,
+    "natural_water_percent": 0.0,
+    "model": "segformer-b0-floodnet-local"
+  },
+  "10813": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "No significant inundation detected (0.00% flooded pixels, 0.00% natural water).",
+    "flooded_percent": 0.0,
+    "natural_water_percent": 0.0,
+    "model": "segformer-b0-floodnet-local"
+  },
+  "10814": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "No significant inundation detected (0.00% flooded pixels, 0.00% natural water).",
+    "flooded_percent": 0.0,
+    "natural_water_percent": 0.0,
+    "model": "segformer-b0-floodnet-local"
+  },
+  "10823": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "No significant inundation detected (0.00% flooded pixels, 15.21% natural water).",
+    "flooded_percent": 0.0,
+    "natural_water_percent": 15.21,
+    "model": "segformer-b0-floodnet-local"
+  },
+  "10829": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "No significant inundation detected (0.00% flooded pixels, 7.94% natural water).",
+    "flooded_percent": 0.0,
+    "natural_water_percent": 7.94,
+    "model": "segformer-b0-floodnet-local"
+  },
+  "10838": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "No significant inundation detected (0.00% flooded pixels, 36.85% natural water).",
+    "flooded_percent": 0.0,
+    "natural_water_percent": 36.85,
+    "model": "segformer-b0-floodnet-local"
+  },
+  "10839": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "No significant inundation detected (0.00% flooded pixels, 8.39% natural water).",
+    "flooded_percent": 0.0,
+    "natural_water_percent": 8.39,
+    "model": "segformer-b0-floodnet-local"
+  },
+  "10843": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "No significant inundation detected (0.00% flooded pixels, 0.00% natural water).",
+    "flooded_percent": 0.0,
+    "natural_water_percent": 0.0,
+    "model": "segformer-b0-floodnet-local"
+  },
+  "11483": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "No significant inundation detected (0.00% flooded pixels, 38.89% natural water).",
+    "flooded_percent": 0.0,
+    "natural_water_percent": 38.89,
+    "model": "segformer-b0-floodnet-local"
+  },
+  "6336": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "No significant inundation detected (0.00% flooded pixels, 6.06% natural water).",
+    "flooded_percent": 0.0,
+    "natural_water_percent": 6.06,
+    "model": "segformer-b0-floodnet-local"
+  },
+  "6342": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "No significant inundation detected (0.00% flooded pixels, 13.14% natural water).",
+    "flooded_percent": 0.0,
+    "natural_water_percent": 13.14,
+    "model": "segformer-b0-floodnet-local"
+  },
+  "6353": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "No significant inundation detected (0.00% flooded pixels, 11.69% natural water).",
+    "flooded_percent": 0.0,
+    "natural_water_percent": 11.69,
+    "model": "segformer-b0-floodnet-local"
+  },
+  "6362": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "No significant inundation detected (0.00% flooded pixels, 10.89% natural water).",
+    "flooded_percent": 0.0,
+    "natural_water_percent": 10.89,
+    "model": "segformer-b0-floodnet-local"
+  },
+  "6371": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "No significant inundation detected (0.00% flooded pixels, 9.64% natural water).",
+    "flooded_percent": 0.0,
+    "natural_water_percent": 9.64,
+    "model": "segformer-b0-floodnet-local"
+  },
+  "6377": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "No significant inundation detected (0.00% flooded pixels, 8.85% natural water).",
+    "flooded_percent": 0.0,
+    "natural_water_percent": 8.85,
+    "model": "segformer-b0-floodnet-local"
+  },
+  "6383": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "No significant inundation detected (0.00% flooded pixels, 8.09% natural water).",
+    "flooded_percent": 0.0,
+    "natural_water_percent": 8.09,
+    "model": "segformer-b0-floodnet-local"
+  },
+  "6389": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "No significant inundation detected (0.00% flooded pixels, 8.09% natural water).",
+    "flooded_percent": 0.0,
+    "natural_water_percent": 8.09,
+    "model": "segformer-b0-floodnet-local"
+  },
+  "6391": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "No significant inundation detected (0.00% flooded pixels, 7.80% natural water).",
+    "flooded_percent": 0.0,
+    "natural_water_percent": 7.8,
+    "model": "segformer-b0-floodnet-local"
+  },
+  "6394": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "No significant inundation detected (0.00% flooded pixels, 3.96% natural water).",
+    "flooded_percent": 0.0,
+    "natural_water_percent": 3.96,
+    "model": "segformer-b0-floodnet-local"
+  },
+  "6405": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "No significant inundation detected (0.00% flooded pixels, 9.39% natural water).",
+    "flooded_percent": 0.0,
+    "natural_water_percent": 9.39,
+    "model": "segformer-b0-floodnet-local"
+  },
+  "6412": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "No significant inundation detected (0.00% flooded pixels, 0.00% natural water).",
+    "flooded_percent": 0.0,
+    "natural_water_percent": 0.0,
+    "model": "segformer-b0-floodnet-local"
+  },
+  "6417": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "No significant inundation detected (0.00% flooded pixels, 0.93% natural water).",
+    "flooded_percent": 0.0,
+    "natural_water_percent": 0.93,
+    "model": "segformer-b0-floodnet-local"
+  },
+  "6419": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "No significant inundation detected (0.00% flooded pixels, 0.00% natural water).",
+    "flooded_percent": 0.0,
+    "natural_water_percent": 0.0,
+    "model": "segformer-b0-floodnet-local"
+  },
+  "6420": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "No significant inundation detected (0.00% flooded pixels, 0.00% natural water).",
+    "flooded_percent": 0.0,
+    "natural_water_percent": 0.0,
+    "model": "segformer-b0-floodnet-local"
+  },
+  "6700": {
+    "flood_damage_detected": true,
+    "confidence": "high",
+    "reasoning": "SegFormer detected 84.41% submerged area (flooded buildings/roads) and 0.00% natural water.",
+    "flooded_percent": 84.41,
+    "natural_water_percent": 0.0,
+    "model": "segformer-b0-floodnet-local"
+  },
+  "6717": {
+    "flood_damage_detected": true,
+    "confidence": "high",
+    "reasoning": "SegFormer detected 80.49% submerged area (flooded buildings/roads) and 0.00% natural water.",
+    "flooded_percent": 80.49,
+    "natural_water_percent": 0.0,
+    "model": "segformer-b0-floodnet-local"
+  },
+  "6744": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "No significant inundation detected (0.00% flooded pixels, 39.72% natural water).",
+    "flooded_percent": 0.0,
+    "natural_water_percent": 39.72,
+    "model": "segformer-b0-floodnet-local"
+  },
+  "7241": {
+    "flood_damage_detected": true,
+    "confidence": "high",
+    "reasoning": "SegFormer detected 81.70% submerged area (flooded buildings/roads) and 0.00% natural water.",
+    "flooded_percent": 81.7,
+    "natural_water_percent": 0.0,
+    "model": "segformer-b0-floodnet-local"
+  },
+  "7268": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "No significant inundation detected (0.00% flooded pixels, 81.28% natural water).",
+    "flooded_percent": 0.0,
+    "natural_water_percent": 81.28,
+    "model": "segformer-b0-floodnet-local"
+  },
+  "7279": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "No significant inundation detected (0.00% flooded pixels, 88.74% natural water).",
+    "flooded_percent": 0.0,
+    "natural_water_percent": 88.74,
+    "model": "segformer-b0-floodnet-local"
+  },
+  "7284": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "No significant inundation detected (0.00% flooded pixels, 99.29% natural water).",
+    "flooded_percent": 0.0,
+    "natural_water_percent": 99.29,
+    "model": "segformer-b0-floodnet-local"
+  },
+  "7294": {
+    "flood_damage_detected": true,
+    "confidence": "high",
+    "reasoning": "SegFormer detected 78.10% submerged area (flooded buildings/roads) and 0.00% natural water.",
+    "flooded_percent": 78.1,
+    "natural_water_percent": 0.0,
+    "model": "segformer-b0-floodnet-local"
+  },
+  "7300": {
+    "flood_damage_detected": true,
+    "confidence": "high",
+    "reasoning": "SegFormer detected 81.78% submerged area (flooded buildings/roads) and 0.00% natural water.",
+    "flooded_percent": 81.78,
+    "natural_water_percent": 0.0,
+    "model": "segformer-b0-floodnet-local"
+  },
+  "7301": {
+    "flood_damage_detected": true,
+    "confidence": "high",
+    "reasoning": "SegFormer detected 79.48% submerged area (flooded buildings/roads) and 0.00% natural water.",
+    "flooded_percent": 79.48,
+    "natural_water_percent": 0.0,
+    "model": "segformer-b0-floodnet-local"
+  },
+  "7307": {
+    "flood_damage_detected": true,
+    "confidence": "high",
+    "reasoning": "SegFormer detected 75.79% submerged area (flooded buildings/roads) and 0.00% natural water.",
+    "flooded_percent": 75.79,
+    "natural_water_percent": 0.0,
+    "model": "segformer-b0-floodnet-local"
+  },
+  "7308": {
+    "flood_damage_detected": true,
+    "confidence": "high",
+    "reasoning": "SegFormer detected 77.33% submerged area (flooded buildings/roads) and 0.00% natural water.",
+    "flooded_percent": 77.33,
+    "natural_water_percent": 0.0,
+    "model": "segformer-b0-floodnet-local"
+  },
+  "7315": {
+    "flood_damage_detected": true,
+    "confidence": "high",
+    "reasoning": "SegFormer detected 79.73% submerged area (flooded buildings/roads) and 0.00% natural water.",
+    "flooded_percent": 79.73,
+    "natural_water_percent": 0.0,
+    "model": "segformer-b0-floodnet-local"
+  },
+  "7320": {
+    "flood_damage_detected": true,
+    "confidence": "high",
+    "reasoning": "SegFormer detected 74.99% submerged area (flooded buildings/roads) and 0.00% natural water.",
+    "flooded_percent": 74.99,
+    "natural_water_percent": 0.0,
+    "model": "segformer-b0-floodnet-local"
+  },
+  "7323": {
+    "flood_damage_detected": true,
+    "confidence": "high",
+    "reasoning": "SegFormer detected 77.23% submerged area (flooded buildings/roads) and 0.00% natural water.",
+    "flooded_percent": 77.23,
+    "natural_water_percent": 0.0,
+    "model": "segformer-b0-floodnet-local"
+  },
+  "7333": {
+    "flood_damage_detected": true,
+    "confidence": "high",
+    "reasoning": "SegFormer detected 88.59% submerged area (flooded buildings/roads) and 0.00% natural water.",
+    "flooded_percent": 88.59,
+    "natural_water_percent": 0.0,
+    "model": "segformer-b0-floodnet-local"
+  },
+  "7413": {
+    "flood_damage_detected": true,
+    "confidence": "high",
+    "reasoning": "SegFormer detected 70.30% submerged area (flooded buildings/roads) and 0.00% natural water.",
+    "flooded_percent": 70.3,
+    "natural_water_percent": 0.0,
+    "model": "segformer-b0-floodnet-local"
+  },
+  "7415": {
+    "flood_damage_detected": true,
+    "confidence": "high",
+    "reasoning": "SegFormer detected 78.06% submerged area (flooded buildings/roads) and 0.00% natural water.",
+    "flooded_percent": 78.06,
+    "natural_water_percent": 0.0,
+    "model": "segformer-b0-floodnet-local"
+  },
+  "7420": {
+    "flood_damage_detected": true,
+    "confidence": "high",
+    "reasoning": "SegFormer detected 75.77% submerged area (flooded buildings/roads) and 0.00% natural water.",
+    "flooded_percent": 75.77,
+    "natural_water_percent": 0.0,
+    "model": "segformer-b0-floodnet-local"
+  }
+}

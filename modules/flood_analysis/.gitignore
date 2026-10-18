@@ -1,0 +1,6 @@
+data/raw/
+data/raw_floodnet/
+.venv/
+__pycache__/
+*.pyc
+output/config.js

@@ -1,0 +1,5 @@
+{
+  "_comment": "Data freshness classification thresholds based on observation age in hours",
+  "fresh_threshold_hours": 24.0,
+  "aging_threshold_hours": 72.0
+}

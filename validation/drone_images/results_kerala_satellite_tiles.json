@@ -1,0 +1,77 @@
+[
+  {
+    "name": "kerala_sat_07",
+    "coverage": 98.45,
+    "confidence": 0.903
+  },
+  {
+    "name": "kerala_sat_05",
+    "coverage": 95.9,
+    "confidence": 0.883
+  },
+  {
+    "name": "kerala_sat_03",
+    "coverage": 94.86,
+    "confidence": 0.912
+  },
+  {
+    "name": "kerala_sat_04",
+    "coverage": 93.86,
+    "confidence": 0.891
+  },
+  {
+    "name": "kerala_sat_01",
+    "coverage": 91.68,
+    "confidence": 0.976
+  },
+  {
+    "name": "kerala_sat_02",
+    "coverage": 91.11,
+    "confidence": 0.954
+  },
+  {
+    "name": "kerala_sat_06",
+    "coverage": 85.32,
+    "confidence": 0.885
+  },
+  {
+    "name": "kerala_sat_12",
+    "coverage": 79.56,
+    "confidence": 0.872
+  },
+  {
+    "name": "kerala_sat_11",
+    "coverage": 72.1,
+    "confidence": 0.81
+  },
+  {
+    "name": "kerala_sat_08",
+    "coverage": 64.13,
+    "confidence": 0.921
+  },
+  {
+    "name": "kerala_sat_10",
+    "coverage": 57.95,
+    "confidence": 0.848
+  },
+  {
+    "name": "kerala_sat_09",
+    "coverage": 49.8,
+    "confidence": 0.948
+  },
+  {
+    "name": "kerala_sat_14",
+    "coverage": 32.48,
+    "confidence": 0.87
+  },
+  {
+    "name": "kerala_sat_13",
+    "coverage": 31.52,
+    "confidence": 0.824
+  },
+  {
+    "name": "kerala_sat_15",
+    "coverage": 18.76,
+    "confidence": 0.795
+  }
+]

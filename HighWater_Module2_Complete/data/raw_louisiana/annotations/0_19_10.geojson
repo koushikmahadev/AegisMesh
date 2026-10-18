@@ -1,0 +1,7 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "id": "way/847378161", "building": null, "flooded": null, "highway": "secondary", "lanes": "2", "surface": "paved", "oneway": null, "bridge": null, "layer": null, "tunnel": null, "type": null, "image_id": "105001001A0FFC00", "location": "Louisiana-East_Training_Public" }, "geometry": { "type": "LineString", "coordinates": [ [ -89.968222616258984, 29.69422125395327 ], [ -89.9680603, 29.6939501 ], [ -89.9678725, 29.6936892 ], [ -89.9674112, 29.6930694 ], [ -89.9670357, 29.6926197 ], [ -89.9665689, 29.6920512 ], [ -89.9663249, 29.691732 ], [ -89.9659064, 29.691224 ], [ -89.9653888, 29.6905949 ], [ -89.9648067, 29.6898563 ], [ -89.964520061696106, 29.689498207629622 ] ] } }
+]
+}

@@ -1,0 +1,92 @@
+[
+  {
+    "file": "kerala_sat_01.png",
+    "x": 820,
+    "y": 2980,
+    "water_frac_heuristic": 0.8934
+  },
+  {
+    "file": "kerala_sat_02.png",
+    "x": 820,
+    "y": 2740,
+    "water_frac_heuristic": 0.8218
+  },
+  {
+    "file": "kerala_sat_03.png",
+    "x": 1060,
+    "y": 2140,
+    "water_frac_heuristic": 0.6522
+  },
+  {
+    "file": "kerala_sat_04.png",
+    "x": 1180,
+    "y": 2500,
+    "water_frac_heuristic": 0.6356
+  },
+  {
+    "file": "kerala_sat_05.png",
+    "x": 1300,
+    "y": 2260,
+    "water_frac_heuristic": 0.5781
+  },
+  {
+    "file": "kerala_sat_06.png",
+    "x": 1420,
+    "y": 2500,
+    "water_frac_heuristic": 0.5757
+  },
+  {
+    "file": "kerala_sat_07.png",
+    "x": 1180,
+    "y": 1900,
+    "water_frac_heuristic": 0.5742
+  },
+  {
+    "file": "kerala_sat_08.png",
+    "x": 1060,
+    "y": 2740,
+    "water_frac_heuristic": 0.5217
+  },
+  {
+    "file": "kerala_sat_09.png",
+    "x": 1060,
+    "y": 2980,
+    "water_frac_heuristic": 0.4834
+  },
+  {
+    "file": "kerala_sat_10.png",
+    "x": 1300,
+    "y": 2740,
+    "water_frac_heuristic": 0.4124
+  },
+  {
+    "file": "kerala_sat_11.png",
+    "x": 1540,
+    "y": 2260,
+    "water_frac_heuristic": 0.3812
+  },
+  {
+    "file": "kerala_sat_12.png",
+    "x": 1420,
+    "y": 2020,
+    "water_frac_heuristic": 0.3691
+  },
+  {
+    "file": "kerala_sat_13.png",
+    "x": 1540,
+    "y": 2740,
+    "water_frac_heuristic": 0.33
+  },
+  {
+    "file": "kerala_sat_14.png",
+    "x": 1660,
+    "y": 2500,
+    "water_frac_heuristic": 0.288
+  },
+  {
+    "file": "kerala_sat_15.png",
+    "x": 1660,
+    "y": 2980,
+    "water_frac_heuristic": 0.2108
+  }
+]

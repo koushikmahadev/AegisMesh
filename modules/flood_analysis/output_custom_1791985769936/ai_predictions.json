@@ -1,0 +1,8 @@
+{
+  "2_23_42": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "The POST-event image is completely obscured by thick clouds, making it impossible to visually observe the ground or detect any flood damage.",
+    "model": "dots-studio/dots-3-note-preview:free"
+  }
+}

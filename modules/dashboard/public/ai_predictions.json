@@ -1,0 +1,140 @@
+{
+  "0_36_59": {
+    "flood_damage_detected": false,
+    "confidence": "low",
+    "reasoning": "The POST-event image is heavily obscured by clouds and blur, showing no clear evidence of flood damage or standing water compared to the PRE-event image.",
+    "model": "dots-studio/dots-3-note-preview:free"
+  },
+  "0_36_60": {
+    "flood_damage_detected": false,
+    "confidence": "low",
+    "reasoning": "The POST-event image is almost entirely covered by thick clouds, obscuring the ground and preventing visual detection of any flood damage.",
+    "model": "dots-studio/dots-3-note-preview:free"
+  },
+  "0_36_61": {
+    "flood_damage_detected": false,
+    "confidence": "low",
+    "reasoning": "The POST-event image is heavily obscured by thick cloud cover, making it impossible to clearly observe the ground and identify any visible flood damage.",
+    "model": "dots-studio/dots-3-note-preview:free"
+  },
+  "0_36_62": {
+    "flood_damage_detected": true,
+    "confidence": "high",
+    "reasoning": "Extensive brown muddy sediment covers the fields on the left in the POST image, showing clear flood deposition where green fields were present in the PRE image.",
+    "model": "dots-studio/dots-3-note-preview:free"
+  },
+  "0_37_59": {
+    "flood_damage_detected": false,
+    "confidence": "medium",
+    "reasoning": "The POST-event image shows greener vegetation and minor differences around the building, but no visible standing water, mud, debris, or structural flood damage is present.",
+    "model": "dots-studio/dots-3-note-preview:free"
+  },
+  "0_37_60": {
+    "flood_damage_detected": true,
+    "confidence": "high",
+    "reasoning": "The bottom valley shows extensive brown sediment and debris deposition in the POST image, indicating severe flooding that was not present in the green, vegetated PRE-event image.",
+    "model": "dots-studio/dots-3-note-preview:free"
+  },
+  "0_37_61": {
+    "flood_damage_detected": true,
+    "confidence": "high",
+    "reasoning": "The POST-event image shows a significantly swollen, muddy river overflowing its banks and depositing brown sediment and water into the adjacent town, which was not present in the PRE-event image.",
+    "model": "dots-studio/dots-3-note-preview:free"
+  },
+  "0_37_62": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "The POST-event image shows healthy green fields and dense forest canopy with no visible standing water, inundation, or flood damage.",
+    "model": "dots-studio/dots-3-note-preview:free"
+  },
+  "0_38_59": {
+    "ERROR": "missing_imagery"
+  },
+  "0_38_60": {
+    "flood_damage_detected": true,
+    "confidence": "high",
+    "reasoning": "The river bend in the bottom-left shows massive sediment accumulation and widening, indicating significant flooding and water intrusion compared to the narrow channel in the pre-event image.",
+    "model": "dots-studio/dots-3-note-preview:free"
+  },
+  "0_38_61": {
+    "flood_damage_detected": true,
+    "confidence": "high",
+    "reasoning": "The POST-event image shows a massive overflow of brown, muddy water and debris covering the road and surrounding fields, which were clear and dry in the PRE-event image.",
+    "model": "dots-studio/dots-3-note-preview:free"
+  },
+  "0_38_62": {
+    "flood_damage_detected": true,
+    "confidence": "medium",
+    "reasoning": "The green field in the top-right corner of the pre-event image is replaced by a grey, sediment-covered flooded area in the post-event image.",
+    "model": "dots-studio/dots-3-note-preview:free"
+  },
+  "0_39_59": {
+    "ERROR": "missing_imagery"
+  },
+  "0_39_60": {
+    "flood_damage_detected": false,
+    "confidence": "high",
+    "reasoning": "The POST-event image is completely obscured by thick cloud cover, making it impossible to visually detect any ground-level flood damage or water intrusion.",
+    "model": "dots-studio/dots-3-note-preview:free"
+  },
+  "0_39_61": {
+    "flood_damage_detected": false,
+    "confidence": "medium",
+    "reasoning": "The post-event image shows healthy green fields and a cloud in the upper-left, but no visible standing water, mud, or flood damage compared to the pre-event image.",
+    "model": "dots-studio/dots-3-note-preview:free"
+  },
+  "0_39_62": {
+    "flood_damage_detected": true,
+    "confidence": "high",
+    "reasoning": "The green agricultural fields visible in the pre-event image are completely covered by a massive brown sediment and mud deposit in the post-event image, showing severe flood inundation and damage.",
+    "model": "dots-studio/dots-3-note-preview:free"
+  },
+  "0_40_59": {
+    "flood_damage_detected": false,
+    "confidence": "medium",
+    "reasoning": "The POST-event image shows green agricultural fields and residential areas with no visible standing water, inundation, or structural flood damage compared to the PRE-event image.",
+    "model": "dots-studio/dots-3-note-preview:free"
+  },
+  "0_40_60": {
+    "flood_damage_detected": false,
+    "confidence": "low",
+    "reasoning": "The POST-event image is heavily obscured by thick cloud cover, preventing visual confirmation of any ground-level flood damage.",
+    "model": "dots-studio/dots-3-note-preview:free"
+  },
+  "0_40_61": {
+    "flood_damage_detected": true,
+    "confidence": "medium",
+    "reasoning": "The post-event image shows muddy, sediment-covered streets in the village and bright water reflections in low-lying paths that were dry in the pre-event image, partially obscured by cloud cover.",
+    "model": "dots-studio/dots-3-note-preview:free"
+  },
+  "0_40_62": {
+    "flood_damage_detected": true,
+    "confidence": "high",
+    "reasoning": "The POST-event image shows massive brown flooding and sediment covering the village and surrounding fields, which were completely dry and clear in the PRE-event image.",
+    "model": "dots-studio/dots-3-note-preview:free"
+  },
+  "0_41_59": {
+    "flood_damage_detected": true,
+    "confidence": "high",
+    "reasoning": "The river is visibly swollen with muddy brown water, overflowing its banks and covering the green garden plots with silt and debris.",
+    "model": "dots-studio/dots-3-note-preview:free"
+  },
+  "0_41_60": {
+    "flood_damage_detected": true,
+    "confidence": "medium",
+    "reasoning": "The POST-event image shows a significantly swollen, muddy brown river and sediment-covered, waterlogged fields, indicating clear floodwater intrusion and inundation compared to the narrow green river and dry green fields in the PRE-event image.",
+    "model": "dots-studio/dots-3-note-preview:free"
+  },
+  "0_41_61": {
+    "flood_damage_detected": true,
+    "confidence": "high",
+    "reasoning": "The POST-event image shows a massive river expansion and heavy sediment deposition covering the structured green agricultural fields on the left, which were clearly dry and intact in the PRE-event image.",
+    "model": "dots-studio/dots-3-note-preview:free"
+  },
+  "0_41_62": {
+    "flood_damage_detected": true,
+    "confidence": "high",
+    "reasoning": "The green fields in the top-left of the pre-event image are replaced by a massive greyish-brown mud deposit or flooded area in the post-event image.",
+    "model": "dots-studio/dots-3-note-preview:free"
+  }
+}

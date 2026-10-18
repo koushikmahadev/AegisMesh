@@ -1,0 +1,16 @@
+QUICK START (5 MINUTES)
+1. Extract pendrive to your laptop
+2. cd HighWater_Module2_Complete
+3. python3 -m venv venv
+4. source venv/bin/activate (Windows: venv\Scripts\activate)
+5. pip install -r requirements.txt
+6. python scripts/local_server.py [KEEP THIS RUNNING IN TERMINAL 1]
+7. In NEW terminal: python -m http.server 8000 --directory output/
+8. Open browser: http://localhost:8000/map.html
+9. Click “⚡ Local Model Detect” and select tiles
+10. Done! Flood detection running locally
+
+FOR INTEGRATION:
+- Call http://localhost:8001/api/detect-tiles with tile IDs
+- Receive JSON with flood predictions
+- Zero API calls needed (fully offline)

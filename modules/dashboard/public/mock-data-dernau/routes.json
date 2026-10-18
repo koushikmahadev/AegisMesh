@@ -1,0 +1,384 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-10-15T21:03:49.817Z",
+  "routes": [
+    {
+      "route_id": "route-evac-zone-036",
+      "zone_id": "zone-036",
+      "zone_name": "Zone 036 (grid cell)",
+      "risk_level": "HIGH",
+      "origin_id": "pickup-zone-036",
+      "origin_coords": [
+        7.041816552186452,
+        50.52911368366144
+      ],
+      "origin_type": "zone_origin",
+      "destination_id": null,
+      "destination_name": null,
+      "destination_coords": null,
+      "status": "NO_SAFE_ROUTE",
+      "distance_m": null,
+      "eta_minutes": null,
+      "provenance": "derived",
+      "reason": "Surface road access severed: all 7 road segments in zone-036 are flooded. Overland vehicle evacuation is impossible.",
+      "geometry": null
+    },
+    {
+      "route_id": "route-evac-zone-002",
+      "zone_id": "zone-002",
+      "zone_name": "Zone 002 (grid cell)",
+      "risk_level": "HIGH",
+      "origin_id": "pickup-zone-002",
+      "origin_coords": [
+        7.038257397642079,
+        50.5128641048639
+      ],
+      "origin_type": "zone_origin",
+      "destination_id": null,
+      "destination_name": null,
+      "destination_coords": null,
+      "status": "NO_SAFE_ROUTE",
+      "distance_m": null,
+      "eta_minutes": null,
+      "provenance": "derived",
+      "reason": "Overland evacuation blocked: dry road segments exist within zone-002, but all egress corridors toward safe emergency facilities are blocked by floodwaters.",
+      "geometry": null
+    },
+    {
+      "route_id": "route-evac-zone-038",
+      "zone_id": "zone-038",
+      "zone_name": "Zone 038 (grid cell)",
+      "risk_level": "HIGH",
+      "origin_id": "pickup-zone-038",
+      "origin_coords": [
+        7.0417386298559155,
+        50.530996406879666
+      ],
+      "origin_type": "zone_origin",
+      "destination_id": null,
+      "destination_name": null,
+      "destination_coords": null,
+      "status": "NO_SAFE_ROUTE",
+      "distance_m": null,
+      "eta_minutes": null,
+      "provenance": "derived",
+      "reason": "Surface road access severed: all 3 road segments in zone-038 are flooded. Overland vehicle evacuation is impossible.",
+      "geometry": null
+    },
+    {
+      "route_id": "route-evac-zone-031",
+      "zone_id": "zone-031",
+      "zone_name": "Zone 031 (grid cell)",
+      "risk_level": "MEDIUM",
+      "origin_id": "pickup-zone-031",
+      "origin_coords": [
+        7.041928190775852,
+        50.52641729109584
+      ],
+      "origin_type": "zone_origin",
+      "destination_id": null,
+      "destination_name": null,
+      "destination_coords": null,
+      "status": "NO_SAFE_ROUTE",
+      "distance_m": null,
+      "eta_minutes": null,
+      "provenance": "derived",
+      "reason": "Overland evacuation blocked: dry road segments exist within zone-031, but all egress corridors toward safe emergency facilities are blocked by floodwaters.",
+      "geometry": null
+    },
+    {
+      "route_id": "route-evac-zone-008",
+      "zone_id": "zone-008",
+      "zone_name": "Zone 008 (grid cell)",
+      "risk_level": "MEDIUM",
+      "origin_id": "pickup-zone-008",
+      "origin_coords": [
+        7.036290871756195,
+        50.51648139152125
+      ],
+      "origin_type": "road_pickup_point",
+      "destination_id": "fac-004",
+      "destination_name": "North-Central Relief Staging",
+      "destination_coords": [
+        7.0365,
+        50.52109
+      ],
+      "status": "OK",
+      "distance_m": 544,
+      "eta_minutes": 1,
+      "provenance": "derived",
+      "reason": "Continuous evacuation corridor via unflooded road network to North-Central Relief Staging.",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            7.036290871756195,
+            50.51648139152125
+          ],
+          [
+            7.0363086,
+            50.516534
+          ],
+          [
+            7.036373,
+            50.5167677
+          ],
+          [
+            7.036365,
+            50.5169672
+          ],
+          [
+            7.0362362,
+            50.5171787
+          ],
+          [
+            7.0359331,
+            50.5176511
+          ],
+          [
+            7.035933,
+            50.517651
+          ],
+          [
+            7.035853,
+            50.517765
+          ],
+          [
+            7.0358527,
+            50.5177654
+          ],
+          [
+            7.0357025,
+            50.5179939
+          ],
+          [
+            7.0355415,
+            50.5182497
+          ],
+          [
+            7.0354986,
+            50.5184749
+          ],
+          [
+            7.0355308,
+            50.5187341
+          ],
+          [
+            7.0356488,
+            50.5189899
+          ],
+          [
+            7.0356542,
+            50.5191536
+          ],
+          [
+            7.035654,
+            50.519154
+          ],
+          [
+            7.035643,
+            50.519273
+          ],
+          [
+            7.0356435,
+            50.519273
+          ],
+          [
+            7.0356274,
+            50.519464
+          ],
+          [
+            7.0356381,
+            50.5197948
+          ],
+          [
+            7.0356381,
+            50.5199995
+          ],
+          [
+            7.0356595,
+            50.520153
+          ],
+          [
+            7.035799,
+            50.5203286
+          ],
+          [
+            7.035799,
+            50.520329
+          ],
+          [
+            7.03588,
+            50.520417
+          ],
+          [
+            7.035973,
+            50.520511
+          ],
+          [
+            7.0359734,
+            50.5205111
+          ],
+          [
+            7.0360914,
+            50.5206646
+          ],
+          [
+            7.0361719,
+            50.5208232
+          ],
+          [
+            7.0362738,
+            50.5209562
+          ],
+          [
+            7.0363703,
+            50.5210346
+          ],
+          [
+            7.0364991,
+            50.5210926
+          ],
+          [
+            7.0365,
+            50.52109
+          ]
+        ]
+      }
+    },
+    {
+      "route_id": "route-evac-zone-010",
+      "zone_id": "zone-010",
+      "zone_name": "Zone 010 (grid cell)",
+      "risk_level": "MEDIUM",
+      "origin_id": "pickup-zone-010",
+      "origin_coords": [
+        7.021117117110096,
+        50.51797049211527
+      ],
+      "origin_type": "zone_origin",
+      "destination_id": null,
+      "destination_name": null,
+      "destination_coords": null,
+      "status": "NO_SAFE_ROUTE",
+      "distance_m": null,
+      "eta_minutes": null,
+      "provenance": "derived",
+      "reason": "Overland evacuation blocked: dry road segments exist within zone-010, but all egress corridors toward safe emergency facilities are blocked by floodwaters.",
+      "geometry": null
+    },
+    {
+      "route_id": "route-evac-zone-017",
+      "zone_id": "zone-017",
+      "zone_name": "Zone 017 (grid cell)",
+      "risk_level": "MEDIUM",
+      "origin_id": "pickup-zone-017",
+      "origin_coords": [
+        7.021004326289848,
+        50.52066685491273
+      ],
+      "origin_type": "zone_origin",
+      "destination_id": null,
+      "destination_name": null,
+      "destination_coords": null,
+      "status": "NO_SAFE_ROUTE",
+      "distance_m": null,
+      "eta_minutes": null,
+      "provenance": "derived",
+      "reason": "Overland evacuation blocked: dry road segments exist within zone-017, but all egress corridors toward safe emergency facilities are blocked by floodwaters.",
+      "geometry": null
+    },
+    {
+      "route_id": "route-evac-zone-035",
+      "zone_id": "zone-035",
+      "zone_name": "Zone 035 (grid cell)",
+      "risk_level": "MEDIUM",
+      "origin_id": "pickup-zone-035",
+      "origin_coords": [
+        7.0376256,
+        50.5290047
+      ],
+      "origin_type": "road_pickup_point",
+      "destination_id": "fac-005",
+      "destination_name": "North Emergency Assembly Post",
+      "destination_coords": [
+        7.03706,
+        50.53108
+      ],
+      "status": "OK",
+      "distance_m": 237,
+      "eta_minutes": 1,
+      "provenance": "derived",
+      "reason": "Continuous evacuation corridor via unflooded road network to North Emergency Assembly Post.",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            7.0376256,
+            50.5290047
+          ],
+          [
+            7.037626,
+            50.529005
+          ],
+          [
+            7.037585,
+            50.529112
+          ],
+          [
+            7.037577,
+            50.529202
+          ],
+          [
+            7.0375773,
+            50.5292025
+          ],
+          [
+            7.0375639,
+            50.529402
+          ],
+          [
+            7.0375907,
+            50.5297276
+          ],
+          [
+            7.0375881,
+            50.5299356
+          ],
+          [
+            7.0375586,
+            50.5300703
+          ],
+          [
+            7.0375022,
+            50.5302425
+          ],
+          [
+            7.0373869,
+            50.5304557
+          ],
+          [
+            7.0372689,
+            50.5306637
+          ],
+          [
+            7.0370918,
+            50.5309859
+          ],
+          [
+            7.037092,
+            50.530986
+          ],
+          [
+            7.037064,
+            50.531079
+          ],
+          [
+            7.03706,
+            50.53108
+          ]
+        ]
+      }
+    }
+  ]
+}

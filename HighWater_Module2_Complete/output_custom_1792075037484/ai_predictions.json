@@ -1,0 +1,46 @@
+{
+  "2_20_41": {
+    "flood_damage_detected": false,
+    "confidence": "low",
+    "reasoning": "The POST image is mostly cloud or haze, so the ground cannot be read reliably (newly flooded area measured at 0.0%).",
+    "model": "segformer-b0-checkpoint-joint",
+    "metrics": {
+      "pre_flood_fraction": 0.0,
+      "post_flood_fraction": 0.0,
+      "new_flood_fraction": 0.0
+    }
+  },
+  "2_20_42": {
+    "flood_damage_detected": false,
+    "confidence": "low",
+    "reasoning": "The POST image is mostly cloud or haze, so the ground cannot be read reliably (newly flooded area measured at 0.0%).",
+    "model": "segformer-b0-checkpoint-joint",
+    "metrics": {
+      "pre_flood_fraction": 0.0,
+      "post_flood_fraction": 0.0,
+      "new_flood_fraction": 0.0
+    }
+  },
+  "2_21_42": {
+    "flood_damage_detected": false,
+    "confidence": "medium",
+    "reasoning": "Flooded area is 0.0% before and 0.0% after, only 0.0% newly inundated, below the 0.1% threshold.",
+    "model": "segformer-b0-checkpoint-joint",
+    "metrics": {
+      "pre_flood_fraction": 0.0,
+      "post_flood_fraction": 0.0,
+      "new_flood_fraction": 0.0
+    }
+  },
+  "2_21_41": {
+    "flood_damage_detected": false,
+    "confidence": "low",
+    "reasoning": "The POST image is mostly cloud or haze, so the ground cannot be read reliably (newly flooded area measured at 0.0%).",
+    "model": "segformer-b0-checkpoint-joint",
+    "metrics": {
+      "pre_flood_fraction": 0.0,
+      "post_flood_fraction": 0.0,
+      "new_flood_fraction": 0.0
+    }
+  }
+}

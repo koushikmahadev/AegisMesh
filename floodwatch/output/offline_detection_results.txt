@@ -1,0 +1,32 @@
+=== Tile 0_41_58 ===
+Command:
+python ai_flood_detect_local.py --pre data/raw/PRE-event/10500500C4DD7000_0_41_58.tif --post data/raw/POST-event/10500500E6DD3C00_0_41_58.tif --backend onnx --model models/segformer/model.safetensors --threshold 0.001
+
+Output:
+{
+  "flood_damage_detected": true,
+  "confidence": "high",
+  "reasoning": "Flooded area grew from 21.2% before to 42.2% after, with 28.7% of the scene newly inundated."
+}
+
+=== Tile 0_37_61 ===
+Command:
+python ai_flood_detect_local.py --pre data/raw/PRE-event/10500500C4DD7000_0_37_61.tif --post data/raw/POST-event/10500500E6DD3C00_0_37_61.tif --backend onnx --model models/segformer/model.safetensors --threshold 0.001
+
+Output:
+{
+  "flood_damage_detected": true,
+  "confidence": "high",
+  "reasoning": "Flooded area grew from 0.3% before to 6.4% after, with 6.1% of the scene newly inundated."
+}
+
+=== Tile 0_15_63 ===
+Command:
+python ai_flood_detect_local.py --pre data/raw/PRE-event/10500500C4DD7000_0_15_63.tif --post data/raw/POST-event/10500500E6DD3C00_0_15_63.tif --backend onnx --model models/segformer/model.safetensors --threshold 0.001
+
+Output:
+{
+  "flood_damage_detected": false,
+  "confidence": "medium",
+  "reasoning": "Flooded area is 0.0% before and 0.0% after, only 0.0% newly inundated, below the 0.1% threshold."
+}

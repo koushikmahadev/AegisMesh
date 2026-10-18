@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-10-13T10:00:00Z",
+  "routes": [
+    {
+      "route_id": "route-001",
+      "zone_id": "zone-001",
+      "destination_name": "Command Post Alpha (HAL Sports Club)",
+      "status": "OK",
+      "distance_m": 4800,
+      "eta_minutes": 14,
+      "provenance": "derived",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [77.6600, 12.9300],
+          [77.6620, 12.9380],
+          [77.6630, 12.9480],
+          [77.6650, 12.9600]
+        ]
+      }
+    },
+    {
+      "route_id": "route-002",
+      "zone_id": "zone-002",
+      "destination_name": "Emergency Medical Staging (Whitefield)",
+      "status": "OK",
+      "distance_m": 3200,
+      "eta_minutes": 9,
+      "provenance": "derived",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [77.7100, 12.9400],
+          [77.7300, 12.9550],
+          [77.7500, 12.9700]
+        ]
+      }
+    },
+    {
+      "route_id": "route-005",
+      "zone_id": "zone-005",
+      "destination_name": "Command Post Alpha",
+      "status": "UNREACHABLE",
+      "distance_m": null,
+      "eta_minutes": null,
+      "provenance": "derived",
+      "geometry": null
+    }
+  ]
+}

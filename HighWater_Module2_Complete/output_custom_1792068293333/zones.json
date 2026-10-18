@@ -1,0 +1,187 @@
+{
+  "schema_version": "1.0",
+  "source": "SpaceNet 8 Custom area (10/15/2026, 6:14:53 PM)",
+  "crs": "EPSG:4326",
+  "zones": [
+    {
+      "zone_id": "zone-001",
+      "bbox": [
+        6.966268257831536,
+        50.50658011761192,
+        6.970612104377187,
+        50.50935020812212
+      ],
+      "centroid": [
+        6.968440241045396,
+        50.50796517390169
+      ],
+      "flooded_percent": 0.0,
+      "flooded_area_m2": 0.0,
+      "total_buildings": 2,
+      "exposed_buildings": 0,
+      "road_length_m": 250.1,
+      "flooded_road_length_m": 0,
+      "accessibility": "ACCESSIBLE"
+    },
+    {
+      "zone_id": "zone-002",
+      "bbox": [
+        6.970496482570544,
+        50.50665392332101,
+        6.9748401062876315,
+        50.50942386738351
+      ],
+      "centroid": [
+        6.9726683543713746,
+        50.50803890639069
+      ],
+      "flooded_percent": 1.45,
+      "flooded_area_m2": 1304.8,
+      "total_buildings": 47,
+      "exposed_buildings": 0,
+      "road_length_m": 286.8,
+      "flooded_road_length_m": 124.1,
+      "accessibility": "PARTIAL"
+    },
+    {
+      "zone_id": "zone-003",
+      "bbox": [
+        6.974724724964203,
+        50.506727575565634,
+        6.976432080641014,
+        50.509451562534366
+      ],
+      "centroid": [
+        6.97557842494545,
+        50.50808958117762
+      ],
+      "flooded_percent": 11.06,
+      "flooded_area_m2": 3746.5,
+      "total_buildings": 38,
+      "exposed_buildings": 0,
+      "road_length_m": 471.5,
+      "flooded_road_length_m": 384.8,
+      "accessibility": "BLOCKED"
+    },
+    {
+      "zone_id": "zone-004",
+      "bbox": [
+        6.966152377853901,
+        50.5092763953817,
+        6.970496482570544,
+        50.512046491475
+      ],
+      "centroid": [
+        6.968324490162306,
+        50.51066145446403
+      ],
+      "flooded_percent": 0.0,
+      "flooded_area_m2": 0.0,
+      "total_buildings": 6,
+      "exposed_buildings": 0,
+      "road_length_m": 291.8,
+      "flooded_road_length_m": 0,
+      "accessibility": "ACCESSIBLE"
+    },
+    {
+      "zone_id": "zone-005",
+      "bbox": [
+        6.97038084310925,
+        50.50935020812212,
+        6.974724724964203,
+        50.51212015775393
+      ],
+      "centroid": [
+        6.9725528439880575,
+        50.51073519397746
+      ],
+      "flooded_percent": 1.04,
+      "flooded_area_m2": 936.2,
+      "total_buildings": 83,
+      "exposed_buildings": 0,
+      "road_length_m": 581.5,
+      "flooded_road_length_m": 89.9,
+      "accessibility": "PARTIAL"
+    },
+    {
+      "zone_id": "zone-006",
+      "bbox": [
+        6.974609326022774,
+        50.50942386738351,
+        6.976316789867654,
+        50.51214785554332
+      ],
+      "centroid": [
+        6.975463080091374,
+        50.51078587359218
+      ],
+      "flooded_percent": 1.67,
+      "flooded_area_m2": 566.0,
+      "total_buildings": 21,
+      "exposed_buildings": 0,
+      "road_length_m": 368.6,
+      "flooded_road_length_m": 44.6,
+      "accessibility": "PARTIAL"
+    },
+    {
+      "zone_id": "zone-007",
+      "bbox": [
+        6.96605173380475,
+        50.51197267170243,
+        6.97038084310925,
+        50.51438793163472
+      ],
+      "centroid": [
+        6.968216340636198,
+        50.51318030979207
+      ],
+      "flooded_percent": 0.0,
+      "flooded_area_m2": 0.0,
+      "total_buildings": 2,
+      "exposed_buildings": 0,
+      "road_length_m": 140.7,
+      "flooded_road_length_m": 0,
+      "accessibility": "ACCESSIBLE"
+    },
+    {
+      "zone_id": "zone-008",
+      "bbox": [
+        6.970280407953236,
+        50.512046491475,
+        6.974609326022774,
+        50.514461604008304
+      ],
+      "centroid": [
+        6.972444919168055,
+        50.51325405586841
+      ],
+      "flooded_percent": 0.0,
+      "flooded_area_m2": 0.0,
+      "total_buildings": 10,
+      "exposed_buildings": 0,
+      "road_length_m": 0,
+      "flooded_road_length_m": 0,
+      "accessibility": "UNKNOWN"
+    },
+    {
+      "zone_id": "zone-009",
+      "bbox": [
+        6.974509099762958,
+        50.51212015775393,
+        6.976201481490095,
+        50.51448930408923
+      ],
+      "centroid": [
+        6.975355309930269,
+        50.51330473999365
+      ],
+      "flooded_percent": 0.0,
+      "flooded_area_m2": 0.0,
+      "total_buildings": 3,
+      "exposed_buildings": 0,
+      "road_length_m": 0,
+      "flooded_road_length_m": 0,
+      "accessibility": "UNKNOWN"
+    }
+  ]
+}

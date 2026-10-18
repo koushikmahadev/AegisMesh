@@ -1,0 +1,684 @@
+{
+  "disclaimer": "Synthetic benchmark on a 2-route network; demonstrates mechanism, not real-world performance.",
+  "scenarios_count": 1000,
+  "seed": 42,
+  "predictive_reduces_stranding": true,
+  "predictive_reduces_stranding_misspecified": true,
+  "ground_truth_variants": [
+    {
+      "variant": "perturbed_same_model",
+      "description": "Monte Carlo evaluation where ground truth follows the same logistic risk model perturbed with parameter noise.",
+      "sample_size": 1000,
+      "overall": {
+        "AMBULANCE": {
+          "predictive_stranded_rate": {
+            "mean": 0.0797,
+            "ci_95": [
+              0.0625,
+              0.097
+            ]
+          },
+          "reactive_stranded_rate": {
+            "mean": 0.2554,
+            "ci_95": [
+              0.2284,
+              0.2834
+            ]
+          },
+          "mean_eta_penalty_minutes": {
+            "mean": 0.3591,
+            "ci_95": [
+              0.3339,
+              0.3843
+            ]
+          }
+        },
+        "TRUCK_4X4": {
+          "predictive_stranded_rate": {
+            "mean": 0.1339,
+            "ci_95": [
+              0.113,
+              0.1559
+            ]
+          },
+          "reactive_stranded_rate": {
+            "mean": 0.3504,
+            "ci_95": [
+              0.319,
+              0.3828
+            ]
+          },
+          "mean_eta_penalty_minutes": {
+            "mean": 0.5519,
+            "ci_95": [
+              0.5078,
+              0.5964
+            ]
+          }
+        }
+      },
+      "by_rainfall_band": {
+        "15-30": {
+          "AMBULANCE": {
+            "predictive_stranded_rate": {
+              "mean": 0.0,
+              "ci_95": [
+                0.0,
+                0.0
+              ]
+            },
+            "reactive_stranded_rate": {
+              "mean": 0.0031,
+              "ci_95": [
+                0.0,
+                0.0094
+              ]
+            },
+            "mean_eta_penalty_minutes": {
+              "mean": 0.2379,
+              "ci_95": [
+                0.2012,
+                0.2747
+              ]
+            }
+          },
+          "TRUCK_4X4": {
+            "predictive_stranded_rate": {
+              "mean": 0.003,
+              "ci_95": [
+                0.0,
+                0.0091
+              ]
+            },
+            "reactive_stranded_rate": {
+              "mean": 0.0213,
+              "ci_95": [
+                0.0061,
+                0.0396
+              ]
+            },
+            "mean_eta_penalty_minutes": {
+              "mean": 0.4523,
+              "ci_95": [
+                0.3967,
+                0.5144
+              ]
+            }
+          }
+        },
+        "30-45": {
+          "AMBULANCE": {
+            "predictive_stranded_rate": {
+              "mean": 0.0129,
+              "ci_95": [
+                0.0,
+                0.0257
+              ]
+            },
+            "reactive_stranded_rate": {
+              "mean": 0.1672,
+              "ci_95": [
+                0.1254,
+                0.2091
+              ]
+            },
+            "mean_eta_penalty_minutes": {
+              "mean": 0.4779,
+              "ci_95": [
+                0.4402,
+                0.5155
+              ]
+            }
+          },
+          "TRUCK_4X4": {
+            "predictive_stranded_rate": {
+              "mean": 0.0282,
+              "ci_95": [
+                0.0125,
+                0.047
+              ]
+            },
+            "reactive_stranded_rate": {
+              "mean": 0.2884,
+              "ci_95": [
+                0.2414,
+                0.3417
+              ]
+            },
+            "mean_eta_penalty_minutes": {
+              "mean": 0.6751,
+              "ci_95": [
+                0.6112,
+                0.7463
+              ]
+            }
+          }
+        },
+        "45-60": {
+          "AMBULANCE": {
+            "predictive_stranded_rate": {
+              "mean": 0.2357,
+              "ci_95": [
+                0.1886,
+                0.2862
+              ]
+            },
+            "reactive_stranded_rate": {
+              "mean": 0.6195,
+              "ci_95": [
+                0.5623,
+                0.6768
+              ]
+            },
+            "mean_eta_penalty_minutes": {
+              "mean": 0.4344,
+              "ci_95": [
+                0.3706,
+                0.4983
+              ]
+            }
+          },
+          "TRUCK_4X4": {
+            "predictive_stranded_rate": {
+              "mean": 0.3819,
+              "ci_95": [
+                0.33,
+                0.4401
+              ]
+            },
+            "reactive_stranded_rate": {
+              "mean": 0.7638,
+              "ci_95": [
+                0.7151,
+                0.8123
+              ]
+            },
+            "mean_eta_penalty_minutes": {
+              "mean": 0.6103,
+              "ci_95": [
+                0.5052,
+                0.7141
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "variant": "misspecified_water_level",
+      "description": "Simplified linear water-level model (not a hydraulic simulation); shares the elevation ordering of the route network, so it is a second mechanism check, not independent validation.",
+      "sample_size": 1000,
+      "overall": {
+        "AMBULANCE": {
+          "predictive_stranded_rate": {
+            "mean": 0.0237,
+            "ci_95": [
+              0.014,
+              0.0345
+            ]
+          },
+          "reactive_stranded_rate": {
+            "mean": 0.1864,
+            "ci_95": [
+              0.1595,
+              0.2101
+            ]
+          },
+          "mean_eta_penalty_minutes": {
+            "mean": 0.3739,
+            "ci_95": [
+              0.35,
+              0.3995
+            ]
+          }
+        },
+        "TRUCK_4X4": {
+          "predictive_stranded_rate": {
+            "mean": 0.023,
+            "ci_95": [
+              0.0136,
+              0.0324
+            ]
+          },
+          "reactive_stranded_rate": {
+            "mean": 0.2176,
+            "ci_95": [
+              0.1914,
+              0.2427
+            ]
+          },
+          "mean_eta_penalty_minutes": {
+            "mean": 0.5807,
+            "ci_95": [
+              0.5446,
+              0.6163
+            ]
+          }
+        }
+      },
+      "by_rainfall_band": {
+        "15-30": {
+          "AMBULANCE": {
+            "predictive_stranded_rate": {
+              "mean": 0.0,
+              "ci_95": [
+                0.0,
+                0.0
+              ]
+            },
+            "reactive_stranded_rate": {
+              "mean": 0.0,
+              "ci_95": [
+                0.0,
+                0.0
+              ]
+            },
+            "mean_eta_penalty_minutes": {
+              "mean": 0.2393,
+              "ci_95": [
+                0.2048,
+                0.276
+              ]
+            }
+          },
+          "TRUCK_4X4": {
+            "predictive_stranded_rate": {
+              "mean": 0.0,
+              "ci_95": [
+                0.0,
+                0.0
+              ]
+            },
+            "reactive_stranded_rate": {
+              "mean": 0.0,
+              "ci_95": [
+                0.0,
+                0.0
+              ]
+            },
+            "mean_eta_penalty_minutes": {
+              "mean": 0.4571,
+              "ci_95": [
+                0.3991,
+                0.5196
+              ]
+            }
+          }
+        },
+        "30-45": {
+          "AMBULANCE": {
+            "predictive_stranded_rate": {
+              "mean": 0.0,
+              "ci_95": [
+                0.0,
+                0.0
+              ]
+            },
+            "reactive_stranded_rate": {
+              "mean": 0.0,
+              "ci_95": [
+                0.0,
+                0.0
+              ]
+            },
+            "mean_eta_penalty_minutes": {
+              "mean": 0.4992,
+              "ci_95": [
+                0.4659,
+                0.5325
+              ]
+            }
+          },
+          "TRUCK_4X4": {
+            "predictive_stranded_rate": {
+              "mean": 0.0,
+              "ci_95": [
+                0.0,
+                0.0
+              ]
+            },
+            "reactive_stranded_rate": {
+              "mean": 0.0,
+              "ci_95": [
+                0.0,
+                0.0
+              ]
+            },
+            "mean_eta_penalty_minutes": {
+              "mean": 0.7143,
+              "ci_95": [
+                0.6646,
+                0.768
+              ]
+            }
+          }
+        },
+        "45-60": {
+          "AMBULANCE": {
+            "predictive_stranded_rate": {
+              "mean": 0.0741,
+              "ci_95": [
+                0.0471,
+                0.1044
+              ]
+            },
+            "reactive_stranded_rate": {
+              "mean": 0.5825,
+              "ci_95": [
+                0.5286,
+                0.633
+              ]
+            },
+            "mean_eta_penalty_minutes": {
+              "mean": 0.4072,
+              "ci_95": [
+                0.345,
+                0.4638
+              ]
+            }
+          },
+          "TRUCK_4X4": {
+            "predictive_stranded_rate": {
+              "mean": 0.0712,
+              "ci_95": [
+                0.0453,
+                0.1036
+              ]
+            },
+            "reactive_stranded_rate": {
+              "mean": 0.6731,
+              "ci_95": [
+                0.6246,
+                0.7249
+              ]
+            },
+            "mean_eta_penalty_minutes": {
+              "mean": 0.5597,
+              "ci_95": [
+                0.4771,
+                0.6494
+              ]
+            }
+          }
+        }
+      }
+    }
+  ],
+  "metrics": {
+    "AMBULANCE": {
+      "scenarios_evaluated": 928,
+      "predictive_stranded_rate": {
+        "mean": 0.0797,
+        "ci_95": [
+          0.0625,
+          0.097
+        ]
+      },
+      "reactive_stranded_rate": {
+        "mean": 0.2554,
+        "ci_95": [
+          0.2284,
+          0.2834
+        ]
+      },
+      "mean_eta_penalty_minutes": {
+        "mean": 0.3591,
+        "ci_95": [
+          0.3339,
+          0.3843
+        ]
+      },
+      "bands": {
+        "15-30": {
+          "scenarios_evaluated": 320,
+          "predictive_stranded_rate": {
+            "mean": 0.0,
+            "ci_95": [
+              0.0,
+              0.0
+            ]
+          },
+          "reactive_stranded_rate": {
+            "mean": 0.0031,
+            "ci_95": [
+              0.0,
+              0.0094
+            ]
+          },
+          "mean_eta_penalty_minutes": {
+            "mean": 0.2379,
+            "ci_95": [
+              0.2012,
+              0.2747
+            ]
+          }
+        },
+        "30-45": {
+          "scenarios_evaluated": 311,
+          "predictive_stranded_rate": {
+            "mean": 0.0129,
+            "ci_95": [
+              0.0,
+              0.0257
+            ]
+          },
+          "reactive_stranded_rate": {
+            "mean": 0.1672,
+            "ci_95": [
+              0.1254,
+              0.2091
+            ]
+          },
+          "mean_eta_penalty_minutes": {
+            "mean": 0.4779,
+            "ci_95": [
+              0.4402,
+              0.5155
+            ]
+          }
+        },
+        "45-60": {
+          "scenarios_evaluated": 297,
+          "predictive_stranded_rate": {
+            "mean": 0.2357,
+            "ci_95": [
+              0.1886,
+              0.2862
+            ]
+          },
+          "reactive_stranded_rate": {
+            "mean": 0.6195,
+            "ci_95": [
+              0.5623,
+              0.6768
+            ]
+          },
+          "mean_eta_penalty_minutes": {
+            "mean": 0.4344,
+            "ci_95": [
+              0.3706,
+              0.4983
+            ]
+          }
+        }
+      },
+      "predictive_reduces_stranding": true
+    },
+    "TRUCK_4X4": {
+      "scenarios_evaluated": 956,
+      "predictive_stranded_rate": {
+        "mean": 0.1339,
+        "ci_95": [
+          0.113,
+          0.1559
+        ]
+      },
+      "reactive_stranded_rate": {
+        "mean": 0.3504,
+        "ci_95": [
+          0.319,
+          0.3828
+        ]
+      },
+      "mean_eta_penalty_minutes": {
+        "mean": 0.5519,
+        "ci_95": [
+          0.5078,
+          0.5964
+        ]
+      },
+      "bands": {
+        "15-30": {
+          "scenarios_evaluated": 328,
+          "predictive_stranded_rate": {
+            "mean": 0.003,
+            "ci_95": [
+              0.0,
+              0.0091
+            ]
+          },
+          "reactive_stranded_rate": {
+            "mean": 0.0213,
+            "ci_95": [
+              0.0061,
+              0.0396
+            ]
+          },
+          "mean_eta_penalty_minutes": {
+            "mean": 0.4523,
+            "ci_95": [
+              0.3967,
+              0.5144
+            ]
+          }
+        },
+        "30-45": {
+          "scenarios_evaluated": 319,
+          "predictive_stranded_rate": {
+            "mean": 0.0282,
+            "ci_95": [
+              0.0125,
+              0.047
+            ]
+          },
+          "reactive_stranded_rate": {
+            "mean": 0.2884,
+            "ci_95": [
+              0.2414,
+              0.3417
+            ]
+          },
+          "mean_eta_penalty_minutes": {
+            "mean": 0.6751,
+            "ci_95": [
+              0.6112,
+              0.7463
+            ]
+          }
+        },
+        "45-60": {
+          "scenarios_evaluated": 309,
+          "predictive_stranded_rate": {
+            "mean": 0.3819,
+            "ci_95": [
+              0.33,
+              0.4401
+            ]
+          },
+          "reactive_stranded_rate": {
+            "mean": 0.7638,
+            "ci_95": [
+              0.7151,
+              0.8123
+            ]
+          },
+          "mean_eta_penalty_minutes": {
+            "mean": 0.6103,
+            "ci_95": [
+              0.5052,
+              0.7141
+            ]
+          }
+        }
+      },
+      "predictive_reduces_stranding": true
+    }
+  },
+  "sensitivity": {
+    "overall_pct_unchanged": 89.7,
+    "constants": {
+      "RAINFALL_COEFFICIENT": {
+        "-20%": {
+          "unchanged_count": 36,
+          "total_queries": 39,
+          "pct_unchanged": 92.3
+        },
+        "+20%": {
+          "unchanged_count": 35,
+          "total_queries": 39,
+          "pct_unchanged": 89.7
+        }
+      },
+      "ELEVATION_COEFFICIENT": {
+        "-20%": {
+          "unchanged_count": 38,
+          "total_queries": 39,
+          "pct_unchanged": 97.4
+        },
+        "+20%": {
+          "unchanged_count": 38,
+          "total_queries": 39,
+          "pct_unchanged": 97.4
+        }
+      },
+      "RIVER_DISTANCE_COEFFICIENT": {
+        "-20%": {
+          "unchanged_count": 38,
+          "total_queries": 39,
+          "pct_unchanged": 97.4
+        },
+        "+20%": {
+          "unchanged_count": 39,
+          "total_queries": 39,
+          "pct_unchanged": 100.0
+        }
+      },
+      "BASE_RIVER_ELEVATION_M": {
+        "-20%": {
+          "unchanged_count": 25,
+          "total_queries": 39,
+          "pct_unchanged": 64.1
+        },
+        "+20%": {
+          "unchanged_count": 25,
+          "total_queries": 39,
+          "pct_unchanged": 64.1
+        }
+      },
+      "RISK_THRESHOLD_BIAS": {
+        "-20%": {
+          "unchanged_count": 36,
+          "total_queries": 39,
+          "pct_unchanged": 92.3
+        },
+        "+20%": {
+          "unchanged_count": 36,
+          "total_queries": 39,
+          "pct_unchanged": 92.3
+        }
+      },
+      "ON_SCENE_DWELL_MIN": {
+        "-20%": {
+          "unchanged_count": 37,
+          "total_queries": 39,
+          "pct_unchanged": 94.9
+        },
+        "+20%": {
+          "unchanged_count": 37,
+          "total_queries": 39,
+          "pct_unchanged": 94.9
+        }
+      }
+    }
+  }
+}

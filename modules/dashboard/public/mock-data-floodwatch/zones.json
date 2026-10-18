@@ -1,0 +1,584 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-10-15T06:00:13Z",
+  "data_mode": "demo",
+  "source": "SpaceNet 8 / FloodWatch SegFormer-B0",
+  "study_area": "SpaceNet 8 Germany AOI (FloodWatch)",
+  "crs": "EPSG:4326",
+  "zones": [
+    {
+      "zone_id": "0_41_58",
+      "name": "Tile 0_41_58",
+      "risk_level": "UNKNOWN",
+      "risk_score": null,
+      "observed_flooded_count": 181,
+      "exposed_buildings": 169,
+      "in_training_pool": true,
+      "reasons": [
+        "169 observed flooded buildings, 12 observed flooded roads (181 total)",
+        "Model detected mask pixels: 668123 (fast mode), 733609 (accurate mode)",
+        "In model training pool"
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              7.039364952783314,
+              50.5310790148882
+            ],
+            [
+              7.044230827238966,
+              50.5310790148882
+            ],
+            [
+              7.044230827238966,
+              50.53594488934385
+            ],
+            [
+              7.039364952783314,
+              50.53594488934385
+            ],
+            [
+              7.039364952783314,
+              50.5310790148882
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "zone_id": "0_23_62",
+      "name": "Tile 0_23_62",
+      "risk_level": "UNKNOWN",
+      "risk_score": null,
+      "observed_flooded_count": 101,
+      "exposed_buildings": 94,
+      "in_training_pool": true,
+      "reasons": [
+        "94 observed flooded buildings, 7 observed flooded roads (101 total)",
+        "Model detected mask pixels: 1377 (fast mode), 10610 (accurate mode)",
+        "In model training pool"
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              6.951779212581591,
+              50.5116155170656
+            ],
+            [
+              6.956645087037242,
+              50.5116155170656
+            ],
+            [
+              6.956645087037242,
+              50.51648139152125
+            ],
+            [
+              6.951779212581591,
+              50.51648139152125
+            ],
+            [
+              6.951779212581591,
+              50.5116155170656
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "zone_id": "0_29_66",
+      "name": "Tile 0_29_66",
+      "risk_level": "UNKNOWN",
+      "risk_score": null,
+      "observed_flooded_count": 95,
+      "exposed_buildings": 90,
+      "in_training_pool": true,
+      "reasons": [
+        "90 observed flooded buildings, 5 observed flooded roads (95 total)",
+        "Model detected mask pixels: 0 (fast mode), 0 (accurate mode)",
+        "In model training pool"
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              6.980974459315498,
+              50.492152019242994
+            ],
+            [
+              6.98584033377115,
+              50.492152019242994
+            ],
+            [
+              6.98584033377115,
+              50.49701789369865
+            ],
+            [
+              6.980974459315498,
+              50.49701789369865
+            ],
+            [
+              6.980974459315498,
+              50.492152019242994
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "zone_id": "0_41_59",
+      "name": "Tile 0_41_59",
+      "risk_level": "UNKNOWN",
+      "risk_score": null,
+      "observed_flooded_count": 90,
+      "exposed_buildings": 76,
+      "in_training_pool": true,
+      "reasons": [
+        "76 observed flooded buildings, 14 observed flooded roads (90 total)",
+        "Model detected mask pixels: 84218 (fast mode), 173279 (accurate mode)",
+        "In model training pool"
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              7.039364952783314,
+              50.52621314043255
+            ],
+            [
+              7.044230827238966,
+              50.52621314043255
+            ],
+            [
+              7.044230827238966,
+              50.531079014888206
+            ],
+            [
+              7.039364952783314,
+              50.531079014888206
+            ],
+            [
+              7.039364952783314,
+              50.52621314043255
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "zone_id": "0_40_62",
+      "name": "Tile 0_40_62",
+      "risk_level": "UNKNOWN",
+      "risk_score": null,
+      "observed_flooded_count": 88,
+      "exposed_buildings": 72,
+      "in_training_pool": true,
+      "reasons": [
+        "72 observed flooded buildings, 16 observed flooded roads (88 total)",
+        "Model detected mask pixels: 286 (fast mode), 40124 (accurate mode)",
+        "In model training pool"
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              7.034499078327663,
+              50.5116155170656
+            ],
+            [
+              7.039364952783314,
+              50.5116155170656
+            ],
+            [
+              7.039364952783314,
+              50.51648139152125
+            ],
+            [
+              7.034499078327663,
+              50.51648139152125
+            ],
+            [
+              7.034499078327663,
+              50.5116155170656
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "zone_id": "0_27_68",
+      "name": "Tile 0_27_68",
+      "risk_level": "UNKNOWN",
+      "risk_score": null,
+      "observed_flooded_count": 86,
+      "exposed_buildings": 80,
+      "in_training_pool": true,
+      "reasons": [
+        "80 observed flooded buildings, 6 observed flooded roads (86 total)",
+        "Model detected mask pixels: 117550 (fast mode), 170078 (accurate mode)",
+        "In model training pool"
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              6.971242710404196,
+              50.48242027033169
+            ],
+            [
+              6.976108584859848,
+              50.48242027033169
+            ],
+            [
+              6.976108584859848,
+              50.48728614478734
+            ],
+            [
+              6.971242710404196,
+              50.48728614478734
+            ],
+            [
+              6.971242710404196,
+              50.48242027033169
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "zone_id": "0_28_63",
+      "name": "Tile 0_28_63",
+      "risk_level": "UNKNOWN",
+      "risk_score": null,
+      "observed_flooded_count": 70,
+      "exposed_buildings": 58,
+      "in_training_pool": true,
+      "reasons": [
+        "58 observed flooded buildings, 12 observed flooded roads (70 total)",
+        "Model detected mask pixels: 20639 (fast mode), 73204 (accurate mode)",
+        "In model training pool"
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              6.976108584859848,
+              50.50674964260995
+            ],
+            [
+              6.980974459315499,
+              50.50674964260995
+            ],
+            [
+              6.980974459315499,
+              50.5116155170656
+            ],
+            [
+              6.976108584859848,
+              50.5116155170656
+            ],
+            [
+              6.976108584859848,
+              50.50674964260995
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "zone_id": "0_30_63",
+      "name": "Tile 0_30_63",
+      "risk_level": "UNKNOWN",
+      "risk_score": null,
+      "observed_flooded_count": 62,
+      "exposed_buildings": 48,
+      "in_training_pool": true,
+      "reasons": [
+        "48 observed flooded buildings, 14 observed flooded roads (62 total)",
+        "Model detected mask pixels: 66281 (fast mode), 96372 (accurate mode)",
+        "In model training pool"
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              6.98584033377115,
+              50.50674964260995
+            ],
+            [
+              6.990706208226801,
+              50.50674964260995
+            ],
+            [
+              6.990706208226801,
+              50.5116155170656
+            ],
+            [
+              6.98584033377115,
+              50.5116155170656
+            ],
+            [
+              6.98584033377115,
+              50.50674964260995
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "zone_id": "0_27_67",
+      "name": "Tile 0_27_67",
+      "risk_level": "UNKNOWN",
+      "risk_score": null,
+      "observed_flooded_count": 46,
+      "exposed_buildings": 43,
+      "in_training_pool": true,
+      "reasons": [
+        "43 observed flooded buildings, 3 observed flooded roads (46 total)",
+        "Model detected mask pixels: 40259 (fast mode), 116194 (accurate mode)",
+        "In model training pool"
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              6.971242710404196,
+              50.48728614478734
+            ],
+            [
+              6.976108584859848,
+              50.48728614478734
+            ],
+            [
+              6.976108584859848,
+              50.492152019242994
+            ],
+            [
+              6.971242710404196,
+              50.492152019242994
+            ],
+            [
+              6.971242710404196,
+              50.48728614478734
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "zone_id": "0_39_62",
+      "name": "Tile 0_39_62",
+      "risk_level": "UNKNOWN",
+      "risk_score": null,
+      "observed_flooded_count": 3,
+      "exposed_buildings": 0,
+      "in_training_pool": true,
+      "reasons": [
+        "0 observed flooded buildings, 3 observed flooded roads (3 total)",
+        "Model detected mask pixels: 0 (fast mode), 0 (accurate mode)",
+        "In model training pool"
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              7.029633203872012,
+              50.5116155170656
+            ],
+            [
+              7.034499078327664,
+              50.5116155170656
+            ],
+            [
+              7.034499078327664,
+              50.51648139152125
+            ],
+            [
+              7.029633203872012,
+              50.51648139152125
+            ],
+            [
+              7.029633203872012,
+              50.5116155170656
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "zone_id": "0_15_63",
+      "name": "Tile 0_15_63",
+      "risk_level": "UNKNOWN",
+      "risk_score": null,
+      "observed_flooded_count": 0,
+      "exposed_buildings": 0,
+      "in_training_pool": false,
+      "reasons": [
+        "0 observed flooded buildings, 0 observed flooded roads (0 total)",
+        "Model detected mask pixels: 0 (fast mode), 0 (accurate mode)",
+        "Not in the training pool"
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              6.91285221693638,
+              50.50674964260995
+            ],
+            [
+              6.9177180913920315,
+              50.50674964260995
+            ],
+            [
+              6.9177180913920315,
+              50.5116155170656
+            ],
+            [
+              6.91285221693638,
+              50.5116155170656
+            ],
+            [
+              6.91285221693638,
+              50.50674964260995
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "zone_id": "0_15_68",
+      "name": "Tile 0_15_68",
+      "risk_level": "UNKNOWN",
+      "risk_score": null,
+      "observed_flooded_count": 0,
+      "exposed_buildings": 0,
+      "in_training_pool": false,
+      "reasons": [
+        "0 observed flooded buildings, 0 observed flooded roads (0 total)",
+        "Model detected mask pixels: 0 (fast mode), 0 (accurate mode)",
+        "Not in the training pool"
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              6.91285221693638,
+              50.48242027033169
+            ],
+            [
+              6.9177180913920315,
+              50.48242027033169
+            ],
+            [
+              6.9177180913920315,
+              50.48728614478734
+            ],
+            [
+              6.91285221693638,
+              50.48728614478734
+            ],
+            [
+              6.91285221693638,
+              50.48242027033169
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "zone_id": "0_15_65",
+      "name": "Tile 0_15_65",
+      "risk_level": "UNKNOWN",
+      "risk_score": null,
+      "observed_flooded_count": 0,
+      "exposed_buildings": 0,
+      "in_training_pool": false,
+      "reasons": [
+        "0 observed flooded buildings, 0 observed flooded roads (0 total)",
+        "Model detected mask pixels: 0 (fast mode), 0 (accurate mode)",
+        "Not in the training pool"
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              6.91285221693638,
+              50.49701789369864
+            ],
+            [
+              6.9177180913920315,
+              50.49701789369864
+            ],
+            [
+              6.9177180913920315,
+              50.50188376815429
+            ],
+            [
+              6.91285221693638,
+              50.50188376815429
+            ],
+            [
+              6.91285221693638,
+              50.49701789369864
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "zone_id": "0_20_66",
+      "name": "Tile 0_20_66",
+      "risk_level": "UNKNOWN",
+      "risk_score": null,
+      "observed_flooded_count": 0,
+      "exposed_buildings": 0,
+      "in_training_pool": false,
+      "reasons": [
+        "0 observed flooded buildings, 0 observed flooded roads (0 total)",
+        "Model detected mask pixels: 0 (fast mode), 8190 (accurate mode)",
+        "Not in the training pool"
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              6.937181589214637,
+              50.492152019242994
+            ],
+            [
+              6.9420474636702885,
+              50.492152019242994
+            ],
+            [
+              6.9420474636702885,
+              50.49701789369865
+            ],
+            [
+              6.937181589214637,
+              50.49701789369865
+            ],
+            [
+              6.937181589214637,
+              50.492152019242994
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

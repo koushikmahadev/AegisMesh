@@ -1,0 +1,10 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "id": "way/847377958", "building": null, "flooded": "yes", "highway": "primary", "lanes": "2", "surface": "paved", "oneway": null, "bridge": null, "layer": null, "tunnel": null, "type": null, "image_id": "105001001A0FFC00", "location": "Louisiana-East_Training_Public" }, "geometry": { "type": "LineString", "coordinates": [ [ -89.938297488356753, 29.63032945370443 ], [ -89.9380115, 29.6301883 ], [ -89.9374603, 29.6299179 ], [ -89.936912826532151, 29.629647951825163 ] ] } },
+{ "type": "Feature", "properties": { "id": "way/847378119", "building": null, "flooded": "yes", "highway": "unclassified", "lanes": "2", "surface": "unpaved", "oneway": null, "bridge": null, "layer": null, "tunnel": null, "type": null, "image_id": "105001001A0FFC00", "location": "Louisiana-East_Training_Public" }, "geometry": { "type": "LineString", "coordinates": [ [ -89.938297488356753, 29.631821836518416 ], [ -89.9380785, 29.6317073 ], [ -89.9372953, 29.6312713 ], [ -89.9373221, 29.6311839 ], [ -89.9378639, 29.6303259 ] ] } },
+{ "type": "Feature", "properties": { "id": "way/847378121", "building": null, "flooded": "yes", "highway": "primary", "lanes": "2", "surface": "paved", "oneway": null, "bridge": null, "layer": null, "tunnel": null, "type": null, "image_id": "105001001A0FFC00", "location": "Louisiana-East_Training_Public" }, "geometry": { "type": "LineString", "coordinates": [ [ -89.936490852527882, 29.629647951825163 ], [ -89.9378639, 29.6303259 ], [ -89.938297488356753, 29.630541922026485 ] ] } },
+{ "type": "Feature", "properties": { "id": "way/847378152", "building": null, "flooded": null, "highway": "unclassified", "lanes": "2", "surface": "unpaved", "oneway": null, "bridge": null, "layer": null, "tunnel": null, "type": null, "image_id": "105001001A0FFC00", "location": "Louisiana-East_Training_Public" }, "geometry": { "type": "LineString", "coordinates": [ [ -89.938297488356753, 29.634834362488856 ], [ -89.9377754, 29.634618 ], [ -89.9353856, 29.6336179 ] ] } }
+]
+}

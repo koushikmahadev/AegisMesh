@@ -1,0 +1,10 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "id": "way/847390318", "building": null, "flooded": null, "highway": "primary", "lanes": "2", "surface": "paved", "oneway": null, "bridge": null, "layer": null, "tunnel": null, "type": null, "image_id": "105001001A0FFC00", "location": "Louisiana-East_Training_Public" }, "geometry": { "type": "LineString", "coordinates": [ [ -89.970795224826162, 29.653588054146947 ], [ -89.9705547, 29.6532789 ], [ -89.9696535, 29.6521507 ] ] } },
+{ "type": "Feature", "properties": { "id": "way/847390319", "building": null, "flooded": null, "highway": "primary", "lanes": "2", "surface": "paved", "oneway": null, "bridge": null, "layer": null, "tunnel": null, "type": null, "image_id": "105001001A0FFC00", "location": "Louisiana-East_Training_Public" }, "geometry": { "type": "LineString", "coordinates": [ [ -89.971055713584477, 29.653588054146947 ], [ -89.9707492, 29.6531868 ], [ -89.9698386, 29.652054 ] ] } },
+{ "type": "Feature", "properties": { "id": "way/847390320", "building": null, "flooded": "yes", "highway": "primary", "lanes": "2", "surface": "paved", "oneway": null, "bridge": null, "layer": null, "tunnel": null, "type": null, "image_id": "105001001A0FFC00", "location": "Louisiana-East_Training_Public" }, "geometry": { "type": "LineString", "coordinates": [ [ -89.9696535, 29.6521507 ], [ -89.9691895, 29.6515563 ], [ -89.9688756, 29.6511857 ], [ -89.968222616258984, 29.650379078140428 ] ] } },
+{ "type": "Feature", "properties": { "id": "way/847390321", "building": null, "flooded": "yes", "highway": "primary", "lanes": "2", "surface": "paved", "oneway": null, "bridge": null, "layer": null, "tunnel": null, "type": null, "image_id": "105001001A0FFC00", "location": "Louisiana-East_Training_Public" }, "geometry": { "type": "LineString", "coordinates": [ [ -89.9698386, 29.652054 ], [ -89.9693719, 29.6514573 ], [ -89.9690567, 29.651075 ], [ -89.9683245, 29.6501659 ], [ -89.968222616258984, 29.650041088766386 ] ] } }
+]
+}

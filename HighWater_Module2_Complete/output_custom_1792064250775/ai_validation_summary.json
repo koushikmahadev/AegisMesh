@@ -1,0 +1,88 @@
+{
+  "method": "SegFormer-B0 offline validation vs SpaceNet 8 ground truth annotations",
+  "tiles_total_in_aoi": 4,
+  "tiles_compared": 4,
+  "tiles_skipped_no_ground_truth_features": [],
+  "tiles_skipped_no_prediction": [],
+  "tiles_skipped_prediction_error": [],
+  "accuracy": 0.5,
+  "confusion": {
+    "true_positive_flooded_correctly_caught": 2,
+    "true_negative_dry_correctly_identified": 0,
+    "false_positive_false_alarm": 0,
+    "false_negative_flooded_missed": 2
+  },
+  "flat_accuracy": 0.5,
+  "flat_confusion": {
+    "true_positive_flooded_correctly_caught": 2,
+    "true_negative_dry_correctly_identified": 0,
+    "false_positive_false_alarm": 0,
+    "false_negative_flooded_missed": 2
+  },
+  "confident_tiles_scored": 3,
+  "confident_accuracy": 0.6666666666666666,
+  "confident_confusion": {
+    "true_positive_flooded_correctly_caught": 2,
+    "true_negative_dry_correctly_identified": 0,
+    "false_positive_false_alarm": 0,
+    "false_negative_flooded_missed": 1
+  },
+  "uncertain_tile_count": 1,
+  "uncertain_tile_ids": [
+    "2_15_45"
+  ],
+  "per_tile": {
+    "2_15_44": {
+      "ground_truth_flooded": true,
+      "ai_predicted_flooded": false,
+      "confidence": "medium",
+      "reasoning": "Flooded area is 0.0% before and 0.0% after, only 0.0% newly inundated, below the 0.1% threshold.",
+      "category": "CONFIDENT",
+      "bbox": [
+        -90.13043970162383,
+        29.758315517542417,
+        -90.12495075364671,
+        29.760433591123096
+      ]
+    },
+    "2_14_45": {
+      "ground_truth_flooded": true,
+      "ai_predicted_flooded": true,
+      "confidence": "high",
+      "reasoning": "The POST-event image shows a massively swollen, muddy river and dark flooding over surrounding lands and properties, which were dry and clearly visible in the PRE-event image.",
+      "category": "CONFIDENT",
+      "bbox": [
+        -90.13621363105338,
+        29.752684078839085,
+        -90.13058219235005,
+        29.758231758065136
+      ]
+    },
+    "2_13_45": {
+      "ground_truth_flooded": true,
+      "ai_predicted_flooded": true,
+      "confidence": "medium",
+      "reasoning": "The bright green lawns and clear roads in the pre-event image are replaced by dark, flooded surfaces around the houses in the cloudy post-event image.",
+      "category": "CONFIDENT",
+      "bbox": [
+        -90.1387775,
+        29.752684078839085,
+        -90.13621363105338,
+        29.7553028
+      ]
+    },
+    "2_15_45": {
+      "ground_truth_flooded": true,
+      "ai_predicted_flooded": false,
+      "confidence": "low",
+      "reasoning": "The POST-event image is heavily obscured by thick cloud cover, making it impossible to clearly observe any specific flood damage or water intrusion on the ground.",
+      "category": "UNCERTAIN",
+      "bbox": [
+        -90.13058219235005,
+        29.752684078839085,
+        -90.12495075364671,
+        29.758315517542417
+      ]
+    }
+  }
+}

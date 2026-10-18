@@ -1,0 +1,46 @@
+{
+  "2_15_44": {
+    "flood_damage_detected": false,
+    "confidence": "medium",
+    "reasoning": "Flooded area is 0.0% before and 0.0% after, only 0.0% newly inundated, below the 0.1% threshold.",
+    "model": "segformer-b0-checkpoint-joint",
+    "metrics": {
+      "pre_flood_fraction": 0.0,
+      "post_flood_fraction": 0.0,
+      "new_flood_fraction": 0.0
+    }
+  },
+  "2_14_45": {
+    "flood_damage_detected": true,
+    "confidence": "high",
+    "reasoning": "The POST-event image shows a massively swollen, muddy river and dark flooding over surrounding lands and properties, which were dry and clearly visible in the PRE-event image.",
+    "model": "dots-studio/dots-3-note-preview:free",
+    "metrics": {
+      "pre_flood_fraction": 0.0,
+      "post_flood_fraction": 0.15,
+      "new_flood_fraction": 0.15
+    }
+  },
+  "2_13_45": {
+    "flood_damage_detected": true,
+    "confidence": "medium",
+    "reasoning": "The bright green lawns and clear roads in the pre-event image are replaced by dark, flooded surfaces around the houses in the cloudy post-event image.",
+    "model": "dots-studio/dots-3-note-preview:free",
+    "metrics": {
+      "pre_flood_fraction": 0.0,
+      "post_flood_fraction": 0.15,
+      "new_flood_fraction": 0.15
+    }
+  },
+  "2_15_45": {
+    "flood_damage_detected": false,
+    "confidence": "low",
+    "reasoning": "The POST-event image is heavily obscured by thick cloud cover, making it impossible to clearly observe any specific flood damage or water intrusion on the ground.",
+    "model": "dots-studio/dots-3-note-preview:free",
+    "metrics": {
+      "pre_flood_fraction": 0.0,
+      "post_flood_fraction": 0.0,
+      "new_flood_fraction": 0.0
+    }
+  }
+}

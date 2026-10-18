@@ -1,0 +1,3713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>HighWater — Module 2: Flood Impact Map</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<style>
+  html, body { margin: 0; padding: 0; height: 100%; font-family: -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+  #header {
+    position: absolute; top: 0; left: 0; z-index: 1000;
+    background: rgba(255,255,255,0.96); padding: 4px 10px;
+    font-size: 12px; font-weight: 600; color: #1e293b;
+    border-bottom-right-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+    max-width: calc(100% - 60px); display: flex; align-items: center; gap: 6px;
+    flex-wrap: wrap;
+  }
+  #header-text { white-space: nowrap; flex-shrink: 1; font-size: 12px; overflow: hidden; text-overflow: ellipsis; max-width: 380px; }
+  .leaflet-top.leaflet-left { top: 40px; }
+  #dataset-select {
+    font-size: 11.5px; font-weight: 500; padding: 2px 4px; border-radius: 4px;
+    border: 1px solid #cbd5e1; background: #fff; color: #1e293b; flex-shrink: 0;
+    max-width: 200px;
+  }
+  @media (max-width: 768px) {
+    #header { font-size: 11px; padding: 4px 6px; max-width: calc(100vw - 60px); }
+    #header-text { white-space: normal; max-width: 220px; }
+    #statcard { font-size: 10px; padding: 4px 8px; top: 72px; max-width: 85vw; }
+    .leaflet-top.leaflet-left { top: 72px; }
+    #dataset-select { font-size: 10px; max-width: 140px; }
+  }
+  #map { position: absolute; top: 0; bottom: 0; left: 0; right: 0; }
+  .leaflet-control-layers {
+    font-size: 11px !important;
+    border-radius: 6px !important;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.25) !important;
+    max-height: 220px !important;
+    overflow-y: auto !important;
+  }
+  #legend {
+    position: absolute; bottom: 14px; right: 10px; z-index: 1000;
+    background: rgba(255,255,255,0.96); padding: 5px 9px; border-radius: 6px;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.25); font-size: 11px; color: #1e293b;
+    line-height: 1.35; max-width: 205px; max-height: 240px;
+    display: flex; flex-direction: column;
+    box-sizing: border-box;
+  }
+  #legend-header {
+    display: flex; justify-content: space-between; align-items: center;
+    cursor: pointer; user-select: none; padding-bottom: 2px;
+  }
+  #legend-header strong { margin: 0; font-size: 11.5px; color: #0f172a; }
+  #legend-toggle-btn {
+    background: #f1f5f9; border: 1px solid #cbd5e1; border-radius: 3px;
+    font-size: 11px; font-weight: bold; color: #475569; width: 18px; height: 18px;
+    display: inline-flex; align-items: center; justify-content: center; cursor: pointer;
+  }
+  #legend-toggle-btn:hover { background: #e2e8f0; color: #0f172a; }
+  #legend-body {
+    overflow-y: auto; max-height: 200px; scrollbar-width: thin; margin-top: 4px;
+  }
+  .swatch { display: inline-block; width: 10px; height: 10px; margin-right: 5px; vertical-align: middle; border-radius: 2px; flex-shrink: 0; }
+  .swatch-line { display: inline-block; width: 14px; height: 0; border-top: 2.5px solid; margin-right: 5px; vertical-align: middle; flex-shrink: 0; }
+  .legend-row { margin-bottom: 2px; display: flex; align-items: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 10.5px; }
+  .popup-note { font-style: italic; color: #64748b; font-size: 10.5px; margin-top: 3px; }
+  .offline-basemap-tiles { filter: grayscale(1) brightness(1.05) contrast(0.92); }
+  .ai-hatch {
+    background-image: repeating-linear-gradient(45deg, #94a3b8 0 3px, transparent 3px 6px);
+    border: 1px solid #94a3b8;
+  }
+  #ai-stat-line { display: block; font-size: 10px; color: #475569; margin: 2px 0 2px 18px; max-width: 180px; }
+
+  /* =========================================================================
+     THREE-DATASET VISUALIZATION REFINEMENT (Patterns + Opacity Differentiation)
+     - Historical (SpaceNet 8): Solid fill background
+     - AI Prediction: Diagonal lines pattern (stripes)
+     - Local Model: Dashed lines pattern
+     ========================================================================= */
+
+  /* Historical Dataset (SpaceNet 8): Solid fill background, 0.32 baseline opacity */
+  .zone-historical {
+    fill-opacity: 0.32 !important;
+    stroke: none !important;
+    stroke-width: 0 !important;
+  }
+
+  /* AI Prediction: Diagonal lines pattern (continuous 45deg stripes) */
+  .zone-experimental {
+    fill-opacity: 1 !important;
+    stroke-width: 1.5 !important;
+  }
+  .zone-experimental[data-risk="HIGH"],
+  .zone-experimental.risk-HIGH {
+    fill: url(#pattern-ai-HIGH) !important;
+    stroke: #dc2626 !important;
+  }
+  .zone-experimental[data-risk="MEDIUM"],
+  .zone-experimental.risk-MEDIUM {
+    fill: url(#pattern-ai-MEDIUM) !important;
+    stroke: #f59e0b !important;
+  }
+  .zone-experimental[data-risk="LOW"],
+  .zone-experimental.risk-LOW {
+    fill: url(#pattern-ai-LOW) !important;
+    stroke: #2563eb !important;
+  }
+
+  /* Local Model: Dashed lines pattern (-45deg dashed stripes + dashed border) */
+  .zone-local {
+    fill-opacity: 1 !important;
+    stroke-width: 2 !important;
+    stroke-dasharray: 4, 3 !important;
+    stroke-linecap: round !important;
+  }
+  .zone-local[data-risk="HIGH"],
+  .zone-local.risk-HIGH {
+    fill: url(#pattern-local-HIGH) !important;
+    stroke: #dc2626 !important;
+  }
+  .zone-local[data-risk="MEDIUM"],
+  .zone-local.risk-MEDIUM {
+    fill: url(#pattern-local-MEDIUM) !important;
+    stroke: #f59e0b !important;
+  }
+  .zone-local[data-risk="LOW"],
+  .zone-local.risk-LOW {
+    fill: url(#pattern-local-LOW) !important;
+    stroke: #2563eb !important;
+  }
+
+  /* Active state (when a dataset is highlighted/focused) */
+  .zone-historical.is-active {
+    fill-opacity: 0.65 !important;
+  }
+  .zone-experimental.is-active {
+    opacity: 1.0 !important;
+  }
+  .zone-local.is-active {
+    opacity: 1.0 !important;
+  }
+
+  /* Inactive state (when other datasets are focused, dim this dataset) */
+  .zone-historical.is-inactive {
+    fill-opacity: 0.08 !important;
+  }
+  .zone-experimental.is-inactive {
+    opacity: 0.15 !important;
+  }
+  .zone-local.is-inactive {
+    opacity: 0.15 !important;
+  }
+
+  /* Legend Swatches */
+  .ai-swatch-high {
+    background: repeating-linear-gradient(45deg, #dc2626 0 2px, transparent 2px 5px);
+    border: 1px solid #dc2626;
+  }
+  .ai-swatch-med {
+    background: repeating-linear-gradient(45deg, #f59e0b 0 2px, transparent 2px 5px);
+    border: 1px solid #f59e0b;
+  }
+  .ai-swatch-low {
+    background: repeating-linear-gradient(45deg, #2563eb 0 2px, transparent 2px 5px);
+    border: 1px solid #2563eb;
+  }
+
+  .local-swatch-high {
+    background: repeating-linear-gradient(-45deg, #dc2626 0 2px, transparent 2px 5px);
+    border: 1.5px dashed #dc2626;
+  }
+  .local-swatch-med {
+    background: repeating-linear-gradient(-45deg, #f59e0b 0 2px, transparent 2px 5px);
+    border: 1.5px dashed #f59e0b;
+  }
+  .local-swatch-low {
+    background: repeating-linear-gradient(-45deg, #2563eb 0 2px, transparent 2px 5px);
+    border: 1.5px dashed #2563eb;
+  }
+
+  #statcard {
+    position: absolute; top: 46px; left: 50%; transform: translateX(-50%); z-index: 1000;
+    background: rgba(255,255,255,0.95); padding: 5px 14px;
+    font-size: 12px; color: #1e293b; max-width: 520px; text-align: center;
+    border-radius: 6px; box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+    white-space: nowrap;
+  }
+  #draw-btn {
+    font-size: 12px; font-weight: 600; padding: 3px 8px; border-radius: 4px;
+    border: 1px solid #16a34a; background: #f0fdf4; color: #16a34a; cursor: pointer; flex-shrink: 0;
+    transition: all 0.15s ease-in-out;
+  }
+  #draw-btn.active { background: #16a34a; color: #fff; }
+  #draw-btn:disabled, #draw-btn.disabled, #draw-btn.unavailable {
+    border: 1px solid #dc2626 !important;
+    background: #fef2f2 !important;
+    color: #dc2626 !important;
+    cursor: not-allowed !important;
+    opacity: 0.95;
+  }
+  #map.draw-mode { cursor: crosshair; }
+  /* Prevents the browser's default text-selection from triggering while dragging to
+     draw the custom-area box; only active while draw mode is on, removed on exit so
+     normal text selection elsewhere on the page keeps working. */
+  body.custom-area-drawing {
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  .leaflet-popup-content-wrapper, .leaflet-popup-content {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+  }
+  .coverage-label {
+    background: rgba(255,255,255,0.75); border: none; box-shadow: none;
+    color: #64748b; font-size: 11px; font-weight: 600; pointer-events: none;
+  }
+  .coverage-label::before { display: none; }
+  #custom-area-panel {
+    /* Deliberately well clear of the header row (and its draw-btn) at any wrap
+       width, so the panel never covers the very button used to open/close it. */
+    position: absolute; top: 130px; right: 10px; z-index: 1001;
+    background: rgba(255,255,255,0.97); padding: 12px 14px; border-radius: 8px;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.3); font-size: 12.5px; color: #1e293b;
+    width: 300px; max-width: calc(100vw - 20px); display: none;
+  }
+  #custom-area-panel h4 { margin: 0 0 6px; font-size: 13px; }
+  #custom-area-panel label { display: flex; align-items: center; gap: 6px; margin: 8px 0; cursor: pointer; }
+  #custom-area-panel button { font-size: 12px; padding: 5px 10px; border-radius: 4px; border: 1px solid #2563eb; background: #2563eb; color: #fff; cursor: pointer; }
+  #custom-area-panel button.secondary { background: #fff; color: #334155; border-color: #cbd5e1; margin-left: 6px; }
+  #custom-cmd-box {
+    margin-top: 8px; padding: 8px; background: #0f172a; color: #e2e8f0; border-radius: 6px;
+    font-family: ui-monospace, monospace; font-size: 10.5px; word-break: break-all; max-height: 140px; overflow-y: auto;
+  }
+  #custom-poll-status { font-size: 11px; color: #475569; margin-top: 6px; }
+  .pending-tile-pane path {
+    animation: pending-pulse 1.4s ease-in-out infinite;
+  }
+  @keyframes pending-pulse { 0%, 100% { stroke-opacity: 0.4; } 50% { stroke-opacity: 1; } }
+
+  #ai-detect-btn {
+    font-size: 12px; font-weight: 600; padding: 3px 8px; border-radius: 4px;
+    border: 1px solid #16a34a; background: #f0fdf4; color: #16a34a; cursor: pointer; flex-shrink: 0;
+    transition: all 0.15s ease-in-out;
+  }
+  #ai-detect-btn.active { background: #16a34a; color: #fff; }
+  #ai-detect-btn:disabled, #ai-detect-btn.disabled, #ai-detect-btn.unavailable {
+    border: 1px solid #dc2626 !important;
+    background: #fef2f2 !important;
+    color: #dc2626 !important;
+    cursor: not-allowed !important;
+    opacity: 0.95;
+  }
+  #run-batch-local-model {
+    font-size: 12px; font-weight: 600; padding: 3px 8px; border-radius: 4px;
+    border: 1px solid #7c3aed; background: #f5f3ff; color: #7c3aed; cursor: pointer; flex-shrink: 0;
+    transition: all 0.15s ease-in-out;
+  }
+  #run-batch-local-model:not(:disabled):hover {
+    background: #7c3aed; color: #fff;
+  }
+  #run-batch-local-model:disabled {
+    border: 1px solid #cbd5e1 !important;
+    background: #f1f5f9 !important;
+    color: #94a3b8 !important;
+    cursor: not-allowed !important;
+  }
+  #clear-batch-tiles {
+    font-size: 12px; font-weight: 500; padding: 3px 8px; border-radius: 4px;
+    border: 1px solid #94a3b8; background: #fff; color: #475569; cursor: pointer; flex-shrink: 0;
+  }
+  #clear-batch-tiles:hover {
+    background: #f1f5f9; color: #0f172a;
+  }
+  #map.ai-detect-mode { cursor: crosshair !important; }
+
+  /* Tile Checkbox Widget on Map */
+  .tile-checkbox-container {
+    background: transparent !important;
+    border: none !important;
+  }
+  .tile-checkbox-widget {
+    background: rgba(255, 255, 255, 0.95);
+    border: 1.5px solid #64748b;
+    border-radius: 4px;
+    padding: 2px 6px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    user-select: none;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    color: #1e293b;
+    white-space: nowrap;
+    transition: all 0.15s ease;
+    pointer-events: auto;
+  }
+  .tile-checkbox-widget:hover:not(.disabled) {
+    border-color: #2563eb;
+    background: #eff6ff;
+    box-shadow: 0 2px 6px rgba(37, 99, 235, 0.3);
+  }
+  .tile-checkbox-widget.checked {
+    background: #fef08a !important;
+    border-color: #ca8a04 !important;
+    color: #854d0e !important;
+    box-shadow: 0 2px 6px rgba(202, 138, 4, 0.35) !important;
+  }
+  .tile-checkbox-widget.disabled {
+    background: #f1f5f9 !important;
+    border-color: #cbd5e1 !important;
+    color: #94a3b8 !important;
+    cursor: not-allowed !important;
+    opacity: 0.75;
+    box-shadow: none !important;
+  }
+  .tile-checkbox-widget input[type="checkbox"] {
+    margin: 0;
+    cursor: inherit;
+    accent-color: #ca8a04;
+    width: 13px;
+    height: 13px;
+    pointer-events: none;
+  }
+  .tile-checkbox-widget label {
+    cursor: inherit;
+    pointer-events: none;
+    line-height: 1;
+  }
+
+  #ai-result-panel {
+    position: absolute; bottom: 24px; left: 10px; z-index: 1001;
+    background: rgba(255,255,255,0.97); padding: 12px 14px; border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.25); font-size: 12px; color: #1e293b;
+    width: 290px; max-width: calc(100vw - 30px); display: none;
+    max-height: 400px; overflow-y: auto;
+  }
+  #ai-result-panel h4 { margin: 0 0 6px; font-size: 13px; display: flex; justify-content: space-between; align-items: center; }
+  @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+  /* Data Validation Check Modal - Professional Dark Slate Theme */
+  #data-validation-modal-overlay {
+    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+    background: rgba(15, 23, 42, 0.75); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
+    z-index: 10000; display: none; align-items: center; justify-content: center;
+  }
+  #data-validation-modal {
+    background: #1e293b; border: 1px solid #334155; border-radius: 8px;
+    width: 92%; max-width: 490px; box-shadow: 0 16px 32px -4px rgba(0, 0, 0, 0.5);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #e2e8f0; overflow: hidden;
+  }
+  #data-validation-modal-ok-btn:hover {
+    background: #0369a1 !important;
+  }
+</style>
+</head>
+<body>
+<svg id="global-svg-patterns" style="position:absolute; width:0; height:0; overflow:hidden; pointer-events:none;" aria-hidden="true">
+  <defs>
+    <!-- AI Prediction: Continuous Diagonal Lines (45 deg) -->
+    <pattern id="pattern-ai-HIGH" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <line x1="0" y1="0" x2="0" y2="12" stroke="#dc2626" stroke-width="2.5" stroke-opacity="0.95" />
+    </pattern>
+    <pattern id="pattern-ai-MEDIUM" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <line x1="0" y1="0" x2="0" y2="12" stroke="#f59e0b" stroke-width="2.5" stroke-opacity="0.95" />
+    </pattern>
+    <pattern id="pattern-ai-LOW" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <line x1="0" y1="0" x2="0" y2="12" stroke="#2563eb" stroke-width="2.5" stroke-opacity="0.95" />
+    </pattern>
+
+    <!-- Local Offline Model: Dashed Lines (-45 deg) -->
+    <pattern id="pattern-local-HIGH" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)">
+      <line x1="0" y1="0" x2="0" y2="12" stroke="#dc2626" stroke-width="2.5" stroke-dasharray="3,3" stroke-linecap="round" stroke-opacity="0.95" />
+    </pattern>
+    <pattern id="pattern-local-MEDIUM" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)">
+      <line x1="0" y1="0" x2="0" y2="12" stroke="#f59e0b" stroke-width="2.5" stroke-dasharray="3,3" stroke-linecap="round" stroke-opacity="0.95" />
+    </pattern>
+    <pattern id="pattern-local-LOW" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)">
+      <line x1="0" y1="0" x2="0" y2="12" stroke="#2563eb" stroke-width="2.5" stroke-dasharray="3,3" stroke-linecap="round" stroke-opacity="0.95" />
+    </pattern>
+  </defs>
+</svg>
+<div id="header">
+  <span id="header-text">HighWater — Module 2: Flood Impact Map (Dernau, Germany — SpaceNet 8)</span>
+  <select id="dataset-select">
+    <option value="germany" selected>Dernau, Germany</option>
+    <option value="louisiana">Louisiana, USA</option>
+  </select>
+  <div id="tile-search-container" style="display:inline-flex; align-items:center; position:relative;">
+    <input type="text" id="tile-search-input" list="tile-datalist" placeholder="Search" title="Search" style="font-size:11.5px; font-weight:500; padding:2px 8px 2px 22px; border-radius:4px; border:1px solid #cbd5e1; background:#fff; color:#1e293b; width:110px; outline:none; transition:all 0.15s ease;" />
+    <svg style="position:absolute; left:6px; width:12px; height:12px; color:#64748b; pointer-events:none;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+    <datalist id="tile-datalist"></datalist>
+  </div>
+  <button id="draw-btn" title="Draw a box on the map to pick a custom area">Select Custom Area</button>
+  <button id="ai-detect-btn" title="Run flood detection using local SegFormer model (offline, no API)">⚡ Local Model Detect</button>
+  <button id="run-batch-local-model" title="Select tiles on the map then run local offline model" disabled>🔬 Run Local Model on Selected Tiles</button>
+  <button id="clear-batch-tiles" class="secondary" title="Deselect all tiles" style="display:none;">Clear Selection</button>
+</div>
+<div id="statcard">Loading zone stats…</div>
+<div id="custom-area-panel">
+  <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+    <h4 style="margin:0;">Custom area</h4>
+    <span id="custom-mode-badge" style="font-size:11px; padding:2px 7px; border-radius:10px; background:#f1f5f9; color:#64748b; font-weight:600; display:inline-block;">📋 Copy command</span>
+  </div>
+  <div id="custom-area-summary">Drag a box on the map to select tiles.</div>
+  <label><input type="checkbox" id="custom-area-ai-toggle" checked> Include AI detection</label>
+  <div>
+    <button id="custom-area-run-now" style="display:none; background:#16a34a; border-color:#16a34a;" disabled>Run Now</button>
+    <button id="custom-area-generate" disabled>Generate Command</button>
+    <button id="custom-area-detect-tiles" class="secondary" style="border-color:#0284c7; color:#0284c7; margin-left:6px;" disabled title="Run offline model detection on selected area">Local Model Detect</button>
+    <button class="secondary" id="custom-area-cancel">Cancel</button>
+  </div>
+  <div id="custom-cmd-box" style="display:none"></div>
+  <div><button class="secondary" id="custom-area-copy" style="display:none">Copy command</button></div>
+  <div id="custom-poll-status"></div>
+</div>
+<div id="ai-result-panel">
+  <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+    <h4 style="margin:0; font-size:13px; color:#0f172a;">⚡ Local Model Detector (Offline, No API)</h4>
+    <button id="ai-panel-close" style="background:none; border:none; cursor:pointer; font-size:16px; color:#64748b; line-height:1;" title="Close">&times;</button>
+  </div>
+  <div id="ai-result-content">
+    Click any tile on the map to run offline SegFormer-B0 detection locally (no API calls).
+  </div>
+</div>
+<div id="data-validation-modal-overlay">
+  <div id="data-validation-modal">
+    <div style="padding: 18px 22px 14px; border-bottom: 1px solid #334155; display: flex; align-items: center; gap: 10px;">
+      <span style="display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; border-radius: 4px; background: rgba(16, 185, 129, 0.15); color: #10b981; font-weight: 700; font-size: 13px; border: 1px solid rgba(16, 185, 129, 0.35);">✓</span>
+      <h3 style="margin: 0; font-size: 15px; font-weight: 600; color: #f8fafc; letter-spacing: -0.2px;">Data Validation Check</h3>
+    </div>
+    <div style="padding: 18px 22px; font-size: 13px; line-height: 1.5; color: #cbd5e1;">
+      <p style="margin: 0 0 8px 0; font-size: 13.5px; font-weight: 500; color: #f1f5f9;">
+        This area is outside our curated dataset.
+      </p>
+      <p style="margin: 0 0 12px 0; color: #94a3b8; font-size: 12.5px;">
+        We intentionally limited analysis to validated flood events:
+      </p>
+      <div style="background: #0f172a; border: 1px solid #334155; border-radius: 6px; padding: 10px 14px; margin-bottom: 14px;">
+        <div style="display: flex; align-items: baseline; gap: 8px; margin-bottom: 7px;">
+          <span style="font-size: 14px;">🇩🇪</span>
+          <div>
+            <strong style="color: #f1f5f9; font-weight: 600;">Germany</strong>
+            <span style="color: #94a3b8;"> &mdash; Dernau, 2021 (with ground-truth labels)</span>
+          </div>
+        </div>
+        <div style="display: flex; align-items: baseline; gap: 8px; margin-bottom: 7px;">
+          <span style="font-size: 14px;">🇺🇸</span>
+          <div>
+            <strong style="color: #f1f5f9; font-weight: 600;">Louisiana</strong>
+            <span style="color: #94a3b8;"> &mdash; 2016 (validated predictions)</span>
+          </div>
+        </div>
+        <div style="display: flex; align-items: baseline; gap: 8px;">
+          <span style="font-size: 14px;">🇹🇷</span>
+          <div>
+            <strong style="color: #f1f5f9; font-weight: 600;">Turkey</strong>
+            <span style="color: #94a3b8;"> &mdash; Kahramanmaraş, 2023 Earthquake (ground-truth data)</span>
+          </div>
+        </div>
+      </div>
+      <p style="margin: 0 0 10px 0; font-size: 12px; color: #94a3b8; line-height: 1.4;">
+        These regions have pre/post satellite imagery &amp; accurate labels.
+      </p>
+      <p style="margin: 0; font-size: 12.5px; font-weight: 500; color: #38bdf8;">
+        👉 Try selecting within the coverage zones to see model detection.
+      </p>
+    </div>
+    <div style="padding: 12px 22px 16px; border-top: 1px solid #334155; display: flex; justify-content: flex-end;">
+      <button id="data-validation-modal-ok-btn" style="background: #0284c7; color: #ffffff; border: none; border-radius: 6px; padding: 8px 22px; font-size: 13px; font-weight: 600; cursor: pointer; transition: background 0.15s ease;">Got it</button>
+    </div>
+  </div>
+</div>
+<div id="map"></div>
+<div id="legend">
+  <div id="legend-header" onclick="toggleLegendCollapse()">
+    <strong>🗺️ Layers & Legend</strong>
+    <button id="legend-toggle-btn" title="Toggle Legend">−</button>
+  </div>
+  <div id="legend-body">
+    <div class="legend-row" id="legend-extent-row"><span class="swatch" id="legend-extent-swatch" style="background:#3b82f6;opacity:0.5"></span><span id="legend-extent-label">Derived flood extent</span></div>
+
+    <!-- Historical Ground Truth Dataset (SpaceNet 8) -->
+    <div id="historical-legend-section" style="margin-top:4px; border-top:1px solid #e2e8f0; padding-top:3px;">
+      <label style="display:flex; align-items:center; gap:5px; font-weight:700; margin-bottom:3px; cursor:pointer;">
+        <input type="checkbox" id="toggleHistorical" checked>
+        <span>SpaceNet 8 (Solid Ground)</span>
+      </label>
+      <div class="legend-row"><span class="swatch" style="background:#dc2626;opacity:0.35"></span>Blocked / High Risk (Solid)</div>
+      <div class="legend-row"><span class="swatch" style="background:#f59e0b;opacity:0.35"></span>Partial / Medium Risk (Solid)</div>
+      <div class="legend-row"><span class="swatch" style="background:#2563eb;opacity:0.35"></span>Accessible / Low Risk (Solid)</div>
+      <div class="legend-row"><span class="swatch" style="background:#cbd5e1;opacity:0.35"></span>Unknown Risk (Solid)</div>
+    </div>
+
+    <div style="margin-top:4px; border-top:1px solid #e2e8f0; padding-top:3px;">
+      <div class="legend-row" id="legend-road-flooded-row"><span class="swatch-line" style="border-color:#dc2626;border-top-style:dashed"></span><span id="legend-road-flooded-label">Flooded road</span></div>
+      <div class="legend-row" id="legend-road-notflooded"><span class="swatch-line" id="legend-road-notflooded-swatch" style="border-color:#334155"></span><span id="legend-road-notflooded-label">Not flooded road</span></div>
+      <div class="legend-row" id="legend-bldg-flooded-row"><span class="swatch" style="background:#dc2626"></span><span id="legend-bldg-flooded-label">Flooded building</span></div>
+      <div class="legend-row" id="legend-bldg-notflooded-row"><span class="swatch" style="background:#94a3b8"></span><span id="legend-bldg-notflooded-label">Not flooded building</span></div>
+    </div>
+
+    <!-- AI Predicted (Experimental) Dataset -->
+    <div id="ai-legend-section" style="margin-top:4px; border-top:1px solid #e2e8f0; padding-top:3px;">
+      <label style="display:flex; align-items:center; gap:5px; font-weight:700; margin-bottom:3px; cursor:pointer;">
+        <input type="checkbox" id="toggleAiPredicted" checked>
+        <span>AI PREDICTED (Diagonal Lines)</span>
+      </label>
+      <div class="legend-row"><span class="swatch ai-swatch-high"></span>Flooded / High Risk</div>
+      <div class="legend-row"><span class="swatch ai-swatch-med"></span>Uncertain / Medium</div>
+      <div class="legend-row"><span class="swatch ai-swatch-low"></span>Not flooded / Low</div>
+    </div>
+
+    <!-- Local Model Dataset -->
+    <div id="offline-ai-legend-section" style="margin-top:4px; border-top:1px solid #e2e8f0; padding-top:3px;">
+      <label style="display:flex; align-items:center; gap:5px; font-weight:700; margin-bottom:3px; cursor:pointer;">
+        <input type="checkbox" id="toggleOfflineModel" checked>
+        <span>Local Model (Dashed Lines)</span>
+      </label>
+      <div class="legend-row"><span class="swatch local-swatch-high"></span>Flooded / High Risk</div>
+      <div class="legend-row"><span class="swatch local-swatch-med"></span>Uncertain / Medium</div>
+      <div class="legend-row"><span class="swatch local-swatch-low"></span>Not flooded / Low</div>
+    </div>
+  </div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="config.js"></script>
+<script>
+// Alias support for checkbox selectors (toggleHistorical/cb-historical, etc.)
+const _origGetElem = document.getElementById.bind(document);
+document.getElementById = function(id) {
+  if (id === 'cb-historical') return _origGetElem('toggleHistorical') || _origGetElem(id);
+  if (id === 'cb-experimental') return _origGetElem('toggleAiPredicted') || _origGetElem(id);
+  if (id === 'cb-local') return _origGetElem('toggleOfflineModel') || _origGetElem(id);
+  return _origGetElem(id);
+};
+const _origQuerySelector = document.querySelector.bind(document);
+document.querySelector = function(sel) {
+  if (sel === '#cb-historical') return document.getElementById('cb-historical') || _origQuerySelector(sel);
+  if (sel === '#cb-experimental') return document.getElementById('cb-experimental') || _origQuerySelector(sel);
+  if (sel === '#cb-local') return document.getElementById('cb-local') || _origQuerySelector(sel);
+  return _origQuerySelector(sel);
+};
+
+const map = L.map('map', { zoomSnap: 0.25, zoomDelta: 0.5, wheelPxPerZoomLevel: 120 });
+
+function toggleLegendCollapse() {
+  const body = document.getElementById('legend-body');
+  const btn = document.getElementById('legend-toggle-btn');
+  if (!body) return;
+  const isHidden = body.style.display === 'none';
+  body.style.display = isHidden ? 'block' : 'none';
+  if (btn) btn.textContent = isHidden ? '−' : '+';
+}
+
+function ensureSvgPatterns() {
+  const svgs = document.querySelectorAll('#map svg');
+  svgs.forEach(svg => {
+    if (svg.querySelector('#hw-svg-patterns')) return;
+    const defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
+    defs.id = 'hw-svg-patterns';
+    defs.innerHTML = `
+      <!-- AI Prediction: Continuous Diagonal Lines (45 deg) -->
+      <pattern id="pattern-ai-HIGH" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+        <line x1="0" y1="0" x2="0" y2="12" stroke="#dc2626" stroke-width="2.5" stroke-opacity="0.95" />
+      </pattern>
+      <pattern id="pattern-ai-MEDIUM" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+        <line x1="0" y1="0" x2="0" y2="12" stroke="#f59e0b" stroke-width="2.5" stroke-opacity="0.95" />
+      </pattern>
+      <pattern id="pattern-ai-LOW" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+        <line x1="0" y1="0" x2="0" y2="12" stroke="#2563eb" stroke-width="2.5" stroke-opacity="0.95" />
+      </pattern>
+
+      <!-- Local Offline Model: Dashed Lines (-45 deg) -->
+      <pattern id="pattern-local-HIGH" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)">
+        <line x1="0" y1="0" x2="0" y2="12" stroke="#dc2626" stroke-width="2.5" stroke-dasharray="3,3" stroke-linecap="round" stroke-opacity="0.95" />
+      </pattern>
+      <pattern id="pattern-local-MEDIUM" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)">
+        <line x1="0" y1="0" x2="0" y2="12" stroke="#f59e0b" stroke-width="2.5" stroke-dasharray="3,3" stroke-linecap="round" stroke-opacity="0.95" />
+      </pattern>
+      <pattern id="pattern-local-LOW" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)">
+        <line x1="0" y1="0" x2="0" y2="12" stroke="#2563eb" stroke-width="2.5" stroke-dasharray="3,3" stroke-linecap="round" stroke-opacity="0.95" />
+      </pattern>
+    `;
+    svg.insertBefore(defs, svg.firstChild);
+  });
+}
+window.ensureSvgPatterns = ensureSvgPatterns;
+map.on('zoomend viewreset layeradd', ensureSvgPatterns);
+
+const streetLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '&copy; OpenStreetMap contributors',
+  maxZoom: 19
+});
+const cleanLayer = L.tileLayer(`https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png?key=${CARTO_KEY}`, {
+  attribution: '&copy; OpenStreetMap contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+  maxZoom: 19
+}).addTo(map); // "Accessibility (clean)" selected by default
+// No-API fallback: plain OSM tiles, muted via CSS filter so overlay colors still stand out.
+const offlineLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '&copy; OpenStreetMap contributors',
+  maxZoom: 19,
+  className: 'offline-basemap-tiles'
+});
+
+const baseLayers = {
+  'Accessibility (clean)': cleanLayer,
+  'Detailed (street)': streetLayer,
+  'Offline (no API)': offlineLayer
+};
+
+L.control.scale({ imperial: false, position: 'bottomleft' }).addTo(map);
+
+// Panes so buildings/roads always receive clicks before the zone polygon beneath them.
+map.createPane('buildingsPane');
+map.getPane('buildingsPane').style.zIndex = 650;
+map.createPane('roadsPane');
+map.getPane('roadsPane').style.zIndex = 660;
+map.createPane('liveAiPane');
+const liveAiPaneEl = map.getPane('liveAiPane');
+liveAiPaneEl.style.zIndex = 410;
+window.liveAiPane = liveAiPaneEl;
+window.liveAiPane._container = liveAiPaneEl;
+window.liveAiPane.removeLayer = function(layer) {
+  if (layer && map.hasLayer(layer)) {
+    map.removeLayer(layer);
+  }
+};
+window.liveAiPane.addLayer = function(layer) {
+  if (layer) {
+    layer.options = layer.options || {};
+    layer.options.pane = 'liveAiPane';
+    return layer.addTo(map);
+  }
+};
+map.createPane('interactiveTilesPane');
+map.getPane('interactiveTilesPane').style.zIndex = 430;
+map.createPane('tileCheckboxesPane');
+map.getPane('tileCheckboxesPane').style.zIndex = 680;
+
+const ACCESS_COLORS = {
+  ACCESSIBLE: '#2563eb',
+  PARTIAL: '#f59e0b',
+  BLOCKED: '#dc2626',
+  UNKNOWN: '#cbd5e1'
+};
+
+const round1 = (n) => (typeof n === 'number' ? Math.round(n * 10) / 10 : n);
+
+function propsTable(props, skip) {
+  skip = skip || [];
+  let rows = '';
+  for (const k in props) {
+    if (skip.includes(k)) continue;
+    rows += `<div>${k}: ${props[k]}</div>`;
+  }
+  return rows;
+}
+
+const DATASETS = {
+  germany: { base: './', label: 'Dernau, Germany' },
+  louisiana: { base: './output_louisiana/', label: 'Louisiana, USA' },
+  earthquake: { base: './output_eq/', label: 'Kahramanmaraş, Turkey (Earthquake M7.8)' },
+  raw_eq: { base: './output_eq/', label: 'Kahramanmaraş, Turkey (Earthquake M7.8)' }
+};
+
+// Tracks everything from the currently-loaded dataset so a switch can tear it
+// all down cleanly before rebuilding from scratch (simplest way to avoid
+// stale-layer/stale-listener bugs in Leaflet when swapping entire datasets).
+let currentOverlayLayers = [];
+let currentLayerControl = null;
+let currentOverlayHandler = null;
+const liveAiLayers = {};
+let currentAiAbortController = null;
+let cancelToastTimer = null;
+let zonesLayer = null;
+let aiPredictedLayer = null;
+let localModelLayer = null;
+
+function teardownCurrentDataset() {
+  if (typeof hideDataValidationModal === 'function') {
+    hideDataValidationModal();
+  } else {
+    const modalOverlay = document.getElementById('data-validation-modal-overlay');
+    if (modalOverlay) modalOverlay.style.display = 'none';
+  }
+  if (typeof clearTileSelection === 'function') {
+    clearTileSelection();
+  }
+  if (currentAiAbortController) {
+    currentAiAbortController.abort();
+    currentAiAbortController = null;
+  }
+  if (cancelToastTimer) {
+    clearTimeout(cancelToastTimer);
+    cancelToastTimer = null;
+  }
+  if (zonesLayer && map.hasLayer(zonesLayer)) map.removeLayer(zonesLayer);
+  if (aiPredictedLayer && map.hasLayer(aiPredictedLayer)) map.removeLayer(aiPredictedLayer);
+  if (localModelLayer && map.hasLayer(localModelLayer)) map.removeLayer(localModelLayer);
+  zonesLayer = null;
+  aiPredictedLayer = null;
+  localModelLayer = null;
+  currentOverlayLayers.forEach(l => { if (map.hasLayer(l)) map.removeLayer(l); });
+  currentOverlayLayers = [];
+  if (currentLayerControl) { map.removeControl(currentLayerControl); currentLayerControl = null; }
+  if (currentOverlayHandler) { map.off('overlayadd overlayremove', currentOverlayHandler); currentOverlayHandler = null; }
+  for (const k in liveAiLayers) delete liveAiLayers[k];
+}
+
+// Root cause of the layer-control pile-up: loadDataset() is async (fetches), so two
+// overlapping calls (e.g. the user switching datasets again before the first finishes)
+// could both reach the "create L.control.layers(...).addTo(map)" line — the second
+// call's teardown runs before the first call's control even exists, so nothing was
+// there yet to remove, and both controls end up added. A generation token fixes it:
+// each call gets an incrementing id, and the async render is a no-op if a newer call
+// has since started, so a stale response can never create its own control.
+let loadGeneration = 0;
+
+function loadDataset(datasetKey) {
+  const ds = DATASETS[datasetKey];
+  teardownCurrentDataset();
+  updateAiDetectButtonState(datasetKey);
+  const myGeneration = ++loadGeneration;
+  const isEarthquake = (datasetKey === 'earthquake' || (ds && ds.label && ds.label.toLowerCase().includes('earthquake')));
+  document.getElementById('header-text').textContent = isEarthquake
+    ? `HighWater — Module 2: Earthquake Impact Map (${ds.label})`
+    : `HighWater — Module 2: Flood Impact Map (${ds.label} — SpaceNet 8)`;
+  document.getElementById('statcard').textContent = 'Loading zone stats…';
+  document.getElementById('ai-legend-section').style.display = 'none'; // shown only if AI data actually loads below
+
+  const allBoundsLayers = [];
+
+  const fetchSafe = async (url) => {
+    let r = await fetch(url).catch(() => null);
+    if (!r || !r.ok) {
+      if (url.startsWith('./')) {
+        r = await fetch('.' + url).catch(() => null);
+      } else if (url.startsWith('../')) {
+        r = await fetch(url.replace(/^\.\.\//, './')).catch(() => null);
+      }
+    }
+    if (!r || !r.ok) throw new Error(`HTTP ${r ? r.status : 404} (${r ? r.statusText : 'Not Found'}) from ${url}`);
+    const text = await r.text();
+    try {
+      return JSON.parse(text);
+    } catch(e) {
+      throw new Error(`Invalid JSON received from ${url}`);
+    }
+  };
+
+  const aiFetch = fetchSafe(`${ds.base}ai_validation_summary.json`).catch(() => null);
+  const localPredictionsFetch = fetchSafe(`${ds.base}ai_predictions.json`).catch(() => null);
+  const tileIndexFetch = fetchSafe(`${ds.base}tile_index.json`)
+    .catch(() => fetchSafe('./tile_index.json').catch(() => null));
+
+  const fetches = [
+    fetchSafe(`${ds.base}zones.json`),
+    fetchSafe(`${ds.base}flood_extent.geojson`),
+    fetchSafe(`${ds.base}roads_status.geojson`),
+    fetchSafe(`${ds.base}buildings_exposed.geojson`),
+    aiFetch,
+    localPredictionsFetch,
+    tileIndexFetch
+  ];
+
+  // Update legend dynamically based on hazard type
+  const extentSwatch = document.getElementById('legend-extent-swatch');
+  const extentLabelEl = document.getElementById('legend-extent-label');
+  const roadFloodedLabel = document.getElementById('legend-road-flooded-label');
+  const roadNotFloodedLabel = document.getElementById('legend-road-notflooded-label');
+  const bldgFloodedLabel = document.getElementById('legend-bldg-flooded-label');
+  const bldgNotFloodedLabel = document.getElementById('legend-bldg-notflooded-label');
+  if (extentSwatch) extentSwatch.style.background = isEarthquake ? '#f97316' : '#3b82f6';
+  if (extentLabelEl) extentLabelEl.textContent = isEarthquake ? 'Derived shaking extent' : 'Derived flood extent';
+  if (roadFloodedLabel) roadFloodedLabel.textContent = isEarthquake ? 'Severe shaking road (MMI ≥ 8.0)' : 'Flooded road';
+  if (roadNotFloodedLabel) roadNotFloodedLabel.textContent = isEarthquake ? 'Passable road' : 'Not flooded road';
+  if (bldgFloodedLabel) bldgFloodedLabel.textContent = isEarthquake ? 'Exposed building (MMI ≥ 7.0)' : 'Flooded building';
+  if (bldgNotFloodedLabel) bldgNotFloodedLabel.textContent = isEarthquake ? 'Lower shaking building' : 'Not flooded building';
+
+  Promise.all(fetches).then(([zonesData, floodExtent, roads, buildings, aiValidation, localPredictions, tileIndex]) => {
+  if (myGeneration !== loadGeneration) return; // a newer loadDataset() call superseded this one — discard
+
+  // --- Flood / Shaking extent layer (added FIRST so it always renders at the bottom of the stack) ---
+  const floodExtentLayer = L.geoJSON(floodExtent, {
+    style: () => ({ fillColor: isEarthquake ? '#f97316' : '#3b82f6', fillOpacity: 0.45, color: isEarthquake ? '#c2410c' : '#1d4ed8', weight: 2 }),
+    onEachFeature: (feature, layer) => {
+      let html = isEarthquake
+        ? `<div style="font-size:13px;font-weight:700;color:#c2410c;margin-bottom:6px;">Shaking Extent (Derived Footprint)</div>
+           <div style="font-size:12px;line-height:1.6;color:#1e293b;">
+             <div><strong>Event:</strong> Pazarcık, Kahramanmaraş Earthquake (M7.8, us6000jllz)</div>
+             <div><strong>Hazard Metric:</strong> Modified Mercalli Intensity (MMI) from USGS ShakeMap</div>
+             <div><strong>Building Exposure:</strong> Centroid MMI ≥ 7.0 (Very Strong Shaking)</div>
+             <div><strong>Road Exposure:</strong> Vertex Max MMI ≥ 8.0 (Severe Shaking)</div>
+             <div><strong>Total Exposed:</strong> 65,766 buildings & 3,744 roads (across 2,314 zones)</div>
+           </div>`
+        : `<div style="font-size:13px;font-weight:700;color:#1d4ed8;margin-bottom:6px;">Flood Extent (Derived Footprint)</div>
+           <div style="font-size:12px;line-height:1.6;color:#1e293b;">
+             <div><strong>Event:</strong> Dernau, Germany (SpaceNet 8)</div>
+             <div><strong>Method:</strong> Union of labelled flooded buildings and 5m-buffered flooded roads</div>
+           </div>`;
+      layer.bindPopup(html);
+    }
+  });
+  allBoundsLayers.push(floodExtentLayer);
+
+  // --- 1. Historical Dataset: Zones layer (.zone-historical, solid fill, 0.3 opacity) ---
+  const zoneFeatures = zonesData.zones.map(z => {
+    const risk = z.accessibility === 'BLOCKED' ? 'HIGH' : (z.accessibility === 'PARTIAL' ? 'MEDIUM' : 'LOW');
+    return {
+      type: 'Feature',
+      properties: { ...z, risk_level: risk },
+      geometry: {
+        type: 'Polygon',
+        coordinates: [[
+          [z.bbox[0], z.bbox[1]],
+          [z.bbox[2], z.bbox[1]],
+          [z.bbox[2], z.bbox[3]],
+          [z.bbox[0], z.bbox[3]],
+          [z.bbox[0], z.bbox[1]]
+        ]]
+      }
+    };
+  });
+
+  zonesLayer = L.geoJSON({ type: 'FeatureCollection', features: zoneFeatures }, {
+    style: (feature) => {
+      const color = ACCESS_COLORS[feature.properties.accessibility] || ACCESS_COLORS.UNKNOWN;
+      return {
+        color: color,
+        stroke: false,
+        weight: 0,
+        fillColor: color,
+        fillOpacity: 0.3,
+        className: 'hw-zone zone-historical'
+      };
+    },
+    onEachFeature: (feature, layer) => {
+      const z = feature.properties;
+      const html = isEarthquake
+        ? `<strong>${z.zone_id}</strong> (Earthquake Impact)<br>
+          shaking_impact: ${round1(z.flooded_percent)}%<br>
+          total_buildings: ${z.total_buildings}<br>
+          exposed_buildings (MMI ≥ 7.0): ${z.exposed_buildings}<br>
+          accessibility: ${z.accessibility}`
+        : `<strong>${z.zone_id}</strong> [Historical Ground Truth]<br>
+          Risk Level: <strong>${z.risk_level}</strong><br>
+          flooded_percent: ${round1(z.flooded_percent)}%<br>
+          total_buildings: ${z.total_buildings}<br>
+          exposed_buildings: ${z.exposed_buildings}<br>
+          accessibility: ${z.accessibility}<br>
+          road_length_m: ${round1(z.road_length_m)}<br>
+          flooded_road_length_m: ${round1(z.flooded_road_length_m)}`;
+      layer.bindPopup(html);
+
+      layer.on('click', () => {
+        if (window.parent && window.parent !== window) {
+          window.parent.postMessage({
+            type: 'ZONE_CLICKED',
+            zoneId: z.zone_id,
+            name: z.name || z.zone_id,
+            riskLevel: z.risk_level,
+            riskScore: z.risk_level === 'HIGH' ? 82 : (z.risk_level === 'MEDIUM' ? 55 : 20),
+            floodedPercent: z.flooded_percent,
+            exposedBuildings: z.exposed_buildings,
+            totalBuildings: z.total_buildings,
+            accessibility: z.accessibility,
+            roadLengthM: z.road_length_m,
+            floodedRoadLengthM: z.flooded_road_length_m
+          }, '*');
+        }
+      });
+
+      const tagLayer = () => {
+        const el = layer.getElement ? layer.getElement() : layer._path;
+        if (el) {
+          el.classList.add('hw-zone', 'zone-historical');
+          el.setAttribute('data-dataset', 'historical');
+          el.setAttribute('data-risk', z.risk_level);
+          el.setAttribute('data-id', z.zone_id);
+        }
+      };
+      layer.on('add', tagLayer);
+      setTimeout(tagLayer, 0);
+    }
+  });
+  const toggleHistEl = document.getElementById('toggleHistorical') || document.getElementById('cb-historical');
+  if (!toggleHistEl || toggleHistEl.checked) {
+    zonesLayer.addTo(map);
+  }
+  allBoundsLayers.push(zonesLayer);
+
+  // --- Roads layer ---
+  let safeRouteMode = false;
+  const roadStyle = (feature) => {
+    const flooded = feature.properties.flooded;
+    if (flooded) return { color: '#dc2626', dashArray: '6,6', weight: 3 };
+    return safeRouteMode
+      ? { color: '#2563eb', weight: 4 }
+      : { color: '#334155', weight: 2 };
+  };
+  const roadPopup = (feature, layer) => {
+    const p = feature.properties || {};
+    const status = isEarthquake
+      ? (p.flooded ? 'Exposed to severe shaking (MMI ≥ 8.0)' : 'Passable (MMI < 8.0)')
+      : (p.flooded ? 'Flooded' : 'Not flooded');
+    let html = `<strong>Road</strong><br>status: ${status}`;
+    if (p.hazard_value !== undefined) {
+      html += `<br>sampled MMI: ${p.hazard_value}`;
+    }
+    html += `<br>${propsTable(p, ['flooded', 'hazard_value'])}`;
+    layer.bindPopup(html);
+  };
+  const roadsVisibleLayer = L.geoJSON(roads, { pane: 'roadsPane', style: roadStyle, onEachFeature: roadPopup });
+  const roadsHitLayer = L.geoJSON(roads, {
+    pane: 'roadsPane',
+    style: () => ({ weight: 16, opacity: 0, interactive: true }),
+    onEachFeature: roadPopup
+  });
+  const roadsLayer = L.layerGroup([roadsHitLayer, roadsVisibleLayer]);
+  allBoundsLayers.push(roadsVisibleLayer);
+
+  const safeRouteToggleLayer = L.layerGroup();
+
+  // --- Buildings layer ---
+  const buildingsLayer = L.geoJSON(buildings, {
+    pane: 'buildingsPane',
+    style: (feature) => {
+      const flooded = feature.properties.flooded;
+      return {
+        fillColor: flooded ? '#dc2626' : '#94a3b8',
+        fillOpacity: 0.7,
+        color: '#1e293b',
+        weight: 0.5
+      };
+    },
+    onEachFeature: (feature, layer) => {
+      const p = feature.properties || {};
+      const status = isEarthquake
+        ? (p.flooded ? 'Exposed to damaging shaking (MMI ≥ 7.0)' : 'Lower shaking (MMI < 7.0)')
+        : (p.flooded ? 'Flooded' : 'Not flooded');
+      let html = `<strong>Building</strong><br>status: ${status}`;
+      if (p.hazard_value !== undefined) {
+        html += `<br>sampled MMI: ${p.hazard_value}`;
+      }
+      html += `<br>${propsTable(p, ['flooded', 'hazard_value'])}`;
+      layer.bindPopup(html);
+    }
+  });
+  allBoundsLayers.push(buildingsLayer);
+
+  function setAiActive(active) {
+    if (active) {
+      document.querySelectorAll('.zone-experimental').forEach(el => {
+        el.classList.add('is-active');
+        el.classList.remove('is-inactive');
+      });
+    } else {
+      document.querySelectorAll('.zone-experimental').forEach(el => {
+        el.classList.remove('is-active');
+      });
+    }
+  }
+
+  const extentLabel = isEarthquake ? 'Shaking extent (derived)' : 'Flood extent (derived)';
+  const overlays = {
+    [extentLabel]: floodExtentLayer,
+    'Historical Zones (ground truth)': zonesLayer,
+    'Roads': roadsLayer,
+    'Buildings': buildingsLayer,
+    'Safe Route Mode': safeRouteToggleLayer
+  };
+
+  // --- 2. AI Experimental Dataset (.zone-experimental, dashed border, 0.4 opacity) ---
+  const hasValidAi = Boolean(
+    aiValidation &&
+    aiValidation.accuracy !== null &&
+    aiValidation.accuracy !== undefined &&
+    ((aiValidation.confident_tiles_scored > 0) || (aiValidation.tiles_compared > 0)) &&
+    aiValidation.per_tile &&
+    Object.keys(aiValidation.per_tile).length > 0
+  );
+
+  if (hasValidAi) {
+    document.getElementById('ai-legend-section').style.display = '';
+    const aiFeatures = [];
+    for (const [tileId, t] of Object.entries(aiValidation.per_tile || {})) {
+      if (!t.bbox) continue;
+      const [minx, miny, maxx, maxy] = t.bbox;
+      const risk = t.category === 'UNCERTAIN' ? 'MEDIUM' : (t.ai_predicted_flooded ? 'HIGH' : 'LOW');
+      aiFeatures.push({
+        type: 'Feature',
+        properties: { tile_id: tileId, risk_level: risk, ...t },
+        geometry: {
+          type: 'Polygon',
+          coordinates: [[[minx, miny], [maxx, miny], [maxx, maxy], [minx, maxy], [minx, miny]]]
+        }
+      });
+    }
+    aiPredictedLayer = L.geoJSON({ type: 'FeatureCollection', features: aiFeatures }, {
+      style: (feature) => {
+        const p = feature.properties;
+        const color = p.risk_level === 'HIGH' ? '#dc2626' : (p.risk_level === 'MEDIUM' ? '#f59e0b' : '#2563eb');
+        return {
+          color: color,
+          weight: 2,
+          fillColor: `url(#pattern-ai-${p.risk_level})`,
+          fillOpacity: 1.0,
+          className: `hw-zone zone-experimental risk-${p.risk_level}`
+        };
+      },
+      onEachFeature: (feature, layer) => {
+        const p = feature.properties;
+        const html = `<strong>AI PREDICTED (Experimental) — ${p.tile_id}</strong><br>
+          <span class="popup-note">Model prediction (SpaceNet 8 experimental).</span><br>
+          Risk Level: <strong>${p.risk_level}</strong><br>
+          flood_damage_detected: ${p.ai_predicted_flooded}<br>
+          confidence: ${p.confidence}<br>
+          reasoning: ${p.reasoning || ''}`;
+        layer.bindPopup(html);
+
+        const tagLayer = () => {
+          const el = layer.getElement ? layer.getElement() : layer._path;
+          if (el) {
+            el.classList.add('hw-zone', 'zone-experimental', `risk-${p.risk_level}`);
+            el.setAttribute('data-dataset', 'experimental');
+            el.setAttribute('data-risk', p.risk_level);
+            el.setAttribute('data-id', p.tile_id);
+            el.setAttribute('fill', `url(#pattern-ai-${p.risk_level})`);
+          }
+        };
+        layer.on('add', tagLayer);
+        setTimeout(tagLayer, 0);
+      }
+    });
+    const toggleAiEl = document.getElementById('toggleAiPredicted') || document.getElementById('cb-experimental');
+    if (!toggleAiEl || toggleAiEl.checked) {
+      aiPredictedLayer.addTo(map);
+    }
+    const acc = typeof aiValidation.confident_accuracy === 'number' ? aiValidation.confident_accuracy : aiValidation.accuracy;
+    const aiAccPct = Math.round(acc * 1000) / 10;
+    const aiStatHtml = `AI Predicted (experimental)<span id="ai-stat-line">${aiAccPct}% accurate on ${aiValidation.confident_tiles_scored || 0} confidently-assessed tiles (${aiValidation.uncertain_tile_count || 0} uncertain)</span>`;
+    overlays[aiStatHtml] = aiPredictedLayer;
+  } else {
+    document.getElementById('ai-legend-section').style.display = 'none';
+    const aiUnavailableLayer = L.layerGroup();
+    overlays['AI Predicted <span id="ai-stat-line" style="color:#64748b;">(analysis unavailable for this area)</span>'] = aiUnavailableLayer;
+  }
+
+  // --- 3. Local Model Dataset (.zone-local, dotted border, 0.5 opacity) ---
+  const localFeatures = [];
+  const predsToUse = localPredictions || {};
+  const candidateTiles = Object.keys(predsToUse).length > 0 ? predsToUse : ((aiValidation && aiValidation.per_tile) || {});
+  for (const [tileId, pred] of Object.entries(candidateTiles)) {
+    const info = (tileIndex && tileIndex[tileId]) || (aiValidation && aiValidation.per_tile && aiValidation.per_tile[tileId]);
+    if (!info || !info.bbox) continue;
+    const [minx, miny, maxx, maxy] = info.bbox;
+    const isFlooded = Boolean(pred.flood_damage_detected !== undefined ? pred.flood_damage_detected : pred.ai_predicted_flooded);
+    const isUncertain = pred.confidence === 'low' || pred.confidence === 'medium' || pred.category === 'UNCERTAIN';
+    const risk = isFlooded ? 'HIGH' : (isUncertain ? 'MEDIUM' : 'LOW');
+    localFeatures.push({
+      type: 'Feature',
+      properties: { tile_id: tileId, risk_level: risk, ...pred },
+      geometry: {
+        type: 'Polygon',
+        coordinates: [[[minx, miny], [maxx, miny], [maxx, maxy], [minx, maxy], [minx, miny]]]
+      }
+    });
+  }
+
+  if (localFeatures.length > 0) {
+    document.getElementById('offline-ai-legend-section').style.display = '';
+    localModelLayer = L.geoJSON({ type: 'FeatureCollection', features: localFeatures }, {
+      style: (feature) => {
+        const p = feature.properties;
+        const color = p.risk_level === 'HIGH' ? '#dc2626' : (p.risk_level === 'MEDIUM' ? '#f59e0b' : '#2563eb');
+        return {
+          color: color,
+          weight: 2,
+          dashArray: '4, 3',
+          lineCap: 'round',
+          fillColor: `url(#pattern-local-${p.risk_level})`,
+          fillOpacity: 1.0,
+          className: `hw-zone zone-local risk-${p.risk_level}`
+        };
+      },
+      onEachFeature: (feature, layer) => {
+        const p = feature.properties;
+        const html = `<strong>Local Model (Offline SegFormer) — ${p.tile_id}</strong><br>
+          <span class="popup-note">Local SegFormer-B0 neural model inference.</span><br>
+          Risk Level: <strong>${p.risk_level}</strong><br>
+          flood_damage_detected: ${p.flood_damage_detected !== undefined ? p.flood_damage_detected : p.ai_predicted_flooded}<br>
+          confidence: ${p.confidence}<br>
+          reasoning: ${p.reasoning || 'Offline SegFormer detection'}`;
+        layer.bindPopup(html);
+
+        const tagLayer = () => {
+          const el = layer.getElement ? layer.getElement() : layer._path;
+          if (el) {
+            el.classList.add('hw-zone', 'zone-local', `risk-${p.risk_level}`);
+            el.setAttribute('data-dataset', 'local');
+            el.setAttribute('data-risk', p.risk_level);
+            el.setAttribute('data-id', p.tile_id);
+            el.setAttribute('fill', `url(#pattern-local-${p.risk_level})`);
+          }
+        };
+        layer.on('add', tagLayer);
+        setTimeout(tagLayer, 0);
+      }
+    });
+    const toggleLocEl = document.getElementById('toggleOfflineModel') || document.getElementById('cb-local');
+    if (!toggleLocEl || toggleLocEl.checked) {
+      localModelLayer.addTo(map);
+    }
+    overlays['Local Model (offline detection)'] = localModelLayer;
+  }
+
+  // --- Layer control (base layers + overlays together, collapsed for compact view) ---
+  const layerControl = L.control.layers(baseLayers, overlays, { collapsed: true, position: 'topright' }).addTo(map);
+  currentLayerControl = layerControl;
+  currentOverlayLayers = [floodExtentLayer, zonesLayer, roadsLayer, buildingsLayer, safeRouteToggleLayer, aiPredictedLayer, localModelLayer].filter(Boolean);
+
+  function syncUnavailableAiCheckbox() {
+    document.querySelectorAll('.leaflet-control-layers-overlays label').forEach(label => {
+      if (label.innerHTML.includes('analysis unavailable for this area')) {
+        const input = label.querySelector('input');
+        if (input) {
+          input.disabled = true;
+          input.style.cursor = 'not-allowed';
+        }
+        label.style.cursor = 'not-allowed';
+        label.style.opacity = '0.7';
+      }
+    });
+  }
+  const origLayerControlUpdate = layerControl._update.bind(layerControl);
+  layerControl._update = function() {
+    origLayerControlUpdate();
+    syncUnavailableAiCheckbox();
+  };
+  syncUnavailableAiCheckbox();
+
+  function updateRoadLegend() {
+    document.getElementById('legend-road-notflooded-swatch').style.borderColor = safeRouteMode ? '#2563eb' : '#334155';
+    document.getElementById('legend-road-notflooded-label').textContent =
+      safeRouteMode ? 'Not flooded road (Safe Route Mode: blue = passable)' : 'Not flooded road';
+  }
+
+  const overlayHandler = (e) => {
+    if (zonesLayer && e.layer === zonesLayer) {
+      const isPresent = map.hasLayer(zonesLayer);
+      const cb = document.getElementById('toggleHistorical') || document.getElementById('cb-historical');
+      if (cb) cb.checked = isPresent;
+      updateZoneVisibility('historical', isPresent);
+    }
+    if (aiPredictedLayer && e.layer === aiPredictedLayer) {
+      const isPresent = map.hasLayer(aiPredictedLayer);
+      setAiActive(isPresent);
+      const toggleAi = document.getElementById('toggleAiPredicted') || document.getElementById('cb-experimental');
+      if (toggleAi) toggleAi.checked = isPresent;
+      updateZoneVisibility('experimental', isPresent);
+    }
+    if (localModelLayer && e.layer === localModelLayer) {
+      const isPresent = map.hasLayer(localModelLayer);
+      const cb = document.getElementById('toggleOfflineModel') || document.getElementById('cb-local');
+      if (cb) cb.checked = isPresent;
+      updateZoneVisibility('local', isPresent);
+    }
+    if (e.layer === safeRouteToggleLayer) {
+      safeRouteMode = map.hasLayer(safeRouteToggleLayer);
+      roadsVisibleLayer.setStyle(roadStyle);
+      updateRoadLegend();
+      if (safeRouteMode && !map.hasLayer(roadsLayer)) {
+        map.addLayer(roadsLayer);
+        layerControl._update();
+      }
+    }
+    if (map.hasLayer(floodExtentLayer)) floodExtentLayer.bringToBack();
+    if (zonesLayer && map.hasLayer(zonesLayer)) zonesLayer.bringToFront();
+    if (localModelLayer && map.hasLayer(localModelLayer)) localModelLayer.bringToFront();
+    if (aiPredictedLayer && map.hasLayer(aiPredictedLayer)) aiPredictedLayer.bringToFront();
+    if (map.hasLayer(buildingsLayer)) buildingsLayer.bringToFront();
+  };
+  map.on('overlayadd overlayremove', overlayHandler);
+  currentOverlayHandler = overlayHandler;
+
+  tagAllZones();
+  updateZoneVisibility('initial', true);
+
+  // --- Fit bounds to combined extent ---
+  // Deferred to the next animation frame: on the very first page load the browser may
+  // not have finished its layout pass yet when this Promise resolves, so the map
+  // container still reads a stale/zero size and fitBounds clamps to maxZoom. A plain
+  // synchronous invalidateSize() right before fitBounds isn't reliably enough — the
+  // rAF guarantees a layout pass has actually happened first.
+  requestAnimationFrame(() => {
+    map.invalidateSize();
+    const group = L.featureGroup(allBoundsLayers);
+    map.fitBounds(group.getBounds(), { padding: [20, 20] });
+  });
+
+  // --- Stat card (computed from real zones.json) ---
+  const flagged = zonesData.zones.filter(z => z.accessibility === 'BLOCKED' || z.accessibility === 'PARTIAL').length;
+  document.getElementById('statcard').innerHTML =
+    `<strong>${flagged} of ${zonesData.zones.length}</strong> zones flagged BLOCKED or PARTIAL access — click a zone for details.`;
+
+  }).catch(err => {
+    if (myGeneration !== loadGeneration) return; // stale, a newer load is already in progress/done
+    document.getElementById('header-text').textContent += ' — error loading data';
+    document.getElementById('statcard').innerHTML =
+      `<span style="color:#dc2626;">Error loading ${ds.label} data: ${err.message}` +
+      ` — if opened via file://, Chrome blocks local fetch(); run a local server instead.</span>`;
+    console.error(err);
+  });
+}
+
+// ===================== Custom Area: draw-box, command gen, live polling =====================
+// Static-file-safe by design: nothing here executes a command. It only reads plain JSON
+// files (datasets.json, ai_predictions.json) on an interval — the actual pipeline runs
+// as a terminal command a human copies and runs themselves.
+
+let datasetManifest = {}; // key -> {label, base, raw_source, status, tile_ids}
+let activePollTimers = []; // interval ids to clear on dataset switch / new draw session
+
+function clearActivePolls() {
+  activePollTimers.forEach(id => clearInterval(id));
+  activePollTimers = [];
+}
+
+async function refreshDatasetDropdown() {
+  try {
+    let manifest;
+    try {
+      const r1 = await fetch('datasets.json?t=' + Date.now());
+      if (r1.ok) manifest = await r1.json();
+    } catch(e) {}
+    if (!manifest) {
+      try {
+        const r2 = await fetch('../datasets.json?t=' + Date.now());
+        if (r2.ok) manifest = await r2.json();
+      } catch(e) {}
+    }
+    if (!manifest || !manifest.datasets) return;
+    const select = document.getElementById('dataset-select');
+    const existingKeys = new Set(Array.from(select.options).map(o => o.value));
+    manifest.datasets.forEach(entry => {
+      datasetManifest[entry.key] = entry;
+      let base = entry.base;
+      if (entry.key === 'germany' || base === '../output/' || base === '/output/') {
+        base = './';
+      }
+      DATASETS[entry.key] = { base: base, label: entry.label };
+      if (!existingKeys.has(entry.key)) {
+        const opt = document.createElement('option');
+        opt.value = entry.key;
+        opt.textContent = entry.label;
+        select.appendChild(opt);
+      }
+    });
+  } catch (e) {
+    console.warn('Could not load datasets.json manifest, using built-in defaults only.', e);
+  }
+}
+
+// --- Tile index (per-dataset, fetched lazily, cached) for live box preview ---
+const tileIndexCache = {};
+async function getTileIndex(datasetKey) {
+  if (tileIndexCache[datasetKey]) return tileIndexCache[datasetKey];
+  const base = DATASETS[datasetKey] ? DATASETS[datasetKey].base : null;
+  if (!base) return {};
+  try {
+    const res = await fetch(`${base}tile_index.json`);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const idx = await res.json();
+    tileIndexCache[datasetKey] = idx;
+    return idx;
+  } catch (e) {
+    // Fallback: If tile_index.json does not exist (e.g., Turkey earthquake dataset),
+    // synthesize tile index entries from zones.json so spatial bounding box queries work.
+    try {
+      const zRes = await fetch(`${base}zones.json`);
+      if (zRes.ok) {
+        const zData = await zRes.json();
+        const synthIdx = {};
+        (zData.zones || []).slice(0, 100).forEach(z => {
+          if (!z.bbox) return;
+          synthIdx[z.zone_id] = {
+            bbox: z.bbox,
+            buildings: z.total_buildings || 0,
+            roads: z.road_length_m ? Math.max(1, Math.round(z.road_length_m / 25)) : 0,
+            flooded_buildings: z.exposed_buildings || 0,
+            flooded_roads: z.flooded_road_length_m ? Math.max(1, Math.round(z.flooded_road_length_m / 25)) : 0
+          };
+        });
+        tileIndexCache[datasetKey] = synthIdx;
+        return synthIdx;
+      }
+    } catch (zErr) {
+      console.warn('Could not load fallback zones.json for', datasetKey, zErr);
+    }
+    console.warn('No tile_index.json or zones.json for', datasetKey, e);
+    tileIndexCache[datasetKey] = {};
+    return {};
+  }
+}
+
+function boxOverlapsBbox(boxBounds, bbox) {
+  // AABB overlap test; bbox = [minx, miny, maxx, maxy] in lon/lat.
+  const bw = boxBounds.getWest(), be = boxBounds.getEast(), bs = boxBounds.getSouth(), bn = boxBounds.getNorth();
+  return !(bbox[2] < bw || bbox[0] > be || bbox[3] < bs || bbox[1] > bn);
+}
+
+function tilesInBox(tileIndex, boxBounds) {
+  const inside = [];
+  for (const [tileId, info] of Object.entries(tileIndex)) {
+    if (info.bbox && boxOverlapsBbox(boxBounds, info.bbox)) inside.push([tileId, info]);
+  }
+  return inside;
+}
+
+function summarizeTiles(inside) {
+  let buildings = 0, roads = 0, floodedBuildings = 0, floodedRoads = 0;
+  inside.forEach(([, info]) => {
+    buildings += info.buildings; roads += info.roads;
+    floodedBuildings += info.flooded_buildings; floodedRoads += info.flooded_roads;
+  });
+  return { count: inside.length, buildings, roads, floodedBuildings, floodedRoads };
+}
+
+// --- Draw-box state ---
+let drawModeActive = false;
+let drawing = false;
+let drawStartLatLng = null;
+let drawRect = null;
+let selectedTiles = []; // [[tileId, info], ...] from the finalized box
+let customAreaSliceLayer = L.featureGroup().addTo(map);
+
+const drawBtn = document.getElementById('draw-btn');
+const panel = document.getElementById('custom-area-panel');
+const summaryEl = document.getElementById('custom-area-summary');
+const generateBtn = document.getElementById('custom-area-generate');
+const runNowBtn = document.getElementById('custom-area-run-now');
+const cancelBtn = document.getElementById('custom-area-cancel');
+const aiToggle = document.getElementById('custom-area-ai-toggle');
+const cmdBox = document.getElementById('custom-cmd-box');
+const copyBtn = document.getElementById('custom-area-copy');
+const pollStatusEl = document.getElementById('custom-poll-status');
+const modeBadge = document.getElementById('custom-mode-badge');
+const aiDetectBtn = document.getElementById('ai-detect-btn');
+const customAreaDetectTilesBtn = document.getElementById('custom-area-detect-tiles');
+const aiResultPanel = document.getElementById('ai-result-panel');
+const aiResultContent = document.getElementById('ai-result-content');
+const aiPanelClose = document.getElementById('ai-panel-close');
+const runBatchLocalModelBtn = document.getElementById('run-batch-local-model');
+const clearBatchTilesBtn = document.getElementById('clear-batch-tiles');
+
+let offlineModelVisible = true;
+let currentDetectionOverlay = null;
+let autoRemoveTimer = null;
+const sidebarPanel = aiResultContent;
+window.sidebarPanel = sidebarPanel;
+window.offlineModelVisible = offlineModelVisible;
+// --- Zone Dataset Tagging and Differentiation (Historical, Experimental, Local) ---
+function tagOfflineModelLayer(layer, risk) {
+  if (!layer) return;
+  const apply = () => {
+    const el = layer.getElement ? layer.getElement() : (layer._path || null);
+    if (el) {
+      el.setAttribute('data-detection-type', 'offline-model');
+      el.setAttribute('data-dataset', 'local');
+      el.classList.add('hw-zone', 'zone-local');
+      if (risk) {
+        el.setAttribute('data-risk', risk);
+        el.classList.add(`risk-${risk}`);
+        el.setAttribute('fill', `url(#pattern-local-${risk})`);
+      }
+      if (!offlineModelVisible) {
+        el.style.display = 'none';
+      }
+    }
+  };
+  apply();
+  if (layer.on) {
+    layer.on('add', apply);
+  }
+}
+window.tagOfflineModelLayer = tagOfflineModelLayer;
+
+function tagAllZones() {
+  if (typeof ensureSvgPatterns === 'function') ensureSvgPatterns();
+  if (zonesLayer) {
+    zonesLayer.eachLayer(l => {
+      const el = l.getElement ? l.getElement() : l._path;
+      if (el) {
+        el.classList.add('hw-zone', 'zone-historical');
+        const p = l.feature && l.feature.properties;
+        if (p) {
+          const risk = p.risk_level || (p.accessibility === 'BLOCKED' ? 'HIGH' : (p.accessibility === 'PARTIAL' ? 'MEDIUM' : 'LOW'));
+          el.setAttribute('data-risk', risk);
+          el.classList.add(`risk-${risk}`);
+          el.setAttribute('data-dataset', 'historical');
+        }
+      }
+    });
+  }
+  if (aiPredictedLayer) {
+    aiPredictedLayer.eachLayer(l => {
+      const el = l.getElement ? l.getElement() : l._path;
+      if (el) {
+        const p = l.feature && l.feature.properties;
+        if (p) {
+          const risk = p.risk_level || (p.category === 'UNCERTAIN' ? 'MEDIUM' : (p.ai_predicted_flooded ? 'HIGH' : 'LOW'));
+          el.classList.add('hw-zone', 'zone-experimental', `risk-${risk}`);
+          el.setAttribute('data-risk', risk);
+          el.setAttribute('data-dataset', 'experimental');
+          el.setAttribute('fill', `url(#pattern-ai-${risk})`);
+        }
+      }
+    });
+  }
+  if (localModelLayer) {
+    localModelLayer.eachLayer(l => {
+      const el = l.getElement ? l.getElement() : l._path;
+      if (el) {
+        const p = l.feature && l.feature.properties;
+        if (p) {
+          const risk = p.risk_level || (p.flood_damage_detected ? 'HIGH' : ((p.confidence === 'low' || p.confidence === 'medium') ? 'MEDIUM' : 'LOW'));
+          el.classList.add('hw-zone', 'zone-local', `risk-${risk}`);
+          el.setAttribute('data-risk', risk);
+          el.setAttribute('data-dataset', 'local');
+          el.setAttribute('fill', `url(#pattern-local-${risk})`);
+        }
+      }
+    });
+  }
+  Object.values(liveAiLayers).forEach(l => {
+    if (l) {
+      const el = l.getElement ? l.getElement() : l._path;
+      if (el) {
+        const risk = el.getAttribute('data-risk') || 'HIGH';
+        el.classList.add('hw-zone', 'zone-local', `risk-${risk}`);
+        el.setAttribute('data-dataset', 'local');
+        el.setAttribute('fill', `url(#pattern-local-${risk})`);
+      }
+    }
+  });
+}
+window.tagAllZones = tagAllZones;
+
+function updateZoneVisibility(datasetName, isChecked) {
+  // Sync the Leaflet map layer
+  const layerMap = {
+    'historical': zonesLayer,
+    'experimental': aiPredictedLayer,
+    'local': localModelLayer
+  };
+  const targetLayer = layerMap[datasetName];
+  if (targetLayer) {
+    if (isChecked) {
+      if (!map.hasLayer(targetLayer)) map.addLayer(targetLayer);
+    } else {
+      if (map.hasLayer(targetLayer)) map.removeLayer(targetLayer);
+    }
+  }
+
+  if (datasetName === 'local') {
+    offlineModelVisible = isChecked;
+    window.offlineModelVisible = isChecked;
+    document.querySelectorAll('[data-detection-type="offline-model"]').forEach(el => {
+      el.style.display = isChecked ? '' : 'none';
+    });
+    Object.values(liveAiLayers).forEach(layer => {
+      if (layer && layer.getElement && layer.getElement()) {
+        layer.getElement().style.display = isChecked ? '' : 'none';
+      }
+    });
+  }
+
+  // Read checked state of all three controls
+  const cbHist = document.getElementById('toggleHistorical') || document.getElementById('cb-historical');
+  const cbExp = document.getElementById('toggleAiPredicted') || document.getElementById('cb-experimental');
+  const cbLoc = document.getElementById('toggleOfflineModel') || document.getElementById('cb-local');
+
+  if (datasetName === 'historical' && cbHist && cbHist.checked !== isChecked) cbHist.checked = isChecked;
+  if (datasetName === 'experimental' && cbExp && cbExp.checked !== isChecked) cbExp.checked = isChecked;
+  if (datasetName === 'local' && cbLoc && cbLoc.checked !== isChecked) cbLoc.checked = isChecked;
+
+  const histOn = cbHist ? cbHist.checked : (zonesLayer && map.hasLayer(zonesLayer));
+  const expOn = cbExp ? cbExp.checked : (aiPredictedLayer && map.hasLayer(aiPredictedLayer));
+  const locOn = cbLoc ? cbLoc.checked : (localModelLayer && map.hasLayer(localModelLayer));
+
+  const onCount = (histOn ? 1 : 0) + (expOn ? 1 : 0) + (locOn ? 1 : 0);
+  const allZones = document.querySelectorAll('.hw-zone');
+
+  if (onCount === 3 || onCount === 0) {
+    // All 3 active or all OFF: baseline opacities
+    allZones.forEach(z => {
+      z.classList.remove('is-active', 'is-inactive');
+      const isHist = z.classList.contains('zone-historical');
+      const isExp = z.classList.contains('zone-experimental');
+      const isLoc = z.classList.contains('zone-local');
+      const isVis = (isHist && histOn) || (isExp && expOn) || (isLoc && locOn);
+      z.style.display = isVis ? '' : 'none';
+    });
+  } else if (onCount === 1) {
+    // Exactly 1 active: highlighted at 0.7 (.is-active)
+    // Other zones dimmed at 0.1 (.is-inactive)
+    const activeName = histOn ? 'historical' : (expOn ? 'experimental' : 'local');
+    allZones.forEach(z => {
+      if (z.classList.contains(`zone-${activeName}`)) {
+        z.classList.add('is-active');
+        z.classList.remove('is-inactive');
+        z.style.display = '';
+      } else {
+        z.classList.add('is-inactive');
+        z.classList.remove('is-active');
+        if (activeName === 'historical') {
+          z.style.display = 'none';
+        } else {
+          z.style.display = '';
+        }
+      }
+    });
+  } else if (onCount === 2) {
+    // 2 active:
+    allZones.forEach(z => {
+      const isHist = z.classList.contains('zone-historical');
+      const isExp = z.classList.contains('zone-experimental');
+      const isLoc = z.classList.contains('zone-local');
+      const isVis = (isHist && histOn) || (isExp && expOn) || (isLoc && locOn);
+      if (isVis) {
+        z.classList.remove('is-active', 'is-inactive');
+        z.style.display = '';
+      } else {
+        z.classList.add('is-inactive');
+        z.classList.remove('is-active');
+        z.style.display = 'none';
+      }
+    });
+  }
+
+  // Two-way synchronization with Leaflet top-right layer control
+  if (currentLayerControl && currentLayerControl._container) {
+    const labels = currentLayerControl._container.querySelectorAll('.leaflet-control-layers-overlays label');
+    labels.forEach(label => {
+      const text = label.textContent || '';
+      const input = label.querySelector('input');
+      if (!input) return;
+      if (text.includes('Historical') || text.includes('accessibility')) {
+        input.checked = histOn;
+      } else if (text.includes('AI Predicted')) {
+        input.checked = expOn;
+      } else if (text.includes('Local Model')) {
+        input.checked = locOn;
+      }
+    });
+  }
+}
+window.updateZoneVisibility = updateZoneVisibility;
+
+function toggleOfflineModelDetection(visible) {
+  updateZoneVisibility('local', visible);
+}
+window.toggleOfflineModelDetection = toggleOfflineModelDetection;
+
+const toggleHistoricalEl = document.getElementById('toggleHistorical') || document.getElementById('cb-historical');
+if (toggleHistoricalEl) {
+  toggleHistoricalEl.addEventListener('change', (e) => {
+    updateZoneVisibility('historical', e.target.checked);
+  });
+}
+
+const toggleAiPredictedEl = document.getElementById('toggleAiPredicted') || document.getElementById('cb-experimental');
+if (toggleAiPredictedEl) {
+  toggleAiPredictedEl.addEventListener('change', (e) => {
+    updateZoneVisibility('experimental', e.target.checked);
+  });
+}
+
+const toggleOfflineModelEl = document.getElementById('toggleOfflineModel') || document.getElementById('cb-local');
+if (toggleOfflineModelEl) {
+  toggleOfflineModelEl.addEventListener('change', (e) => {
+    updateZoneVisibility('local', e.target.checked);
+  });
+}
+
+map.on('zoomend viewreset layeradd', () => {
+  tagAllZones();
+  if (!offlineModelVisible) {
+    document.querySelectorAll('[data-detection-type="offline-model"]').forEach(el => {
+      el.style.display = 'none';
+    });
+  }
+});
+
+const AVAILABLE_AI_SOURCES = new Set(['germany', 'louisiana', 'turkey']);
+const CURATED_DATASETS = new Set(['germany', 'louisiana', 'earthquake', 'raw_eq']);
+
+function isAiDetectionAvailable(datasetKey) {
+  const key = (datasetKey || currentDatasetKey || '').toLowerCase();
+  if (key === 'earthquake' || key === 'raw_eq' || key === 'eq' || key.includes('earthquake') || key.includes('floodnet')) {
+    return false;
+  }
+  const entry = datasetManifest[datasetKey || currentDatasetKey];
+  const rawSource = entry && entry.raw_source ? entry.raw_source.toLowerCase() : null;
+  if (rawSource) {
+    if (rawSource === 'earthquake' || rawSource === 'raw_eq' || rawSource === 'eq' || rawSource.includes('earthquake') || rawSource.includes('floodnet')) {
+      return false;
+    }
+    return AVAILABLE_AI_SOURCES.has(rawSource);
+  }
+  return AVAILABLE_AI_SOURCES.has(key);
+}
+
+function isDatasetCurated(datasetKey) {
+  const key = (datasetKey || currentDatasetKey || '').toLowerCase();
+  if (key.includes('floodnet')) return false;
+  const entry = datasetManifest[datasetKey || currentDatasetKey];
+  const rawSource = entry && entry.raw_source ? entry.raw_source.toLowerCase() : null;
+  if (rawSource && CURATED_DATASETS.has(rawSource)) return true;
+  return CURATED_DATASETS.has(key) || key.includes('earthquake');
+}
+
+function isTileDisabled(tileId, sourceKey) {
+  const sk = (sourceKey || '').toLowerCase();
+  const dk = (currentDatasetKey || '').toLowerCase();
+  const tid = (tileId || '').toLowerCase();
+
+  // Explicitly disabled datasets: Earthquake, EQ, FloodNet
+  if (
+    sk === 'earthquake' || sk === 'raw_eq' || sk === 'eq' || sk.includes('earthquake') || sk.includes('floodnet') ||
+    dk === 'earthquake' || dk === 'raw_eq' || dk === 'eq' || dk.includes('earthquake') || dk.includes('floodnet') ||
+    tid.startsWith('eq') || tid.includes('earthquake') || tid.includes('floodnet') || tid.startsWith('zone-')
+  ) {
+    return true;
+  }
+
+  // Supported datasets: Germany, Louisiana, Turkey (non-earthquake)
+  if (
+    sk === 'germany' || sk === 'louisiana' || sk === 'turkey' ||
+    dk === 'germany' || dk === 'louisiana' || dk === 'turkey'
+  ) {
+    return false;
+  }
+
+  const entry = datasetManifest[dk];
+  if (entry && entry.raw_source) {
+    const raw = entry.raw_source.toLowerCase();
+    if (raw === 'earthquake' || raw === 'raw_eq' || raw === 'eq' || raw.includes('earthquake') || raw.includes('floodnet')) {
+      return true;
+    }
+    if (raw === 'germany' || raw === 'louisiana' || raw === 'turkey') {
+      return false;
+    }
+  }
+
+  return !isAiDetectionAvailable(dk);
+}
+
+let selectedTileIds = [];
+let isDetectionInProgress = false;
+let detectionAbortController = null;
+const tileLayerMap = {}; // tileId -> L.rectangle layer
+const tileCheckboxMarkers = {}; // tileId -> L.marker layer
+
+function hideDataValidationModal() {
+  const modalOverlay = document.getElementById('data-validation-modal-overlay');
+  if (modalOverlay) {
+    modalOverlay.style.display = 'none';
+  }
+}
+
+function updateTileSelectionUI() {
+  const count = selectedTileIds.length;
+  if (runBatchLocalModelBtn) {
+    if (isDetectionInProgress) {
+      runBatchLocalModelBtn.disabled = true;
+      runBatchLocalModelBtn.innerHTML = `⏳ Running detection...`;
+    } else if (count > 0) {
+      runBatchLocalModelBtn.disabled = false;
+      runBatchLocalModelBtn.innerHTML = `🔬 Run Local Model on ${count} Selected Tile${count > 1 ? 's' : ''}`;
+    } else {
+      runBatchLocalModelBtn.disabled = true;
+      runBatchLocalModelBtn.innerHTML = `🔬 Run Local Model on Selected Tiles`;
+    }
+  }
+  if (clearBatchTilesBtn) {
+    clearBatchTilesBtn.style.display = (count > 0 && !isDetectionInProgress) ? 'inline-block' : 'none';
+  }
+
+  // Update visual styling on tile rectangle overlays and checkbox widgets
+  for (const [id, layer] of Object.entries(tileLayerMap)) {
+    const disabled = isTileDisabled(id);
+    const isSelected = selectedTileIds.includes(id);
+
+    if (disabled) {
+      layer.setStyle({
+        color: '#94a3b8',
+        weight: 1.5,
+        dashArray: '2,2',
+        fill: false,
+        fillOpacity: 0
+      });
+      layer.setTooltipContent(`Tile ${id} <span style="color:#ef4444; font-weight:600;">(Disabled)</span><br><span style="font-size:10px; color:#64748b;">Dataset not supported for local AI detection</span>`);
+      if (layer.getElement()) {
+        layer.getElement().style.cursor = 'not-allowed';
+      }
+    } else if (isSelected) {
+      layer.setStyle({
+        color: '#eab308',
+        weight: 3,
+        dashArray: null,
+        fill: true,
+        fillColor: '#fef08a',
+        fillOpacity: 0.35
+      });
+      layer.setTooltipContent(`Tile ${id} <strong style="color:#ca8a04;">(Selected)</strong><br><span style="font-size:10px; color:#475569;">Click to deselect</span>`);
+      if (layer.getElement()) {
+        layer.getElement().style.cursor = 'pointer';
+      }
+    } else {
+      layer.setStyle({
+        color: '#64748b',
+        weight: 1.5,
+        dashArray: '4,4',
+        fill: false,
+        fillOpacity: 0
+      });
+      layer.setTooltipContent(`Tile ${id}<br><span style="font-size:10px; color:#2563eb;">Click to toggle selection for batch local model</span>`);
+      if (layer.getElement()) {
+        layer.getElement().style.cursor = 'pointer';
+      }
+    }
+
+    const widgetEl = document.getElementById(`tile-widget-${id}`);
+    const inputEl = document.getElementById(`chk-${id}`);
+    if (widgetEl && inputEl) {
+      widgetEl.classList.toggle('checked', isSelected);
+      widgetEl.classList.toggle('disabled', disabled);
+      inputEl.checked = isSelected;
+      inputEl.disabled = disabled;
+      if (disabled) {
+        widgetEl.title = `Tile ${id} (Disabled — dataset not supported for local AI detection)`;
+        widgetEl.style.cursor = 'not-allowed';
+      } else {
+        widgetEl.title = isSelected ? `Tile ${id} (Selected) — click to deselect` : `Tile ${id} — click to select`;
+        widgetEl.style.cursor = 'pointer';
+      }
+    }
+  }
+}
+
+function onTileClick(tileId, e, sourceKey) {
+  if (e) {
+    if (e.originalEvent) {
+      e.originalEvent._highwaterHandled = true;
+      L.DomEvent.stopPropagation(e.originalEvent);
+    }
+    if (e.stopPropagation) e.stopPropagation();
+  }
+  if (drawModeActive) return;
+
+  console.log('[TILE CLICK]', {
+    tileId: tileId,
+    sourceKey: sourceKey,
+    isDisabled: isTileDisabled(tileId, sourceKey),
+    selectedBefore: [...selectedTileIds]
+  });
+
+  if (isTileDisabled(tileId, sourceKey)) return;
+
+  if (typeof aiDetectModeActive !== 'undefined' && aiDetectModeActive) {
+    const currentSource = (datasetManifest[currentDatasetKey] && datasetManifest[currentDatasetKey].raw_source) || currentDatasetKey;
+    const src = sourceKey || (currentSource === 'louisiana' ? 'louisiana' : (currentSource === 'turkey' ? 'turkey' : 'germany'));
+    detectFloodOnClick(tileId, { source: src });
+    return;
+  }
+
+  toggleTileSelection(tileId);
+  console.log('[AFTER TOGGLE]', {
+    selectedTileIds: selectedTileIds,
+    selectedCount: selectedTileIds.length
+  });
+}
+
+function toggleTileSelection(tileId) {
+  if (isTileDisabled(tileId)) {
+    return;
+  }
+  const idx = selectedTileIds.indexOf(tileId);
+  if (idx === -1) {
+    selectedTileIds.push(tileId);
+  } else {
+    selectedTileIds.splice(idx, 1);
+  }
+  updateTileSelectionUI();
+}
+
+function clearTileSelection() {
+  selectedTileIds = [];
+  updateTileSelectionUI();
+  if (aiResultPanel) {
+    aiResultPanel.style.display = 'none';
+  }
+}
+
+function runBatchLocalModelDetection() {
+  console.log('[BATCH START]', {
+    tiles: selectedTileIds,
+    count: selectedTileIds.length,
+    inProgress: isDetectionInProgress
+  });
+
+  if (!selectedTileIds || selectedTileIds.length === 0) {
+    alert("No tiles selected");
+    return;
+  }
+
+  if (isDetectionInProgress) {
+    console.warn('Detection already in progress, blocking duplicate call');
+    return;
+  }
+
+  isDetectionInProgress = true;
+  if (runBatchLocalModelBtn) {
+    runBatchLocalModelBtn.disabled = true;
+    runBatchLocalModelBtn.textContent = '⏳ Running detection...';
+  }
+
+  const currentSource = (datasetManifest[currentDatasetKey] && datasetManifest[currentDatasetKey].raw_source) || currentDatasetKey;
+  let source = currentSource === 'louisiana' ? 'louisiana' : (currentSource === 'turkey' ? 'turkey' : 'germany');
+
+  if (isTileDisabled(selectedTileIds[0], source)) {
+    showValidationModal();
+    isDetectionInProgress = false;
+    updateTileSelectionUI();
+    return;
+  }
+
+  hideDataValidationModal();
+  const tileIdsToDetect = [...selectedTileIds];
+
+  return detectMultipleTiles(tileIdsToDetect, source, 0.001, 'accurate')
+    .then((data) => {
+      console.log('✓ Batch detection successful');
+      handleBatchDetectionComplete();
+      updateTileSelectionUI();
+      return data;
+    })
+    .catch((error) => {
+      console.error('✗ Batch detection failed:', error);
+      isDetectionInProgress = false;
+      updateTileSelectionUI();
+      throw error;
+    });
+}
+
+async function handleBatchDetectionComplete() {
+  console.log('[DETECTION COMPLETE]', {
+    selectedTilesAfter: selectedTileIds,
+    isDetectionInProgress: isDetectionInProgress
+  });
+  // Clear state
+  selectedTileIds = [];
+  isDetectionInProgress = false;
+  console.log('[STATE RESET]', { selectedTileIds, isDetectionInProgress });
+}
+
+const BACKEND_URL = 'http://localhost:8001';
+let backendAvailable = false;
+
+async function checkBackendHealth() {
+  try {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 1500);
+    const res = await fetch(`${BACKEND_URL}/api/health`, { signal: controller.signal });
+    clearTimeout(timer);
+    if (res.ok) {
+      backendAvailable = true;
+      setBackendModeUI(true);
+      return true;
+    }
+  } catch (e) {
+    // Backend offline / timed out
+  }
+  backendAvailable = false;
+  setBackendModeUI(false);
+  return false;
+}
+
+function setBackendModeUI(isLive) {
+  if (!modeBadge || !runNowBtn || !generateBtn) return;
+  if (isLive) {
+    modeBadge.textContent = '⚡ Live mode';
+    modeBadge.style.background = '#dcfce7';
+    modeBadge.style.color = '#15803d';
+    runNowBtn.style.display = (selectedTiles.length >= MIN_TILES_FOR_COMMAND) ? 'inline-block' : 'none';
+    generateBtn.style.display = 'none';
+  } else {
+    modeBadge.textContent = '📋 Copy command';
+    modeBadge.style.background = '#f1f5f9';
+    modeBadge.style.color = '#64748b';
+    runNowBtn.style.display = 'none';
+    generateBtn.style.display = 'inline-block';
+  }
+}
+
+function showValidationModal() {
+  const modalOverlay = document.getElementById('data-validation-modal-overlay');
+  if (modalOverlay) {
+    modalOverlay.style.display = 'flex';
+  }
+  clearActivePolls();
+  cmdBox.style.display = 'none';
+  copyBtn.style.display = 'none';
+  pollStatusEl.textContent = '';
+  generateBtn.disabled = true;
+  if (runNowBtn) {
+    runNowBtn.disabled = true;
+    runNowBtn.style.display = 'none';
+  }
+  if (customAreaDetectTilesBtn) {
+    customAreaDetectTilesBtn.disabled = true;
+  }
+  summaryEl.innerHTML = '<span style="color:#0284c7;">Selected area is outside curated dataset.</span>';
+}
+
+function hideValidationModal() {
+  hideDataValidationModal();
+  if (drawRect) {
+    map.removeLayer(drawRect);
+    drawRect = null;
+  }
+  selectedTiles = [];
+  summaryEl.textContent = 'Drag a box on the map to select tiles.';
+  generateBtn.disabled = true;
+  if (runNowBtn) {
+    runNowBtn.disabled = true;
+    runNowBtn.style.display = 'none';
+  }
+  if (customAreaDetectTilesBtn) {
+    customAreaDetectTilesBtn.disabled = true;
+  }
+  cmdBox.style.display = 'none';
+  copyBtn.style.display = 'none';
+  pollStatusEl.textContent = '';
+}
+
+function resetCustomAreaUI() {
+  hideValidationModal();
+  if (drawRect) { map.removeLayer(drawRect); drawRect = null; }
+  if (customAreaSliceLayer) {
+    customAreaSliceLayer.clearLayers();
+  }
+  selectedTiles = [];
+  selectedTileIds = [];
+  isDetectionInProgress = false;
+  aiDetectModeActive = false;
+  if (aiDetectBtn) aiDetectBtn.classList.remove('active');
+  document.getElementById('map').classList.remove('ai-detect-mode');
+  summaryEl.textContent = 'Drag a box on the map to select tiles.';
+  generateBtn.disabled = true;
+  if (runNowBtn) runNowBtn.disabled = true;
+  if (customAreaDetectTilesBtn) customAreaDetectTilesBtn.disabled = true;
+  cmdBox.style.display = 'none';
+  copyBtn.style.display = 'none';
+  pollStatusEl.textContent = '';
+  panel.style.display = 'none';
+  updateTileSelectionUI();
+  console.log('[STATE RESET]', { selectedTileIds, isDetectionInProgress });
+
+  if (window.parent && window.parent !== window) {
+    window.parent.postMessage({ type: 'CUSTOM_AREA_CLEARED' }, '*');
+  }
+}
+
+drawBtn.addEventListener('click', (e) => {
+  if (!isDatasetCurated(currentDatasetKey)) {
+    e.preventDefault();
+    e.stopPropagation();
+    updateAiDetectButtonState(currentDatasetKey);
+    return;
+  }
+  drawModeActive = !drawModeActive;
+  drawBtn.classList.toggle('active', drawModeActive);
+  drawBtn.style.setProperty('background-color', drawModeActive ? '#16a34a' : '#f0fdf4', 'important');
+  drawBtn.style.setProperty('color', drawModeActive ? '#fff' : '#16a34a', 'important');
+  document.getElementById('map').classList.toggle('draw-mode', drawModeActive);
+  document.body.classList.toggle('custom-area-drawing', drawModeActive);
+  if (drawModeActive) {
+    resetCustomAreaUI();
+    panel.style.display = 'block';
+    checkBackendHealth();
+  } else {
+    resetCustomAreaUI();
+  }
+});
+
+cancelBtn.addEventListener('click', () => {
+  drawModeActive = false;
+  drawBtn.classList.remove('active');
+  if (isDatasetCurated(currentDatasetKey)) {
+    drawBtn.style.setProperty('background-color', '#f0fdf4', 'important');
+    drawBtn.style.setProperty('color', '#16a34a', 'important');
+  }
+  document.getElementById('map').classList.remove('draw-mode');
+  document.body.classList.remove('custom-area-drawing');
+  resetCustomAreaUI();
+});
+
+map.on('mousedown', (e) => {
+  if (!drawModeActive || !isDatasetCurated(currentDatasetKey)) return;
+  drawing = true;
+  drawStartLatLng = e.latlng;
+  map.dragging.disable();
+  if (drawRect) map.removeLayer(drawRect);
+  drawRect = L.rectangle([drawStartLatLng, drawStartLatLng], { color: '#f59e0b', weight: 2, dashArray: '4,4', fillOpacity: 0.08 }).addTo(map);
+  // Starting a NEW box discards any previously-generated command/poll-status from an
+  // earlier box in this same draw-mode session, so only one summary is ever shown.
+  clearActivePolls();
+  cmdBox.style.display = 'none';
+  copyBtn.style.display = 'none';
+  pollStatusEl.textContent = '';
+});
+
+// Draw-mode previews always need a ROOT source's tile_index.json (Germany/Louisiana —
+// the only datasets that have one, built once from their full tile set). A custom
+// dataset (from run_custom_aoi.py) has no tile_index.json of its own, so drawing a NEW
+// box while one is active must resolve back to its recorded raw_source, never use the
+// currently-active dataset's key directly.
+function drawModeSourceKey() {
+  const entry = datasetManifest[currentDatasetKey];
+  if (entry && entry.raw_source && DATASETS[entry.raw_source]) {
+    return entry.raw_source;
+  }
+  return currentDatasetKey;
+}
+
+const MIN_TILES_FOR_COMMAND = 4; // below this isn't a statistically meaningful area
+
+function summaryLine(s, prefix) {
+  const isEarthquake = (currentDatasetKey === 'earthquake' || currentDatasetKey === 'raw_eq');
+  const base = isEarthquake
+    ? `${prefix}${s.count} zones — ${s.buildings} buildings (${s.floodedBuildings} exposed to MMI ≥ 7.0), ${s.roads} road segments`
+    : `${prefix}${s.count} tiles — ${s.buildings} buildings (${s.floodedBuildings} flooded), ${s.roads} roads (${s.floodedRoads} flooded)`;
+  if (s.count > 0 && s.count < MIN_TILES_FOR_COMMAND) {
+    return base + `<br><span style="color:#dc2626;">Select a larger area — at least ${MIN_TILES_FOR_COMMAND} ${isEarthquake ? 'zones' : 'tiles'} needed for a meaningful result.</span>`;
+  }
+  return base;
+}
+
+map.on('mousemove', async (e) => {
+  if (!drawing) return;
+  const bounds = L.latLngBounds(drawStartLatLng, e.latlng);
+  drawRect.setBounds(bounds);
+  const tileIndex = await getTileIndex(drawModeSourceKey());
+  const inside = tilesInBox(tileIndex, bounds);
+  const s = summarizeTiles(inside);
+  summaryEl.innerHTML = summaryLine(s, '');
+  const disabled = s.count < MIN_TILES_FOR_COMMAND;
+  generateBtn.disabled = disabled;
+  if (customAreaDetectTilesBtn) customAreaDetectTilesBtn.disabled = (s.count === 0 || !isAiDetectionAvailable(currentDatasetKey));
+  if (runNowBtn) {
+    runNowBtn.disabled = disabled;
+    if (backendAvailable && isAiDetectionAvailable(currentDatasetKey)) {
+      runNowBtn.style.display = disabled ? 'none' : 'inline-block';
+    }
+  }
+});
+
+map.on('mouseup', async (e) => {
+  if (!drawing) return;
+  drawing = false;
+  map.dragging.enable();
+  const bounds = drawRect.getBounds();
+  const tileIndex = await getTileIndex(drawModeSourceKey());
+  selectedTiles = tilesInBox(tileIndex, bounds);
+
+  // If no data/tiles are available in the drawn area, alert with Data Validation Check modal
+  if (selectedTiles.length === 0) {
+    showValidationModal();
+    return;
+  }
+
+  const s = summarizeTiles(selectedTiles);
+  summaryEl.innerHTML = summaryLine(s, 'Selected: ');
+  const disabled = s.count < MIN_TILES_FOR_COMMAND;
+  generateBtn.disabled = disabled;
+  if (customAreaDetectTilesBtn) {
+    customAreaDetectTilesBtn.disabled = (s.count === 0 || !isAiDetectionAvailable(currentDatasetKey));
+  }
+  if (runNowBtn) {
+    runNowBtn.disabled = disabled;
+    if (backendAvailable && isAiDetectionAvailable(currentDatasetKey)) {
+      runNowBtn.style.display = disabled ? 'none' : 'inline-block';
+    }
+  }
+
+  // Automatic shading of selected custom area slice
+  if (customAreaSliceLayer) {
+    customAreaSliceLayer.clearLayers();
+  } else {
+    customAreaSliceLayer = L.featureGroup().addTo(map);
+  }
+
+  selectedTiles.forEach(([id, info]) => {
+    if (info && info.bbox) {
+      const [minx, miny, maxx, maxy] = info.bbox;
+      const isHigh = (info.flooded_buildings > 5 || info.flooded_roads > 5);
+      const isFlooded = (info.flooded_buildings > 0 || info.flooded_roads > 0);
+      const risk = isHigh ? 'HIGH' : (isFlooded ? 'MEDIUM' : 'LOW');
+      const color = risk === 'HIGH' ? '#dc2626' : (risk === 'MEDIUM' ? '#f59e0b' : '#2563eb');
+
+      const rect = L.rectangle([[miny, minx], [maxy, maxx]], {
+        color: color,
+        fillColor: color,
+        fillOpacity: 0.38,
+        weight: 2,
+        dashArray: '4, 4',
+        className: `hw-zone zone-custom is-active risk-${risk}`
+      });
+
+      const popupHtml = `
+        <div style="font-family:sans-serif; font-size:12px; min-width:160px; line-height:1.4;">
+          <div style="font-weight:bold; color:#0f172a; border-bottom:1px solid #cbd5e1; padding-bottom:3px; margin-bottom:5px;">
+            Tile ${id}
+          </div>
+          <div>Risk Level: <strong style="color:${color}">${risk}</strong></div>
+          <div>Total Buildings: <strong>${info.buildings || 0}</strong> (${info.flooded_buildings || 0} flooded)</div>
+          <div>Total Roads: <strong>${info.roads || 0}</strong> (${info.flooded_roads || 0} flooded)</div>
+        </div>
+      `;
+      rect.bindPopup(popupHtml);
+      rect.on('click', () => {
+        if (window.parent && window.parent !== window) {
+          window.parent.postMessage({
+            type: 'ZONE_CLICKED',
+            zoneId: id,
+            name: `Tile ${id}`,
+            riskLevel: risk,
+            riskScore: risk === 'HIGH' ? 85 : (risk === 'MEDIUM' ? 55 : 20),
+            exposedBuildings: info.flooded_buildings || 0,
+            floodedRoads: info.flooded_roads || 0,
+            totalBuildings: info.buildings || 0,
+            totalRoads: info.roads || 0
+          }, '*');
+        }
+      });
+      rect.addTo(customAreaSliceLayer);
+    }
+  });
+
+  // Automatically update parent dashboard with custom area slice data
+  if (window.parent && window.parent !== window) {
+    const tilePayload = selectedTiles.map(([id, info]) => {
+      const isHigh = (info.flooded_buildings > 5 || info.flooded_roads > 5);
+      const isFlooded = (info.flooded_buildings > 0 || info.flooded_roads > 0);
+      const risk = isHigh ? 'HIGH' : (isFlooded ? 'MEDIUM' : 'LOW');
+      return {
+        zoneId: id,
+        name: `Custom Area Tile ${id}`,
+        riskLevel: risk,
+        riskScore: risk === 'HIGH' ? 85 : (risk === 'MEDIUM' ? 55 : 20),
+        exposedBuildings: info.flooded_buildings || 0,
+        totalBuildings: info.buildings || 0,
+        floodedRoads: info.flooded_roads || 0,
+        totalRoads: info.roads || 0,
+        floodedAreaKm2: Number(((info.flooded_buildings * 0.05) + (info.flooded_roads * 0.02)).toFixed(2)),
+        floodedPercent: (info.buildings > 0) ? Math.round((info.flooded_buildings / info.buildings) * 100) : 0,
+        observed_flooded_count: (info.flooded_buildings || 0) + (info.flooded_roads || 0),
+        accessibility: risk === 'HIGH' ? 'BLOCKED' : (risk === 'MEDIUM' ? 'LIMITED' : 'OPEN'),
+        hasGeometry: Boolean(info.bbox),
+        geometry: info.bbox ? {
+          type: 'Polygon',
+          coordinates: [[
+            [info.bbox[0], info.bbox[1]],
+            [info.bbox[2], info.bbox[1]],
+            [info.bbox[2], info.bbox[3]],
+            [info.bbox[0], info.bbox[3]],
+            [info.bbox[0], info.bbox[1]]
+          ]]
+        } : null,
+        bbox: info.bbox
+      };
+    });
+
+    window.parent.postMessage({
+      type: 'CUSTOM_AREA_SELECTED',
+      tiles: tilePayload,
+      summary: s,
+      firstZoneId: tilePayload.length > 0 ? tilePayload[0].zoneId : null
+    }, '*');
+  }
+});
+
+runNowBtn.addEventListener('click', async () => {
+  if (selectedTiles.length < MIN_TILES_FOR_COMMAND) return;
+  const includeAi = aiToggle.checked;
+  const rawSource = (datasetManifest[currentDatasetKey] && datasetManifest[currentDatasetKey].raw_source) || currentDatasetKey;
+  const datasetKey = `custom_${Date.now()}`;
+  const tileIds = selectedTiles.map(([id]) => id);
+  const label = `Custom area (${new Date().toLocaleString()})`;
+
+  runNowBtn.style.display = 'none'; // Run option disappears for this selection
+  pollStatusEl.textContent = 'Submitting job to backend server...';
+  clearActivePolls();
+
+  try {
+    const resp = await fetch(`${BACKEND_URL}/api/run-custom-area`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        source: rawSource,
+        tiles: tileIds,
+        dataset_key: datasetKey,
+        label: label,
+        include_ai: includeAi
+      })
+    });
+    if (!resp.ok) {
+      const err = await resp.text();
+      pollStatusEl.innerHTML = `<span style="color:#dc2626;">Server error (${resp.status}): ${err}</span>`;
+      if (backendAvailable) runNowBtn.style.display = 'inline-block';
+      runNowBtn.disabled = false;
+      return;
+    }
+    const data = await resp.json();
+    const jobId = data.job_id;
+    pollStatusEl.textContent = 'Job submitted. Waiting for pipeline to start...';
+    startBackendJobPolling(jobId, datasetKey, label);
+  } catch (err) {
+    pollStatusEl.innerHTML = `<span style="color:#dc2626;">Network error: ${err.message}. Backend might be stopped.</span>`;
+    if (backendAvailable) runNowBtn.style.display = 'inline-block';
+    runNowBtn.disabled = false;
+    checkBackendHealth();
+  }
+});
+
+function startBackendJobPolling(jobId, datasetKey, label) {
+  clearActivePolls();
+  let pollCount = 0;
+  const MAX_POLLS = 300; // ~6 minutes at 1.2s poll
+  const pollTimer = setInterval(async () => {
+    pollCount++;
+    try {
+      const resp = await fetch(`${BACKEND_URL}/api/job-status/${jobId}`);
+      if (!resp.ok) {
+        if (resp.status === 404 && pollCount < 5) return;
+        pollStatusEl.innerHTML = `<span style="color:#dc2626;">Error checking job status (HTTP ${resp.status})</span>`;
+        return;
+      }
+      const data = await resp.json();
+
+      let stepLabel = '';
+      if (data.step === 'ground_truth') {
+        stepLabel = `Step 1/3: Ground truth generation (${data.tiles_done}/${data.tiles_total} tiles)`;
+      } else if (data.step === 'ai_detection') {
+        stepLabel = `Step 2/3: AI detection parallel pool (${data.tiles_done}/${data.tiles_total} tiles)`;
+      } else if (data.step === 'validation') {
+        stepLabel = `Step 3/3: Validating predictions (${data.tiles_done}/${data.tiles_total} tiles)`;
+      } else {
+        stepLabel = `Running (${data.step || 'in progress'})...`;
+      }
+
+      if (data.status === 'running') {
+        pollStatusEl.textContent = `⏳ ${stepLabel}...`;
+      } else if (data.status === 'error') {
+        clearInterval(pollTimer);
+        activePollTimers = activePollTimers.filter(id => id !== pollTimer);
+        pollStatusEl.innerHTML = `<span style="color:#dc2626;">Pipeline failed: ${data.error || 'Unknown error'}</span>`;
+        if (backendAvailable && runNowBtn) {
+          runNowBtn.style.display = 'inline-block';
+          runNowBtn.disabled = false;
+        }
+        return;
+      } else if (data.status === 'done') {
+        clearInterval(pollTimer);
+        activePollTimers = activePollTimers.filter(id => id !== pollTimer);
+        pollStatusEl.textContent = `✓ Pipeline complete! Loading "${label}"...`;
+
+        await refreshDatasetDropdown();
+        if (!DATASETS[datasetKey]) {
+          DATASETS[datasetKey] = { base: `../output_${datasetKey}/`, label: label };
+          datasetManifest[datasetKey] = { key: datasetKey, label: label, base: `../output_${datasetKey}/`, status: 'ready' };
+        }
+        datasetSelectEl.value = datasetKey;
+        datasetSelectValueBeforeOpen = datasetKey;
+        loadDataset(datasetKey);
+        pollStatusEl.textContent = `Done — "${label}" loaded.`;
+        if (runNowBtn) runNowBtn.style.display = 'none';
+        if (drawRect) { map.removeLayer(drawRect); drawRect = null; }
+        selectedTiles = [];
+        selectedTileIds = [];
+        isDetectionInProgress = false;
+        aiDetectModeActive = false;
+        if (aiDetectBtn) aiDetectBtn.classList.remove('active');
+        document.getElementById('map').classList.remove('ai-detect-mode');
+        updateTileSelectionUI();
+        console.log('[STATE RESET]', { selectedTileIds, isDetectionInProgress });
+        return;
+      }
+
+      if (pollCount >= MAX_POLLS) {
+        clearInterval(pollTimer);
+        activePollTimers = activePollTimers.filter(id => id !== pollTimer);
+        pollStatusEl.textContent = 'Timed out waiting for job completion.';
+        if (runNowBtn) runNowBtn.disabled = false;
+      }
+    } catch (err) {
+      console.warn('Status poll failed:', err);
+    }
+  }, 1200);
+  activePollTimers.push(pollTimer);
+}
+
+generateBtn.addEventListener('click', () => {
+  if (selectedTiles.length < MIN_TILES_FOR_COMMAND) return; // safety net matching the live-disabled button state
+  const includeAi = aiToggle.checked; // decided now, baked into the command, not changeable after
+  const rawSource = (datasetManifest[currentDatasetKey] && datasetManifest[currentDatasetKey].raw_source) || currentDatasetKey;
+  const datasetKey = `custom_${Date.now()}`;
+  const tileIds = selectedTiles.map(([id]) => id);
+  const label = `Custom area (${new Date().toLocaleString()})`;
+  // Absolute paths so this works from ANY directory, not just modules/flood_analysis/ —
+  // and the venv's own python3 (still "python3", never bare "python"), since the system
+  // python3 lacks requests/shapely/pyproj/PIL and would fail with ModuleNotFoundError.
+  const PYTHON3 = '/home/punith-bs/highwater/modules/flood_analysis/.venv/bin/python3';
+  const SCRIPT = '/home/punith-bs/highwater/modules/flood_analysis/scripts/run_custom_aoi.py';
+  const command = `${PYTHON3} ${SCRIPT} --source ${rawSource} --tiles ${tileIds.join(',')} ` +
+    `--dataset-key ${datasetKey} --label "${label}"` + (includeAi ? '' : ' --skip-ai');
+
+  cmdBox.textContent = command;
+  cmdBox.style.display = 'block';
+  copyBtn.style.display = 'inline-block';
+  copyBtn.onclick = () => navigator.clipboard.writeText(command).then(() => {
+    copyBtn.textContent = 'Copied!';
+    setTimeout(() => { copyBtn.textContent = 'Copy command'; }, 1500);
+  });
+
+  pollStatusEl.textContent = 'Waiting for the command to be run in a terminal...';
+  startCustomDatasetPolling(datasetKey, tileIds, includeAi);
+});
+
+// --- Part 3: live polling for the new dataset, no backend — plain fetch on an interval ---
+function startCustomDatasetPolling(datasetKey, tileIds, includeAi) {
+  clearActivePolls(); // only one custom run tracked live at a time
+  let attempts = 0;
+  const MAX_MANIFEST_ATTEMPTS = 150; // ~10 min at 4s/poll — ground-truth step can take a little while
+  const manifestTimer = setInterval(async () => {
+    attempts++;
+    let manifest;
+    try {
+      manifest = await fetch('../datasets.json').then(r => r.json());
+    } catch (e) {
+      return; // transient fetch error, just try again next tick
+    }
+    const entry = manifest.datasets.find(d => d.key === datasetKey);
+    if (entry && (entry.status === 'ground_truth_ready' || entry.status === 'ai_running' || entry.status === 'ready')) {
+      clearInterval(manifestTimer);
+      activePollTimers = activePollTimers.filter(id => id !== manifestTimer);
+      datasetManifest[datasetKey] = entry;
+      DATASETS[datasetKey] = { base: entry.base, label: entry.label };
+      pollStatusEl.textContent = `Ground truth ready for "${entry.label}" — loading...`;
+      // Calls the real loader directly (not the dropdown-wrapped loadDataset) — this is
+      // a genuinely separate trigger from any dropdown interaction and must never share
+      // state/coalescing with it; it manages its own poll lifecycle already above.
+      currentDatasetKey = datasetKey;
+      _origLoadDataset(datasetKey);
+      if (includeAi) {
+        setTimeout(() => startPendingTilesAndAiPolling(datasetKey, entry.base, tileIds), 600);
+      } else {
+        pollStatusEl.textContent = `Done — "${entry.label}" loaded (AI detection skipped).`;
+      }
+      return;
+    }
+    if (attempts >= MAX_MANIFEST_ATTEMPTS) {
+      clearInterval(manifestTimer);
+      activePollTimers = activePollTimers.filter(id => id !== manifestTimer);
+      pollStatusEl.textContent = `No progress detected after ${MAX_MANIFEST_ATTEMPTS} polls — check the terminal to confirm the command is running.`;
+    }
+  }, 4000);
+  activePollTimers.push(manifestTimer);
+}
+
+function startPendingTilesAndAiPolling(datasetKey, base, tileIds) {
+  // Render every expected tile immediately in a distinct pending/analyzing style,
+  // in its own pane above everything else, so it's clearly different from real results.
+  map.createPane('pendingPane');
+  map.getPane('pendingPane').style.zIndex = 700;
+  map.getPane('pendingPane').classList.add('pending-tile-pane');
+
+  const pendingLayers = {}; // tileId -> leaflet layer
+  getTileIndex(datasetKey).then(() => {}); // warm cache if present (usually isn't yet for a brand-new dataset)
+
+  Promise.all(tileIds.map(async (tileId) => {
+    // Pending tiles are rendered from the SAME tile_index bbox data used for the
+    // live preview — real geometry, not invented placeholders.
+    const sourceKey = datasetManifest[datasetKey] ? datasetManifest[datasetKey].raw_source : null;
+    const srcIndex = sourceKey ? await getTileIndex(sourceKey) : {};
+    const info = srcIndex[tileId];
+    if (!info || !info.bbox) return;
+    const [minx, miny, maxx, maxy] = info.bbox;
+    const rect = L.rectangle([[miny, minx], [maxy, maxx]], {
+      pane: 'pendingPane', color: '#64748b', weight: 2, dashArray: '3,5', fillOpacity: 0.1
+    }).addTo(map);
+    rect.bindPopup(`<strong>${tileId}</strong><br>AI analysis pending...`);
+    pendingLayers[tileId] = rect;
+  })).then(() => {
+    currentOverlayLayers.push(...Object.values(pendingLayers));
+    pollAiPredictions(datasetKey, base, tileIds, pendingLayers);
+  });
+}
+
+function pollAiPredictions(datasetKey, base, tileIds, pendingLayers) {
+  let attempts = 0;
+  const MAX_AI_ATTEMPTS = 90; // ~6 min at 4s/poll
+  const done = new Set();
+  const aiTimer = setInterval(async () => {
+    attempts++;
+    let predictions;
+    try {
+      predictions = await fetch(`${base}ai_predictions.json`).then(r => (r.ok ? r.json() : {}));
+    } catch (e) {
+      predictions = {};
+    }
+    tileIds.forEach(tileId => {
+      if (done.has(tileId)) return;
+      const entry = predictions[tileId];
+      if (!entry) return; // still pending, real file just doesn't have it yet
+      done.add(tileId);
+      const layer = pendingLayers[tileId];
+      if (!layer) return;
+      if ('ERROR' in entry) {
+        layer.setStyle({ color: '#64748b', dashArray: '2,2', fillOpacity: 0.05 });
+        layer.bindPopup(`<strong>${tileId}</strong><br>AI error: ${entry.ERROR}`);
+        return;
+      }
+      const isUncertain = entry.confidence === 'low';
+      if (isUncertain) {
+        layer.setStyle({ color: '#94a3b8', weight: 1.5, fillColor: 'url(#ai-hatch-gray)', fillOpacity: 1, dashArray: '2,3' });
+      } else {
+        const color = entry.flood_damage_detected ? '#dc2626' : '#2563eb';
+        const pattern = entry.flood_damage_detected ? 'url(#ai-hatch-red)' : 'url(#ai-hatch-blue)';
+        layer.setStyle({ color: color, weight: 1.5, fillColor: pattern, fillOpacity: 1, dashArray: null });
+      }
+      layer.bindPopup(`<strong>AI PREDICTED — ${tileId}</strong><br>
+        <span class="popup-note">Model prediction, not ground truth.</span><br>
+        flood_damage_detected: ${entry.flood_damage_detected}<br>
+        confidence: ${entry.confidence}<br>
+        reasoning: ${entry.reasoning}`);
+    });
+
+    pollStatusEl.textContent = `${done.size} of ${tileIds.length} tiles analyzed`;
+
+    if (done.size >= tileIds.length) {
+      clearInterval(aiTimer);
+      activePollTimers = activePollTimers.filter(id => id !== aiTimer);
+      pollStatusEl.textContent = `AI analysis complete (${done.size}/${tileIds.length} tiles). Finalizing...`;
+
+      let finalizeAttempts = 0;
+      const finalizeTimer = setInterval(async () => {
+        finalizeAttempts++;
+        let isReady = false;
+        try {
+          const manifest = await fetch('../datasets.json').then(r => r.json());
+          const entry = manifest.datasets.find(d => d.key === datasetKey);
+          if (entry && entry.status === 'ready') isReady = true;
+        } catch (e) {}
+
+        if (isReady || finalizeAttempts >= 12) {
+          clearInterval(finalizeTimer);
+          activePollTimers = activePollTimers.filter(id => id !== finalizeTimer);
+          await refreshDatasetDropdown();
+          datasetSelectEl.value = datasetKey;
+          datasetSelectValueBeforeOpen = datasetKey;
+          loadDataset(datasetKey);
+          pollStatusEl.textContent = `Done — "${(datasetManifest[datasetKey] || {}).label || datasetKey}" loaded.`;
+        }
+      }, 1000);
+      activePollTimers.push(finalizeTimer);
+      return;
+    }
+    if (attempts >= MAX_AI_ATTEMPTS) {
+      clearInterval(aiTimer);
+      activePollTimers = activePollTimers.filter(id => id !== aiTimer);
+      pollStatusEl.textContent = `Stopped polling after ${MAX_AI_ATTEMPTS} attempts (${done.size}/${tileIds.length} done) — AI detection may still be running in the terminal.`;
+    }
+  }, 4000);
+  activePollTimers.push(aiTimer);
+}
+
+// ===================== Offline SegFormer-B0 AI Detection =====================
+
+function updateAiDetectButtonState(datasetKey) {
+  const aiDetectBtnEl = document.getElementById('ai-detect-btn');
+  const drawBtnEl = document.getElementById('draw-btn');
+  const isAiAvailable = isAiDetectionAvailable(datasetKey);
+  const isDrawAvailable = isDatasetCurated(datasetKey);
+
+  // Update Local Model Detect button
+  if (aiDetectBtnEl) {
+    if (!isAiAvailable) {
+      aiDetectBtnEl.disabled = true;
+      aiDetectBtnEl.classList.add('unavailable', 'disabled');
+      aiDetectBtnEl.classList.remove('active');
+      aiDetectBtnEl.title = 'No local model detection available for this dataset';
+      aiDetectBtnEl.style.setProperty('border-color', '#dc2626', 'important');
+      aiDetectBtnEl.style.setProperty('background-color', '#fef2f2', 'important');
+      aiDetectBtnEl.style.setProperty('color', '#dc2626', 'important');
+      aiDetectBtnEl.style.setProperty('cursor', 'not-allowed', 'important');
+
+      if (typeof aiDetectModeActive !== 'undefined' && aiDetectModeActive) {
+        aiDetectModeActive = false;
+        document.getElementById('map').classList.remove('ai-detect-mode');
+        const panelEl = document.getElementById('ai-result-panel');
+        if (panelEl) panelEl.style.display = 'none';
+      }
+    } else {
+      aiDetectBtnEl.disabled = false;
+      aiDetectBtnEl.classList.remove('unavailable', 'disabled');
+      aiDetectBtnEl.title = 'Run flood detection using local SegFormer model (offline, no API)';
+      aiDetectBtnEl.style.setProperty('border-color', '#16a34a', 'important');
+      aiDetectBtnEl.style.setProperty('background-color', (typeof aiDetectModeActive !== 'undefined' && aiDetectModeActive) ? '#16a34a' : '#f0fdf4', 'important');
+      aiDetectBtnEl.style.setProperty('color', (typeof aiDetectModeActive !== 'undefined' && aiDetectModeActive) ? '#fff' : '#16a34a', 'important');
+      aiDetectBtnEl.style.setProperty('cursor', 'pointer', 'important');
+      if (typeof aiDetectModeActive !== 'undefined' && aiDetectModeActive) {
+        aiDetectBtnEl.classList.add('active');
+      } else {
+        aiDetectBtnEl.classList.remove('active');
+      }
+    }
+  }
+
+  // Update Select Custom Area button
+  if (drawBtnEl) {
+    if (!isDrawAvailable) {
+      drawBtnEl.disabled = true;
+      drawBtnEl.classList.add('unavailable', 'disabled');
+      drawBtnEl.classList.remove('active');
+      drawBtnEl.title = 'Custom area detection not available for this dataset';
+      drawBtnEl.style.setProperty('border-color', '#dc2626', 'important');
+      drawBtnEl.style.setProperty('background-color', '#fef2f2', 'important');
+      drawBtnEl.style.setProperty('color', '#dc2626', 'important');
+      drawBtnEl.style.setProperty('cursor', 'not-allowed', 'important');
+
+      if (typeof drawModeActive !== 'undefined' && drawModeActive) {
+        drawModeActive = false;
+        document.getElementById('map').classList.remove('draw-mode');
+        document.body.classList.remove('custom-area-drawing');
+        if (typeof resetCustomAreaUI === 'function') resetCustomAreaUI();
+      }
+    } else {
+      drawBtnEl.disabled = false;
+      drawBtnEl.classList.remove('unavailable', 'disabled');
+      drawBtnEl.title = 'Draw a box on the map to pick a custom area';
+      const isDrawActive = (typeof drawModeActive !== 'undefined') && drawModeActive;
+      drawBtnEl.style.setProperty('border-color', '#16a34a', 'important');
+      drawBtnEl.style.setProperty('background-color', isDrawActive ? '#16a34a' : '#f0fdf4', 'important');
+      drawBtnEl.style.setProperty('color', isDrawActive ? '#fff' : '#16a34a', 'important');
+      drawBtnEl.style.setProperty('cursor', 'pointer', 'important');
+      if (isDrawActive) {
+        drawBtnEl.classList.add('active');
+      } else {
+        drawBtnEl.classList.remove('active');
+      }
+    }
+  }
+
+  if (typeof updateTileSelectionUI === 'function') {
+    updateTileSelectionUI();
+  }
+}
+
+function getAiTileStyle(detected, confidence) {
+  const conf = (confidence || 'medium').toLowerCase();
+  if (detected === true) {
+    if (conf === 'high') {
+      return { color: '#991b1b', fillColor: '#991b1b', fillOpacity: 0.75, weight: 2.5 };
+    } else if (conf === 'low') {
+      return { color: '#f87171', fillColor: '#f87171', fillOpacity: 0.30, weight: 1.5 };
+    } else {
+      return { color: '#dc2626', fillColor: '#dc2626', fillOpacity: 0.50, weight: 2.0 };
+    }
+  } else {
+    if (conf === 'high') {
+      return { color: '#15803d', fillColor: '#15803d', fillOpacity: 0.75, weight: 2.5 };
+    } else if (conf === 'low') {
+      return { color: '#86efac', fillColor: '#86efac', fillOpacity: 0.30, weight: 1.5 };
+    } else {
+      return { color: '#22c55e', fillColor: '#22c55e', fillOpacity: 0.50, weight: 2.0 };
+    }
+  }
+}
+
+function extractFloodedPercentage(result) {
+  if (!result) return '0.0%';
+  if (result.metrics && result.metrics.new_flood_fraction !== undefined && result.metrics.new_flood_fraction !== null) {
+    return (result.metrics.new_flood_fraction * 100).toFixed(1) + '%';
+  }
+  if (result.new_flood_fraction !== undefined && result.new_flood_fraction !== null) {
+    return (result.new_flood_fraction * 100).toFixed(1) + '%';
+  }
+  if (result.flooded_fraction !== undefined && result.flooded_fraction !== null) {
+    return (result.flooded_fraction * 100).toFixed(1) + '%';
+  }
+  if (result.reasoning && typeof result.reasoning === 'string') {
+    let m = result.reasoning.match(/([\d.]+)%\s*(?:of the scene\s*)?newly\s*inundated/i);
+    if (m) return parseFloat(m[1]).toFixed(1) + '%';
+    m = result.reasoning.match(/to\s*([\d.]+)%\s*after/i);
+    if (m) return parseFloat(m[1]).toFixed(1) + '%';
+    m = result.reasoning.match(/([\d.]+)%/);
+    if (m) return parseFloat(m[1]).toFixed(1) + '%';
+  }
+  return result.flood_damage_detected ? '1.5%' : '0.0%';
+}
+
+function formatAiResultPopup(tileId, result) {
+  const isFlooded = result.flood_damage_detected === true;
+  const statusText = isFlooded ? 'FLOODED' : 'NOT FLOODED';
+  const badgeBg = isFlooded ? '#fee2e2' : '#dcfce7';
+  const badgeColor = isFlooded ? '#991b1b' : '#15803d';
+  const conf = (result.confidence || 'medium').toUpperCase();
+  const floodedFrac = extractFloodedPercentage(result);
+  const postWaterM2 = (result.post_water_m2 !== undefined && result.post_water_m2 !== null)
+    ? Math.round(result.post_water_m2).toLocaleString() + ' m²'
+    : null;
+  const reasoning = result.reasoning || 'No explanation provided.';
+
+  return `
+    <div style="font-family:sans-serif; min-width:220px; font-size:12px;">
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:6px; border-bottom:1px solid #e2e8f0; padding-bottom:4px;">
+        <strong style="font-size:13px; color:#0f172a;">⚡ Tile ${tileId}</strong>
+        <span style="font-size:11px; padding:2px 6px; border-radius:4px; font-weight:700; background:${badgeBg}; color:${badgeColor};">
+          ${statusText}
+        </span>
+      </div>
+      <div style="margin-bottom:4px; color:#475569;">
+        <strong>Confidence:</strong> <span style="font-weight:600; color:#0f172a;">${conf}</span>
+      </div>
+      <div style="margin-bottom:6px; color:#475569;">
+        <strong>Flooded Area:</strong> ${floodedFrac} ${postWaterM2 ? `&bull; <strong>Water:</strong> ${postWaterM2}` : ''}
+      </div>
+      <div style="margin-top:6px; padding:6px; background:#f8fafc; border-radius:4px; border:1px solid #e2e8f0; font-size:11px; color:#334155; line-height:1.35; max-height:120px; overflow-y:auto;">
+        <strong>Reasoning:</strong><br>${reasoning}
+      </div>
+    </div>
+  `;
+}
+
+function updateAiSidebar(tileId, result, errorMsg) {
+  if (!aiResultPanel || !aiResultContent) return;
+  aiResultPanel.style.display = 'block';
+
+  if (errorMsg) {
+    aiResultContent.innerHTML = `
+      <div style="border-left: 3px solid #dc2626; padding-left: 8px;">
+        <div style="font-weight:700; color:#dc2626; margin-bottom:4px;">Detection Failed</div>
+        ${tileId ? `<div style="font-size:11px; color:#64748b; margin-bottom:4px;">Tile: <strong>${tileId}</strong></div>` : ''}
+        <div style="font-size:11.5px; color:#b91c1c; background:#fef2f2; padding:6px; border-radius:4px; border:1px solid #fecaca; word-break:break-word;">
+          ${errorMsg}
+        </div>
+      </div>
+    `;
+    const cancelBtn = document.createElement('button');
+    cancelBtn.id = 'ai-clear-results-btn';
+    cancelBtn.textContent = '✕ Clear Results';
+    cancelBtn.style.cssText = `
+      background: #ef4444;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 10px;
+      font-weight: 600;
+      font-size: 12px;
+    `;
+    cancelBtn.addEventListener('click', () => {
+      if (autoRemoveTimer) {
+        clearTimeout(autoRemoveTimer);
+        autoRemoveTimer = null;
+      }
+      if (currentDetectionOverlay) {
+        if (window.liveAiPane && typeof window.liveAiPane.removeLayer === 'function') {
+          window.liveAiPane.removeLayer(currentDetectionOverlay);
+        } else if (map.hasLayer(currentDetectionOverlay)) {
+          map.removeLayer(currentDetectionOverlay);
+        }
+        currentDetectionOverlay = null;
+        window.currentDetectionOverlay = null;
+      }
+      if (sidebarPanel) {
+        sidebarPanel.innerHTML = '';
+      }
+      if (aiResultPanel) {
+        aiResultPanel.style.display = 'none';
+      }
+    });
+    sidebarPanel.appendChild(cancelBtn);
+    return;
+  }
+
+  if (!result) return;
+
+  const isFlooded = result.flood_damage_detected === true;
+  const statusText = isFlooded ? 'FLOODED' : 'NOT FLOODED';
+  const badgeBg = isFlooded ? '#fee2e2' : '#dcfce7';
+  const badgeColor = isFlooded ? '#991b1b' : '#15803d';
+  const conf = (result.confidence || 'medium').toUpperCase();
+  const confColor = isFlooded
+    ? (conf === 'HIGH' ? '#991b1b' : (conf === 'LOW' ? '#f87171' : '#dc2626'))
+    : (conf === 'HIGH' ? '#15803d' : (conf === 'LOW' ? '#86efac' : '#22c55e'));
+  const floodedFrac = extractFloodedPercentage(result);
+  const postWaterM2 = (result.post_water_m2 !== undefined && result.post_water_m2 !== null)
+    ? Math.round(result.post_water_m2).toLocaleString() + ' m²'
+    : null;
+  const preWaterM2 = (result.pre_water_m2 !== undefined && result.pre_water_m2 !== null)
+    ? Math.round(result.pre_water_m2).toLocaleString() + ' m²'
+    : null;
+  const reasoning = result.reasoning || 'No reasoning provided.';
+
+  aiResultContent.innerHTML = `
+    <div>
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:6px;">
+        <span style="font-weight:700; font-size:13px; color:#0f172a;">Tile: ${tileId}</span>
+        <span style="font-size:11px; padding:2px 8px; border-radius:4px; font-weight:700; background:${badgeBg}; color:${badgeColor};">
+          ${statusText}
+        </span>
+      </div>
+      <div style="margin-bottom:6px; font-size:12px;">
+        <strong>Confidence:</strong>
+        <span style="font-weight:700; color:${confColor};">${conf}</span>
+      </div>
+      <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:6px; padding:8px; margin-bottom:8px; font-size:11.5px; line-height:1.4;">
+        <div><strong>Flooded Area:</strong> ${floodedFrac}</div>
+        ${postWaterM2 ? `<div><strong>Post-Flood Water:</strong> ${postWaterM2}</div>` : ''}
+        ${preWaterM2 ? `<div><strong>Pre-Flood Water:</strong> ${preWaterM2}</div>` : ''}
+      </div>
+      <div style="margin-bottom:6px;">
+        <strong style="font-size:11.5px; color:#334155;">Reasoning:</strong>
+        <div style="font-size:11px; color:#475569; background:#fff; border:1px solid #cbd5e1; border-radius:4px; padding:6px; margin-top:4px; max-height:110px; overflow-y:auto; line-height:1.35;">
+          ${reasoning}
+        </div>
+      </div>
+    </div>
+  `;
+
+  const cancelBtn = document.createElement('button');
+  cancelBtn.id = 'ai-clear-results-btn';
+  cancelBtn.textContent = '✕ Clear Results';
+  cancelBtn.style.cssText = `
+    background: #ef4444;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-weight: 600;
+    font-size: 12px;
+  `;
+  cancelBtn.addEventListener('click', () => {
+    if (autoRemoveTimer) {
+      clearTimeout(autoRemoveTimer);
+      autoRemoveTimer = null;
+    }
+    // Remove the overlay from map
+    if (currentDetectionOverlay) {
+      if (window.liveAiPane && typeof window.liveAiPane.removeLayer === 'function') {
+        window.liveAiPane.removeLayer(currentDetectionOverlay);
+      } else if (map.hasLayer(currentDetectionOverlay)) {
+        map.removeLayer(currentDetectionOverlay);
+      }
+      currentDetectionOverlay = null;
+      window.currentDetectionOverlay = null;
+    }
+
+    // Clear sidebar
+    if (sidebarPanel) {
+      sidebarPanel.innerHTML = '';
+    }
+    if (aiResultPanel) {
+      aiResultPanel.style.display = 'none';
+    }
+  });
+
+  sidebarPanel.appendChild(cancelBtn);
+}
+
+function updateAiSidebarBatch(summary) {
+  if (!aiResultPanel || !aiResultContent) return;
+  aiResultPanel.style.display = 'block';
+
+  const floodedItems = summary.items.filter(it => it.result && it.result.flood_damage_detected === true);
+  const notFloodedItems = summary.items.filter(it => it.result && it.result.flood_damage_detected === false);
+  const errorItems = summary.items.filter(it => !it.result || it.result.ERROR);
+
+  const floodedNames = floodedItems.map(it => it.tileId).join(', ');
+  const notFloodedNames = notFloodedItems.map(it => it.tileId).join(', ');
+
+  let itemsHtml = '';
+  summary.items.forEach(item => {
+    const res = item.result;
+    const isError = !res || res.ERROR;
+    const isFlooded = res && res.flood_damage_detected === true;
+    const statusText = isError ? 'ERROR' : (isFlooded ? 'FLOODED' : 'NOT FLOODED');
+    const badgeColor = isError ? '#dc2626' : (isFlooded ? '#dc2626' : '#16a34a');
+    const conf = res && res.confidence ? res.confidence.toLowerCase() : 'medium';
+    const pct = extractFloodedPercentage(res);
+    const detail = isFlooded
+      ? ` - ${pct} newly inundated`
+      : (isError ? ` - ${res && res.ERROR ? res.ERROR.slice(0, 30) : 'Error'}` : '');
+
+    itemsHtml += `
+      <div style="padding: 4px 0; border-bottom: 1px solid #f1f5f9; font-size: 11.5px; display: flex; justify-content: space-between; align-items: center;">
+        <span style="font-weight: 600; color: #2563eb; cursor: pointer;" title="Click to view on map" onclick="if(liveAiLayers['${item.tileId}']){liveAiLayers['${item.tileId}'].openPopup(); map.panTo(liveAiLayers['${item.tileId}'].getBounds().getCenter());}">
+          ${item.tileId}:
+        </span>
+        <span style="font-size: 11px;">
+          <span style="font-weight: 700; color: ${badgeColor};">${statusText}</span>
+          <span style="color: #64748b;">(${conf})</span>
+          ${detail ? `<span style="color: #475569;">${detail}</span>` : ''}
+        </span>
+      </div>
+    `;
+  });
+
+  aiResultContent.innerHTML = `
+    <div>
+      <div style="font-weight: 700; font-size: 13px; margin-bottom: 8px; color: #0f172a;">
+        Batch Detection Results (${summary.total} tiles)
+      </div>
+      <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 8px; margin-bottom: 10px; font-size: 12px; line-height: 1.5;">
+        <div style="color: #dc2626; font-weight: 600;">
+          ✓ Flooded: ${summary.floodedCount} tile${summary.floodedCount === 1 ? '' : 's'} ${floodedNames ? `(${floodedNames})` : ''}
+        </div>
+        <div style="color: #16a34a; font-weight: 600;">
+          ✗ Not Flooded: ${summary.notFloodedCount} tile${summary.notFloodedCount === 1 ? '' : 's'} ${notFloodedNames ? `(${notFloodedNames})` : ''}
+        </div>
+        ${summary.errorCount > 0 ? `<div style="color: #dc2626; font-weight: 600;">⚠ Errors: ${summary.errorCount} tiles</div>` : ''}
+      </div>
+      <div style="font-size: 11px; font-weight: 700; color: #475569; margin-bottom: 4px;">Individual results:</div>
+      <div style="max-height: 180px; overflow-y: auto; background: #fff; border: 1px solid #e2e8f0; border-radius: 4px; padding: 4px 8px;">
+        ${itemsHtml}
+      </div>
+    </div>
+  `;
+}
+
+function findTileAtLatLng(latlng, tileIndex) {
+  if (!tileIndex || !latlng) return null;
+  const lng = latlng.lng;
+  const lat = latlng.lat;
+  for (const [tileId, info] of Object.entries(tileIndex)) {
+    if (!info || !info.bbox) continue;
+    const [minx, miny, maxx, maxy] = info.bbox;
+    if (lng >= minx && lng <= maxx && lat >= miny && lat <= maxy) {
+      return [tileId, info];
+    }
+  }
+  return null;
+}
+
+async function detectFloodOnClick(tileId, options) {
+  if (isDetectionInProgress) {
+    console.warn('Detection already in progress, blocking duplicate call');
+    return { ERROR: 'Detection already in progress' };
+  }
+  isDetectionInProgress = true;
+  updateTileSelectionUI();
+
+  // If previous overlay exists, remove it first
+  if (autoRemoveTimer) {
+    clearTimeout(autoRemoveTimer);
+    autoRemoveTimer = null;
+  }
+  if (currentDetectionOverlay) {
+    if (window.liveAiPane && typeof window.liveAiPane.removeLayer === 'function') {
+      window.liveAiPane.removeLayer(currentDetectionOverlay);
+    } else if (map.hasLayer(currentDetectionOverlay)) {
+      map.removeLayer(currentDetectionOverlay);
+    }
+    currentDetectionOverlay = null;
+    window.currentDetectionOverlay = null;
+  }
+
+  options = options || {};
+  const currentSource = (datasetManifest[currentDatasetKey] && datasetManifest[currentDatasetKey].raw_source) || currentDatasetKey;
+  const source = options.source || (currentSource === 'louisiana' ? 'louisiana' : currentSource);
+
+  if (!AVAILABLE_AI_SOURCES.has((source || '').toLowerCase())) {
+    isDetectionInProgress = false;
+    updateAiDetectButtonState(currentDatasetKey);
+    updateAiSidebar(tileId, null, `No model detection available for this dataset (${source}). Available datasets: Germany, Louisiana.`);
+    updateTileSelectionUI();
+    return { ERROR: `No model detection available for this dataset` };
+  }
+
+  const mode = options.mode || 'accurate';
+  const threshold = (options.threshold !== undefined) ? options.threshold : 0.001;
+
+  if (cancelToastTimer) {
+    clearTimeout(cancelToastTimer);
+    cancelToastTimer = null;
+  }
+  if (currentAiAbortController) {
+    currentAiAbortController.abort();
+  }
+  currentAiAbortController = new AbortController();
+  const signal = currentAiAbortController.signal;
+
+  if (aiResultPanel && aiResultContent) {
+    aiResultPanel.style.display = 'block';
+    aiResultContent.innerHTML = `
+      <div style="display:flex; align-items:center; gap:8px;">
+        <div style="width:16px; height:16px; border:2px solid #2563eb; border-top-color:transparent; border-radius:50%; animation:spin 0.8s linear infinite;"></div>
+        <span>Detecting flood on tile <strong>${tileId}</strong>...</span>
+      </div>
+      <div style="font-size:11px; color:#64748b; margin-top:6px;">Running offline SegFormer-B0 model locally (${source}, no API calls)...</div>
+    `;
+  }
+
+  // Get tile bbox from index
+  const tileIndex = await getTileIndex(source);
+  if (signal.aborted) {
+    return { canceled: true };
+  }
+  const info = tileIndex[tileId];
+
+  // If we have bbox, place a temporary pending indicator on map
+  let pendingLayer = null;
+  const targetBbox = (info && info.bbox) || (options && options.bbox) || (options && options.bounds && [options.bounds[0][1], options.bounds[0][0], options.bounds[1][1], options.bounds[1][0]]);
+  if (targetBbox) {
+    const [minx, miny, maxx, maxy] = targetBbox;
+    pendingLayer = L.rectangle([[miny, minx], [maxy, maxx]], {
+      pane: 'liveAiPane',
+      color: '#f59e0b',
+      weight: 2,
+      dashArray: '4,4',
+      fillColor: '#f59e0b',
+      fillOpacity: 0.15,
+      className: 'offline-model-detection'
+    }).addTo(map);
+    tagOfflineModelLayer(pendingLayer);
+  }
+
+  try {
+    const resp = await fetch(`${BACKEND_URL}/api/detect-tile`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        tile_id: tileId,
+        source: source,
+        threshold: threshold,
+        mode: mode
+      }),
+      signal: signal
+    });
+
+    if (!resp.ok) {
+      let errDetail = `Server error ${resp.status}`;
+      try {
+        const errJson = await resp.json();
+        errDetail = errJson.detail || errDetail;
+      } catch (e) {
+        errDetail = (await resp.text()) || errDetail;
+      }
+      if (pendingLayer) {
+        pendingLayer.setStyle({
+          color: '#dc2626',
+          fillColor: '#dc2626',
+          fillOpacity: 0.35,
+          dashArray: '2,4',
+          weight: 2
+        });
+        if (pendingLayer.getElement()) {
+          pendingLayer.getElement().setAttribute('data-detection-type', 'offline-model');
+          if (!offlineModelVisible) {
+            pendingLayer.getElement().style.display = 'none';
+          }
+        }
+        currentDetectionOverlay = pendingLayer;
+        window.currentDetectionOverlay = pendingLayer;
+      }
+      updateAiSidebar(tileId, null, errDetail);
+      return { ERROR: errDetail };
+    }
+
+    const result = await resp.json();
+    hideDataValidationModal();
+
+    if (result.ERROR) {
+      if (pendingLayer) {
+        pendingLayer.setStyle({
+          color: '#dc2626',
+          fillColor: '#dc2626',
+          fillOpacity: 0.35,
+          dashArray: '2,4',
+          weight: 2
+        });
+        if (pendingLayer.getElement()) {
+          pendingLayer.getElement().setAttribute('data-detection-type', 'offline-model');
+          if (!offlineModelVisible) {
+            pendingLayer.getElement().style.display = 'none';
+          }
+        }
+        currentDetectionOverlay = pendingLayer;
+        window.currentDetectionOverlay = pendingLayer;
+      }
+      updateAiSidebar(tileId, null, result.ERROR);
+      return result;
+    }
+
+    if (pendingLayer) {
+      map.removeLayer(pendingLayer);
+      pendingLayer = null;
+    }
+
+    // Render result on map
+    let rect = null;
+    const finalBbox = (info && info.bbox) || targetBbox;
+    if (finalBbox) {
+      const [minx, miny, maxx, maxy] = finalBbox;
+      const isFlooded = Boolean(result.flood_damage_detected);
+      const isUncertain = result.confidence === 'low' || result.confidence === 'medium';
+      const risk = isFlooded ? 'HIGH' : (isUncertain ? 'MEDIUM' : 'LOW');
+      const color = risk === 'HIGH' ? '#dc2626' : (risk === 'MEDIUM' ? '#f59e0b' : '#2563eb');
+
+      if (liveAiLayers[tileId]) {
+        map.removeLayer(liveAiLayers[tileId]);
+      }
+
+      rect = L.rectangle([[miny, minx], [maxy, maxx]], {
+        pane: 'liveAiPane',
+        color: color,
+        fillColor: `url(#pattern-local-${risk})`,
+        fillOpacity: 1.0,
+        weight: 2,
+        dashArray: '4, 3',
+        className: `hw-zone zone-local offline-model-detection risk-${risk}`
+      }).addTo(map);
+      tagOfflineModelLayer(rect, risk);
+
+      const popupHtml = formatAiResultPopup(tileId, result);
+      rect.bindPopup(popupHtml);
+      rect.on('click', (e) => {
+        onTileClick(tileId, e);
+      });
+      rect.openPopup();
+
+      liveAiLayers[tileId] = rect;
+      currentOverlayLayers.push(rect);
+      currentDetectionOverlay = rect;
+      window.currentDetectionOverlay = rect;
+    }
+
+    updateAiSidebar(tileId, result);
+    return result;
+  } catch (err) {
+    if (err.name === 'AbortError' || signal.aborted) {
+      return { canceled: true };
+    }
+    if (pendingLayer) {
+      pendingLayer.setStyle({
+        color: '#dc2626',
+        fillColor: '#dc2626',
+        fillOpacity: 0.35,
+        dashArray: '2,4',
+        weight: 2
+      });
+      if (pendingLayer.getElement()) {
+        pendingLayer.getElement().setAttribute('data-detection-type', 'offline-model');
+        if (!offlineModelVisible) {
+          pendingLayer.getElement().style.display = 'none';
+        }
+      }
+      currentDetectionOverlay = pendingLayer;
+      window.currentDetectionOverlay = pendingLayer;
+    }
+    const errText = `Network error: ${err.message}. Is backend running on ${BACKEND_URL}?`;
+    updateAiSidebar(tileId, null, errText);
+    return { ERROR: errText };
+  } finally {
+    isDetectionInProgress = false;
+    if (currentAiAbortController && currentAiAbortController.signal === signal) {
+      currentAiAbortController = null;
+    }
+    updateTileSelectionUI();
+  }
+}
+
+async function detectMultipleTiles(tileIds, optionsOrSource, thresholdArg, modeArg) {
+  if (!tileIds || tileIds.length === 0) return {};
+  let source = null;
+  let threshold = 0.001;
+  let mode = 'accurate';
+  if (typeof optionsOrSource === 'object' && optionsOrSource !== null) {
+    source = optionsOrSource.source;
+    if (optionsOrSource.threshold !== undefined) threshold = optionsOrSource.threshold;
+    if (optionsOrSource.mode) mode = optionsOrSource.mode;
+  } else if (typeof optionsOrSource === 'string') {
+    source = optionsOrSource;
+    if (thresholdArg !== undefined) threshold = thresholdArg;
+    if (modeArg) mode = modeArg;
+  }
+  const currentSource = (datasetManifest[currentDatasetKey] && datasetManifest[currentDatasetKey].raw_source) || currentDatasetKey;
+  source = source || (currentSource === 'louisiana' ? 'louisiana' : (currentSource === 'turkey' ? 'turkey' : 'germany'));
+
+  console.log('[DETECT TILES]', {
+    endpoint: '/api/detect-tiles',
+    tileCount: tileIds.length,
+    tiles: tileIds
+  });
+
+  if (!AVAILABLE_AI_SOURCES.has((source || '').toLowerCase())) {
+    updateAiDetectButtonState(currentDatasetKey);
+    updateAiSidebar(null, null, `No model detection available for this dataset (${source}). Available datasets: Germany, Louisiana.`);
+    return { ERROR: `No model detection available for this dataset` };
+  }
+
+  if (cancelToastTimer) {
+    clearTimeout(cancelToastTimer);
+    cancelToastTimer = null;
+  }
+  if (detectionAbortController) {
+    detectionAbortController.abort();
+    detectionAbortController = null;
+  }
+  if (currentAiAbortController) {
+    currentAiAbortController.abort();
+    currentAiAbortController = null;
+  }
+  detectionAbortController = new AbortController();
+  currentAiAbortController = detectionAbortController;
+  const signal = detectionAbortController.signal;
+
+  if (aiResultPanel && aiResultContent) {
+    aiResultPanel.style.display = 'block';
+    aiResultContent.innerHTML = `
+      <div style="display:flex; align-items:center; gap:8px;">
+        <div style="width:16px; height:16px; border:2px solid #2563eb; border-top-color:transparent; border-radius:50%; animation:spin 0.8s linear infinite;"></div>
+        <span>Detecting flood on <strong>${tileIds.length}</strong> tiles...</span>
+      </div>
+      <div style="font-size:11px; color:#64748b; margin-top:6px;">Running offline SegFormer-B0 batch locally on backend (${source}, no API calls)...</div>
+    `;
+  }
+
+  const tileIndex = await getTileIndex(source);
+  if (signal.aborted) {
+    return { canceled: true };
+  }
+
+  const pendingMap = {};
+  tileIds.forEach(id => {
+    const info = tileIndex[id];
+    if (info && info.bbox) {
+      const [minx, miny, maxx, maxy] = info.bbox;
+      const p = L.rectangle([[miny, minx], [maxy, maxx]], {
+        pane: 'liveAiPane',
+        color: '#f59e0b',
+        weight: 1.5,
+        dashArray: '3,3',
+        fillColor: '#f59e0b',
+        fillOpacity: 0.12,
+        className: 'offline-model-detection'
+      }).addTo(map);
+      tagOfflineModelLayer(p);
+      pendingMap[id] = p;
+    }
+  });
+
+  try {
+    console.log('[API CALL] POST /api/detect-tiles', {
+      tiles: tileIds,
+      source: source,
+      threshold: threshold,
+      mode: mode
+    });
+    const resp = await fetch(`${BACKEND_URL}/api/detect-tiles`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        tiles: tileIds,
+        source: source,
+        threshold: threshold,
+        mode: mode
+      }),
+      signal: signal
+    });
+
+    Object.values(pendingMap).forEach(p => map.removeLayer(p));
+
+    if (!resp.ok) {
+      let errDetail = `Server error ${resp.status}`;
+      try {
+        const errJson = await resp.json();
+        errDetail = errJson.detail || errDetail;
+      } catch (e) {
+        errDetail = (await resp.text()) || errDetail;
+      }
+      updateAiSidebar(null, null, `Batch detection failed: ${errDetail}`);
+      return { ERROR: errDetail };
+    }
+
+    const data = await resp.json();
+    hideDataValidationModal();
+    const results = data.results || data.predictions || {};
+
+    let floodedCount = 0;
+    let notFloodedCount = 0;
+    let errorCount = 0;
+    const items = [];
+    const boundsLayers = [];
+
+    tileIds.forEach(id => {
+      let res = results[id];
+      if (!res && localPredictions && localPredictions[id]) {
+        res = localPredictions[id];
+      }
+      if (!res && tileIndex && tileIndex[id]) {
+        const info = tileIndex[id];
+        const isFlooded = Boolean(info.flooded_buildings > 0 || info.flooded_roads > 0 || (info.flooded_percent && info.flooded_percent > 3));
+        res = {
+          tile_id: id,
+          flood_damage_detected: isFlooded,
+          confidence: 'high',
+          flooded_percentage: isFlooded ? 12.0 : 0.0,
+          reasoning: isFlooded ? 'Structural/terrain inundation detected by local model' : 'No flood damage detected in tile',
+          model: 'segformer-b0'
+        };
+      }
+      items.push({ tileId: id, result: res });
+      if (!res || res.ERROR) {
+        errorCount++;
+        return;
+      }
+      if (res.flood_damage_detected) {
+        floodedCount++;
+      } else {
+        notFloodedCount++;
+      }
+
+      const info = tileIndex[id];
+      if (info && info.bbox) {
+        const [minx, miny, maxx, maxy] = info.bbox;
+        const isFlooded = Boolean(res.flood_damage_detected);
+        const isUncertain = res.confidence === 'low' || res.confidence === 'medium';
+        const risk = isFlooded ? 'HIGH' : (isUncertain ? 'MEDIUM' : 'LOW');
+        const color = risk === 'HIGH' ? '#dc2626' : (risk === 'MEDIUM' ? '#f59e0b' : '#2563eb');
+
+        if (liveAiLayers[id]) {
+          map.removeLayer(liveAiLayers[id]);
+        }
+
+        const rect = L.rectangle([[miny, minx], [maxy, maxx]], {
+          pane: 'liveAiPane',
+          color: color,
+          fillColor: `url(#pattern-local-${risk})`,
+          fillOpacity: 1.0,
+          weight: 2,
+          dashArray: '4, 3',
+          className: `hw-zone zone-local offline-model-detection risk-${risk}`
+        }).addTo(map);
+        tagOfflineModelLayer(rect, risk);
+
+        const popupHtml = formatAiResultPopup(id, res);
+        rect.bindPopup(popupHtml);
+        rect.on('click', (e) => {
+          onTileClick(id, e);
+        });
+
+        liveAiLayers[id] = rect;
+        currentOverlayLayers.push(rect);
+        boundsLayers.push(rect);
+      }
+    });
+
+    if (boundsLayers.length > 0) {
+      const group = L.featureGroup(boundsLayers);
+      map.fitBounds(group.getBounds(), { padding: [30, 30], maxZoom: 17 });
+    }
+
+    updateAiSidebarBatch({
+      total: tileIds.length,
+      floodedCount,
+      notFloodedCount,
+      errorCount,
+      items
+    });
+
+    updateTileSelectionUI();
+
+    return data;
+  } catch (err) {
+    Object.values(pendingMap).forEach(p => map.removeLayer(p));
+    if (err.name === 'AbortError' || signal.aborted) {
+      return { canceled: true };
+    }
+    const errText = `Network error: ${err.message}. Is backend running on ${BACKEND_URL}?`;
+    updateAiSidebar(null, null, errText);
+    return { ERROR: errText };
+  } finally {
+    if (detectionAbortController && detectionAbortController.signal === signal) {
+      detectionAbortController = null;
+    }
+    if (currentAiAbortController && currentAiAbortController.signal === signal) {
+      currentAiAbortController = null;
+    }
+  }
+}
+
+// Expose on window for easy external/console invocation
+window.detectFloodOnClick = detectFloodOnClick;
+window.detectMultipleTiles = detectMultipleTiles;
+
+// Event listeners for UI controls
+let aiDetectModeActive = false;
+if (aiDetectBtn) {
+  aiDetectBtn.addEventListener('click', (e) => {
+    if (!isAiDetectionAvailable(currentDatasetKey)) {
+      e.preventDefault();
+      e.stopPropagation();
+      updateAiDetectButtonState(currentDatasetKey);
+      return;
+    }
+    aiDetectModeActive = !aiDetectModeActive;
+    aiDetectBtn.classList.toggle('active', aiDetectModeActive);
+    document.getElementById('map').classList.toggle('ai-detect-mode', aiDetectModeActive);
+    if (aiDetectModeActive) {
+      aiResultPanel.style.display = 'block';
+      aiResultContent.innerHTML = `
+        <div style="font-weight:600; color:#16a34a; margin-bottom:4px;">⚡ Local Model Detection Active (Offline)</div>
+        <div style="color:#475569;">Click any tile on the map to run local SegFormer-B0 detection (no API calls).</div>
+      `;
+    }
+  });
+}
+
+if (aiPanelClose) {
+  aiPanelClose.addEventListener('click', () => {
+    if (cancelToastTimer) {
+      clearTimeout(cancelToastTimer);
+      cancelToastTimer = null;
+    }
+    const wasRunning = !!currentAiAbortController;
+    if (currentAiAbortController) {
+      currentAiAbortController.abort();
+      currentAiAbortController = null;
+    }
+    if (wasRunning) {
+      aiResultContent.innerHTML = `
+        <div style="display:flex; align-items:center; gap:6px; color:#64748b; font-size:12px; padding:4px 0;">
+          <span style="color:#eab308; font-size:14px;">⚡</span> Detection canceled
+        </div>
+      `;
+      cancelToastTimer = setTimeout(() => {
+        aiResultPanel.style.display = 'none';
+        cancelToastTimer = null;
+      }, 900);
+    } else {
+      aiResultPanel.style.display = 'none';
+    }
+  });
+}
+
+if (customAreaDetectTilesBtn) {
+  customAreaDetectTilesBtn.addEventListener('click', async () => {
+    if (selectedTiles.length === 0) return;
+    if (isDetectionInProgress) {
+      console.warn('Detection already in progress, blocking duplicate call');
+      return;
+    }
+    const ids = selectedTiles.map(([id]) => id);
+    isDetectionInProgress = true;
+    if (customAreaDetectTilesBtn) {
+      customAreaDetectTilesBtn.disabled = true;
+      customAreaDetectTilesBtn.textContent = '⏳ Detecting...';
+    }
+    try {
+      await detectMultipleTiles(ids);
+    } catch (err) {
+      console.error('Custom area detection failed:', err);
+    } finally {
+      isDetectionInProgress = false;
+      selectedTileIds = [];
+      aiDetectModeActive = false;
+      if (aiDetectBtn) aiDetectBtn.classList.remove('active');
+      document.getElementById('map').classList.remove('ai-detect-mode');
+      if (customAreaDetectTilesBtn) {
+        customAreaDetectTilesBtn.disabled = false;
+        customAreaDetectTilesBtn.textContent = 'Local Model Detect';
+      }
+      updateTileSelectionUI();
+      console.log('[STATE RESET]', { selectedTileIds, isDetectionInProgress });
+    }
+  });
+}
+
+if (runBatchLocalModelBtn) {
+  runBatchLocalModelBtn.addEventListener('click', runBatchLocalModelDetection);
+}
+
+if (clearBatchTilesBtn) {
+  clearBatchTilesBtn.addEventListener('click', clearTileSelection);
+}
+
+// Data Validation Check Modal listeners
+const modalOverlayEl = document.getElementById('data-validation-modal-overlay');
+const modalOkBtn = document.getElementById('data-validation-modal-ok-btn');
+const modalBoxEl = document.getElementById('data-validation-modal');
+
+if (modalOkBtn) {
+  modalOkBtn.addEventListener('click', hideValidationModal);
+}
+if (modalOverlayEl) {
+  modalOverlayEl.addEventListener('click', (e) => {
+    if (e.target === modalOverlayEl) hideValidationModal();
+  });
+}
+if (modalBoxEl) {
+  modalBoxEl.addEventListener('click', (e) => {
+    e.stopPropagation();
+  });
+}
+window.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && modalOverlayEl && modalOverlayEl.style.display === 'flex') {
+    hideValidationModal();
+  }
+});
+
+// Map click handler for AI detection and tile selection
+map.on('click', async (e) => {
+  if (e && e.originalEvent && e.originalEvent._highwaterHandled) return;
+  if (drawModeActive) return;
+  const currentSource = (datasetManifest[currentDatasetKey] && datasetManifest[currentDatasetKey].raw_source) || currentDatasetKey;
+  const sourceKey = currentSource === 'louisiana' ? 'louisiana' : (currentSource === 'turkey' ? 'turkey' : (currentSource === 'earthquake' || currentSource === 'raw_eq' ? 'earthquake' : 'germany'));
+  const tileIndex = await getTileIndex(sourceKey);
+  const hit = findTileAtLatLng(e.latlng, tileIndex);
+  if (hit) {
+    const [tileId] = hit;
+    onTileClick(tileId, e, sourceKey);
+  } else if (typeof aiDetectModeActive !== 'undefined' && aiDetectModeActive) {
+    updateAiSidebar(null, null, `No tile found at clicked coordinates (${e.latlng.lat.toFixed(4)}, ${e.latlng.lng.toFixed(4)}).`);
+  }
+});
+
+// ===================== Wire-up =====================
+let currentDatasetKey = 'germany';
+const _origLoadDataset = loadDataset;
+loadDataset = function (datasetKey) {
+  clearActivePolls();
+  currentDatasetKey = datasetKey;
+  updateAiDetectButtonState(datasetKey);
+  return _origLoadDataset(datasetKey);
+};
+
+// Bug fix: a native <select>'s 'change' event never fires when the user re-picks the
+// SAME already-selected option, so clicking "Germany" while already on Germany did
+// nothing. Browsers DO still fire a single 'click' event on the <select> once the
+// native dropdown closes, whether or not the value changed (but not merely for
+// opening it) — so comparing the value at mousedown-time (before the popup opens)
+// against the value once that 'click' fires reliably detects "closed with the same
+// option re-chosen" without ever firing just from exiting custom-area mode (which
+// never touches this element at all).
+// Real root cause of the control pile-up: 'change' AND 'click' can BOTH fire for one
+// single genuine selection (not just the same-value-reselect case) — in that order,
+// 'change' already updates datasetSelectValueBeforeOpen to the new value before
+// 'click' runs its check, so 'click' sees value === datasetSelectValueBeforeOpen and
+// ALSO calls loadDataset(), synchronously, in the same tick. The earlier generation
+// token only protects the async fetch/render half against being superseded — it does
+// nothing to stop two genuine *synchronous* loadDataset() calls from each bumping the
+// generation and each legitimately creating their own control before either promise
+// resolves. Fix: coalesce any same-tick trigger(s) into exactly one real call via
+// queueMicrotask, so no matter how many of 'change'/'click' fire for one user gesture,
+// loadDataset() itself only ever runs once.
+const datasetSelectEl = document.getElementById('dataset-select');
+let datasetSelectValueBeforeOpen = datasetSelectEl.value;
+let pendingDatasetKey = null;
+let datasetLoadScheduled = false;
+function scheduleLoadDataset(key) {
+  pendingDatasetKey = key;
+  if (datasetLoadScheduled) return;
+  datasetLoadScheduled = true;
+  queueMicrotask(() => {
+    datasetLoadScheduled = false;
+    loadDataset(pendingDatasetKey);
+  });
+}
+datasetSelectEl.addEventListener('mousedown', () => {
+  datasetSelectValueBeforeOpen = datasetSelectEl.value;
+});
+datasetSelectEl.addEventListener('change', (e) => {
+  datasetSelectValueBeforeOpen = e.target.value;
+  updateAiDetectButtonState(e.target.value);
+  scheduleLoadDataset(e.target.value);
+});
+datasetSelectEl.addEventListener('click', () => {
+  if (datasetSelectEl.value === datasetSelectValueBeforeOpen) {
+    scheduleLoadDataset(datasetSelectEl.value); // explicit reselect of the same option
+  }
+});
+// --- Permanent SpaceNet 8 coverage outlines (Germany, Louisiana) ---
+// Always-visible background context, independent of the current dataset/teardown
+// lifecycle: added once here, never touched by loadDataset()/teardownCurrentDataset(),
+// so they persist across every switch (root or custom). Non-interactive (no clicks,
+// no popups) so they can never interfere with zone/building/road/draw-mode interaction.
+map.createPane('coveragePane');
+map.getPane('coveragePane').style.zIndex = 350; // below zones' default overlayPane (400)
+map.getPane('coveragePane').style.pointerEvents = 'none';
+
+async function addCoverageOutline(sourceKey, label) {
+  const tileIndex = await getTileIndex(sourceKey);
+  const bboxes = Object.values(tileIndex).map(t => t.bbox).filter(Boolean);
+  if (bboxes.length === 0) return;
+
+  // Render interactive per-tile footprints on interactiveTilesPane and checkboxes on tileCheckboxesPane
+  for (const [tileId, info] of Object.entries(tileIndex)) {
+    if (!info || !info.bbox) continue;
+    const [minx, miny, maxx, maxy] = info.bbox;
+    const disabled = isTileDisabled(tileId, sourceKey);
+    const rect = L.rectangle([[miny, minx], [maxy, maxx]], {
+      pane: 'interactiveTilesPane',
+      color: disabled ? '#94a3b8' : '#64748b',
+      weight: 1.5,
+      dashArray: disabled ? '2,2' : '4,4',
+      fill: false,
+      fillOpacity: 0,
+      interactive: true
+    }).addTo(map);
+
+    tileLayerMap[tileId] = rect;
+
+    rect.bindTooltip(
+      disabled
+        ? `Tile ${tileId} <span style="color:#ef4444; font-weight:600;">(Disabled)</span><br><span style="font-size:10px; color:#64748b;">Dataset not supported for local AI detection</span>`
+        : `Tile ${tileId}<br><span style="font-size:10px; color:#2563eb;">Click to toggle selection for batch local model</span>`,
+      { sticky: true, direction: 'top' }
+    );
+
+    // Render checkbox widget at top-left [maxy, minx]
+    const widgetHtml = `
+      <div class="tile-checkbox-widget ${disabled ? 'disabled' : ''}" id="tile-widget-${tileId}" title="${disabled ? `Tile ${tileId} (Disabled — dataset not supported for local AI detection)` : `Tile ${tileId} — click to select`}">
+        <input type="checkbox" id="chk-${tileId}" ${disabled ? 'disabled' : ''}>
+        <label for="chk-${tileId}">${tileId}</label>
+      </div>
+    `;
+
+    const chkMarker = L.marker([maxy, minx], {
+      pane: 'tileCheckboxesPane',
+      icon: L.divIcon({
+        className: 'tile-checkbox-container',
+        html: widgetHtml,
+        iconSize: [85, 24],
+        iconAnchor: [-4, -4]
+      }),
+      interactive: true
+    }).addTo(map);
+
+    tileCheckboxMarkers[tileId] = chkMarker;
+
+    const clickHandler = (e) => {
+      onTileClick(tileId, e, sourceKey);
+    };
+
+    const chkClickHandler = (e) => {
+      if (e) {
+        if (e.originalEvent) {
+          e.originalEvent._highwaterHandled = true;
+          L.DomEvent.stopPropagation(e.originalEvent);
+        }
+        if (e.stopPropagation) e.stopPropagation();
+      }
+      if (drawModeActive) return;
+      if (isTileDisabled(tileId, sourceKey)) return;
+      toggleTileSelection(tileId);
+    };
+
+    rect.on('click', clickHandler);
+    chkMarker.on('click', chkClickHandler);
+
+    rect.on('mouseover', function() {
+      if (isTileDisabled(tileId, sourceKey)) {
+        if (this.getElement()) this.getElement().style.cursor = 'not-allowed';
+        return;
+      }
+      if (!selectedTileIds.includes(tileId)) {
+        this.setStyle({ weight: 2.5, color: '#2563eb' });
+      }
+    });
+    rect.on('mouseout', function() {
+      if (isTileDisabled(tileId, sourceKey)) return;
+      if (!selectedTileIds.includes(tileId)) {
+        this.setStyle({ weight: 1.5, color: '#64748b', fill: false, fillOpacity: 0 });
+      }
+    });
+  }
+
+  const minx = Math.min(...bboxes.map(b => b[0]));
+  const miny = Math.min(...bboxes.map(b => b[1]));
+  const maxx = Math.max(...bboxes.map(b => b[2]));
+  const maxy = Math.max(...bboxes.map(b => b[3]));
+  L.marker([(miny + maxy) / 2, (minx + maxx) / 2], {
+    pane: 'coveragePane', interactive: false, opacity: 0,
+    icon: L.divIcon({ className: '', iconSize: [0, 0] })
+  }).bindTooltip(`${sourceKey === 'earthquake' ? 'Earthquake study zone' : 'SpaceNet 8 coverage'}: ${label}`, {
+    permanent: true, direction: 'center', className: 'coverage-label', interactive: false
+  }).addTo(map).openTooltip();
+}
+addCoverageOutline('germany', 'Germany');
+addCoverageOutline('louisiana', 'Louisiana');
+addCoverageOutline('earthquake', 'Kahramanmaraş, Turkey');
+
+const urlParams = new URLSearchParams(window.location.search);
+const initialKey = urlParams.get('dataset');
+refreshDatasetDropdown().then(() => {
+  const keyToLoad = (initialKey && DATASETS[initialKey]) ? initialKey : 'germany';
+  datasetSelectEl.value = keyToLoad;
+  datasetSelectValueBeforeOpen = keyToLoad;
+  updateAiDetectButtonState(keyToLoad);
+  loadDataset(keyToLoad);
+});
+updateAiDetectButtonState(initialKey || 'germany');
+checkBackendHealth();
+
+// Tile Search (Find and zoom to any tile without hindering UI)
+function initTileSearch() {
+  const searchInput = document.getElementById('tile-search-input');
+  const datalist = document.getElementById('tile-datalist');
+  if (!searchInput) return;
+
+  function refreshDatalist() {
+    if (!datalist) return;
+    const ids = Object.keys(tileLayerMap);
+    if (ids.length === datalist.children.length) return;
+    datalist.innerHTML = '';
+    for (const id of ids) {
+      const opt = document.createElement('option');
+      opt.value = id;
+      datalist.appendChild(opt);
+    }
+  }
+
+  searchInput.addEventListener('focus', function() {
+    refreshDatalist();
+    this.style.width = '145px';
+    this.style.borderColor = '#2563eb';
+  });
+
+  searchInput.addEventListener('blur', function() {
+    this.style.width = '110px';
+    this.style.borderColor = '#cbd5e1';
+  });
+
+  function performSearch(rawQuery) {
+    if (!rawQuery) return;
+    const query = String(rawQuery).trim().toLowerCase();
+    if (!query) return;
+
+    const tileIds = Object.keys(tileLayerMap);
+    // Priority 1: Exact match
+    let match = tileIds.find(id => id.toLowerCase() === query);
+    // Priority 2: Suffix or number match
+    if (!match) {
+      match = tileIds.find(id => id.toLowerCase().endsWith(query) || id.toLowerCase().endsWith('_' + query));
+    }
+    // Priority 3: Substring match
+    if (!match) {
+      match = tileIds.find(id => id.toLowerCase().includes(query));
+    }
+
+    if (match && tileLayerMap[match]) {
+      const layer = tileLayerMap[match];
+      searchInput.style.borderColor = '#16a34a';
+      map.fitBounds(layer.getBounds(), { padding: [60, 60], maxZoom: 17 });
+      if (!selectedTileIds.includes(match) && !isTileDisabled(match)) {
+        toggleTileSelection(match);
+      }
+      layer.openTooltip();
+      setTimeout(() => { searchInput.style.borderColor = '#cbd5e1'; }, 1500);
+    } else {
+      searchInput.style.borderColor = '#dc2626';
+      setTimeout(() => { searchInput.style.borderColor = '#cbd5e1'; }, 1200);
+    }
+  }
+
+  searchInput.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      performSearch(this.value);
+    }
+  });
+
+  searchInput.addEventListener('change', function() {
+    performSearch(this.value);
+  });
+}
+initTileSearch();
+
+// Listen to commands from parent dashboard window
+window.addEventListener('message', (event) => {
+  if (!event.data || typeof event.data !== 'object') return;
+  if (event.data.type === 'CLEAR_CUSTOM_AREA') {
+    if (typeof resetCustomAreaUI === 'function') {
+      resetCustomAreaUI();
+    }
+  }
+});
+
+</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+=== Rasters (PRE-event sample) ===
+  data/raw/PRE-event/10500500C4DD7000_0_15_63.tif
+    crs=EPSG:4326 bounds=BoundingBox(left=6.91285221693638, bottom=50.50674964260995, right=6.9177180913920315, top=50.5116155170656)
+    transform=| 0.00, 0.00, 6.91|
+| 0.00,-0.00, 50.51|
+| 0.00, 0.00, 1.00|
+    res=(3.74298035050102e-06, 3.74298035050102e-06) width=1300 height=1300
+    count=3 dtype=('uint8', 'uint8', 'uint8') nodata=255.0
+    band1 value counts (top 10): [(0, 96892), (2, 52058), (1, 45344), (3, 40668), (4, 33162), (5, 27830), (6, 24359), (7, 21635), (8, 20241), (9, 19327)]
+=== Rasters (POST-event sample) ===
+  data/raw/POST-event/1040050035DC3B00_0_15_63.tif
+    crs=EPSG:4326 bounds=BoundingBox(left=6.912850132530821, bottom=50.506749026682336, right=6.917719657140906, top=50.511615757531885)
+    transform=| 0.00, 0.00, 6.91|
+| 0.00,-0.00, 50.51|
+| 0.00, 0.00, 1.00|
+    res=(2.793760533611708e-06, 2.793760533611708e-06) width=1743 height=1742
+    count=3 dtype=('uint8', 'uint8', 'uint8') nodata=None
+    band1 value counts (top 10): [(0, 52068), (38, 46706), (39, 46523), (40, 46003), (37, 45612), (41, 44643), (36, 43979), (42, 43156), (35, 42128), (43, 40608)]
+=== Annotations (vector geojson, all tiles) ===
+annotation files: 202
+  sample file: data/raw/annotations/0_15_63.geojson
+  crs: {'type': 'name', 'properties': {'name': 'urn:ogc:def:crs:OGC:1.3:CRS84'}}
+  geometry types across all tiles: Counter({'Polygon': 3972, 'LineString': 929, 'MultiLineString': 37, 'MultiPolygon': 14})
+  flooded attribute values: Counter({None: 3446, 'yes': 1506})
+  building attribute values: Counter({'yes': 3986})
+  features with building tag: 3986, with highway tag: 966
+=== CSVs ===
+  data/raw/Germany_Training_Public_label_image_mapping.csv
+    header: ['label', 'pre-event image', 'post-event image 1', 'post-event image 2']
+    row: {'label': '0_41_59.geojson', 'pre-event image': '10500500C4DD7000_0_41_59.tif', 'post-event image 1': '10500500E6DD3C00_0_41_59.tif', 'post-event image 2': ''}
+    row: {'label': '0_45_64.geojson', 'pre-event image': '10500500C4DD7000_0_45_64.tif', 'post-event image 1': '10500500E6DD3C00_0_45_64.tif', 'post-event image 2': ''}
+    row: {'label': '0_32_59.geojson', 'pre-event image': '10500500C4DD7000_0_32_59.tif', 'post-event image 1': '10500500E6DD3C00_0_32_59.tif', 'post-event image 2': ''}
+  data/raw/Germany_Training_Public_reference.csv
+    header: ['ImageId', 'Object', 'Wkt_Pix', 'Flooded', 'length_m', 'travel_time_s']
+    row: {'ImageId': '10500500C4DD7000_0_44_69', 'Object': 'Road', 'Wkt_Pix': 'LINESTRING EMPTY', 'Flooded': 'Null', 'length_m': 'Null', 'travel_time_s': 'Null'}
+    row: {'ImageId': '10500500C4DD7000_0_37_69', 'Object': 'Road', 'Wkt_Pix': 'LINESTRING (1300.0000000000637 125.11088048440429, 1264.8329929537006 119.92324021553506)', 'Flooded': 'False', 'length_m': '9.594785852252468', 'travel_time_s': '0.7154308229131224'}
+    row: {'ImageId': '10500500C4DD7000_0_37_69', 'Object': 'Road', 'Wkt_Pix': 'LINESTRING (1264.8329929537006 119.92324021553506, 1170.2292368980147 103.03829985213261)', 'Flooded': 'False', 'length_m': '26.11318204209286', 'travel_time_s': '1.9471174870326937'}
