@@ -1,16 +1,40 @@
+import http from 'http';
 import { WebSocketServer, WebSocket } from 'ws';
 
 const PORT = process.env.PORT ? parseInt(process.env.PORT, 10) : 8787;
 const HOST = process.env.HOST || '0.0.0.0';
 
-const wss = new WebSocketServer({ port: PORT, host: HOST }, () => {
-  console.log(`[Mesh Relay] HighWater local mesh relay listening on ws://${HOST}:${PORT}`);
-  console.log(`[Mesh Relay] In-memory mode active. Zero external dependencies / no internet required.`);
-});
-
 // In-memory update store & cyber node state
 const updates = [];
 let cyberNodes = [];
+
+// HTTP server handling health pings (e.g. cron-job.org / uptime monitors / browser visits)
+const server = http.createServer((req, res) => {
+  res.writeHead(200, {
+    'Content-Type': 'application/json',
+    'Access-Control-Allow-Origin': '*',
+  });
+  res.end(
+    JSON.stringify({
+      status: 'ok',
+      service: 'AegisMesh Relay',
+      uptime: Math.floor(process.uptime()),
+      peers: wss ? wss.clients.size : 0,
+      updates: updates.length,
+      cyberNodes: cyberNodes.length,
+      timestamp: new Date().toISOString(),
+    })
+  );
+});
+
+// WebSocketServer attached to the HTTP server for wss:// connections
+const wss = new WebSocketServer({ server });
+
+server.listen(PORT, HOST, () => {
+  console.log(`[Mesh Relay] AegisMesh relay listening on http://${HOST}:${PORT} (and ws://${HOST}:${PORT})`);
+  console.log(`[Mesh Relay] In-memory mode active. Zero external dependencies / no internet required.`);
+});
+
 
 function broadcast(data, excludeWs = null) {
   const message = JSON.stringify(data);
