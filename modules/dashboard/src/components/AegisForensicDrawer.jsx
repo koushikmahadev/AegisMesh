@@ -272,7 +272,7 @@ export default function AegisForensicDrawer({
                 <span>Export STIX 2.1</span>
               </button>
               <a
-                href="http://127.0.0.1:8000/"
+                href={typeof import.meta !== 'undefined' && import.meta.env?.VITE_SOC_API_URL ? import.meta.env.VITE_SOC_API_URL : "https://github.com/koushikmahadev/AegisMesh"}
                 target="_blank"
                 rel="noreferrer"
                 className="flex-1 py-1.5 px-2 bg-slate-800 hover:bg-slate-700 text-sky-400 rounded text-[11px] font-medium transition cursor-pointer flex items-center justify-center gap-1.5 border border-slate-700 text-center"
