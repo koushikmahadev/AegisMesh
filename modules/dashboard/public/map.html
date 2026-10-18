@@ -2965,8 +2965,9 @@ async function detectFloodOnClick(tileId, options) {
     tagOfflineModelLayer(pendingLayer);
   }
 
-  let result = null;
-  if (backendAvailable && BACKEND_URL) {
+  try {
+    let result = null;
+    if (backendAvailable && BACKEND_URL) {
     try {
       const resp = await fetch(`${BACKEND_URL}/api/detect-tile`, {
         method: 'POST',
