@@ -30,7 +30,6 @@ Thumbs.db
 modules/flood_analysis/data/raw_louisiana/
 modules/flood_analysis/scripts/groq_config.py
 modules/flood_analysis/scripts/hf_config.py
-modules/flood_analysis/scripts/vision_api_config.py
 HighWater_Module2_Complete/scripts/groq_config.py
 HighWater_Module2_Complete/scripts/hf_config.py
 HighWater_Module2_Complete/scripts/vision_api_config.py

@@ -15,7 +15,10 @@ import time
 import requests
 
 sys.path.insert(0, os.path.dirname(__file__))
-from vision_api_config import OPENROUTER_API_KEY_FLOODNET
+try:
+    from vision_api_config import OPENROUTER_API_KEY_FLOODNET
+except ImportError:
+    OPENROUTER_API_KEY_FLOODNET = os.environ.get("OPENROUTER_API_KEY_FLOODNET", "")
 from image_compress import tif_to_data_url
 from ai_flood_detect import MODEL  # reuse the same model id used for Germany
 

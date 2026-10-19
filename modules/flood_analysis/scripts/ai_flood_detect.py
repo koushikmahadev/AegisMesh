@@ -13,7 +13,10 @@ import time
 import requests
 
 sys.path.insert(0, os.path.dirname(__file__))
-from vision_api_config import OPENROUTER_API_KEY
+try:
+    from vision_api_config import OPENROUTER_API_KEY
+except ImportError:
+    OPENROUTER_API_KEY = os.environ.get("OPENROUTER_API_KEY", "")
 from image_compress import tif_to_data_url
 
 RAW_DIR = os.path.join(os.path.dirname(__file__), "..", "data", "raw")

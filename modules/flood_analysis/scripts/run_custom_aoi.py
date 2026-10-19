@@ -22,7 +22,13 @@ import time
 sys.path.insert(0, os.path.dirname(__file__))
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "src"))
 
-from vision_api_config import OPENROUTER_API_KEY, OPENROUTER_API_KEY_FLOODNET, OPENROUTER_API_KEY_3, OPENROUTER_API_KEY_4
+try:
+    from vision_api_config import OPENROUTER_API_KEY, OPENROUTER_API_KEY_FLOODNET, OPENROUTER_API_KEY_3, OPENROUTER_API_KEY_4
+except ImportError:
+    OPENROUTER_API_KEY = os.environ.get("OPENROUTER_API_KEY", "")
+    OPENROUTER_API_KEY_FLOODNET = os.environ.get("OPENROUTER_API_KEY_FLOODNET", "")
+    OPENROUTER_API_KEY_3 = os.environ.get("OPENROUTER_API_KEY_3", "")
+    OPENROUTER_API_KEY_4 = os.environ.get("OPENROUTER_API_KEY_4", "")
 from image_compress import tif_to_data_url
 from ai_flood_detect import find_tile_images, call_openrouter, parse_response, is_rate_limited, MODEL
 from flood_analysis import cli as flood_cli
