@@ -143,29 +143,42 @@ with st.sidebar:
     st.divider()
     
     st.subheader("📁 CSE-CIC-IDS2018 Dataset")
-    available_datasets = sorted(glob.glob("data/*.csv"))
+    SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+    candidates = (
+        sorted(glob.glob(os.path.join(SCRIPT_DIR, "data", "*.csv"))) +
+        sorted(glob.glob(os.path.join(SCRIPT_DIR, "*.csv"))) +
+        sorted(glob.glob("data/*.csv")) +
+        sorted(glob.glob("*.csv"))
+    )
+    available_datasets = list(dict.fromkeys([os.path.abspath(p) for p in candidates]))
+    
+    mock_file = os.path.join(SCRIPT_DIR, "mock_cic_ids_2018.csv")
+    if not available_datasets:
+        if not os.path.exists(mock_file):
+            from generate_mock_data import generate_mock_cic_dataset
+            generate_mock_cic_dataset(output_file=mock_file)
+        available_datasets = [mock_file]
     
     dataset_labels = {
-        "data\\02-14-2018.csv": "Feb 14: SSH/FTP Brute Force",
-        "data\\02-15-2018.csv": "Feb 15: DoS (GoldenEye / Slowloris)",
-        "data\\03-01-2018.csv": "Mar 01: Infiltration / Active Breach",
-        "data\\03-02-2018.csv": "Mar 02: Botnet / C2 Operations"
+        "mock_cic_ids_2018.csv": "Multi-Stage Attack: Recon ➔ Infiltration ➔ Exfil",
+        "02-14-2018.csv": "Feb 14: SSH/FTP Brute Force",
+        "02-15-2018.csv": "Feb 15: DoS (GoldenEye / Slowloris)",
+        "03-01-2018.csv": "Mar 01: Infiltration / Active Breach",
+        "03-02-2018.csv": "Mar 02: Botnet / C2 Operations"
     }
-    
-    # Support forward slashes too for cross-platform
-    for k in list(dataset_labels.keys()):
-        dataset_labels[k.replace("\\", "/")] = dataset_labels[k]
         
     selected_csv = st.selectbox(
         "Select Attack Scenario",
         options=available_datasets,
-        format_func=lambda path: dataset_labels.get(path, os.path.basename(path)),
+        format_func=lambda path: dataset_labels.get(os.path.basename(path), os.path.basename(path)),
         index=0
     )
     
     uploaded_custom = st.file_uploader("Or Upload Custom Flow CSV", type=["csv"])
     if uploaded_custom is not None:
-        selected_csv = f"data/uploaded_{uploaded_custom.name}"
+        upload_dir = os.path.join(SCRIPT_DIR, "data")
+        os.makedirs(upload_dir, exist_ok=True)
+        selected_csv = os.path.join(upload_dir, f"uploaded_{uploaded_custom.name}")
         with open(selected_csv, "wb") as f:
             f.write(uploaded_custom.getbuffer())
         st.success(f"Loaded: {uploaded_custom.name}")
