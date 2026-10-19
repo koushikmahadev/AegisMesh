@@ -688,6 +688,8 @@ let cancelToastTimer = null;
 let zonesLayer = null;
 let aiPredictedLayer = null;
 let localModelLayer = null;
+let localPredictions = {};
+window.localPredictions = localPredictions;
 
 function teardownCurrentDataset() {
   if (typeof hideDataValidationModal === 'function') {
@@ -713,6 +715,8 @@ function teardownCurrentDataset() {
   zonesLayer = null;
   aiPredictedLayer = null;
   localModelLayer = null;
+  localPredictions = {};
+  window.localPredictions = localPredictions;
   currentOverlayLayers.forEach(l => { if (map.hasLayer(l)) map.removeLayer(l); });
   currentOverlayLayers = [];
   if (currentLayerControl) { map.removeControl(currentLayerControl); currentLayerControl = null; }
@@ -790,8 +794,10 @@ function loadDataset(datasetKey) {
   if (bldgFloodedLabel) bldgFloodedLabel.textContent = isEarthquake ? 'Exposed building (MMI ≥ 7.0)' : 'Flooded building';
   if (bldgNotFloodedLabel) bldgNotFloodedLabel.textContent = isEarthquake ? 'Lower shaking building' : 'Not flooded building';
 
-  Promise.all(fetches).then(([zonesData, floodExtent, roads, buildings, aiValidation, localPredictions, tileIndex]) => {
+  Promise.all(fetches).then(([zonesData, floodExtent, roads, buildings, aiValidation, loadedLocalPredictions, tileIndex]) => {
   if (myGeneration !== loadGeneration) return; // a newer loadDataset() call superseded this one — discard
+  localPredictions = loadedLocalPredictions || (aiValidation && aiValidation.per_tile) || {};
+  window.localPredictions = localPredictions;
 
   // --- Flood / Shaking extent layer (added FIRST so it always renders at the bottom of the stack) ---
   const floodExtentLayer = L.geoJSON(floodExtent, {
@@ -1314,6 +1320,26 @@ async function getTileIndex(datasetKey) {
     tileIndexCache[datasetKey] = {};
     return {};
   }
+}
+
+const localPredictionsCache = {};
+async function getLocalPredictions(datasetKey) {
+  if (localPredictions && Object.keys(localPredictions).length > 0) return localPredictions;
+  const key = datasetKey || currentDatasetKey;
+  if (localPredictionsCache[key]) return localPredictionsCache[key];
+  const ds = DATASETS[key];
+  const base = ds ? ds.base : './';
+  try {
+    const res = await fetch(`${base}ai_predictions.json`);
+    if (res.ok) {
+      const preds = await res.json();
+      localPredictionsCache[key] = preds;
+      localPredictions = preds;
+      window.localPredictions = preds;
+      return preds;
+    }
+  } catch (e) {}
+  return localPredictions || {};
 }
 
 function boxOverlapsBbox(boxBounds, bbox) {
@@ -2991,7 +3017,8 @@ async function detectFloodOnClick(tileId, options) {
 
   // Graceful offline fallback using precomputed SpaceNet 8 AI model results
   if (!result) {
-    const pred = (localPredictions && localPredictions[tileId]) || (tileIndex && tileIndex[tileId]);
+    const preds = (localPredictions && Object.keys(localPredictions).length > 0) ? localPredictions : await getLocalPredictions(source);
+    const pred = (preds && preds[tileId]) || (tileIndex && tileIndex[tileId]);
     if (pred) {
       const isFlooded = pred.flood_damage_detected !== undefined 
         ? Boolean(pred.flood_damage_detected) 
@@ -3176,6 +3203,7 @@ async function detectMultipleTiles(tileIds, optionsOrSource, thresholdArg, modeA
   }
 
   const tileIndex = await getTileIndex(source);
+  const preds = (localPredictions && Object.keys(localPredictions).length > 0) ? localPredictions : await getLocalPredictions(source);
   if (signal.aborted) {
     return { canceled: true };
   }
@@ -3233,7 +3261,7 @@ async function detectMultipleTiles(tileIds, optionsOrSource, thresholdArg, modeA
 
     if (!data) {
       // Offline fallback using local precomputed dataset
-      data = { results: localPredictions || {} };
+      data = { results: preds || {} };
     }
 
     hideDataValidationModal();
@@ -3248,8 +3276,8 @@ async function detectMultipleTiles(tileIds, optionsOrSource, thresholdArg, modeA
 
     tileIds.forEach(id => {
       let res = results[id];
-      if (!res && localPredictions && localPredictions[id]) {
-        res = localPredictions[id];
+      if (!res && preds && preds[id]) {
+        res = preds[id];
       }
       if (!res && tileIndex && tileIndex[id]) {
         const info = tileIndex[id];
@@ -3331,7 +3359,7 @@ async function detectMultipleTiles(tileIds, optionsOrSource, thresholdArg, modeA
       return { canceled: true };
     }
     console.warn('Network call failed, resolving via offline precomputed model predictions:', err);
-    const fallbackResults = localPredictions || {};
+    const fallbackResults = (typeof preds !== 'undefined' && preds) || (typeof localPredictions !== 'undefined' && localPredictions) || {};
     let floodedCount = 0;
     let notFloodedCount = 0;
     const items = [];
