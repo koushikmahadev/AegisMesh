@@ -13,9 +13,26 @@ from pydantic import BaseModel
 sys.path.insert(0, os.path.dirname(__file__))
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "src"))
 
-import run_custom_aoi
-from flood_analysis import cli as flood_cli
-from ai_flood_detect import find_tile_images
+BASE_DIR = os.path.join(os.path.dirname(__file__), "..")
+RAW_DIRS = {
+    "germany": os.path.join(BASE_DIR, "data", "raw"),
+    "louisiana": os.path.join(BASE_DIR, "data", "raw_louisiana")
+}
+
+try:
+    import run_custom_aoi
+except Exception:
+    run_custom_aoi = None
+
+try:
+    from flood_analysis import cli as flood_cli
+except Exception:
+    flood_cli = None
+
+try:
+    from ai_flood_detect import find_tile_images
+except Exception:
+    find_tile_images = None
 
 try:
     from ai_flood_detect_local import judge
@@ -31,9 +48,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
-BASE_DIR = run_custom_aoi.BASE_DIR
-RAW_DIRS = run_custom_aoi.RAW_DIRS
 
 MODEL_DIR = os.getenv(
     "FW_MODEL_DIR",
