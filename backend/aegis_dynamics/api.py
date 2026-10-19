@@ -39,7 +39,6 @@ from model import (
     generate_sigma_rule,
     set_deterministic_seed
 )
-from explainer import TemporalStateExplainer
 from graph_engine import NetworkGraphEngine
 
 app = FastAPI(

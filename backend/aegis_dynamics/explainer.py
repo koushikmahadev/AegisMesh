@@ -4,7 +4,10 @@ Explains the Self-Supervised World Model by computing Shapley feature attributio
 on the forecast reconstruction residual error e(t+1).
 """
 
-import shap
+try:
+    import shap
+except ImportError:
+    shap = None
 import torch
 import numpy as np
 import pandas as pd
