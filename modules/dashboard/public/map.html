@@ -1909,19 +1909,26 @@ async function handleBatchDetectionComplete() {
   console.log('[STATE RESET]', { selectedTileIds, isDetectionInProgress });
 }
 
-const BACKEND_URL = 'http://localhost:8001';
+function getBackendUrl() {
+  if (typeof window !== 'undefined') {
+    if (window.BACKEND_URL) return window.BACKEND_URL;
+    if (window.API_BASE_URL) return window.API_BASE_URL;
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('backend')) return urlParams.get('backend');
+    if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+      return 'http://localhost:8001';
+    }
+  }
+  return 'https://aegismesh-3odz.onrender.com';
+}
+
+const BACKEND_URL = getBackendUrl();
 let backendAvailable = false;
 
 async function checkBackendHealth() {
-  const isLocalHost = typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1');
-  if (!isLocalHost) {
-    backendAvailable = false;
-    setBackendModeUI(false);
-    return false;
-  }
   try {
     const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), 1500);
+    const timer = setTimeout(() => controller.abort(), 3500);
     const res = await fetch(`${BACKEND_URL}/api/health`, { signal: controller.signal });
     clearTimeout(timer);
     if (res.ok) {
@@ -1944,7 +1951,7 @@ function setBackendModeUI(isLive) {
     modeBadge.textContent = '⚡ Live mode';
     modeBadge.style.background = '#dcfce7';
     modeBadge.style.color = '#15803d';
-    runNowBtn.style.display = (selectedTiles.length >= MIN_TILES_FOR_COMMAND) ? 'inline-block' : 'none';
+    runNowBtn.style.display = 'inline-block';
     generateBtn.style.display = 'none';
   } else {
     modeBadge.textContent = '📋 Copy command';
