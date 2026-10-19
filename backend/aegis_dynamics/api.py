@@ -12,6 +12,9 @@ import pandas as pd
 import torch
 import os
 import sys
+import gc
+
+torch.set_num_threads(1)
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 if SCRIPT_DIR not in sys.path:
@@ -165,10 +168,9 @@ def init_dataset(key: str = "dos_slowloris"):
     gamma_calib, e_95 = calibrate_gamma_on_benign_validation(world_model, X_val, y_val, percentile_target=95.0, target_p_infil=0.10)
     gamma_T = gamma_calib
     
-    # Initialize True SHAP Explainer
-    print("[*] Initializing SHAP KernelExplainer on baseline background...")
-    bg_sample = X_fit[:min(8, len(X_fit))]
-    explainer = TemporalStateExplainer(world_model, bg_sample)
+    # Free temporary training arrays to preserve memory for Render 512MB tier
+    del X_fit, y_fit, X_val, y_val, X_train_raw, y_next_train_raw
+    gc.collect()
     
     # Initialize and calibrate Tier 2 Graph Topology Engine
     graph_engine = NetworkGraphEngine()
@@ -252,12 +254,22 @@ def init_dataset(key: str = "dos_slowloris"):
         else:
             alert_tier = "NOMINAL"
             
-        # True SHAP cache
-        seq_signature = tuple(np.round(seq_scaled[-1, :], 2))
-        if seq_signature not in shap_cache:
-            shap_res = explainer.explain_instance(seq_scaled, top_k=6)
-            shap_cache[seq_signature] = shap_res["top_features"]
-        top_shap = shap_cache[seq_signature]
+        # Directional feature attribution directly from state forecast residual vector
+        pred_scaled = fc["predicted_next_state"]
+        res_per_feat = np.abs(pred_scaled - next_scaled)
+        ranked_indices = np.argsort(-res_per_feat)
+        top_shap = []
+        for rank in range(min(6, len(FEATURE_NAMES))):
+            idx = int(ranked_indices[rank])
+            direction = float(pred_scaled[idx] - next_scaled[idx])
+            top_shap.append({
+                "rank": rank + 1,
+                "feature": FEATURE_NAMES[idx],
+                "shap_importance": float(round(res_per_feat[idx], 4)),
+                "shap_direction": float(round(direction, 4)),
+                "current_value": float(round(y_next_raw[i][idx], 4)),
+                "impact": "Increases Attack Risk (Anomaly)" if direction > 0 else "Stabilizes Benign Baseline"
+            })
         
         soar_rules = generate_soar_playbook(fc["predicted_stage_name"], win_src_ip, "192.168.10.0/24", max(p_fused, Risk_ST))
         
@@ -298,7 +310,8 @@ def init_dataset(key: str = "dos_slowloris"):
     CACHE["e_95_G"] = graph_engine.e_95_G
     CACHE["gamma_G"] = graph_engine.gamma_G
     CACHE["attacker_ip"] = attacker_ip
-    DATASET_CACHES[key] = dict(CACHE)
+    del X_seq_raw, y_next_raw, state_df, df
+    gc.collect()
     print(f"[+] Loaded {len(windows)} windows with Dual-Channel Fusion, Graph Topology, K-step rollout and SOAR playbooks for {key}.")
 
 # Initialize default dataset on startup
