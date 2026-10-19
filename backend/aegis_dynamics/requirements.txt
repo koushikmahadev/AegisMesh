@@ -1,4 +1,4 @@
-﻿torch
+torch
 scikit-learn
 pandas
 numpy
@@ -6,3 +6,5 @@ scapy
 shap
 streamlit
 plotly
+fastapi
+uvicorn

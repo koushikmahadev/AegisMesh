@@ -11,6 +11,12 @@ import numpy as np
 import pandas as pd
 import torch
 import os
+import sys
+
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+if SCRIPT_DIR not in sys.path:
+    sys.path.insert(0, SCRIPT_DIR)
+
 from sklearn.preprocessing import StandardScaler
 
 from parser import (
@@ -99,7 +105,18 @@ def init_dataset(key: str = "dos_slowloris"):
     print(f"[*] Initializing dataset cache for: {cfg['name']} ({cfg['file']})...")
     
     csv_path = cfg["file"]
-    skip_rows = cfg.get("skip", 0)
+    if not os.path.isabs(csv_path):
+        candidate = os.path.join(SCRIPT_DIR, csv_path)
+        if os.path.exists(candidate):
+            csv_path = candidate
+        elif not os.path.exists(csv_path):
+            mock_path = os.path.join(SCRIPT_DIR, "mock_cic_ids_2018.csv")
+            if os.path.exists(mock_path):
+                print(f"[!] Warning: {csv_path} not found. Falling back to {mock_path}")
+                csv_path = mock_path
+                skip_rows = 0
+
+    skip_rows = cfg.get("skip", 0) if csv_path != os.path.join(SCRIPT_DIR, "mock_cic_ids_2018.csv") else 0
     max_rows = cfg.get("max_rows", 25000)
     attacker_ip = cfg.get("attacker_ip", "18.218.115.60")
     
