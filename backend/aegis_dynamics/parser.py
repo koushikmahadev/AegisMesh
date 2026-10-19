@@ -1,4 +1,4 @@
-﻿"""
+"""
 AegisDynamics - Network Flow Ingestion & Temporal Feature Extraction Engine
 Parses CSE-CIC-IDS2018 Flow CSV datasets, computes configurable sliding time windows (Delta_t),
 and extracts topology-aware flow & packet features for Self-Supervised World Modeling.
@@ -82,7 +82,7 @@ def parse_cic_csv(filepath: str, max_rows: Optional[int] = 120000) -> pd.DataFra
         
     # Timestamp parsing
     if "Timestamp" in df.columns:
-        df["Timestamp"] = pd.to_datetime(df["Timestamp"], format="%d/%m/%Y %H:%M:%S", errors="coerce")
+        df["Timestamp"] = pd.to_datetime(df["Timestamp"], format="mixed", errors="coerce")
         df = df.dropna(subset=["Timestamp"]).sort_values(by="Timestamp").reset_index(drop=True)
     else:
         df["Timestamp"] = pd.date_range(start="2018-02-14 08:30:00", periods=len(df), freq="2s")

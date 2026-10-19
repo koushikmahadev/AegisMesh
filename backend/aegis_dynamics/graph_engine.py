@@ -153,7 +153,7 @@ class NetworkGraphEngine:
                 
         return edges
 
-    def analyze_window_graph(self, window_df: pd.DataFrame, window_idx: int, attacker_ip: str = "18.218.115.60") -> Dict[str, Any]:
+    def analyze_window_graph(self, window_df: pd.DataFrame, window_idx: int, attacker_ip: str = "18.218.115.60", is_attack_ground_truth: bool = False, **kwargs) -> Dict[str, Any]:
         """
         Builds interaction graph G_t = (V_t, E_t), computes Graph Laplacian L_t,
         and derives spectral dispersion (algebraic connectivity λ_2) purely from unlabelled flow features.
