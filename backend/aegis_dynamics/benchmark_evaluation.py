@@ -144,7 +144,7 @@ def evaluate_dataset(
         t_e = meta_df.iloc[idx]["window_end"]
         w_df = df.loc[(df[time_col] >= t_s) & (df[time_col] < t_e)] if time_col else df.iloc[:10]
         res = graph_engine.analyze_window_graph(w_df, idx)
-        g_train_benign_list.append([res["algebraic_connectivity_lambda2"], res["spectral_dispersion_gap"], res["anomalous_edges_count"]])
+        g_train_benign_list.append(graph_engine.extract_graph_vector(res))
         
     g_train_benign = np.array(g_train_benign_list, dtype=float)
     g_val_benign = g_train_benign[-val_cut:] if len(g_train_benign) > val_cut else g_train_benign
@@ -175,7 +175,7 @@ def evaluate_dataset(
         t_e = meta_df.iloc[i]["window_end"]
         w_df = df.loc[(df[time_col] >= t_s) & (df[time_col] < t_e)] if time_col else df.iloc[:10]
         res = graph_engine.analyze_window_graph(w_df, i)
-        g_vec = np.array([res["algebraic_connectivity_lambda2"], res["spectral_dispersion_gap"], res["anomalous_edges_count"]])
+        g_vec = graph_engine.extract_graph_vector(res)
         _, p_g = graph_engine.compute_graph_probability(g_vec)
         P_G_list.append(p_g)
         
@@ -188,9 +188,10 @@ def evaluate_dataset(
     P_G = np.array(P_G_list)
     topo_vel_arr = np.array(topo_vel_list)
     
-    # Task 1: Spatiotemporal Cross-Momentum (STCM)
-    # M_ST = e_T * (1 + 5.0 * topo_velocity)**2.0
-    M_ST = e_T_arr * ((1.0 + (5.0 * topo_vel_arr)) ** 2.0)
+    # Task 1: Spatiotemporal Cross-Momentum (STCM) with bounded velocity boost
+    # shortcut: tanh bound prevents exponential blowup when topology shifts, scale for normal range
+    velocity_boost = 1.0 + 1.5 * np.tanh(topo_vel_arr)
+    M_ST = e_T_arr * velocity_boost
     Risk_ST = 1.0 - np.exp(-gamma_T * M_ST)
     
     # Decision-Level Rules:

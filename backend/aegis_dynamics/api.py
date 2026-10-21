@@ -185,7 +185,7 @@ def init_dataset(key: str = "dos_slowloris"):
             t_e = meta_df.iloc[i]["window_end"] if "window_end" in meta_df.columns else None
             w_df = df.loc[(df[time_col] >= t_s) & (df[time_col] < t_e)] if (time_col and t_s and t_e) else df.iloc[:10]
             res_g = graph_engine.analyze_window_graph(w_df, i)
-            g_train_benign_list.append([res_g["algebraic_connectivity_lambda2"], res_g["spectral_dispersion_gap"], res_g["anomalous_edges_count"]])
+            g_train_benign_list.append(graph_engine.extract_graph_vector(res_g))
             if len(g_train_benign_list) >= 50:
                 break
                 
@@ -225,7 +225,7 @@ def init_dataset(key: str = "dos_slowloris"):
         g_payload = graph_engine.analyze_window_graph(w_df, i)
         
         # Graph channel Mahalanobis probability
-        g_vec = np.array([g_payload["algebraic_connectivity_lambda2"], g_payload["spectral_dispersion_gap"], g_payload["anomalous_edges_count"]])
+        g_vec = graph_engine.extract_graph_vector(g_payload)
         e_g, p_g = graph_engine.compute_graph_probability(g_vec)
         g_payload["mahalanobis_residual_e_g"] = float(e_g)
         g_payload["graph_channel_prob"] = float(p_g)
@@ -237,18 +237,23 @@ def init_dataset(key: str = "dos_slowloris"):
         g_payload["topo_velocity"] = float(topo_velocity)
         graph_windows.append(g_payload)
         
-        # Momentum metric M_ST with kappa=5.0, zeta=2.0
-        M_ST = float(residual_e_T * ((1.0 + (5.0 * topo_velocity)) ** 2.0))
+        # Momentum metric M_ST with bounded velocity boost
+        # shortcut: tanh bound prevents exponential blowup when topology shifts, scale for normal range
+        velocity_boost = 1.0 + 1.5 * float(np.tanh(topo_velocity))
+        M_ST = float(residual_e_T * velocity_boost)
         # Fused risk score Risk_ST calibrated against gamma
         Risk_ST = float(1.0 - np.exp(-gamma_T * M_ST))
         
-        # Dual-Channel Bayesian Noisy-OR Fusion
-        p_fused = float(1.0 - (1.0 - p_t) * (1.0 - p_g))
+        # Dual-Channel Balanced Bayesian Fusion
+        p_fused = float(1.0 - ((1.0 - p_t) ** 0.65) * ((1.0 - p_g) ** 0.35))
+        
+        # Calibrated infiltration probability blending dual-channel evidence and momentum
+        infil_prob = float(np.clip(0.50 * p_fused + 0.50 * Risk_ST, 0.0, 1.0))
         
         # Two-Tier Alerting Logic with STCM
-        if Risk_ST >= 0.10 or (p_t >= 0.10 and p_g >= 0.10):
+        if infil_prob >= 0.45 or (p_t >= 0.45 and p_g >= 0.30):
             alert_tier = "CRITICAL"
-        elif p_fused >= 0.10 or p_t >= 0.10 or p_g >= 0.10:
+        elif infil_prob >= 0.10 or p_t >= 0.10 or p_g >= 0.10:
             alert_tier = "WATCH"
         else:
             alert_tier = "NOMINAL"
@@ -270,7 +275,7 @@ def init_dataset(key: str = "dos_slowloris"):
                 "impact": "Increases Attack Risk (Anomaly)" if direction > 0 else "Stabilizes Benign Baseline"
             })
         
-        soar_rules = generate_soar_playbook(fc["predicted_stage_name"], win_src_ip, "192.168.10.0/24", max(p_fused, Risk_ST))
+        soar_rules = generate_soar_playbook(fc["predicted_stage_name"], win_src_ip, "192.168.10.0/24", infil_prob)
         
         windows.append({
             "index": i,
@@ -285,7 +290,7 @@ def init_dataset(key: str = "dos_slowloris"):
             "m_st": float(M_ST),
             "topo_velocity": float(topo_velocity),
             "risk_st": float(Risk_ST),
-            "infiltration_probability": float(max(p_fused, Risk_ST)),
+            "infiltration_probability": float(infil_prob),
             "alert_tier": alert_tier,
             "is_attack_ground_truth": label_val == 1,
             "ground_truth_stage": stage_name,

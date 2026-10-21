@@ -22,6 +22,18 @@ class NetworkGraphEngine:
         self.e_95_G = 1.0
         self.is_calibrated = False
 
+    @staticmethod
+    def extract_graph_vector(payload: Dict[str, Any]) -> np.ndarray:
+        """
+        Extracts regularized spectral and topological feature vector:
+        [algebraic_connectivity_lambda2, spectral_dispersion_gap, log1p(anomalous_edges_count)].
+        """
+        return np.array([
+            float(payload.get("algebraic_connectivity_lambda2", 0.0)),
+            float(payload.get("spectral_dispersion_gap", 0.0)),
+            float(np.log1p(payload.get("anomalous_edges_count", 0)))
+        ], dtype=float)
+
     def fit_graph_distribution(self, benign_g_vectors: np.ndarray, val_g_vectors: Optional[np.ndarray] = None):
         """
         Fits empirical mean μ_G and regularized covariance Σ_G on benign training windows only.
@@ -43,8 +55,11 @@ class NetworkGraphEngine:
         elif cov_G.shape != (self.dim, self.dim):
             cov_G = np.eye(self.dim)
             
-        # Numerical regularization with Tikhonov ridge
-        cov_G_reg = cov_G + np.eye(self.dim) * 1e-4
+        # Numerical regularization with variance floor to prevent zero-variance spike on discrete counts
+        for d in range(self.dim):
+            if cov_G[d, d] < 0.25:
+                cov_G[d, d] = 0.25
+        cov_G_reg = cov_G + np.eye(self.dim) * 0.05
         self.inv_cov_G = np.linalg.pinv(cov_G_reg)
         
         # Calibrate on validation set
@@ -63,6 +78,9 @@ class NetworkGraphEngine:
         Computes Mahalanobis distance e_G(t) = sqrt((g_t - μ_G)^T Σ_G^{-1} (g_t - μ_G)).
         """
         g_arr = np.array(g_vector, dtype=float)
+        # Auto-apply log1p if raw count was passed while μ_G was fitted on log1p scale
+        if len(g_arr) >= 3 and self.mu_G[2] <= 1.0 and g_arr[2] > 5.0:
+            g_arr[2] = np.log1p(g_arr[2])
         if len(g_arr) != len(self.mu_G):
             # Adaptively align dimensions if vector has fewer or more entries
             min_len = min(len(g_arr), len(self.mu_G))
