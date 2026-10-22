@@ -113,6 +113,78 @@
       </div>
     </section>
 
+    <!-- Row 1.5: Field Operability & ATAK / CoT Datalink Console -->
+    <section class="tactical-field-bar">
+      <div class="field-bar-header">
+        <div class="field-title-group">
+          <div class="field-badge">
+            <span class="radar-ping"></span>
+            <span class="mono">MIL-STD-2525 / CoT 2.0</span>
+          </div>
+          <span class="field-title">TACTICAL COMMAND & OPERATOR COPILOT</span>
+          <span class="field-sub">Ruggedized Field Telemetry & Hands-Free Audio C2</span>
+        </div>
+        <div class="atak-action-group">
+          <div class="atak-status-pill">
+            <span class="pulse-dot"></span>
+            <span class="mono" id="atakStatusLabel">ATAK UDP 4242: ACTIVE</span>
+          </div>
+          <button id="btnAtakXml" class="ctrl-btn" title="Download Cursor-on-Target XML Feed">
+            <i data-lucide="radio"></i> CoT XML
+          </button>
+          <button id="btnAtakGeoJson" class="ctrl-btn" title="Download ATAK GeoJSON Feature Layer">
+            <i data-lucide="map-pin"></i> ATAK GIS
+          </button>
+          <button id="btnAtakUdp" class="ctrl-btn btn-primary" title="Broadcast CoT Multicast (UDP 4242)">
+            <i data-lucide="send"></i> Broadcast CoT
+          </button>
+        </div>
+      </div>
+
+      <div class="copilot-interface-grid">
+        <div class="copilot-input-area">
+          <div class="copilot-input-row">
+            <button id="btnVoiceMic" class="mic-btn" title="Click to activate Hands-Free Voice Input">
+              <i data-lucide="mic"></i>
+            </button>
+            <input type="text" id="copilotInput" class="copilot-input" placeholder="Speak or enter directive: 'Aegis, calculate alternate route to Sector 4...' or choose below" />
+            <button id="btnCopilotSend" class="ctrl-btn btn-primary" title="Send Directive">
+              <i data-lucide="corner-down-left"></i> Transmit
+            </button>
+            <button id="btnVoiceToggle" class="ctrl-btn voice-toggle-active" title="Toggle Tactical Voice Audio Feedback">
+              <i data-lucide="volume-2"></i> Voice Radio: ON
+            </button>
+          </div>
+          <div class="directive-chips-row">
+            <span class="directive-lbl">Quick Directives:</span>
+            <button class="directive-chip" data-cmd="Aegis, calculate alternate route to Sector 4 avoiding unverified depth sensors.">
+              📍 Alternate Route to Sector 4
+            </button>
+            <button class="directive-chip" data-cmd="Aegis, quarantine flagged attacker IP immediately.">
+              🛡️ Quarantine Hostile IP
+            </button>
+            <button class="directive-chip" data-cmd="Aegis, sitrep: report current flood depth and trapped survivors.">
+              📊 Disaster SITREP
+            </button>
+            <button class="directive-chip" data-cmd="Aegis, broadcast Cursor-on-Target telemetry to all ATAK units.">
+              📡 Broadcast ATAK (CoT)
+            </button>
+          </div>
+        </div>
+
+        <div class="copilot-transmission-box" id="copilotTransmissionBox">
+          <div class="transmission-header">
+            <span class="mono text-cyan"><i data-lucide="radio" style="width:12px; height:12px; display:inline-block; vertical-align:middle;"></i> TACTICAL RADIO TRANSMISSION (NET 1)</span>
+            <span class="mono text-dim" id="copilotTimestamp">T = STANDBY</span>
+          </div>
+          <div class="transmission-body" id="copilotSpeechText">
+            AEGIS TACTICAL to Rescue Units: Standing by on tactical frequency. Ready for voice-directed autonomous rerouting, hostile sensor quarantine, and ATAK Cursor-on-Target situational feeds.
+          </div>
+          <div class="transmission-action" id="copilotActionBadge" style="display: none;"></div>
+        </div>
+      </div>
+    </section>
+
     <!-- Row 2: Tactical State Cards -->
     <div class="tactical-grid">
       <!-- Card 1: Spatiotemporal Cross-Momentum & Threat Probability -->

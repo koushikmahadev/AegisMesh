@@ -4,15 +4,16 @@ Integrates true SHAP KernelExplainer attributions, K-step autoregressive rollout
 automated SOAR firewall mitigation generator, and static frontend delivery.
 """
 
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Request, Response
 from fastapi.staticfiles import StaticFiles
-from fastapi.responses import FileResponse
+from fastapi.responses import FileResponse, PlainTextResponse, HTMLResponse
 import numpy as np
 import pandas as pd
 import torch
 import os
 import sys
 import gc
+from typing import Dict, Any, List, Optional
 
 torch.set_num_threads(1)
 
@@ -40,6 +41,8 @@ from model import (
     set_deterministic_seed
 )
 from graph_engine import NetworkGraphEngine
+from cot_engine import COT_ENGINE
+from tactical_copilot import TACTICAL_COPILOT, SUGGESTED_VOICE_COMMANDS
 
 app = FastAPI(
     title="AegisDynamics SOC Command Center API",
@@ -668,6 +671,48 @@ def get_benchmarks():
             "crit_and": {"acc": 0.408, "prec": 0.988, "rec": 0.245, "f1": 0.393, "fpr": 0.011, "fpr_ci": "[0.3%, 3.9%]"}
         }
     ]
+
+# ----------------- TACTICAL & FIELD OPERABILITY (ATAK / CoT & VOICE COPILOT) -----------------
+
+@app.get("/api/v1/atak/cot")
+def get_atak_cot_bundle():
+    """Returns Cursor-on-Target (CoT 2.0) XML event stream for ATAK/WinTAK handheld integration."""
+    windows = CACHE.get("windows", [])
+    if windows:
+        curr = windows[0]
+        COT_ENGINE.update_node_state("AEGIS-SENSOR-01", {
+            "alert_tier": curr.get("alert_tier", "NOMINAL"),
+            "fused_risk": curr.get("infiltration_probability", 0.05),
+            "lambda2": curr.get("algebraic_connectivity_lambda2", 0.88),
+            "trust_score": 0.15 if curr.get("alert_tier") == "CRITICAL" else 1.0
+        })
+    xml_data = COT_ENGINE.generate_cot_bundle()
+    return Response(content=xml_data, media_type="application/xml")
+
+@app.get("/api/v1/atak/geojson")
+def get_atak_geojson():
+    """Returns GeoJSON FeatureCollection formatted for ATAK Data Package import."""
+    return COT_ENGINE.generate_geojson()
+
+@app.post("/api/v1/atak/broadcast")
+def broadcast_cot(target_ip: str = "127.0.0.1", port: int = 4242):
+    """Broadcasts live CoT events over UDP directly to ATAK devices or TAK Server."""
+    return COT_ENGINE.broadcast_cot_udp(target_ip=target_ip, port=port)
+
+@app.post("/api/v1/copilot/query")
+def query_tactical_copilot(payload: Dict[str, Any]):
+    """Processes natural language voice/text tactical commands from rescue boat operators."""
+    query = payload.get("query", "")
+    window_idx = payload.get("window_index", 0)
+    windows = CACHE.get("windows", [])
+    current_win = windows[window_idx] if (0 <= window_idx < len(windows)) else (windows[0] if windows else {})
+    context = {"current_window": current_win}
+    return TACTICAL_COPILOT.process_command(query, context)
+
+@app.get("/api/v1/copilot/suggestions")
+def get_copilot_suggestions():
+    """Returns suggested tactical voice prompts for hands-free field operations."""
+    return {"suggestions": SUGGESTED_VOICE_COMMANDS}
 
 # Serve static frontend
 frontend_dir = os.path.join(os.path.dirname(__file__), "static")

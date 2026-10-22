@@ -17,6 +17,8 @@ let STATE = {
   currentWin: null,
   currentGraph: null,
   activeSoarTab: "soarIptables",
+  voiceAudioEnabled: true,
+  isListening: false,
   featureNames: [
     "flow_count", "syn_ratio", "ack_ratio", "fin_ratio", "rst_ratio",
     "flow_duration_mean", "flow_duration_max", "flow_iat_mean",
@@ -211,7 +213,298 @@ function setupEventListeners() {
       }
     };
   }
+
+  // ATAK / Cursor-on-Target Handlers
+  const btnAtakXml = document.getElementById("btnAtakXml");
+  if (btnAtakXml) {
+    btnAtakXml.onclick = async () => {
+      try {
+        const res = await fetch("/api/v1/atak/cot");
+        const xmlText = await res.text();
+        const blob = new Blob([xmlText], { type: "application/xml" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "AegisMesh_ATAK_CursorOnTarget.xml";
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      } catch (err) {
+        console.error("Error downloading CoT XML:", err);
+      }
+    };
+  }
+
+  const btnAtakGeoJson = document.getElementById("btnAtakGeoJson");
+  if (btnAtakGeoJson) {
+    btnAtakGeoJson.onclick = async () => {
+      try {
+        const res = await fetch("/api/v1/atak/geojson");
+        const data = await res.json();
+        const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "AegisMesh_ATAK_FieldMap.geojson";
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      } catch (err) {
+        console.error("Error downloading ATAK GeoJSON:", err);
+      }
+    };
+  }
+
+  const btnAtakUdp = document.getElementById("btnAtakUdp");
+  if (btnAtakUdp) {
+    btnAtakUdp.onclick = async () => {
+      const lbl = document.getElementById("atakStatusLabel");
+      try {
+        if (lbl) lbl.textContent = "BROADCASTING UDP 4242...";
+        const res = await fetch("/api/v1/atak/broadcast", { method: "POST" });
+        const data = await res.json();
+        if (lbl) {
+          lbl.textContent = `UDP: 4242 SENT (${data.events_transmitted} NODES)`;
+          setTimeout(() => {
+            if (lbl) lbl.textContent = "ATAK UDP 4242: ACTIVE";
+          }, 3500);
+        }
+      } catch (err) {
+        console.error("Error broadcasting CoT:", err);
+        if (lbl) lbl.textContent = "BROADCAST FAILED";
+      }
+    };
+  }
+
+  // Tactical Voice Copilot Handlers
+  const btnVoiceMic = document.getElementById("btnVoiceMic");
+  if (btnVoiceMic) {
+    btnVoiceMic.onclick = toggleVoiceRecognition;
+  }
+
+  const btnVoiceToggle = document.getElementById("btnVoiceToggle");
+  if (btnVoiceToggle) {
+    btnVoiceToggle.onclick = () => {
+      STATE.voiceAudioEnabled = !STATE.voiceAudioEnabled;
+      if (STATE.voiceAudioEnabled) {
+        btnVoiceToggle.classList.add("voice-toggle-active");
+        btnVoiceToggle.innerHTML = '<i data-lucide="volume-2"></i> Voice Radio: ON';
+      } else {
+        btnVoiceToggle.classList.remove("voice-toggle-active");
+        btnVoiceToggle.innerHTML = '<i data-lucide="volume-x"></i> Voice Radio: MUTED';
+      }
+      try { lucide.createIcons(); } catch (e) {}
+    };
+  }
+
+  const btnCopilotSend = document.getElementById("btnCopilotSend");
+  const copilotInput = document.getElementById("copilotInput");
+  if (btnCopilotSend && copilotInput) {
+    btnCopilotSend.onclick = () => {
+      const q = copilotInput.value;
+      if (q) sendCopilotQuery(q);
+    };
+    copilotInput.onkeydown = (e) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        const q = copilotInput.value;
+        if (q) sendCopilotQuery(q);
+      }
+    };
+  }
+
+  // Directive Quick Chips
+  document.querySelectorAll(".directive-chip").forEach(chip => {
+    chip.addEventListener("click", () => {
+      const cmd = chip.dataset.cmd;
+      if (copilotInput) copilotInput.value = cmd;
+      sendCopilotQuery(cmd);
+    });
+  });
 }
+
+// Tactical Radio Audio Synthesizer (MIL-SPEC Dual Frequency Roger Beep)
+function playTacticalRogerBeep() {
+  try {
+    const AudioContext = window.AudioContext || window.webkitAudioContext;
+    if (!AudioContext) return;
+    const ctx = new AudioContext();
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+
+    osc.type = "sine";
+    osc.frequency.setValueAtTime(880, ctx.currentTime);
+    osc.frequency.setValueAtTime(1760, ctx.currentTime + 0.05);
+
+    gain.gain.setValueAtTime(0.12, ctx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.12);
+
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+
+    osc.start();
+    osc.stop(ctx.currentTime + 0.12);
+  } catch (e) {
+    // AudioContext might require user gesture in some browsers
+  }
+}
+
+// Hands-free Voice Output (TTS)
+function speakTacticalTransmission(text) {
+  if (!STATE.voiceAudioEnabled || !("speechSynthesis" in window)) return;
+  try {
+    window.speechSynthesis.cancel();
+    playTacticalRogerBeep();
+
+    setTimeout(() => {
+      try {
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.rate = 1.05;
+        utterance.pitch = 0.95;
+        const voices = window.speechSynthesis.getVoices();
+        const engVoice = voices.find(v => v.lang && v.lang.startsWith("en") && (v.name.includes("Natural") || v.name.includes("David") || v.name.includes("Google") || v.name.includes("English")));
+        if (engVoice) utterance.voice = engVoice;
+        window.speechSynthesis.speak(utterance);
+      } catch (err) {
+        console.warn("TTS speak warning:", err);
+      }
+    }, 130);
+  } catch (e) {
+    console.warn("Audio warning:", e);
+  }
+}
+
+// Hands-free Voice Input (STT)
+let speechRecognizer = null;
+
+function initVoiceRecognition() {
+  const SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (!SpeechRec) {
+    console.info("Web Speech API not supported in this browser environment.");
+    return;
+  }
+
+  try {
+    speechRecognizer = new SpeechRec();
+    speechRecognizer.continuous = false;
+    speechRecognizer.interimResults = false;
+    speechRecognizer.lang = "en-US";
+
+    speechRecognizer.onstart = () => {
+      STATE.isListening = true;
+      const micBtn = document.getElementById("btnVoiceMic");
+      if (micBtn) micBtn.classList.add("mic-active");
+    };
+
+    speechRecognizer.onresult = (event) => {
+      if (event.results && event.results[0] && event.results[0][0]) {
+        const transcript = event.results[0][0].transcript;
+        const input = document.getElementById("copilotInput");
+        if (input) input.value = transcript;
+        sendCopilotQuery(transcript);
+      }
+    };
+
+    speechRecognizer.onerror = (event) => {
+      console.warn("Speech recognition error:", event.error);
+      STATE.isListening = false;
+      const micBtn = document.getElementById("btnVoiceMic");
+      if (micBtn) micBtn.classList.remove("mic-active");
+    };
+
+    speechRecognizer.onend = () => {
+      STATE.isListening = false;
+      const micBtn = document.getElementById("btnVoiceMic");
+      if (micBtn) micBtn.classList.remove("mic-active");
+    };
+  } catch (err) {
+    console.warn("SpeechRec init error:", err);
+  }
+}
+
+function toggleVoiceRecognition() {
+  if (!speechRecognizer) {
+    initVoiceRecognition();
+  }
+  if (!speechRecognizer) {
+    alert("Speech recognition is not available in your browser. You can type commands or click the quick directive buttons.");
+    return;
+  }
+
+  try {
+    if (STATE.isListening) {
+      speechRecognizer.stop();
+      STATE.isListening = false;
+      const micBtn = document.getElementById("btnVoiceMic");
+      if (micBtn) micBtn.classList.remove("mic-active");
+    } else {
+      speechRecognizer.start();
+    }
+  } catch (err) {
+    console.warn("Mic toggle error:", err);
+  }
+}
+
+// Tactical Copilot Directive Execution Engine
+async function sendCopilotQuery(queryText) {
+  const query = (queryText || "").trim();
+  if (!query) return;
+
+  const box = document.getElementById("copilotSpeechText");
+  const ts = document.getElementById("copilotTimestamp");
+  const badge = document.getElementById("copilotActionBadge");
+
+  if (box) box.textContent = "Transmitting to Aegis Tactical Engine...";
+  if (ts) ts.textContent = `T = ${new Date().toISOString().substring(11, 19)} UTC`;
+
+  try {
+    const res = await fetch("/api/v1/copilot/query", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        query: query,
+        window_index: STATE.currentIndex
+      })
+    });
+
+    if (!res.ok) {
+      if (box) box.textContent = "Aegis Tactical: Command link temporarily unavailable.";
+      return;
+    }
+
+    const data = await res.json();
+    if (box) box.textContent = data.speech_text || "Directive processed.";
+    if (ts) ts.textContent = `T = ${data.timestamp || "LIVE"}`;
+
+    // Speak audio transmission
+    speakTacticalTransmission(data.speech_text);
+
+    // Render action badge
+    if (badge && data.action) {
+      badge.style.display = "inline-flex";
+      if (data.action.type === "DYNAMIC_REROUTE") {
+        badge.className = "transmission-action action-reroute";
+        badge.innerHTML = `<i data-lucide="navigation"></i> <span>REROUTE: ${data.action.sector} | Heading: ${data.action.recommended_heading} | Waypoint: [${data.action.target_coordinates.join(", ")}] | Safe Depth: ${data.action.safety_depth_m}m</span>`;
+      } else if (data.action.type === "QUARANTINE_EXECUTE") {
+        badge.className = "transmission-action action-quarantine";
+        badge.innerHTML = `<i data-lucide="shield-x"></i> <span>QUARANTINE: Injected drop rule for ${data.action.target_ip}</span>`;
+      } else if (data.action.type === "ATAK_BROADCAST") {
+        badge.className = "transmission-action";
+        badge.innerHTML = `<i data-lucide="radio"></i> <span>ATAK: ${data.action.protocol} (${data.action.events_pushed} Nodes Pushed)</span>`;
+      } else {
+        badge.className = "transmission-action";
+        badge.innerHTML = `<i data-lucide="check"></i> <span>ACTION: ${data.action.type}</span>`;
+      }
+      try { lucide.createIcons(); } catch (e) {}
+    }
+  } catch (err) {
+    console.error("Copilot query error:", err);
+    if (box) box.textContent = "Error communicating with tactical copilot service.";
+  }
+}
+
 
 async function fetchCounterfactualRollout(index) {
   try {
